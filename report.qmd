@@ -1,6 +1,6 @@
 ---
 title: "Title of your report"
-subtitle: "Project report of Group #"
+subtitle: "Project report of Group F"
 author:
   - name: "Alexandre Bry"
     affiliation: "MSc Geomatics"
@@ -10,7 +10,6 @@ author:
     affiliation: "MSc Urbanism"
   - name: "Soroush Saffarzadeh"
     affiliation: "MSc Urbanism"
-format: html
 ---
 
 ::: callout
@@ -40,7 +39,6 @@ You can delete this entire callout between and including the lines
 ::: callout
 ```
 and
-
 ```
 :::
 ```

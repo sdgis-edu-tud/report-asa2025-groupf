@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+/.quarto/
+output/*
+!output/report.html
