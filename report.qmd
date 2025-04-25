@@ -6,7 +6,7 @@ author:
     affiliation: "MSc Geomatics"
   - name: "Alankrita Sharma"
     affiliation: "MSc Urbanism"
-  - name: "Student 3"
+  - name: "Grase Stephanie"
     affiliation: "MSc Urbanism"
   - name: "Student 4"
     affiliation: "MSc Urbanism"
