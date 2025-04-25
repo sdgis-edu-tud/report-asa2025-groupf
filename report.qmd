@@ -8,7 +8,7 @@ author:
     affiliation: "MSc Urbanism"
   - name: "Grase Stephanie"
     affiliation: "MSc Urbanism"
-  - name: "Soroush Saffarzadeh2"
+  - name: "Soroush Saffarzadeh"
     affiliation: "MSc Urbanism"
 format: html
 ---
