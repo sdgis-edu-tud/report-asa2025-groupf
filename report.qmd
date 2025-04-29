@@ -1,55 +1,38 @@
 ---
 title: "Title of your report"
-subtitle: "Project report of Group #"
+subtitle: "Project report of Group F"
 author:
-  - name: "Student 1"
+  - name: "Alexandre Bry"
     affiliation: "MSc Geomatics"
-  - name: "Student 2"
-    affiliation: "MSc Landscape Architecture"
-  - name: "Student 3"
+  - name: "Alankrita Sharma"
     affiliation: "MSc Urbanism"
-  - name: "Student 4"
+  - name: "Grase Stephanie"
     affiliation: "MSc Urbanism"
-  - name: "Student 5"
-    affiliation: "MSc Landscape Architecture"
-format: html
+  - name: "Soroush Saffarzadeh"
+    affiliation: "MSc Urbanism"
 ---
 
-::: callout
-## This is a computational notebook
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this 
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
-
-You can delete this entire callout between and including the lines
-```
-::: callout
-```
-and
-
-```
-:::
-```
-and start the report from the Introduction section below.
-:::
-
 ## Introduction
+
+### Roles
+
+The research group is a combination of five members taking the roles as follows:
+
+- Alexandre Bry: Project Coordinator, Data Analyst
+- Alankrita Sharma: Research Lead, Presentation Lead
+- Grase Stephanie: Mapping Specialist
+- Soroush Saffarzadeh: Writer/Editor, Presentation Lead
+- Adriano Mancini: Design Lead
+
+It can be mentioned these roles are intended to allocate a leading responsibility 
+over the defined roles but the each minor task is going to be distributed among the
+team members including helping and guiding each other on specific tasks.
+
+Study Themes
+
+
+
+
 
 ## Methods
 
