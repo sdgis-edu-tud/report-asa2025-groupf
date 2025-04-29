@@ -16,7 +16,7 @@ author:
 
 ### Roles
 
-The research group is a combination of four members taking the roles as follows:
+The research group is a combination of five members taking the roles as follows:
 
 - Alexandre Bry: Project Coordinator, Data Analyst
 - Alankrita Sharma: Research Lead, Presentation Lead
