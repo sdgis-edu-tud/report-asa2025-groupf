@@ -18,8 +18,8 @@ author:
 
 - Alexandre Bry: Project Coordinator, Data Analyst
 - Alankrita Sharma: Research Lead, Presentation Lead
-- Grase Stephanie: Mapping Specialist, Design Lead
-- Soroush Saffarzadeh: Writer/Editor
+- Grase Stephanie: Design Lead
+- Soroush Saffarzadeh: Mapping Specialist, Writer/Editor
 
 ## Methods
 
