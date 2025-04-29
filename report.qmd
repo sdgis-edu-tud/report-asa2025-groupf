@@ -21,7 +21,7 @@ The research group is a combination of four members taking the roles as follows:
 - Alexandre Bry: Project Coordinator, Data Analyst
 - Alankrita Sharma: Research Lead, Presentation Lead
 - Grase Stephanie: Mapping Specialist
-- Soroush Saffarzadeh: Writer/Editor
+- Soroush Saffarzadeh: Writer/Editor, Presentation Lead
 - Adriano Mancini: Design Lead
 
 It can be mentioned these roles are intended to have allocate a overviewing responsibility 
