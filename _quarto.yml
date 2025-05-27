@@ -8,3 +8,4 @@ format:
   html:
     embed-resources: true
     toc: true
+    output-file: index.html

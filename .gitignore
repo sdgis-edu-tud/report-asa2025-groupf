@@ -12,7 +12,7 @@
 
 # Only keep the real HTML output
 docs/*
-!docs/report.html
+!docs/index.html
 
 # Ignore the data directory
 data/
