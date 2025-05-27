@@ -10,6 +10,8 @@ author:
     affiliation: "MSc Urbanism"
   - name: "Soroush Saffarzadeh"
     affiliation: "MSc Urbanism"
+  - name: "Adriano Mancini"
+    affiliation: "MSc Urbanism"
 ---
 
 ## Introduction
@@ -24,15 +26,7 @@ The research group is a combination of five members taking the roles as follows:
 - Soroush Saffarzadeh: Writer/Editor, Presentation Lead
 - Adriano Mancini: Design Lead
 
-It can be mentioned these roles are intended to allocate a leading responsibility 
-over the defined roles but the each minor task is going to be distributed among the
-team members including helping and guiding each other on specific tasks.
-
-Study Themes
-
-
-
-
+It should be mentioned that these roles are intended to allocate a leading responsibility over the defined roles but the each minor task is going to be distributed among the team members including helping and guiding each other on specific tasks.
 
 ## Methods
 
