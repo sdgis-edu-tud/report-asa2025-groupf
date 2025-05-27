@@ -1,6 +1,6 @@
 project: 
   type: website
-  output-dir: output
+  output-dir: docs
 website:
   repo-url: https://github.com/sdgis-edu-tud/report-asa2025-groupf
   repo-actions: [edit, source, issue]

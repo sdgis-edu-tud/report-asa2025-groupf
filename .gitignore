@@ -11,8 +11,8 @@
 /.quarto/
 
 # Only keep the real HTML output
-output/*
-!output/report.html
+docs/*
+!docs/report.html
 
 # Ignore the data directory
 data/
