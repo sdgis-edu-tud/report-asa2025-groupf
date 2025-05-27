@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "Unpacking Dresden",
+    "section": "",
+    "text": "The research group is a combination of five members taking the roles as follows:\n\nAlexandre Bry: Project Coordinator, Data Analyst\nAlankrita Sharma: Research Lead, Presentation Lead\nGrase Stephanie: Mapping Specialist\nSoroush Saffarzadeh: Writer/Editor, Presentation Lead\nAdriano Mancini: Design Lead\n\nIt should be mentioned that these roles are intended to allocate a leading responsibility over the defined roles but the each minor task is going to be distributed among the team members including helping and guiding each other on specific tasks."
+  },
+  {
+    "objectID": "report.html#introduction",
+    "href": "report.html#introduction",
+    "title": "Unpacking Dresden",
+    "section": "",
+    "text": "The research group is a combination of five members taking the roles as follows:\n\nAlexandre Bry: Project Coordinator, Data Analyst\nAlankrita Sharma: Research Lead, Presentation Lead\nGrase Stephanie: Mapping Specialist\nSoroush Saffarzadeh: Writer/Editor, Presentation Lead\nAdriano Mancini: Design Lead\n\nIt should be mentioned that these roles are intended to allocate a leading responsibility over the defined roles but the each minor task is going to be distributed among the team members including helping and guiding each other on specific tasks."
+  },
+  {
+    "objectID": "report.html#preliminary-maps-and-research",
+    "href": "report.html#preliminary-maps-and-research",
+    "title": "Unpacking Dresden",
+    "section": "Preliminary Maps and Research",
+    "text": "Preliminary Maps and Research\nIn this chapter, we will introduce our research, possibly including a summary of our first brainstorming; and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project.\n\nHistorical background\nDresden originated as a small settlement on the left bank of the Elbe and remained modest until the 16th century, when it became the capital of the Protestant Electorate of Saxony after the Schmalkaldic War. Under Elector Moritz, the city expanded rapidly with major architectural and urban developments. In the 18th century, it became a key cultural and political center as the royal residence of the Polish kings, marked by the construction of prominent monuments like the Zwinger and the Frauenkirche. Throughout the 19th century, Dresden continued to grow, becoming the capital of the Kingdom of Saxony and undergoing a major population boom.\nThe 20th century brought devastation with the Allied bombing in 1945, which destroyed much of the city, including the Frauenkirche. Following reunification, major reconstruction efforts began in the 2000s, including the faithful rebuilding of Neumarkt square and other historical landmarks, with a mix of traditional and modern residential architecture.\nA key feature that emerged from historical photographs is the extensive use of the riverfront—large green meadows cutting through the urban fabric, which were historically used for social, economic, and cultural activities. These strips of grass, still visible today, offer clues to a spatial element that defines Dresden’s atmosphere: a city shaped not only by its architecture and history but also by its open, green relationship with the Elbe River.\nDresden has also faced major ecological challenges, notably the catastrophic Elbe floods of 1845 and 2002—the latter setting a new record and causing severe damage, much of which has since been repaired. These flood events highlight the importance of integrating ecosystem restoration and climate resilience into the city’s spatial planning.\nMap of Dresden and surrounding region, 1881. www.deutschefotothek.de\nPicture of Dresden’s riverfront. Date unknown.\n\n\nNatural elements\nDresden is considered one of the greenest cities in Europe, with approximately 62% of its total area covered by forests, parks, and green spaces. This extensive green infrastructure includes the large woodland of the Dresdner Heide in the north and the Großer Garten in the city center, contributing to both ecological richness and urban quality of life. The city’s location in the Elbe Valley, framed by vineyards and wooded hills, is defined by the Elbe River, which meanders through the urban fabric and is bordered by wide river meadows. These meadows, cutting across the city, have historically hosted a variety of uses and activities—visible in old photographs—and remain a defining feature of Dresden’s atmosphere and spatial identity.\nThe Environment Office, responsible for nature conservation, places great emphasis on the protection of biotopes within the city. These areas not only serve as essential refuges for rare and endangered species, such as the beaver and corn crake, but also function as peaceful recreational spaces for residents. The presence of such species within the urban core is seen as a significant achievement in local conservation efforts and a testament to the ecological quality of Dresden’s landscape.\nTo further support the integration of nature into the city, Dresden’s current landscape plan is guided by the concept “Dresden—the compact city in the ecological network” (“Dresden – die kompakte Stadt im ökologischen Netz”). This approach emphasizes the need to balance urban density with ecological connectivity. The plan divides the city into sub-areas and introduces an ecological network structured through both net elements (functional spaces, high-value areas, ecological corridors, and green axes) and cell elements (ranging from compact urban cells to flexible and rural ones). Rather than defining fixed protected zones, this framework serves as a planning tool that guides future land use and development while respecting the city’s natural systems and polycentric structure.\nThe plan proposes 27 specific measures to guide future urban and landscape planning, aiming to protect, enhance, or restore ecological functions in different parts of the city. These measures provide orientation for decision-making across various departments and help ensure that Dresden continues to evolve as a resilient, biodiverse, and livable green city.\n\n\nBuilt Environment"
+  },
+  {
+    "objectID": "report.html#mcda",
+    "href": "report.html#mcda",
+    "title": "Unpacking Dresden",
+    "section": "MCDA",
+    "text": "MCDA\n\nProblem Statement, Objectives and Criteria\nHere we talk about our understanding of the problem (both in a general sense and more specifically in our research goals), and the questions for each objective that brought us to choose the criteria.\n\nThe idea of Ecological Restoration\nWhat do we mean by restoration? [include insights from A. Riley, Restoring Neighborhood Streams. Planning, Design and Construction. Island Press, USA (2016)]\n\n\nOur main Problem Statement\nHere we include our main problem question and explain it briefly.\nHow can urban streams be restored and integrated in Dresden’s fabric, such that there is a synergy between human activities and the natural environment?\nThe main river has shaped the growth of Dresden, as the existing streams branched out across the urban fabric are not quite identified as natural entities, highlighting the ecological diversity of the city. That is when the urban streams don’t appear with the built environment as a uniform structure, improving the quality of its human and non-human inhabitants.\n\n\n01 — Biodiversity\nConnectivity — Blablablablabla\nPlant Health — Blablablablabla\n\n\n02 — Climate Adaptation\nFlood adaptation — Blablablablabla\nMicroclimate adaptation — Blablablablabla\n\n\n03 — Quality of Life\nAccessibility — Blablablablabla\nAttractiveness — Blablablablabla\nThe other ones — Blablablablabla\n\n\nSpatial Units and other notes\nThe spatial units we use are hexagons with a radius of ???. We started by dividing the area of Dresden using a hexagonal pattern, and then overlaid it with the water stream data from OpenStreetMap to keep only the hexagons that intersected with at least one stream. Finally, we removed the isolated hexagons which corresponded to areas that were not connected to the main stream network.\n\n\n\nAttributes, Layers, and first Analytical Maps\nHere we present the reasoning that brought us from the ‘abstract’ definition of criteria, to identifying specific attributes and, therefore, the layers of spatial data that we will use in the MCDA analysis that we’re developing.\n\n01 — Biodiversity\nConnectivity\n\nFirst attribute. Blablablablabla\n\nOthers. Blablablablabla\n\nOther criteria\n\nFirst attribute. Blablablablabla\n\nOthers. Blablablablabla\n\n\n\n02 — Climate Adaptation\nFlood adaptation\n\nFirst attribute. Blablablablabla\n\nOthers. Blablablablabla\n\nMicroclimate adaptation\n\nFirst attribute. Blablablablabla\n\nOthers. Blablablablabla\n\n\n\n03 — Quality of Life\nAccessibility\n\nFirst attribute. Blablablablabla\n\nOthers. Blablablablabla\n\nOther criterias\n\nFirst attribute. Blablablablabla\n\nOthers. Blablablablabla\n\n\n\n\nWeighting of the Criteria\n\n\n\n\n\n\nWeighting of the Biodiversity criteria\n\n\n\n\n\n\n\nWeighting of the Climate Adaptation criteria\n\n\n\n\n\n\n \n\n\n\n\n\nWeighting of the Quality of Life criteria"
+  },
+  {
+    "objectID": "report.html#typology-construction",
+    "href": "report.html#typology-construction",
+    "title": "Unpacking Dresden",
+    "section": "Typology Construction",
+    "text": "Typology Construction"
+  },
+  {
+    "objectID": "report.html#results",
+    "href": "report.html#results",
+    "title": "Unpacking Dresden",
+    "section": "Results",
+    "text": "Results\n\nSubchapter title?\nThis is another text body"
+  },
+  {
+    "objectID": "report.html#discussion",
+    "href": "report.html#discussion",
+    "title": "Unpacking Dresden",
+    "section": "Discussion",
+    "text": "Discussion\n\nSubchapter title?"
+  },
+  {
+    "objectID": "report.html#conclusion",
+    "href": "report.html#conclusion",
+    "title": "Unpacking Dresden",
+    "section": "Conclusion",
+    "text": "Conclusion\nTODO"
+  },
+  {
+    "objectID": "data/Added_data/extent/Spatial_units_minus_water.html",
+    "href": "data/Added_data/extent/Spatial_units_minus_water.html",
+    "title": "",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     \n\n\n         0 0     false"
+  },
+  {
+    "objectID": "data/Added_data/extent/Spatial_units_extent.html",
+    "href": "data/Added_data/extent/Spatial_units_extent.html",
+    "title": "",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n       PROJCRS[“ETRS89 / UTM zone 33N”,BASEGEOGCRS[“ETRS89”,ENSEMBLE[“European Terrestrial Reference System 1989 ensemble”,MEMBER[“European Terrestrial Reference Frame 1989”],MEMBER[“European Terrestrial Reference Frame 1990”],MEMBER[“European Terrestrial Reference Frame 1991”],MEMBER[“European Terrestrial Reference Frame 1992”],MEMBER[“European Terrestrial Reference Frame 1993”],MEMBER[“European Terrestrial Reference Frame 1994”],MEMBER[“European Terrestrial Reference Frame 1996”],MEMBER[“European Terrestrial Reference Frame 1997”],MEMBER[“European Terrestrial Reference Frame 2000”],MEMBER[“European Terrestrial Reference Frame 2005”],MEMBER[“European Terrestrial Reference Frame 2014”],MEMBER[“European Terrestrial Reference Frame 2020”],ELLIPSOID[“GRS 1980”,6378137,298.257222101,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[0.1]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],ID[“EPSG”,4258]],CONVERSION[“UTM zone 33N”,METHOD[“Transverse Mercator”,ID[“EPSG”,9807]],PARAMETER[“Latitude of natural origin”,0,ANGLEUNIT[“degree”,0.0174532925199433],ID[“EPSG”,8801]],PARAMETER[“Longitude of natural origin”,15,ANGLEUNIT[“degree”,0.0174532925199433],ID[“EPSG”,8802]],PARAMETER[“Scale factor at natural origin”,0.9996,SCALEUNIT[“unity”,1],ID[“EPSG”,8805]],PARAMETER[“False easting”,500000,LENGTHUNIT[“metre”,1],ID[“EPSG”,8806]],PARAMETER[“False northing”,0,LENGTHUNIT[“metre”,1],ID[“EPSG”,8807]]],CS[Cartesian,2],AXIS[“(E)”,east,ORDER[1],LENGTHUNIT[“metre”,1]],AXIS[“(N)”,north,ORDER[2],LENGTHUNIT[“metre”,1]],USAGE[SCOPE[“Engineering survey, topographic mapping.”],AREA[“Europe between 12°E and 18°E: Austria; Denmark - offshore and offshore; Germany - onshore and offshore; Norway including Svalbard - onshore and offshore.”],BBOX[46.4,12,84.42,18.01]],ID[“EPSG”,25833]] +proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 2106 25833 EPSG:25833 ETRS89 / UTM zone 33N utm EPSG:7019 false"
+  },
+  {
+    "objectID": "data/Added_data/Land_Use_Types-Green_Areas.html",
+    "href": "data/Added_data/Land_Use_Types-Green_Areas.html",
+    "title": "",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     \n\n\n         0 0     false"
+  }
+]
