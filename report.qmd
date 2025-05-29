@@ -14,7 +14,14 @@ author:
     affiliation: "MSc Urbanism"
 date: today
 bibliography: references.bib
+biblio-title: "References"
 ---
+
+```{=typst}
+#show figure: set block(breakable: true)
+
+#show: main-content-container.with(reset-page-numbering: true)
+```
 
 ```{r setup}
 #| echo: false
@@ -50,9 +57,9 @@ A key feature that emerged from historical photographs is the extensive use of t
 
 Dresden has also faced major ecological challenges, notably the catastrophic Elbe floods of 1845 and 2002—the latter setting a new record and causing severe damage, much of which has since been repaired. These flood events highlight the importance of integrating ecosystem restoration and climate resilience into the city’s spatial planning.
 
-Map of Dresden and surrounding region, 1881. [www.deutschefotothek.de](http://www.deutschefotothek.de)
+<!-- Map of Dresden and surrounding region, 1881. [www.deutschefotothek.de](http://www.deutschefotothek.de) -->
 
-Picture of Dresden's riverfront. Date unknown.
+<!-- Picture of Dresden's riverfront. Date unknown. -->
 
 ### Natural elements
 
@@ -86,23 +93,19 @@ The main river has shaped the growth of Dresden, as the existing streams branche
 
 #### Biodiversity
 
-Connectivity — Blablablablabla
-
-Plant Health — Blablablablabla
+- **Connectivity** — Blablablablabla
+- **Quality** — Blablablablabla
 
 #### Climate Adaptation
 
-Flood adaptation — Blablablablabla
-
-Microclimate adaptation — Blablablablabla
+- **Resilience to flood risks** — Blablablablabla
+- **Resilience to heat waves** — Blablablablabla
 
 #### Quality of Life
 
-Accessibility — Blablablablabla
-
-Attractiveness — Blablablablabla
-
-The other ones — Blablablablabla
+- **Accessibility** — Blablablablabla
+- **Attractiveness** — Blablablablabla
+- **Diversity** — Blablablablabla
 
 #### Spatial Units and other notes
 
@@ -169,6 +172,18 @@ Once each attribute has produced a normalised value for each spatial unit, all t
 To compute the weights, we made individual Saaty matrices for the attributes of each of the three objectives. Saaty matrices are square matrices that allow us to deduce weights from pairwise comparisons of the attributes [@Saaty1987analytic]. In our case, we used the eigenvector method to calculate the weights. The matrices and weights are shown in @tbl-saaty-matrices below.
 
 Then, we divided them by 3 to assign the same weight to the three attributes, and got a final set of weights that summed to 1. We chose this method because it allowed us to assign more weights to the most reliable and pertinent attributes, while maintaining the balance between the three main objectives.
+
+```{=typst}
+#show table.cell.where(x: 0): strong
+#show table: t => {
+  let width = t.columns.len()
+  let height = calc.floor((t.children.len() - 1) / width) + 1
+
+  show table.cell.where(y: height - 1): strong
+  show table.cell.where(x: width - 1): set align(right)
+  t
+}
+```
 
 ```{r}
 #| echo: false
@@ -262,3 +277,5 @@ These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, wh
 ## Discussion
 
 ## Conclusion
+
+...
