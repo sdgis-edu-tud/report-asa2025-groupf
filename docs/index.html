@@ -4078,14 +4078,8 @@ vertical-align: middle !important;
   <li><a href="#weighting-of-the-attributes" id="toc-weighting-of-the-attributes" class="nav-link" data-scroll-target="#weighting-of-the-attributes">Weighting of the Attributes</a></li>
   </ul></li>
   <li><a href="#typology-construction" id="toc-typology-construction" class="nav-link" data-scroll-target="#typology-construction">Typology Construction</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
-  <ul class="collapse">
-  <li><a href="#subchapter-title" id="toc-subchapter-title" class="nav-link" data-scroll-target="#subchapter-title">Subchapter title?</a></li>
-  </ul></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
-  <ul class="collapse">
-  <li><a href="#subchapter-title-1" id="toc-subchapter-title-1" class="nav-link" data-scroll-target="#subchapter-title-1">Subchapter title?</a></li>
-  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/report.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/report.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -4218,17 +4212,17 @@ vertical-align: middle !important;
 <p>The main river has shaped the growth of Dresden, as the existing streams branched out across the urban fabric are not quite identified as natural entities, highlighting the ecological diversity of the city. That is when the urban streams don’t appear with the built environment as a uniform structure, improving the quality of its human and non-human inhabitants.</p>
 </section>
 <section id="biodiversity" class="level4">
-<h4 class="anchored" data-anchor-id="biodiversity">01 — Biodiversity</h4>
+<h4 class="anchored" data-anchor-id="biodiversity">Biodiversity</h4>
 <p>Connectivity — Blablablablabla</p>
 <p>Plant Health — Blablablablabla</p>
 </section>
 <section id="climate-adaptation" class="level4">
-<h4 class="anchored" data-anchor-id="climate-adaptation">02 — Climate Adaptation</h4>
+<h4 class="anchored" data-anchor-id="climate-adaptation">Climate Adaptation</h4>
 <p>Flood adaptation — Blablablablabla</p>
 <p>Microclimate adaptation — Blablablablabla</p>
 </section>
 <section id="quality-of-life" class="level4">
-<h4 class="anchored" data-anchor-id="quality-of-life">03 — Quality of Life</h4>
+<h4 class="anchored" data-anchor-id="quality-of-life">Quality of Life</h4>
 <p>Accessibility — Blablablablabla</p>
 <p>Attractiveness — Blablablablabla</p>
 <p>The other ones — Blablablablabla</p>
@@ -4240,50 +4234,55 @@ vertical-align: middle !important;
 </section>
 <section id="attributes-and-layers" class="level3">
 <h3 class="anchored" data-anchor-id="attributes-and-layers">Attributes and Layers</h3>
-<p>Here we present the reasoning that brought us from the ‘abstract’ definition of criteria, to identifying specific attributes and, therefore, the layers of spatial data that we will use in the MCDA analysis that we’re developing.</p>
+<p>Based on the criteria that we decided to tackle, we had to come up with numerical indicators that we could use to evaluate them. These numerical indicators are called attributes and have to be normalised—in our case between 0 and 1—so that they can be compared and weighted properly depending on their relevance. In our case, 0 corresponds to an urgent need to perform urban stream restoration, while 1 corresponds to a situation that is currently very good, or at least the best in the area of interest.</p>
+<p>In practice, these attributes also needed to be aggregable at the scale of the spatial units, so that we can assign one unique value to each spatial unit for each attribute. This can be an important limitation on the type of computations and therefore the type of attributes that we can use. We explain below the different attributes that we computed, how we computed them, which data we used and why we made these choices.</p>
 <section id="biodiversity-1" class="level4">
-<h4 class="anchored" data-anchor-id="biodiversity-1">01 — Biodiversity</h4>
+<h4 class="anchored" data-anchor-id="biodiversity-1">Biodiversity</h4>
 <p><strong><em>Connectivity</em></strong></p>
 <ul>
-<li><em>First attribute.</em> Blablablablabla<br>
+<li><strong>Green-blue connectivity</strong>. Blablablablabla<br>
 </li>
-<li><em>Others</em>. Blablablablabla</li>
+<li><strong>Green connectivity</strong>. Blablablablabla</li>
 </ul>
-<p><strong><em>Other criteria</em></strong></p>
+<p><strong><em>Quality</em></strong></p>
 <ul>
-<li><em>First attribute.</em> Blablablablabla<br>
+<li><strong>Water pollution</strong>. We have not found the data yet.<br>
 </li>
-<li><em>Others</em>. Blablablablabla</li>
+<li><strong>Soil quality</strong>. Blablablablabla</li>
+<li><strong>Plant health</strong>. Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most constraints) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.</li>
 </ul>
 </section>
 <section id="climate-adaptation-1" class="level4">
-<h4 class="anchored" data-anchor-id="climate-adaptation-1">02 — Climate Adaptation</h4>
-<p><strong><em>Flood adaptation</em></strong></p>
+<h4 class="anchored" data-anchor-id="climate-adaptation-1">Climate Adaptation</h4>
+<p><strong><em>Resilience to flood risks</em></strong></p>
 <ul>
-<li><em>First attribute.</em> Blablablablabla<br>
+<li><strong>Available space near streams</strong>. Blablablablabla<br>
 </li>
-<li><em>Others</em>. Blablablablabla</li>
+<li><strong>Anticipated flood risk</strong>. Blablablablabla</li>
+<li><strong>Soil infiltration capacity</strong>. Blablablablabla</li>
 </ul>
-<p><strong><em>Microclimate adaptation</em></strong></p>
+<p><strong><em>Resilience to heat waves</em></strong></p>
 <ul>
-<li><em>First attribute.</em> Blablablablabla<br>
-</li>
-<li><em>Others</em>. Blablablablabla</li>
+<li><strong>Sealing</strong>. Blablablablabla</li>
+<li><strong>Surfaces reflection index</strong>. Blablablablabla</li>
+<li><strong>Shade</strong>. Blablablablabla</li>
 </ul>
 </section>
 <section id="quality-of-life-1" class="level4">
-<h4 class="anchored" data-anchor-id="quality-of-life-1">03 — Quality of Life</h4>
+<h4 class="anchored" data-anchor-id="quality-of-life-1">Quality of Life</h4>
+<p><strong><em>Attractiveness</em></strong></p>
+<ul>
+<li><strong>Encasement</strong>. Blablablablabla</li>
+<li><strong>Visibility</strong>. Blablablablabla</li>
+</ul>
 <p><strong><em>Accessibility</em></strong></p>
 <ul>
-<li><em>First attribute.</em> Blablablablabla<br>
-</li>
-<li><em>Others</em>. Blablablablabla</li>
+<li><strong>Walking/biking accessibility to streams</strong>. Blablablablabla</li>
+<li><strong>Walking/biking accessibility to green spaces</strong>. Blablablablabla</li>
 </ul>
-<p><strong><em>Other criterias</em></strong></p>
+<p><strong><em>Diversity</em></strong></p>
 <ul>
-<li><em>First attribute.</em> Blablablablabla<br>
-</li>
-<li><em>Others</em>. Blablablablabla</li>
+<li><strong>Land use variety</strong>. Blablablablabla</li>
 </ul>
 </section>
 </section>
@@ -4301,7 +4300,7 @@ Table 1: Saaty matrix and weights for the three criteria
 <div aria-describedby="tbl-saaty-matrices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-1" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-1" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Biodiversity
@@ -4378,7 +4377,7 @@ Table 1: Saaty matrix and weights for the three criteria
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-2" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-2" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Climate Adaptation
@@ -4471,7 +4470,7 @@ Table 1: Saaty matrix and weights for the three criteria
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-3" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-3" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Quality of Life
@@ -4558,26 +4557,18 @@ Table 1: Saaty matrix and weights for the three criteria
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<section id="subchapter-title" class="level3">
-<h3 class="anchored" data-anchor-id="subchapter-title">Subchapter title?</h3>
-<p>This is another text body</p>
-</section>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<section id="subchapter-title-1" class="level3">
-<h3 class="anchored" data-anchor-id="subchapter-title-1">Subchapter title?</h3>
-</section>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>TODO</p>
+
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Conclusion</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Saaty1987analytic" class="csl-entry" role="listitem">
 Saaty, R. W. 1987. <span>“The Analytic Hierarchy Process—What It Is and How It Is Used.”</span> <em>Mathematical Modelling</em> 9 (3): 161–76. <a href="https://doi.org/10.1016/0270-0255(87)90473-8">https://doi.org/10.1016/0270-0255(87)90473-8</a>.
 </div>

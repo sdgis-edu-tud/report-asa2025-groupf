@@ -84,19 +84,19 @@ How can urban streams be restored and integrated in Dresden's fabric, such that 
 
 The main river has shaped the growth of Dresden, as the existing streams branched out across the urban fabric are not quite identified as natural entities, highlighting the ecological diversity of the city. That is when the urban streams don’t appear with the built environment as a uniform structure, improving the quality of its human and non-human inhabitants.
 
-#### 01 — Biodiversity
+#### Biodiversity
 
 Connectivity — Blablablablabla
 
 Plant Health — Blablablablabla
 
-#### 02 — Climate Adaptation
+#### Climate Adaptation
 
 Flood adaptation — Blablablablabla
 
 Microclimate adaptation — Blablablablabla
 
-#### 03 — Quality of Life
+#### Quality of Life
 
 Accessibility — Blablablablabla
 
@@ -110,43 +110,57 @@ The spatial units we use are hexagons with a radius of ???. We started by dividi
 
 ### Attributes and Layers
 
-Here we present the reasoning that brought us from the ‘abstract’ definition of criteria, to identifying specific attributes and, therefore, the layers of spatial data that we will use in the MCDA analysis that we’re developing.
+Based on the criteria that we decided to tackle, we had to come up with numerical indicators that we could use to evaluate them.
+These numerical indicators are called attributes and have to be normalised—in our case between 0 and 1—so that they can be compared and weighted properly depending on their relevance.
+In our case, 0 corresponds to an urgent need to perform urban stream restoration, while 1 corresponds to a situation that is currently very good, or at least the best in the area of interest.
 
-#### 01 — Biodiversity
+In practice, these attributes also needed to be aggregable at the scale of the spatial units, so that we can assign one unique value to each spatial unit for each attribute.
+This can be an important limitation on the type of computations and therefore the type of attributes that we can use.
+We explain below the different attributes that we computed, how we computed them, which data we used and why we made these choices.
+
+#### Biodiversity
 
 ***Connectivity***
 
-- *First attribute.* Blablablablabla  
-- *Others*. Blablablablabla
+- **Green-blue connectivity**. Blablablablabla  
+- **Green connectivity**. Blablablablabla
 
-***Other criteria***
+***Quality***
 
-- *First attribute.* Blablablablabla  
-- *Others*. Blablablablabla
+- **Water pollution**. We have not found the data yet.  
+- **Soil quality**. Blablablablabla
+- **Plant health**. Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most constraints) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
-#### 02 — Climate Adaptation
+#### Climate Adaptation
 
-***Flood adaptation***
+***Resilience to flood risks***
 
-- *First attribute.* Blablablablabla  
-- *Others*. Blablablablabla
+- **Available space near streams**. Blablablablabla  
+- **Anticipated flood risk**. Blablablablabla
+- **Soil infiltration capacity**. Blablablablabla
 
-***Microclimate adaptation***
+***Resilience to heat waves***
 
-- *First attribute.* Blablablablabla  
-- *Others*. Blablablablabla
+- **Sealing**. Blablablablabla
+- **Surfaces reflection index**. Blablablablabla
+- **Shade**. Blablablablabla
 
-#### 03 — Quality of Life
+#### Quality of Life
+
+***Attractiveness***
+
+- **Encasement**. Blablablablabla
+- **Visibility**. Blablablablabla
 
 ***Accessibility***
 
-- *First attribute.* Blablablablabla  
-- *Others*. Blablablablabla
+- **Walking/biking accessibility to streams**. Blablablablabla
+- **Walking/biking accessibility to green spaces**. Blablablablabla
 
-***Other criterias***
+***Diversity***
 
-- *First attribute.* Blablablablabla  
-- *Others*. Blablablablabla
+- **Land use variety**. Blablablablabla
+
 
 ### Weighting of the Attributes
 
@@ -245,14 +259,6 @@ These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, wh
 
 ## Results
 
-### Subchapter title?
-
-This is another text body
-
 ## Discussion
 
-### Subchapter title?
-
 ## Conclusion
-
-TODO
