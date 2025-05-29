@@ -12,8 +12,15 @@ author:
     affiliation: "MSc Urbanism"
   - name: "Adriano Mancini"
     affiliation: "MSc Urbanism"
-date: 06-03-2025
+date: today
+bibliography: references.bib
 ---
+
+```{r setup}
+#| echo: false
+source("src/saaty.R")
+library(kableExtra)
+```
 
 ## Introduction
 
@@ -101,7 +108,7 @@ The other ones — Blablablablabla
 
 The spatial units we use are hexagons with a radius of ???. We started by dividing the area of Dresden using a hexagonal pattern, and then overlaid it with the water stream data from OpenStreetMap to keep only the hexagons that intersected with at least one stream. Finally, we removed the isolated hexagons which corresponded to areas that were not connected to the main stream network.
 
-### Attributes, Layers, and first Analytical Maps
+### Attributes and Layers
 
 Here we present the reasoning that brought us from the ‘abstract’ definition of criteria, to identifying specific attributes and, therefore, the layers of spatial data that we will use in the MCDA analysis that we’re developing.
 
@@ -141,15 +148,99 @@ Here we present the reasoning that brought us from the ‘abstract’ definition
 - *First attribute.* Blablablablabla  
 - *Others*. Blablablablabla
 
-### Weighting of the Criteria
+### Weighting of the Attributes
 
-::: {layout="[[50,50], [-25,50,-25]]"}
-![Weighting of the Biodiversity criteria](images/Saaty_Matrix-Biodiversity.png)
+Once each attribute has produced a normalised value for each spatial unit, all the attributes need to be aggregated into one final value. Since all of them do not participate equally to the goals we mentioned earlier, we tried to weight them according to their relative importance in achieving our goals. These weights could then be used to compute a weighted average that is easier to use thanks to reducing the problem to one dimension instead of several dimensions.
 
-![Weighting of the Climate Adaptation criteria](images/Saaty_Matrix-Climate.png)
+To compute the weights, we made individual Saaty matrices for the attributes of each of the three objectives. Saaty matrices are square matrices that allow us to deduce weights from pairwise comparisons of the attributes [@Saaty1987analytic]. In our case, we used the eigenvector method to calculate the weights. The matrices and weights are shown in @tbl-saaty-matrices below.
 
-![Weighting of the Quality of Life criteria](images/Saaty_Matrix-Quality.png)
-:::
+Then, we divided them by 3 to assign the same weight to the three attributes, and got a final set of weights that summed to 1. We chose this method because it allowed us to assign more weights to the most reliable and pertinent attributes, while maintaining the balance between the three main objectives.
+
+```{r}
+#| echo: false
+#| label: tbl-saaty-matrices
+#| class: plain
+#| tbl-cap: "Saaty matrix and weights for the three criteria"
+#| tbl-subcap:
+#|   - "Biodiversity"
+#|   - "Climate Adaptation"
+#|   - "Quality of Life"
+#| layout-nrow: 3
+
+attributes <- list(
+  "Biodiversity" = c(
+    "Soil quality", "Plant health", "Water pollution",
+    "Green-blue connectivity", "Green connectivity"
+  ),
+  "Climate Adaptation" = c(
+    "Available space near streams", "Anticipated flood risk",
+    "Soil infiltration capacity", "Sealing",
+    "Surfaces reflection index?", "Shade"
+  ),
+  "Quality of Life" = c(
+    "Encasement", "Visibility",
+    "Walking/biking accessibility to streams",
+    "Walking/biking accessibility to green spaces",
+    "Land use variety"
+  )
+)
+
+saaty_matrices <- list(
+  "Biodiversity" = matrix(
+    c(
+      1,  3, -3,  2,  2,
+     -3,  1, -4,  2,  2,
+      3,  4,  1,  5,  4,
+     -2, -2, -5,  1,  2,
+     -2, -2, -4, -2,  1
+    ), nrow = 5, byrow = TRUE
+  ),
+  "Climate Adaptation" = matrix(
+    c(
+      1, -2, -3,  3,  4,  2,
+      2,  1,  3,  4,  5,  3,
+      3, -3,  1,  3,  4,  3,
+     -3, -4, -3,  1,  2,  2,
+     -4, -5, -4, -2,  1,  1,
+     -2, -3, -3, -2,  1,  1
+    ), nrow = 6, byrow = TRUE
+  ),
+  "Quality of Life" = matrix(
+    c(
+      1,  2, -3, -3, -2,
+     -2,  1, -4, -4, -2,
+      3,  4,  1, -2,  3,
+      3,  4,  2,  1,  1,
+      2,  2, -3,  1,  1
+    ), nrow = 5, byrow = TRUE
+  )
+)
+
+saaty_weights <- lapply(saaty_matrices, calculate_weights)
+saaty_tables <- lapply(
+  seq_along(saaty_matrices),
+  function(i) {
+    matrix_to_table(saaty_matrices[[i]], attributes[[i]])
+  }
+)
+
+show_table(
+  matrix_to_table(saaty_matrices[["Biodiversity"]], attributes[["Biodiversity"]]),
+  saaty_weights[["Biodiversity"]][["weights"]]
+)
+show_table(
+  matrix_to_table(saaty_matrices[["Climate Adaptation"]], attributes[["Climate Adaptation"]]),
+  saaty_weights[["Climate Adaptation"]][["weights"]]
+)
+show_table(
+  matrix_to_table(saaty_matrices[["Quality of Life"]], attributes[["Quality of Life"]]),
+  saaty_weights[["Quality of Life"]][["weights"]]
+)
+```
+
+These weights were computed with respective consistency ratios of `{r} saaty_weights[["Biodiversity"]][["consistency_ratio"]]`, `{r} saaty_weights[["Climate Adaptation"]][["consistency_ratio"]]`, and `{r} saaty_weights[["Quality of Life"]][["consistency_ratio"]]` for Biodiversity, Climate Adaptation, and Quality of Life.
+These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, which indicates that the pairwise comparisons were consistent enough to be used in the analysis.
+
 ## Typology Construction
 
 ## Results
@@ -165,34 +256,3 @@ This is another text body
 ## Conclusion
 
 TODO
-
-<!-- ```{=html}
-<table>
-  <tr>
-    <th>Objectives</th>
-    <th>Criteria</th>
-    <th>Attributes</th>
-  </tr>
-  <tr>
-      <td rowspan="6">Biodiversity</td>
-      <td rowspan="3">Connectivity</td>
-      <td>Green Connectivity</td>
-  </tr>
-  <tr>
-      <td>Green-Blue Connectivity</td>
-  </tr>
-  <tr>
-      <td>Protected Biotopes Connectivity</td>
-  </tr>
-  <tr>
-      <td rowspan="3">Quality</td>
-      <td>Water Pollution</td>
-  </tr>
-  <tr>
-      <td>Plant Health</td>
-  </tr>
-  <tr>
-      <td>Soil Quality</td>
-  </tr>
-</table>
-``` -->
