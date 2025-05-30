@@ -1,0 +1,21 @@
+project: 
+  type: website
+  output-dir: docs
+
+website:
+  repo-url: https://github.com/sdgis-edu-tud/report-asa2025-groupf
+  repo-actions: [edit, source, issue]
+  
+format:
+  html:
+    embed-resources: true
+    toc: true
+    output-file: index.html
+    lightbox: true
+    css: styles.css
+    theme: flatly
+  typst:
+    toc: true
+    template: typst-template/template.typ
+    template-partials: 
+      - typst-template/typst-template.typ

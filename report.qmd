@@ -1,61 +1,276 @@
 ---
-title: "Title of your report"
-subtitle: "Project report of Group #"
+title: "Unpacking Dresden"
+subtitle: "Preliminary report of Spatial Analysis methods and outcomes in the context of river and stream restoration in Dresden, Germany"
 author:
-  - name: "Student 1"
+  - name: "Alexandre Bry"
     affiliation: "MSc Geomatics"
-  - name: "Student 2"
-    affiliation: "MSc Landscape Architecture"
-  - name: "Student 3"
+  - name: "Alankrita Sharma"
     affiliation: "MSc Urbanism"
-  - name: "Student 4"
+  - name: "Grase Stephanie"
     affiliation: "MSc Urbanism"
-  - name: "Student 5"
-    affiliation: "MSc Landscape Architecture"
-format: html
+  - name: "Soroush Saffarzadeh"
+    affiliation: "MSc Urbanism"
+  - name: "Adriano Mancini"
+    affiliation: "MSc Urbanism"
+date: today
+bibliography: references.bib
+biblio-title: "References"
 ---
 
-::: callout
-## This is a computational notebook
+```{=typst}
+#show figure: set block(breakable: true)
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
+#show: main-content-container.with(reset-page-numbering: true)
 ```
 
-You can add options to executable code like this 
-
-```{r}
+```{r setup}
 #| echo: false
-2 * 2
+source("src/saaty.R")
+library(kableExtra)
 ```
-
-The `echo: false` option disables the printing of code (only output is displayed).
-
-You can delete this entire callout between and including the lines
-```
-::: callout
-```
-and
-
-```
-:::
-```
-and start the report from the Introduction section below.
-:::
 
 ## Introduction
 
-## Methods
+### Roles
 
-### MCDA
+The research group is a combination of five members taking the roles as follows:
 
-### Typology construction
+- Alexandre Bry: Project Coordinator, Data Analyst
+- Alankrita Sharma: Research Lead, Presentation Lead
+- Grase Stephanie: Mapping Specialist
+- Soroush Saffarzadeh: Writer/Editor, Presentation Lead
+- Adriano Mancini: Design Lead
+
+It should be mentioned that these roles are intended to allocate a leading responsibility over the defined roles but the each minor task is going to be distributed among the team members including helping and guiding each other on specific tasks.
+
+## Preliminary Maps and Research
+
+In this chapter, we will introduce our research, possibly including a summary of our first brainstorming; and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project.
+
+### Historical background
+
+Dresden originated as a small settlement on the left bank of the Elbe and remained modest until the 16th century, when it became the capital of the Protestant Electorate of Saxony after the Schmalkaldic War. Under Elector Moritz, the city expanded rapidly with major architectural and urban developments. In the 18th century, it became a key cultural and political center as the royal residence of the Polish kings, marked by the construction of prominent monuments like the Zwinger and the Frauenkirche. Throughout the 19th century, Dresden continued to grow, becoming the capital of the Kingdom of Saxony and undergoing a major population boom.
+
+The 20th century brought devastation with the Allied bombing in 1945, which destroyed much of the city, including the Frauenkirche. Following reunification, major reconstruction efforts began in the 2000s, including the faithful rebuilding of Neumarkt square and other historical landmarks, with a mix of traditional and modern residential architecture.
+
+A key feature that emerged from historical photographs is the extensive use of the riverfront—large green meadows cutting through the urban fabric, which were historically used for social, economic, and cultural activities. These strips of grass, still visible today, offer clues to a spatial element that defines Dresden's atmosphere: a city shaped not only by its architecture and history but also by its open, green relationship with the Elbe River.
+
+Dresden has also faced major ecological challenges, notably the catastrophic Elbe floods of 1845 and 2002—the latter setting a new record and causing severe damage, much of which has since been repaired. These flood events highlight the importance of integrating ecosystem restoration and climate resilience into the city’s spatial planning.
+
+<!-- Map of Dresden and surrounding region, 1881. [www.deutschefotothek.de](http://www.deutschefotothek.de) -->
+
+<!-- Picture of Dresden's riverfront. Date unknown. -->
+
+### Natural elements
+
+Dresden is considered one of the greenest cities in Europe, with approximately 62% of its total area covered by forests, parks, and green spaces. This extensive green infrastructure includes the large woodland of the Dresdner Heide in the north and the Großer Garten in the city center, contributing to both ecological richness and urban quality of life. The city’s location in the Elbe Valley, framed by vineyards and wooded hills, is defined by the Elbe River, which meanders through the urban fabric and is bordered by wide river meadows. These meadows, cutting across the city, have historically hosted a variety of uses and activities—visible in old photographs—and remain a defining feature of Dresden's atmosphere and spatial identity.
+
+The Environment Office, responsible for nature conservation, places great emphasis on the protection of biotopes within the city. These areas not only serve as essential refuges for rare and endangered species, such as the beaver and corn crake, but also function as peaceful recreational spaces for residents. The presence of such species within the urban core is seen as a significant achievement in local conservation efforts and a testament to the ecological quality of Dresden's landscape.
+
+To further support the integration of nature into the city, Dresden’s current landscape plan is guided by the concept “Dresden—the compact city in the ecological network” (“Dresden – die kompakte Stadt im ökologischen Netz”). This approach emphasizes the need to balance urban density with ecological connectivity. The plan divides the city into sub-areas and introduces an ecological network structured through both net elements (functional spaces, high-value areas, ecological corridors, and green axes) and cell elements (ranging from compact urban cells to flexible and rural ones). Rather than defining fixed protected zones, this framework serves as a planning tool that guides future land use and development while respecting the city’s natural systems and polycentric structure.
+
+The plan proposes 27 specific measures to guide future urban and landscape planning, aiming to protect, enhance, or restore ecological functions in different parts of the city. These measures provide orientation for decision-making across various departments and help ensure that Dresden continues to evolve as a resilient, biodiverse, and livable green city.
+
+### Built Environment
+
+## MCDA
+
+### Problem Statement, Objectives and Criteria
+
+Here we talk about our understanding of the problem (both in a general sense and more specifically in our research goals), and the questions for each objective that brought us to choose the criteria.
+
+#### The idea of Ecological Restoration
+
+What do we mean by restoration? \[include insights from A. Riley, *Restoring Neighborhood Streams. Planning, Design and Construction*. Island Press, USA (2016)\]
+
+#### Our main Problem Statement
+
+Here we include our main problem question and explain it briefly.
+
+How can urban streams be restored and integrated in Dresden's fabric, such that there is a synergy between human activities and the natural environment?
+
+The main river has shaped the growth of Dresden, as the existing streams branched out across the urban fabric are not quite identified as natural entities, highlighting the ecological diversity of the city. That is when the urban streams don’t appear with the built environment as a uniform structure, improving the quality of its human and non-human inhabitants.
+
+#### Biodiversity
+
+- **Connectivity** — Blablablablabla
+- **Quality** — Blablablablabla
+
+#### Climate Adaptation
+
+- **Resilience to flood risks** — Blablablablabla
+- **Resilience to heat waves** — Blablablablabla
+
+#### Quality of Life
+
+- **Accessibility** — Blablablablabla
+- **Attractiveness** — Blablablablabla
+- **Diversity** — Blablablablabla
+
+#### Spatial Units and other notes
+
+The spatial units we use are hexagons with a radius of ???. We started by dividing the area of Dresden using a hexagonal pattern, and then overlaid it with the water stream data from OpenStreetMap to keep only the hexagons that intersected with at least one stream. Finally, we removed the isolated hexagons which corresponded to areas that were not connected to the main stream network.
+
+### Attributes and Layers
+
+Based on the criteria that we decided to tackle, we had to come up with numerical indicators that we could use to evaluate them.
+These numerical indicators are called attributes and have to be normalised—in our case between 0 and 1—so that they can be compared and weighted properly depending on their relevance.
+In our case, 0 corresponds to an urgent need to perform urban stream restoration, while 1 corresponds to a situation that is currently very good, or at least the best in the area of interest.
+
+In practice, these attributes also needed to be aggregable at the scale of the spatial units, so that we can assign one unique value to each spatial unit for each attribute.
+This can be an important limitation on the type of computations and therefore the type of attributes that we can use.
+We explain below the different attributes that we computed, how we computed them, which data we used and why we made these choices.
+
+#### Biodiversity
+
+***Connectivity***
+
+- **Green-blue connectivity**. Blablablablabla  
+- **Green connectivity**. Blablablablabla
+
+***Quality***
+
+- **Water pollution**. We have not found the data yet.  
+- **Soil quality**. Blablablablabla
+- **Plant health**. Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most constraints) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
+
+#### Climate Adaptation
+
+***Resilience to flood risks***
+
+- **Available space near streams**. Blablablablabla  
+- **Anticipated flood risk**. Blablablablabla
+- **Soil infiltration capacity**. Blablablablabla
+
+***Resilience to heat waves***
+
+- **Sealing**. Blablablablabla
+- **Surfaces reflection index**. Blablablablabla
+- **Shade**. Blablablablabla
+
+#### Quality of Life
+
+***Attractiveness***
+
+- **Encasement**. Blablablablabla
+- **Visibility**. Blablablablabla
+
+***Accessibility***
+
+- **Walking/biking accessibility to streams**. Blablablablabla
+- **Walking/biking accessibility to green spaces**. Blablablablabla
+
+***Diversity***
+
+- **Land use variety**. Blablablablabla
+
+
+### Weighting of the Attributes
+
+Once each attribute has produced a normalised value for each spatial unit, all the attributes need to be aggregated into one final value. Since all of them do not participate equally to the goals we mentioned earlier, we tried to weight them according to their relative importance in achieving our goals. These weights could then be used to compute a weighted average that is easier to use thanks to reducing the problem to one dimension instead of several dimensions.
+
+To compute the weights, we made individual Saaty matrices for the attributes of each of the three objectives. Saaty matrices are square matrices that allow us to deduce weights from pairwise comparisons of the attributes [@Saaty1987analytic]. In our case, we used the eigenvector method to calculate the weights. The matrices and weights are shown in @tbl-saaty-matrices below.
+
+Then, we divided them by 3 to assign the same weight to the three attributes, and got a final set of weights that summed to 1. We chose this method because it allowed us to assign more weights to the most reliable and pertinent attributes, while maintaining the balance between the three main objectives.
+
+```{=typst}
+#show table.cell.where(x: 0): strong
+#show table: t => {
+  let width = t.columns.len()
+  let height = calc.floor((t.children.len() - 1) / width) + 1
+
+  show table.cell.where(y: height - 1): strong
+  show table.cell.where(x: width - 1): set align(right)
+  t
+}
+```
+
+```{r}
+#| echo: false
+#| label: tbl-saaty-matrices
+#| class: plain
+#| tbl-cap: "Saaty matrix and weights for the three criteria"
+#| tbl-subcap:
+#|   - "Biodiversity"
+#|   - "Climate Adaptation"
+#|   - "Quality of Life"
+#| layout-nrow: 3
+
+attributes <- list(
+  "Biodiversity" = c(
+    "Soil quality", "Plant health", "Water pollution",
+    "Green-blue connectivity", "Green connectivity"
+  ),
+  "Climate Adaptation" = c(
+    "Available space near streams", "Anticipated flood risk",
+    "Soil infiltration capacity", "Sealing",
+    "Surfaces reflection index?", "Shade"
+  ),
+  "Quality of Life" = c(
+    "Encasement", "Visibility",
+    "Walking/biking accessibility to streams",
+    "Walking/biking accessibility to green spaces",
+    "Land use variety"
+  )
+)
+
+saaty_matrices <- list(
+  "Biodiversity" = matrix(
+    c(
+      1,  3, -3,  2,  2,
+     -3,  1, -4,  2,  2,
+      3,  4,  1,  5,  4,
+     -2, -2, -5,  1,  2,
+     -2, -2, -4, -2,  1
+    ), nrow = 5, byrow = TRUE
+  ),
+  "Climate Adaptation" = matrix(
+    c(
+      1, -2, -3,  3,  4,  2,
+      2,  1,  3,  4,  5,  3,
+      3, -3,  1,  3,  4,  3,
+     -3, -4, -3,  1,  2,  2,
+     -4, -5, -4, -2,  1,  1,
+     -2, -3, -3, -2,  1,  1
+    ), nrow = 6, byrow = TRUE
+  ),
+  "Quality of Life" = matrix(
+    c(
+      1,  2, -3, -3, -2,
+     -2,  1, -4, -4, -2,
+      3,  4,  1, -2,  3,
+      3,  4,  2,  1,  1,
+      2,  2, -3,  1,  1
+    ), nrow = 5, byrow = TRUE
+  )
+)
+
+saaty_weights <- lapply(saaty_matrices, calculate_weights)
+saaty_tables <- lapply(
+  seq_along(saaty_matrices),
+  function(i) {
+    matrix_to_table(saaty_matrices[[i]], attributes[[i]])
+  }
+)
+
+show_table(
+  matrix_to_table(saaty_matrices[["Biodiversity"]], attributes[["Biodiversity"]]),
+  saaty_weights[["Biodiversity"]][["weights"]]
+)
+show_table(
+  matrix_to_table(saaty_matrices[["Climate Adaptation"]], attributes[["Climate Adaptation"]]),
+  saaty_weights[["Climate Adaptation"]][["weights"]]
+)
+show_table(
+  matrix_to_table(saaty_matrices[["Quality of Life"]], attributes[["Quality of Life"]]),
+  saaty_weights[["Quality of Life"]][["weights"]]
+)
+```
+
+These weights were computed with respective consistency ratios of `{r} saaty_weights[["Biodiversity"]][["consistency_ratio"]]`, `{r} saaty_weights[["Climate Adaptation"]][["consistency_ratio"]]`, and `{r} saaty_weights[["Quality of Life"]][["consistency_ratio"]]` for Biodiversity, Climate Adaptation, and Quality of Life.
+These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, which indicates that the pairwise comparisons were consistent enough to be used in the analysis.
+
+## Typology Construction
 
 ## Results
 
@@ -63,3 +278,4 @@ and start the report from the Introduction section below.
 
 ## Conclusion
 
+...
