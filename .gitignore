@@ -17,6 +17,3 @@ docs/*
 
 # Ignore the data directory
 data/
-
-# Ignore the code directory
-src/
