@@ -1,0 +1,3 @@
+# Discussion
+
+*Green-blue connectivity\*:* The attribute would be re-calculated using the Guido toolbox, to obtain a more precise analysis of the potential green corridors.

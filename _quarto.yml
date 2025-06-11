@@ -1,21 +1,47 @@
 project: 
-  type: website
+  type: book
   output-dir: docs
 
-website:
+book:
+  author:
+    - name: "Alexandre Bry"
+      affiliation: "MSc Geomatics"
+    - name: "Alankrita Sharma"
+      affiliation: "MSc Urbanism"
+    - name: "Grase Stephanie"
+      affiliation: "MSc Urbanism"
+    - name: "Soroush Saffarzadeh"
+      affiliation: "MSc Urbanism"
+    - name: "Adriano Mancini"
+      affiliation: "MSc Urbanism"
   repo-url: https://github.com/sdgis-edu-tud/report-asa2025-groupf
   repo-actions: [edit, source, issue]
-  
+  title: "Unpacking Dresden"
+  subtitle: "Preliminary report of Spatial Analysis methods and outcomes in the context of river and stream restoration in Dresden, Germany"
+  date: today
+  chapters: 
+    - index.qmd
+    - sections/preliminary.qmd
+    - sections/mcda.qmd
+    - sections/typology.qmd
+    - sections/results.qmd
+    - sections/discussion.qmd
+    - sections/conclusion.qmd
+    - sections/interactive_map.qmd
+
+bibliography: references.bib
+biblio-title: "References"
+
 format:
   html:
-    embed-resources: true
+    # embed-resources: true
     toc: true
-    output-file: index.html
+    # output-file: index.html
     lightbox: true
     css: styles.css
     theme: flatly
-  typst:
-    toc: true
-    template: typst-template/template.typ
-    template-partials: 
-      - typst-template/typst-template.typ
+  # typst:
+  #   toc: true
+  #   template: typst-template/template.typ
+  #   template-partials: 
+  #     - typst-template/typst-template.typ
