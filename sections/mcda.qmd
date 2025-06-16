@@ -1,11 +1,5 @@
 # MCDA
 
-```{=typst}
-#show figure: set block(breakable: true)
-
-#show: main-content-container.with(reset-page-numbering: true)
-```
-
 ```{r setup}
 #| echo: false
 source("../src/saaty.R")
@@ -256,18 +250,6 @@ Once each attribute has produced a normalised value for each spatial unit, all t
 To compute the weights, we made individual Saaty matrices for the attributes of each of the three objectives. Saaty matrices are square matrices that allow us to deduce weights from pairwise comparisons of the attributes [@Saaty1987analytic]. In our case, we used the eigenvector method to calculate the weights. The matrices and weights are shown in @tbl-saaty-matrices below.
 
 Then, we divided them by 3 to assign the same weight to the three attributes, and got a final set of weights that summed to 1. We chose this method because it allowed us to assign more weights to the most reliable and pertinent attributes, while maintaining the balance between the three main objectives.
-
-```{=typst}
-#show table.cell.where(x: 0): strong
-#show table: t => {
-  let width = t.columns.len()
-  let height = calc.floor((t.children.len() - 1) / width) + 1
-
-  show table.cell.where(y: height - 1): strong
-  show table.cell.where(x: width - 1): set align(right)
-  t
-}
-```
 
 ```{r}
 #| echo: false

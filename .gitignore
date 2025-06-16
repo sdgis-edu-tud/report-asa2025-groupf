@@ -13,5 +13,7 @@
 # Only keep the real HTML output
 docs/
 
-# Ignore the data directory
-data/
+# Ignore data
+data/*
+!data/results/
+data/results/temp/

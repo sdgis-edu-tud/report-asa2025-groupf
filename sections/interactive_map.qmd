@@ -8,47 +8,56 @@ import requests
 import geopandas as gpd
 # from collections import defaultdict
 
-from ipyleaflet import Map, Choropleth, basemaps, LayersControl, LayerGroup
+from ipyleaflet import Map, Choropleth, basemaps, LayersControl, LayerGroup, basemap_to_tiles
 from ipywidgets import Layout
 from branca.colormap import linear
 
 layers = {
+    "Land Use Types": {
+        "path": "../data/Added_data/results/clean/Spatial_Units-Land_Use_Types.geojson",
+        "name": "Normalised Diversity of Land Uses",
+        "group": "Quality of Life",
+    },
+    "Accessibility to Streams": {
+        "path": "../data/Added_data/results/clean/Spatial_Units-Accessibility_to_Streams.geojson",
+        "name": "Normalised Distance to Streams",
+        "group": "Quality of Life",
+    },
+    "Shade 3pm": {
+        "path": "../data/Added_data/results/clean/Spatial_Units-Shade_3pm.geojson",
+        "name": "Normalised Shading at 3pm",
+        "group": "Climate Adaptation",
+    },
     "Flood_Safety": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Average_Flood_Safety.geojson",
+        "path": "../data/Added_data/results/clean/Spatial_Units-Flood_Safety.geojson",
         "name": "Normalised Flood Safety",
-        "data_key": "Flood_Safety",
         "group": "Climate Adaptation",
     },
     "Infiltration Capacity":{
-        "path": "../data/Added_data/results/clean/Spatial_Units-Average_Infiltration_Capacity.geojson",
+        "path": "../data/Added_data/results/clean/Spatial_Units-Infiltration_Capacity.geojson",
         "name": "Normalised Infiltration Capacity",
-        "data_key": "Average_Infiltration_Value",
         "group": "Climate Adaptation",
     },
     "Space along Streams": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Average_Space_along_Streams.geojson",
+        "path": "../data/Added_data/results/clean/Spatial_Units-Space_along_Streams.geojson",
         "name": "Normalised Space along Streams",
-        "data_key": "NormalizedAreas",
         "group": "Climate Adaptation",
     },
     "Green_Area": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Average_Green_Area.geojson",
+        "path": "../data/Added_data/results/clean/Spatial_Units-Green_Area.geojson",
         "name": "Normalised Green Area",
-        "data_key": "Proportion_Green_Area",
         "group": "Biodiversity",
     },
     "NDVI": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Average_NDVI.geojson",
+        "path": "../data/Added_data/results/clean/Spatial_Units-NDVI.geojson",
         "name": "Normalised NDVI",
-        "data_key": "ndvi_mean",
         "group": "Biodiversity",
     },
     "Soil Quality": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Average_Soil_Quality.geojson",
+        "path": "../data/Added_data/results/clean/Spatial_Units-Soil_Quality.geojson",
         "name": "Normalised Soil Quality",
-        "data_key": "Normalised_quality",
         "group": "Biodiversity",
-    }
+    },
 }
 
 colormaps = {
@@ -57,15 +66,19 @@ colormaps = {
     "Quality of Life": linear.Reds_09,
 }
 
+basemaps_used = [basemaps.Esri.WorldImagery, basemaps.Esri.WorldTopoMap, basemaps.CartoDB.Positron]
+
 m = Map(
-    # basemap=basemaps.Esri.WorldTopoMap,
-    basemap=basemaps.CartoDB.Positron,
+    basemap=basemaps_used[0],
     center=(51.068931, 13.782907),
     zoom=11,
     layout=Layout(width='100%', height='800px')
 )
 
-# layer_groups = defaultdict(list)
+for basemap_used in basemaps_used:
+    layer = basemap_to_tiles(basemap_used)
+    layer.base = True
+    m.add(layer)
 
 for layer_name, layer_info in layers.items():
     if not os.path.exists(layer_info["path"]):
@@ -87,7 +100,7 @@ for layer_name, layer_info in layers.items():
     for i, feature in enumerate(data['features']):
         feature['id'] = feature['properties']['fid_2']
 
-    choro_data = dict(zip(data_df["fid_2"], data_df[layer_info["data_key"]]))
+    choro_data = dict(zip(data_df["fid_2"], data_df["Normalised_Value"]))
 
     data_layer = Choropleth(
         geo_data=data,

@@ -34,14 +34,7 @@ biblio-title: "References"
 
 format:
   html:
-    # embed-resources: true
     toc: true
-    # output-file: index.html
     lightbox: true
     css: styles.css
     theme: flatly
-  # typst:
-  #   toc: true
-  #   template: typst-template/template.typ
-  #   template-partials: 
-  #     - typst-template/typst-template.typ
