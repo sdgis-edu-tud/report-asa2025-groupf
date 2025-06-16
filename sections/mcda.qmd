@@ -264,18 +264,19 @@ Then, we divided them by 3 to assign the same weight to the three attributes, an
 
 attributes <- list(
   "Biodiversity" = c(
-    "Soil quality", "Plant health", "Water pollution",
-    "Green-blue connectivity", "Green connectivity"
+    "Soil quality",
+    "Plant health",
+    "Green-blue connectivity"
   ),
   "Climate Adaptation" = c(
-    "Available space near streams", "Anticipated flood risk",
-    "Soil infiltration capacity", "Sealing",
-    "Surfaces reflection index?", "Shade"
+    "Available space near streams",
+    "Anticipated flood risk",
+    "Soil infiltration capacity",
+    "Shade"
   ),
   "Quality of Life" = c(
-    "Encasement", "Visibility",
+    "Visibility",
     "Walking/biking accessibility to streams",
-    "Walking/biking accessibility to green spaces",
     "Land use variety"
   )
 )
@@ -283,31 +284,25 @@ attributes <- list(
 saaty_matrices <- list(
   "Biodiversity" = matrix(
     c(
-      1,  3, -3,  2,  2,
-     -3,  1, -4,  2,  2,
-      3,  4,  1,  5,  4,
-     -2, -2, -5,  1,  2,
-     -2, -2, -4, -2,  1
-    ), nrow = 5, byrow = TRUE
+      1,  3,  4,
+     -3,  1,  2,
+     -4, -2,  1
+    ), nrow = 3, byrow = TRUE
   ),
   "Climate Adaptation" = matrix(
     c(
-      1, -2, -3,  3,  4,  2,
-      2,  1,  3,  4,  5,  3,
-      3, -3,  1,  3,  4,  3,
-     -3, -4, -3,  1,  2,  2,
-     -4, -5, -4, -2,  1,  1,
-     -2, -3, -3, -2,  1,  1
-    ), nrow = 6, byrow = TRUE
+      1, -2, -3,  2,
+      2,  1,  3,  4,
+      3, -3,  1,  3,
+     -2, -4, -3,  1
+    ), nrow = 4, byrow = TRUE
   ),
   "Quality of Life" = matrix(
     c(
-      1,  2, -3, -3, -2,
-     -2,  1, -4, -4, -2,
-      3,  4,  1, -2,  3,
-      3,  4,  2,  1,  1,
-      2,  2, -3,  1,  1
-    ), nrow = 5, byrow = TRUE
+      1, -4, -2,
+      4,  1,  3,
+      2, -3,  1
+    ), nrow = 3, byrow = TRUE
   )
 )
 
