@@ -1,5 +1,6 @@
 # Interactive Map of the Attributes {.unnumbered}
 ```{python}
+#| eval: false
 #| echo: false
 import os
 import json
