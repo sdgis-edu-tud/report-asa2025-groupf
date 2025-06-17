@@ -6,7 +6,6 @@ import json
 import random
 import requests
 import geopandas as gpd
-# from collections import defaultdict
 
 from ipyleaflet import Map, Choropleth, basemaps, LayersControl, LayerGroup, basemap_to_tiles
 from ipywidgets import Layout
@@ -14,47 +13,47 @@ from branca.colormap import linear
 
 layers = {
     "Land Use Types": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Land_Use_Types.geojson",
+        "path": "../data/results/Spatial_Units-Land_Use_Types.geojson",
         "name": "Normalised Diversity of Land Uses",
         "group": "Quality of Life",
     },
     "Accessibility to Streams": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Accessibility_to_Streams.geojson",
+        "path": "../data/results/Spatial_Units-Accessibility_to_Streams.geojson",
         "name": "Normalised Distance to Streams",
         "group": "Quality of Life",
     },
     "Shade 3pm": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Shade_3pm.geojson",
+        "path": "../data/results/Spatial_Units-Shade_3pm.geojson",
         "name": "Normalised Shading at 3pm",
         "group": "Climate Adaptation",
     },
     "Flood_Safety": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Flood_Safety.geojson",
+        "path": "../data/results/Spatial_Units-Flood_Safety.geojson",
         "name": "Normalised Flood Safety",
         "group": "Climate Adaptation",
     },
     "Infiltration Capacity":{
-        "path": "../data/Added_data/results/clean/Spatial_Units-Infiltration_Capacity.geojson",
+        "path": "../data/results/Spatial_Units-Infiltration_Capacity.geojson",
         "name": "Normalised Infiltration Capacity",
         "group": "Climate Adaptation",
     },
     "Space along Streams": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Space_along_Streams.geojson",
+        "path": "../data/results/Spatial_Units-Space_along_Streams.geojson",
         "name": "Normalised Space along Streams",
         "group": "Climate Adaptation",
     },
     "Green_Area": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Green_Area.geojson",
+        "path": "../data/results/Spatial_Units-Green_Area.geojson",
         "name": "Normalised Green Area",
         "group": "Biodiversity",
     },
     "NDVI": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-NDVI.geojson",
+        "path": "../data/results/Spatial_Units-NDVI.geojson",
         "name": "Normalised NDVI",
         "group": "Biodiversity",
     },
     "Soil Quality": {
-        "path": "../data/Added_data/results/clean/Spatial_Units-Soil_Quality.geojson",
+        "path": "../data/results/Spatial_Units-Soil_Quality.geojson",
         "name": "Normalised Soil Quality",
         "group": "Biodiversity",
     },
