@@ -28,6 +28,7 @@ book:
     - sections/discussion.qmd
     - sections/conclusion.qmd
     - sections/interactive_map.qmd
+    - sections/clustering.qmd
 
 bibliography: references.bib
 biblio-title: "References"
