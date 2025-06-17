@@ -9,31 +9,28 @@ This tutorial demonstrates how to construct urban typologies in R. Specifically,
 In the previous session, we introduced the key preparatory steps for typology construction before clustering. Here, we provide a specific example that illustrates how these steps can be applied in a particular context.
 
 -   **Define your objective**:\
-    To identify urban stream typologies in areas directly adjacent to stream corridors, where local conditions affect stream ecology and guide restoration design strategies.
+    TODO
 -   **Define your focused area**:\
-    The stream corridors in the whole city of Dresden.
+    The space around the stream corridors in the whole city of Dresden.
 -   **Define your spatial unit**:\
-    Fixed size, 100 x 100 m square; centered on the stream and rotated according to the local flow direction of the stream; overlapped units are deleted.
+    TODO
 -   **Define your variables**:
-    - `Soil quality` – TODO
-    - `Flood safety` – TODO
-    - `Accessibility to streams` – TODO
--   **Prepare geometries of spatial unit covering focused area**:\
-    Read in `grids_TC.gpkg`, with a column `grid_id` created.
--   **Calculate the value of variables in each spatial unit**:\
-    Read in `grids_TC.gpkg`, with columns `Soil_Quality`, `Flood_Safety`, `Accessibility` created.
+    - TODO
+    - TODO
+    - TODO
 
 ## Clustering steps
 
 After the above preparatory steps, now we start the clustering process.
 
-We will:\
-Step 1. Load R packages and data\
-Step 2. Standardization\
-Step 3. Determine optimal k\
-Step 4. Run K-means clustering\
-Step 5. Interpret cluster center\
-Step 6. (Optional) Calculate distance to cluster center
+We will:
+
+- Step 1. Load R packages and data
+- Step 2. Standardization
+- Step 3. Determine optimal k
+- Step 4. Run K-means clustering
+- Step 5. Interpret cluster center
+- Step 6. (Optional) Calculate distance to cluster center
 
 ### Step 1. Load R packages and data
 
@@ -42,56 +39,47 @@ We begin by loading the necessary R packages.
 If you haven't installed these packages yet, remove the `#` and run the following chunk before continuing:
 
 ```{r}
+#| output: false
 #install.packages("sf") 
 #install.packages("dplyr")
-```
 
-::: callout-note
-Adding `#` at the beginning of a line of code will prevent that line from being executed. We use it here because we only need to run `install.packages()` once, when we install a package for the first time. After that we disable that line because we do not need to run it anymore.
-:::
-
-Next, load the required packages:
-
-```{r}
 library(sf) ## for processing vector data 
 library(dplyr) ## for selecting and transforming data
+library(plotly) ## for plotting data
 ```
 
-We first need to confirm that the project folder is an RStudio project. This will ensure that the working directory points to the project folder. You can confirm this with `getwd()`. Make sure you copied the prepared `grid_TC.gpkg` in the root of your working directory folder. Now we read the dataset from a GeoPackage file and display the first few rows using head():
-
 ```{r}
-#getwd()
 grids <- st_read("../data/results/Spatial_Units-All_Attributes.geojson", quiet = TRUE)
 
-## View the first few rows of the data
-head(grids)
+## View the columns of the data
+colnames(grids)
+
+## Count how many spatial units we have
+nrow(grids)
 ```
 
-We can check how many girds in the file.
+Then select the columns to use:
 
 ```{r}
-## Count how many grid units we have
-nrow(grids)
+attributes <- c(
+  Green_Area = "Green area",
+  Space_along_Streams = "Space along Streams",
+  Shade_3pm = "Shade at 3pm",
+  Accessibility = "Accessibility to streams"
+)
+n_attr <- length(attributes)
 ```
 
 We can also visualize the data to have a better understanding visually.
 
 ```{r}
-## Plot soil quality
-plot(grids["Soil_Quality"], border = NA, main = "Soil Quality")
+#| layout-ncol: 2
 
-## Plot flood safety
-plot(grids["Flood_Safety"], border = NA, main = "Flood Safety")
-
-## Plot accessibility
-plot(grids["Accessibility"],  border = NA, 
-     #breaks = "quantile", 
-     main = "Accessibility to streams")
+## Plot the attributes in two columns
+for (col in names(attributes)) {
+     plot(grids[col], border = NA, main = attributes[[col]])
+}
 ```
-
-::: callout-note
-By default, `plot()` is using equal interval, which might make the differences hard to see. You can change the `breaks` type to show the visual difference more clearly.
-:::
 
 ### Step 2. Standardization
 
@@ -99,19 +87,13 @@ We select the relevant features. These features are then standardized to ensure 
 
 ```{r}
 features <- grids |> 
-  select(Soil_Quality, Flood_Safety, Accessibility) |>
+  select(names(attributes)) |>
   st_drop_geometry() ## remove geometry column so we just keep a data table
 
 X_scaled <- scale(features) ## Standardize (mean=0, sd=1) 
 
 head(X_scaled)
 ```
-
-::: callout-note
-`|>` passes the result from the left expression to the right function.
-
-Even after selecting variables from an `sf` object, the geometry column is still there. Use `st_drop_geometry()` to remove it before applying functions like `scale()`.
-:::
 
 ### Step 3: Determine the optimal K
 
@@ -128,7 +110,7 @@ k_values <- 2:9
 
 ## Loop through each k value
 for (k in k_values) {
-  km <- kmeans(X_scaled, centers = k, nstart = 20) 
+  km <- kmeans(X_scaled, centers = k, iter.max=25, nstart = 50) 
   
   ## tot.withinss is Total within-cluster sum of squares
   ## This measures how compact the clusters are: lower is better.
@@ -138,19 +120,15 @@ for (k in k_values) {
 ## Combine the results into a data frame for plotting
 elbow_df <- data.frame(k = k_values, inertia = inertia)
 
-print(elbow_df)
+# print(elbow_df)
 ```
-
-::: callout-note
-We suggest using a larger `nstart` value, such as 20 or 50, to get more reliable results. Setting `nstart = 20` makes R try 20 different starting points and choose the one with the lowest `tot.withinss`. The `tot.withinss` value measures how close points are to their cluster centers. Lower values mean better clustering.
-:::
 
 We can visualize how inertia changes with increasing k. After a certain point, adding more clusters doesn’t help much — the curve bends. That bend is called the *elbow point*, and we use it to choose the best k.
 
 ```{r}
 ## Make the elbow plot
 plot(k_values, inertia,
-     type = "b",                  ## shown both points + lines 
+     type = "b",
      col = "darkblue",
      main = "Elbow Method")
 ```
@@ -166,15 +144,28 @@ We now run the K-means algorithm and assign each grid to one of the four cluster
 set.seed(0)  ## The number 0 is just a fixed choice. You can also use 10, 345, etc.
 
 ## Choose the number of clusters based on the elbow plot
-k <- 4
+n_clusters <- 4
 
-## Run K-means clustering on the standardized data
-kmeans_result <- kmeans(X_scaled, centers = k, nstart = 20)
+# Run K-means clustering on the standardized data
+kmeans_result <- kmeans(X_scaled, centers = n_clusters, nstart = 20)
+
+# # You can use Gaussian Mixture Models (GMM) via the 'mclust' package
+# # install.packages("mclust") # Uncomment if not installed
+# library(mclust)
+
+# # Fit a GMM with 4 components (clusters)
+# gmm_result <- Mclust(X_scaled, G = n_clusters)
+
+# # Assign cluster labels from GMM
+# kmeans_result <- list(
+#      cluster = gmm_result$classification,
+#      centers = gmm_result$parameters$mean[, 1:n_clusters, drop = FALSE]
+# )
 
 ## Add the cluster labels to the spatial data
 grids$cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and grids
 
-head(grids)
+colnames(grids)
 
 ## Show how many grids fall into each cluster
 print(table(grids$cluster))
@@ -189,10 +180,23 @@ Save the updated grid data (with cluster labels) to a new GeoPackage file. You c
 We can also visualize the spatial pattern.
 
 ```{r}
+## Generate cluster colors dynamically
+cluster_levels <- levels(grids$cluster)
+cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
+cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
+
 ## Plot clusters with base R
 plot(grids["cluster"], 
      main = "Spatial Pattern of Urban Stream Clusters", 
-     border = NA)
+     border = NA,
+     col = cluster_colors[grids$cluster])
+
+legend("topright",
+     legend = levels(grids$cluster),
+     fill = cluster_colors,
+     title = "Cluster",
+     cex = 0.9,
+     bty = "n")
 ```
 
 ### Step 5. Interpret cluster centers
@@ -203,10 +207,6 @@ Now we look at the center of each cluster. First, we check the values in standar
 ## Get the cluster centers (in standardized form)
 scaled_centers <- kmeans_result$centers
 
-## Print them
-print("Cluster centers (standardized):")
-print(scaled_centers)
-
 ## Convert the centers back to original scale: x * SD + mean
 original_centers <- t(apply(
   scaled_centers, 1, 
@@ -214,8 +214,7 @@ original_centers <- t(apply(
 ))
 
 ## Print the real-world values
-print("Cluster centers (original):")
-print(original_centers)
+print(original_centers, digits=3)
 
 ```
 
@@ -268,49 +267,29 @@ This workflow can now be applied to your own datasets to explore meaningful typo
 normalize <- function(x) (x - min(x)) / (max(x) - min(x))
 features_norm <- as.data.frame(lapply(features, normalize))
 
-## set canvas
-par(mfrow = c(3, 3), mar = c(4, 4, 2, 1))
+## Set up color palette for any number of features (distinct colors)
+set.seed(42) # for reproducibility
+hist_colors <- grDevices::hcl.colors(n_attr, palette = "Dynamic", alpha = 1.0)
 
-## original raw data
-hist(features$Soil_Quality,
-     main = "soil quality (original)",
-     xlab = "value", col = "pink")
+## Set canvas: 2 columns for original and standardized
+par(mfrow = c(n_attr, 2), mar = c(4, 4, 2, 1))
 
-hist(features$Flood_Safety,
-     main = "flood safety (original)",
-     xlab = "value", col = "lightblue")
+## Plot histograms for each attribute
+for (i in seq_along(attributes)) {
+  colname <- names(attributes)[i]
+  display <- attributes[[colname]]
+  color <- hist_colors[i]
 
-hist(features$Accessibility,
-     main = "accessibility (original)",
-     xlab = "value", col = "lightyellow")
+  # Original
+  hist(features[[colname]],
+       main = paste0(display, "\n(original)"),
+       xlab = "value", col = color)
 
-## standardization z-score
-hist(X_scaled[, "Soil_Quality"],
-     main = "soil quality (standardized)",
-     xlab = "z-score", col = "red")
-
-hist(X_scaled[, "Flood_Safety"],
-     main = "flood safety (standardized)",
-     xlab = "z-score", col = "blue")
-
-hist(X_scaled[, "Accessibility"],
-     main = "accessibility (standardized)",
-     xlab = "z-score", col = "yellow")
-
-## normalization
-hist(features_norm$Soil_Quality,
-     main = "soil quality (normalized)",
-     xlab = "normalized [0–1]", col = "darkred", xlim = c(0, 1))
-
-hist(features_norm$Flood_Safety,
-     main = "flood safety (normalized)",
-     xlab = "normalized [0–1]", col = "darkblue", xlim = c(0, 1))
-
-hist(features_norm$Accessibility,
-     main = "accessibility (normalized)",
-     xlab = "normalized [0–1]", col = "gold", xlim = c(0, 1))
-
-
+  # Standardized
+  hist(X_scaled[, colname],
+       main = paste0(display, "\n(standardized)"),
+       xlab = "z-score", col = color)
+}
 ```
 
 ### A2. K-means Euclidean distance
@@ -332,31 +311,35 @@ $$
 
 In our case:
 
+:::{style="overflow-x:auto;overflow-y:hidden;"}
 $$
 \text{Distance} = \sqrt{
-(x_{\text{soil quality}} - c_{\text{soil quality}})^2 +
-(x_{\text{flood safety}} - c_{\text{flood safety}})^2 +
-(x_{\text{accessibility}} - c_{\text{accessibility}})^2
+`r paste(
+  sapply(names(attributes), function(col) {
+    paste0(
+      "(x_{\\text{", tolower(gsub("_", " ", col)), "}} - ",
+      "c_{\\text{", tolower(gsub("_", " ", col)), "}})^2"
+    )
+  }),
+  collapse = " +\n"
+)`
 }
 $$
+:::
 
 ### A3. Visualize cluster points in 3D distribution
 
 ```{r}
-cluster_colors <- c(
-  "1" = "#65C3A1", 
-  "2" = "#FC9964",  
-  "3" = "#869DC5", 
-  "4" = "#E597C0"   
-)
-
-
-library(plotly)
+#| echo: false
+#| title: 3D Distribution of the first 3 attributes
+# Get the first three attribute names and display names
+attr3_names <- names(attributes)[1:3]
+attr3_display <- attributes[1:3]
 
 cluster3d_scaled <- plot_ly(
-  x = X_scaled[, "Soil_Quality"],
-  y = X_scaled[, "Flood_Safety"],
-  z = X_scaled[, "Accessibility"],
+  x = X_scaled[, attr3_names[1]],
+  y = X_scaled[, attr3_names[2]],
+  z = X_scaled[, attr3_names[3]],
   type = "scatter3d",
   mode = "markers",
   color = as.factor(kmeans_result$cluster),
@@ -365,9 +348,9 @@ cluster3d_scaled <- plot_ly(
 ) %>%
   layout(
     scene = list(
-      xaxis = list(title = "Soil Quality"),
-      yaxis = list(title = "Flood Safety"),
-      zaxis = list(title = "Accessibility")
+      xaxis = list(title = attr3_display[[1]]),
+      yaxis = list(title = attr3_display[[2]]),
+      zaxis = list(title = attr3_display[[3]])
     )
   )
 cluster3d_scaled
