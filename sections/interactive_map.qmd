@@ -1,7 +1,8 @@
 # Interactive Map of the Attributes {.unnumbered}
 ```{python}
-#| eval: false
 #| echo: false
+#| eval: true
+
 import os
 import json
 import random
@@ -19,8 +20,8 @@ layers = {
         "group": "Quality of Life",
     },
     "Accessibility to Streams": {
-        "path": "../data/results/Spatial_Units-Accessibility_to_Streams.geojson",
-        "name": "Normalised Distance to Streams",
+        "path": "../data/results/Spatial_Units-Accessibility.geojson",
+        "name": "Normalised Accessibility from Houses",
         "group": "Quality of Life",
     },
     "Shade 3pm": {
@@ -98,9 +99,9 @@ for layer_name, layer_info in layers.items():
 
     # Add an id to each feature
     for i, feature in enumerate(data['features']):
-        feature['id'] = feature['properties']['fid_2']
+        feature['id'] = feature['properties']['id']
 
-    choro_data = dict(zip(data_df["fid_2"], data_df["Normalised_Value"]))
+    choro_data = dict(zip(data_df["id"], data_df["Normalised_Value"]))
 
     data_layer = Choropleth(
         geo_data=data,

@@ -1,0 +1,49 @@
+source("mcda_weights.R")
+
+spatial_units <- st_read("../data/results/Spatial_Units-All_Attributes.geojson", quiet = TRUE)
+features <- spatial_units |>
+  st_drop_geometry()
+
+head(spatial_units)
+
+# 1. Map attribute names to column names in your data
+attribute_to_col <- list(
+  "Soil quality" = "Soil_Quality",
+  "Plant health" = "NDVI",
+  "Green-blue connectivity" = "Green_Area",
+  "Available space near streams" = "Space_along_Streams",
+  "Anticipated flood risk" = "Flood_Safety",
+  "Soil infiltration capacity" = "Infiltration",
+  "Shade" = "Shade_3pm",
+  "Walking accessibility" = "Accessibility",
+  "Land use variety" = "Land_Use_Types"
+)
+
+# 2. Compute weighted average for each category
+for (cat in names(attributes)) {
+  attr_names <- attributes[[cat]]
+  col_names <- unlist(attribute_to_col[attr_names])
+  weights <- saaty_weights[[cat]]$weights
+  # Ensure order matches
+  stopifnot(length(col_names) == length(weights))
+  # Compute weighted sum (row-wise)
+  spatial_units[[paste0(cat, "_score")]] <- as.matrix(features[, col_names]) %*% weights
+}
+
+# 3. Store the weighted average of each category without the attributes
+# Identify columns to exclude: the attribute columns used for scoring
+exclude_cols <- unlist(attribute_to_col[unlist(attributes)])
+# Keep all columns except the attribute columns, plus geometry
+keep_cols <- setdiff(names(spatial_units), exclude_cols)
+
+# Add the three category scores to the kept columns
+keep_cols <- unique(c(keep_cols, paste0(names(attributes), "_score")))
+
+# Subset the data
+output <- spatial_units[, keep_cols]
+
+# Compute the overall average score (across the three categories)
+output$MCDA_score <- rowMeans(st_drop_geometry(output)[, paste0(names(attributes), "_score")])
+
+# Write to GeoJSON
+st_write(output, "../data/results/Spatial_Units-MCDA_values.geojson", delete_dsn = TRUE, quiet = TRUE)
