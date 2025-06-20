@@ -1,4 +1,20 @@
+# Ignore specific RStudio files
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# Ignore specific VS Code files
+.vscode/
+
+# Ignore specific Quarto files
+/.quarto/
+
+# Only keep the real HTML output
+docs/
+
+# Ignore data
+data/*
+!data/results/
+data/results/temp/
+!data/background/
