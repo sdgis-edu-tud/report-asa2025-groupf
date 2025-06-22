@@ -123,11 +123,7 @@ The two layers were intersected to see where the vegetation has poor soil qualit
 
 ##### *Plant health*
 
-<<<<<<< HEAD
-Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most ) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
-=======
 Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
->>>>>>> aa0d9fd86e4679a8cddb2fbb0c9fccb708a8c640
 
 ### Climate Adaptation
 
@@ -211,13 +207,6 @@ To normalize the proportioned values, the attribute values were divided by the a
 
 #### Attractiveness
 
-<<<<<<< HEAD
-##### *Encasement*
-
-The encasement factor reflects the amount of enclosure of a space along the water body. It can be analysed by calculating the ratio of the building height and the street width of the open space on the edge with the stream or river banks. This is a qualitative value that represents the openness of the neighbouring spaces of streams and water bodies through a quantitative method.
-
-=======
->>>>>>> aa0d9fd86e4679a8cddb2fbb0c9fccb708a8c640
 ##### *Visibility*
 
 The visibility factor refers to how the city is seen from the streams within a 2km radius. This analysis aims to show the potential of the streams as public spaces offering city views. If many parts of the city are visible from the streams, it can contribute to their attractiveness. These are the steps we followed:
@@ -231,13 +220,6 @@ The visibility factor refers to how the city is seen from the streams within a 2
 
 The idea behind the accessibility is that for the quality of life, spatial units that are closer to places where inhabitants live are more valuable and more important than those that are harder to reach. Therefore, we wanted to study how many people leave close to each spatial unit, and are therefore accessible by feet. To do so, we settled on a threshold of 1km for the maximum distance that makes a spatial unit accessible, and we used the following steps to compute the accessibility:
 
-<<<<<<< HEAD
-1.  Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
-2.  Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
-3.  Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap, which required to clean up some isolated roads.
-4.  Keep only the paths that are shorter than 1km, representing convenient accessibility by feet.
-5.  Compute the accessibility of each spatial unit $\text{su}$ as: $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$ The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
-=======
 1. Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
 2. Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
 3. Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap. Using this layer required to clean up some isolated roads, because some starting points or spatial units centered would be attached to parts of the network that were not connected to the rest, and therefore it was not possible to find paths. To identify them, we run the path computation from all points to one point, and then manually removed parts of the network that were isolated and preventing the algorithm from finding paths.
@@ -245,7 +227,6 @@ The idea behind the accessibility is that for the quality of life, spatial units
 5. Compute the accessibility of each spatial unit $\text{su}$ as:
    $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$
    The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
->>>>>>> aa0d9fd86e4679a8cddb2fbb0c9fccb708a8c640
 
 The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.
 
