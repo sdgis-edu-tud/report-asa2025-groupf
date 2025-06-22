@@ -207,7 +207,10 @@ The visibility factor refers to how the city is seen from the streams within a 2
 2. Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.
 3. Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.
 
-![](../images/Analysis_Visibility.png)
+![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png)
+The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalized to a 0–1 range, where higher values indicate greater visibility from the streams.
+
+![Normalized value of visibility](../images/Visibility_Units.png)
 
 #### Accessibility
 
@@ -221,7 +224,11 @@ The idea behind the accessibility is that for the quality of life, spatial units
    $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$
    The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
 
+![Accessibility map](../images/Accessibility.png)
+
 The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.
+
+![Normalized value of accessibility](../images/Accessibility_Units.png)
 
 #### Diversity
 
@@ -229,15 +236,14 @@ The final value is not really interpretable, as it is a population density multi
 
 This analysis identifies the types of land use around the stream corridors, more variety of uses enhances the connectivity of streams with the current urban fabric. It is well connected if there are various public spaces and/ or amenities present.  
 
-::: {layout-ncol="2"}
-![](../images/Analysis_Landuse_1.png)
+![Land use map](../images/Land Use.png)
+A higher value for each unit indicates greater land use diversity.
 
-![](../images/Analysis_Landuse_2.png)
-:::
+![Normalized value of land use](../images/Land Use_Units.png)
 
 ## Weighting of the Attributes
 
-Once each attribute has produced a normalised value for each spatial unit, all the attributes need to be aggregated into one final value. Since all of them do not participate equally to the goals we mentioned earlier, we tried to weight them according to their relative importance in achieving our goals. These weights could then be used to compute a weighted average that is easier to use thanks to reducing the problem to one dimension instead of several dimensions.
+Once each attribute has produced a normalized value for each spatial unit, all the attributes need to be aggregated into one final value. Since all of them do not participate equally to the goals we mentioned earlier, we tried to weight them according to their relative importance in achieving our goals. These weights could then be used to compute a weighted average that is easier to use thanks to reducing the problem to one dimension instead of several dimensions.
 
 To compute the weights, we made individual Saaty matrices for the attributes of each of the three objectives. Saaty matrices are square matrices that allow us to deduce weights from pairwise comparisons of the attributes [@Saaty1987analytic]. In our case, we used the eigenvector method to calculate the weights. The matrices and weights are shown in @tbl-saaty-matrices below.
 
