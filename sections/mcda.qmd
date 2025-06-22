@@ -199,10 +199,6 @@ The output layer with which was a raster layer, was then aggregated to the spati
 
 #### Attractiveness
 
-##### *Encasement*
-
-The encasement factor reflects the amount of enclosure of a space along the water body. It can be analysed by calculating the ratio of the building height and the street width of the open space on the edge with the stream or river banks. This is a qualitative value that represents the openness of the neighbouring spaces of streams and water bodies through a quantitative method.  
-
 ##### *Visibility*
 
 The visibility factor refers to how visible the streams are from an urban area. The analysis is conducted by interpolating points from the streamline with a 500-meter radius of urban surroundings. This is also a qualitative value that reflects the visual openness of the streams through a quantitative method.
