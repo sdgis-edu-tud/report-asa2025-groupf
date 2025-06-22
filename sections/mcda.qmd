@@ -31,16 +31,15 @@ To articulate the challenges and identify the potentials to answer the question,
 
 ### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
 
-The criteria of **connectivity** and **quality** are chosen to improve the existing habitats and further expand them.
+The criteria of **connectivity** and **environmental quality** are chosen to improve the existing habitats and further expand them.
 
 1. Connectivity — Aims to identify the the potential green corridors along the streams, using the following sub-criteria for measurement:  
    1. Green-Blue connectivity
 
-2. Quality —  Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:  
+2. Environmental Quality —  Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:  
    1. Water pollution  
    2. Plant health  
    3. Soil quality
-
 
 ### Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
 
@@ -64,13 +63,9 @@ References:
 - @Scoggins2022Community-powered
 
 
-1. Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the following sub-criteria:  
-   1. Spatial openness (encasement)  
-   2. Visibility of the streams from surrounding urban areas
-2. Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance, using two sub-criteria:  
-   1. Distance of stream corridors and green spaces  
-   2. Proximity
-3. Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality.
+1. Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the visibility, how the city is visible from the streams.
+2. Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance. This is done using accessibility analysis combined with population data to show how well-connected the streams are to the area where most residents live.
+3. Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality and encourage varied public use
 
 ### Spatial Units and other notes
 
