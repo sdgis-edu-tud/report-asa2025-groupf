@@ -6,16 +6,15 @@ Here we talk about our understanding of the problem (both in a general sense and
 
 ### Theoretical framework: The idea of Ecological Restoration
 
-Our group’s understanding of ecological restoration is reflected well in the evolution of debates and the resulting definition of the discipline, developed by the newly formed Society for Ecological Restoration (SER) in the 1980s and first published in 1990\.
+Our group’s understanding of ecological restoration is reflected well in the evolution of debates and the resulting definition of the discipline, developed by the newly formed Society for Ecological Restoration (SER) in the 1980s and first published in 1990.
 
-> Ecological Restoration is the process of intentionally altering a site to establish a defined, indigenous, historic ecosystem. The goal of this process is to emulate the structure, function, diversity and dynamics of the specified ecosystem.
-> (Higgs, 1994)
+> Ecological Restoration is the process of intentionally altering a site to establish a defined, indigenous, historic ecosystem. The goal of this process is to emulate the structure, function, diversity and dynamics of the specified ecosystem. (Higgs, 1994)
 
 ***What to leave behind*** —The emerging movement sought to move beyond human-centric notions that had shaped the goals and perspectives of restoration efforts. It aimed to reposition humans as part of complex ecosystems rather than the central focus of resource management. Terms like ‘conservation’ and ‘preservation’ were avoided, as they implied managing “natural resources” for human use or protecting wilderness for its scenic value. At the heart of earlier approaches was the objectification of nature as a resource to be used, enjoyed, and controlled: projects often sought to simplify streams and floodplains, eliminating ecological dynamics seen as barriers to flood control and land development. By the late 1990s, it was increasingly recognized that flood damage reduction and ecosystem protection could be achieved through the same project. This marked a shift in thinking among floodplain managers—**from single-purpose flood control to integrated river and floodplain interventions that mitigate flood impacts while providing ecological benefits.**
 
-![Lisa Kreishok [@riley2016restoring]](../images/Evolution-of-flood-risk-reduction-projects.png){width=60%}
+![Lisa Kreishok [@riley2016restoring]](../images/Evolution-of-flood-risk-reduction-projects.png){width="60%"}
 
-Even the aforementioned definition of restoration sparked debates about how to define “indigenous” or “historic” ecosystems, given that ecological systems constantly evolve. This raises the question: which point in history should we aim to restore to? After all, there is a difference between restoring for maximum biodiversity and supporting the local dynamics of a functioning ecosystem. Especially in urban contexts, practitioners recognized that land use disturbances made it unrealistic to recreate indigenous or historic environments as they once were. This is why the new approaches to restorations were influenced by the imperative, already emerged in the 1930s, of repairing or reversing damage caused by human activity on ecosystems. 
+Even the aforementioned definition of restoration sparked debates about how to define “indigenous” or “historic” ecosystems, given that ecological systems constantly evolve. This raises the question: which point in history should we aim to restore to? After all, there is a difference between restoring for maximum biodiversity and supporting the local dynamics of a functioning ecosystem. Especially in urban contexts, practitioners recognized that land use disturbances made it unrealistic to recreate indigenous or historic environments as they once were. This is why the new approaches to restorations were influenced by the imperative, already emerged in the 1930s, of repairing or reversing damage caused by human activity on ecosystems.
 
 ***What makes an ecosystem and its restoration*** — What persists of these definitions are the core variables that should inform any restoration. First, the **structure of forms** composing an ecosystem — the spatial pattern or arrangement of landscape elements (patches, corridors, and matrices) which strongly controls movements, flows, and changes [@dramstad1996landscape]. Second, the ‘ecosystem functions’, later redefined as ‘ecological **processes**’, intended as the “dynamic attributes of ecosystems, including interactions among organisms and interactions between organisms and their environments” or more simply put by @dramstad1996landscape, the **movements and flows** of animals, plants, water, wind, materials, and energy through the structure. Lastly, a restoration project should aim to provide **resiliency**, the ability of the ecosystem to sustain itself without regular maintenance or interventions: the native plants and animal species should thrive, sustain reproducing populations necessary for their stability, and be capable of enduring periodic environmental stress events (such as a fire or flood) that serve to maintain the integrity of the ecosystem.
 
@@ -27,28 +26,26 @@ Along with the Elbe river, Dresden comprises a dense network of streams, which a
 
 These concerns and identified potentials beg the question that, **how can urban streams be restored and integrated in Dresden's fabric, such that there is a synergy between human activities and the natural environment?**
 
-To articulate the challenges and identify the potentials to answer the question, the analysis is divided into three sub-research categories under the broad themes of biodiversity, climate adaptation and quality of life. Each theme has specific criteria with  its attributes, which are analysed, measured and weighted against each other to arrive at the final decisions.  
+To articulate the challenges and identify the potentials to answer the question, the analysis is divided into three sub-research categories under the broad themes of biodiversity, climate adaptation and quality of life. Each theme has specific criteria with its attributes, which are analysed, measured and weighted against each other to arrive at the final decisions.
 
 ### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
 
 The criteria of **connectivity** and **quality** are chosen to improve the existing habitats and further expand them.
 
-1. Connectivity — Aims to identify the the potential green corridors along the streams, using the following sub-criteria for measurement:  
-   1. Green-Blue connectivity
-
-2. Quality —  Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:  
-   1. Water pollution  
-   2. Plant health  
-   3. Soil quality
-
+1.  Connectivity — Aims to identify the the potential green corridors along the streams, using the following sub-criteria for measurement:
+    1.  Green-Blue connectivity
+2.  Quality — Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:
+    1.  Water pollution\
+    2.  Plant health\
+    3.  Soil quality
 
 ### Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
 
 To address this question, we focused on identifying both the areas most vulnerable to climate-related hazards and those with potential for ecological intervention.
 
-*Flood exposure* \- For flood adaptation, our first step was to understand the severity and spatial extent of flood risk across the city. We wanted to identify which areas are most at risk under different flood scenarios (e.g. HQ20, HQ100, and extreme events), and how these risks are spatially distributed in relation to existing infrastructure and urban development. This required the use of high-resolution flood hazard maps and the creation of an 'exposure to floods' attribute, which allowed us to quantify and compare the vulnerability of different areas.
+*Flood exposure* - For flood adaptation, our first step was to understand the severity and spatial extent of flood risk across the city. We wanted to identify which areas are most at risk under different flood scenarios (e.g. HQ20, HQ100, and extreme events), and how these risks are spatially distributed in relation to existing infrastructure and urban development. This required the use of high-resolution flood hazard maps and the creation of an 'exposure to floods' attribute, which allowed us to quantify and compare the vulnerability of different areas.
 
-*Soil infiltration* \- For soil infiltration, our interest shifted toward understanding the capacity of different soils—especially those in proximity to water bodies—to absorb and regulate rainwater. These areas can potentially act as buffers that mitigate surface runoff and reduce flood pressure. We therefore used the Soil Infiltration Capacity layer to assess which spatial units could support light ecological restoration and which would require more significant interventions, such as the removal of built surfaces or the reintroduction of native vegetation. Together, these two strands of analysis aimed to reveal where and how spatial interventions could be most effectively targeted to support climate adaptation.
+*Soil infiltration* - For soil infiltration, our interest shifted toward understanding the capacity of different soils—especially those in proximity to water bodies—to absorb and regulate rainwater. These areas can potentially act as buffers that mitigate surface runoff and reduce flood pressure. We therefore used the Soil Infiltration Capacity layer to assess which spatial units could support light ecological restoration and which would require more significant interventions, such as the removal of built surfaces or the reintroduction of native vegetation. Together, these two strands of analysis aimed to reveal where and how spatial interventions could be most effectively targeted to support climate adaptation.
 
 ### Quality of Life: How accessible, inviting, and diverse is Dresden's public space, and how can it reach its full potential?
 
@@ -60,17 +57,16 @@ Three important aspects of restoration projects relate to this benefit, they are
 
 References:
 
-- @Bernhardt2007Restoring
-- @Scoggins2022Community-powered
+-   @Bernhardt2007Restoring
+-   @Scoggins2022Community-powered
 
-
-1. Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the following sub-criteria:  
-   1. Spatial openness (encasement)  
-   2. Visibility of the streams from surrounding urban areas
-2. Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance, using two sub-criteria:  
-   1. Distance of stream corridors and green spaces  
-   2. Proximity
-3. Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality.
+1.  Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the following sub-criteria:
+    1.  Spatial openness (encasement)\
+    2.  Visibility of the streams from surrounding urban areas
+2.  Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance, using two sub-criteria:
+    1.  Distance of stream corridors and green spaces\
+    2.  Proximity
+3.  Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality.
 
 ### Spatial Units and other notes
 
@@ -80,8 +76,8 @@ The spatial units used in this study are hexagons with a dimension of 300 meters
 
 The main reason behind picking the dimensions of 300 meters is based on two main reasons:
 
-1. The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.  
-2. The space but not the line: the spatial units are also going to determine the probable area of intervention. Then the streams are not the only lines that need to be changed, but the space surrounding them is also affected in both ways. This space includes the buildings, facilities, and natural habitats that all have synergies along with their neighboring stream structure.
+1.  The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.\
+2.  The space but not the line: the spatial units are also going to determine the probable area of intervention. Then the streams are not the only lines that need to be changed, but the space surrounding them is also affected in both ways. This space includes the buildings, facilities, and natural habitats that all have synergies along with their neighboring stream structure.
 
 ![The Dimensions of spatial units and the river buffer radius](../images/Spatial_Units_Zoomed_In.jpeg)
 
@@ -113,11 +109,11 @@ This layer was then intersected with the spatial units to focus on the vegetatio
 
 ##### *Water pollution*
 
-We have not found the data yet.  
+We have not found the data yet.
 
 ##### *Soil quality*
 
-The attribute is used to identify where the existing vegetation which has poor soil quality, as it signally at a degrading ecological habitat. Soil quality is measured as it is an integral measure of the ecological value of the soil. The layer used to compute the attribute were the vegetation layer from OpenStreetMap and the soil quality layer from Dresden OpenData. 
+The attribute is used to identify where the existing vegetation which has poor soil quality, as it signally at a degrading ecological habitat. Soil quality is measured as it is an integral measure of the ecological value of the soil. The layer used to compute the attribute were the vegetation layer from OpenStreetMap and the soil quality layer from Dresden OpenData.
 
 ![Mapping the soil quality of vegetation in Dresden](../images/Vegetation_soil_quality_preliminary.png)
 
@@ -127,7 +123,7 @@ The two layers were intersected to see where the vegetation has poor soil qualit
 
 ##### *Plant health*
 
-Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most  ) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
+Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most ) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
 ### Climate Adaptation
 
@@ -185,15 +181,15 @@ Not sure if we will use it.
 
 ##### *Shade*
 
-By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognised through the ground shadow analysis, especially during the peak time of warm periods in the area.  
+By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognised through the ground shadow analysis, especially during the peak time of warm periods in the area.
 
 The DSM and DTM raster layers were needed to run the shadow analysis based on the building and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done based on three time intervals during the day within the peak times of warm periods in the area.
 
-![Shadow analysis done by the UMEP processing tool](../images/ShadowAnalysis_1.png)
+![Shadow analysis done by the UMEP processing tool](images/maintemplate 1.pdf)
 
 The output layer with which was a raster layer, was then aggregated to the spatial units using the Zonal Statistics tool to translate the shading values to the polygon spatial units. The output values were the median (average) values contained within each spatial unit and were already distributed between zero (full shadow) and one (no shadow) values.
 
-![Normalizing the shadow analysis values between zero & one](../images/ShadowAnalysis_2.png)  
+![Normalizing the shadow analysis values between zero & one](../images/ShadowAnalysis_2.png)
 
 ### Quality of Life
 
@@ -201,7 +197,7 @@ The output layer with which was a raster layer, was then aggregated to the spati
 
 ##### *Encasement*
 
-The encasement factor reflects the amount of enclosure of a space along the water body. It can be analysed by calculating the ratio of the building height and the street width of the open space on the edge with the stream or river banks. This is a qualitative value that represents the openness of the neighbouring spaces of streams and water bodies through a quantitative method.  
+The encasement factor reflects the amount of enclosure of a space along the water body. It can be analysed by calculating the ratio of the building height and the street width of the open space on the edge with the stream or river banks. This is a qualitative value that represents the openness of the neighbouring spaces of streams and water bodies through a quantitative method.
 
 ##### *Visibility*
 
@@ -213,13 +209,11 @@ The visibility factor refers to how visible the streams are from an urban area. 
 
 The idea behind the accessibility is that for the quality of life, spatial units that are closer to places where inhabitants live are more valuable and more important than those that are harder to reach. Therefore, we wanted to study how many people leave close to each spatial unit, and are therefore accessible by feet. To do so, we settled on a threshold of 1km for the maximum distance that makes a spatial unit accessible, and we used the following steps to compute the accessibility:
 
-1. Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
-2. Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
-3. Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap, which required to clean up some isolated roads.
-4. Keep only the paths that are shorter than 1km, representing convenient accessibility by feet.
-5. Compute the accessibility of each spatial unit $\text{su}$ as:
-   $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$
-   The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
+1.  Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
+2.  Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
+3.  Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap, which required to clean up some isolated roads.
+4.  Keep only the paths that are shorter than 1km, representing convenient accessibility by feet.
+5.  Compute the accessibility of each spatial unit $\text{su}$ as: $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$ The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
 
 The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.
 
@@ -227,7 +221,7 @@ The final value is not really interpretable, as it is a population density multi
 
 ##### *Land use variety*
 
-This analysis identifies the types of land use around the stream corridors, more variety of uses enhances the connectivity of streams with the current urban fabric. It is well connected if there are various public spaces and/ or amenities present.  
+This analysis identifies the types of land use around the stream corridors, more variety of uses enhances the connectivity of streams with the current urban fabric. It is well connected if there are various public spaces and/ or amenities present.
 
 ::: {layout-ncol="2"}
 ![](../images/Analysis_Landuse_1.png)
@@ -281,8 +275,7 @@ show_table(
 )
 ```
 
-These weights were computed with respective consistency ratios of `{r} saaty_weights[["Biodiversity"]][["consistency_ratio"]]`, `{r} saaty_weights[["Climate Adaptation"]][["consistency_ratio"]]`, and `{r} saaty_weights[["Quality of Life"]][["consistency_ratio"]]` for Biodiversity, Climate Adaptation, and Quality of Life.
-These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, which indicates that the pairwise comparisons were consistent enough to be used in the analysis.
+These weights were computed with respective consistency ratios of `{r} saaty_weights[["Biodiversity"]][["consistency_ratio"]]`, `{r} saaty_weights[["Climate Adaptation"]][["consistency_ratio"]]`, and `{r} saaty_weights[["Quality of Life"]][["consistency_ratio"]]` for Biodiversity, Climate Adaptation, and Quality of Life. These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, which indicates that the pairwise comparisons were consistent enough to be used in the analysis.
 
 ## Results of the Analysis
 
