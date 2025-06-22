@@ -229,11 +229,11 @@ The final value is not really interpretable, as it is a population density multi
 
 ##### *Land use variety*
 
-This analysis identifies the types of land use around the stream corridors, more variety of uses enhances the connectivity of streams with the current urban fabric. It is well connected if there are various public spaces and/ or amenities present.  
+This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.  
 
 ![Land use map](../images/Land Use.png)
 
-A higher value for each unit indicates greater land use diversity.
+For this purpose, the land use data was simplified into 10 main categories. Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. A higher value indicates greater land use diversity, suggesting a stronger potential for the streams as public spaces.
 
 ![Normalized value of land use](../images/Land Use_Units.png)
 
