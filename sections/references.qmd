@@ -1,4 +1,6 @@
 # Bibliography {.unnumbered}
 
+Perrelet, K., Moretti, M., Dietzel, A., Altermatt, F., & Cook, L. M. (2024). Engineering blue‑green infrastructure for and with biodiversity in cities. npj Urban Sustainability, 4(27). https://doi.org/10.1038/s42949-024-00163-y
+
 ::: {#refs}
 :::
