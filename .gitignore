@@ -17,3 +17,4 @@ docs/
 data/*
 !data/results/
 data/results/temp/
+!data/background/
