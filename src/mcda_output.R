@@ -9,7 +9,7 @@ for (cat in names(attributes)) {
   # Ensure order matches
   stopifnot(length(col_names) == length(weights))
   # Compute weighted sum (row-wise)
-  cat_col_name <- gsub("_", " ", cat, fixed = TRUE)
+  cat_col_name <- gsub(" ", "_", cat, fixed = TRUE)
   spatial_units[[paste0(cat_col_name, "_Score")]] <- as.matrix(features[, col_names]) %*% weights
 }
 
@@ -20,13 +20,13 @@ exclude_cols <- unlist(attribute_to_col[unlist(attributes)])
 keep_cols <- setdiff(names(spatial_units), exclude_cols)
 
 # Add the three category scores to the kept columns
-keep_cols <- unique(c(keep_cols, paste0(cat_col_name, "_Score")))
+keep_cols <- unique(c(keep_cols, paste0(gsub(" ", "_", names(attributes)), "_Score")))
 
 # Subset the data
 output <- spatial_units[, keep_cols]
 
 # Compute the overall average score (across the three categories)
-output$MCDA_score <- rowMeans(st_drop_geometry(output)[, paste0(cat_col_name, "_Score")])
+output$MCDA_Score <- rowMeans(st_drop_geometry(output)[, paste0(gsub(" ", "_", names(attributes)), "_Score")])
 
 # Write to GeoJSON
 st_write(output, "../data/results/Spatial_Units-MCDA.geojson", delete_dsn = TRUE, quiet = TRUE)
