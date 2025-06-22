@@ -1,10 +1,83 @@
-# MCDA
+---
+title: "Unpacking Dresden"
+subtitle: "Preliminary report of Spatial Analysis methods and outcomes in the context of river and stream restoration in Dresden, Germany"
+author:
+  - name: "Alexandre Bry"
+    affiliation: "MSc Geomatics"
+  - name: "Alankrita Sharma"
+    affiliation: "MSc Urbanism"
+  - name: "Grase Stephanie"
+    affiliation: "MSc Urbanism"
+  - name: "Soroush Saffarzadeh"
+    affiliation: "MSc Urbanism"
+  - name: "Adriano Mancini"
+    affiliation: "MSc Urbanism"
+date: today
+bibliography: references.bib
+biblio-title: "References"
+---
 
-## Problem Statement, Objectives and Criteria
+```{=typst}
+#show figure: set block(breakable: true)
+
+#show: main-content-container.with(reset-page-numbering: true)
+```
+
+```{r setup}
+#| echo: false
+source("src/saaty.R")
+library(kableExtra)
+```
+
+## Introduction
+
+### Roles
+
+The research group is a combination of five members taking the roles as follows:
+
+- Alexandre Bry: Project Coordinator, Data Analyst
+- Alankrita Sharma: Research Lead, Presentation Lead
+- Grase Stephanie: Mapping Specialist
+- Soroush Saffarzadeh: Writer/Editor, Presentation Lead
+- Adriano Mancini: Design Lead
+
+It should be mentioned that these roles are intended to allocate a leading responsibility over the defined roles but the each minor task is going to be distributed among the team members including helping and guiding each other on specific tasks.
+
+## Preliminary Maps and Research
+
+In this chapter, we will introduce our research, possibly including a summary of our first brainstorming, and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project.
+
+### Historical background
+
+Dresden originated as a small settlement on the left bank of the Elbe and remained modest until the 16th century, when it became the capital of the Protestant Electorate of Saxony after the Schmalkaldic War. Under Elector Moritz, the city expanded rapidly with major architectural and urban developments. In the 18th century, it became a key cultural and political center as the royal residence of the Polish kings, marked by the construction of prominent monuments like the Zwinger and the Frauenkirche. Throughout the 19th century, Dresden continued to grow, becoming the capital of the Kingdom of Saxony and undergoing a major population boom.
+
+The 20th century brought devastation with the Allied bombing in 1945, which destroyed much of the city, including the Frauenkirche. Following reunification, major reconstruction efforts began in the 2000s, including the faithful rebuilding of Neumarkt square and other historical landmarks, with a mix of traditional and modern residential architecture.
+
+**A key feature that emerged from historical photographs is the extensive use of the riverfront—large green meadows cutting through the urban fabric, which were historically used for social, economic, and cultural activities**. These strips of grass, still visible today, offer clues to a spatial element that defines Dresden's atmosphere: **a city shaped not only by its architecture and history but also by its open, green relationship with the Elbe River.**
+
+Dresden has also faced major ecological challenges, notably the catastrophic Elbe floods of 1845 and 2002—the latter setting a new record and causing severe damage, much of which has since been repaired. **These flood events highlight the importance of integrating ecosystem restoration and climate resilience into the city’s spatial planning.**
+
+### Natural elements
+
+Dresden is considered one of the greenest cities in Europe, with approximately 62% of its total area covered by forests, parks, and green spaces. This extensive green infrastructure includes the large woodland of the Dresdner Heide in the north and the Großer Garten in the city center, contributing to both ecological richness and urban quality of life. The city’s location in the Elbe Valley, framed by vineyards and wooded hills, is defined by the Elbe River, which meanders through the urban fabric and is bordered by wide river meadows. **These meadows, cutting across the city, have historically hosted a variety of uses and activities—visible in old photographs—and remain a defining feature of Dresden's atmosphere and spatial identity.**
+
+The Environment Office, responsible for nature conservation, places great emphasis on the protection of biotopes within the city. **These areas not only serve as essential refuges for rare and endangered species, such as the beaver and corn crake, but also function as peaceful recreational spaces for residents.** The presence of such species within the urban core is seen as a significant achievement in local conservation efforts and a testament to the ecological quality of Dresden's landscape.
+
+To further support the integration of nature into the city, Dresden’s current landscape plan is guided by the concept “**Dresden—the compact city in the ecological network**” (“Dresden – die kompakte Stadt im ökologischen Netz”). **This approach emphasizes the need to balance urban density with ecological connectivity**. The plan divides the city into sub-areas and introduces an ecological network structured through both net elements (functional spaces, high-value areas, ecological corridors, and green axes) and cell elements (ranging from compact urban cells to flexible and rural ones). Rather than defining fixed protected zones, this framework serves as a planning tool that guides future land use and development while respecting the city’s natural systems and polycentric structure.
+
+The plan proposes 27 specific measures to guide future urban and landscape planning, aiming to protect, enhance, or restore ecological functions in different parts of the city. These measures provide orientation for decision-making across various departments and help ensure that Dresden continues to evolve as a resilient, biodiverse, and livable green city.
+
+### Built Environment
+
+Dresden’s built environment reflects a complex layering of historical reconstruction, post-war development, and more recent car-centric urban expansion. The city is most recognizably shaped by its flood control strategies, which have left a prominent mark in the form of the wide, grassy Elbe meadows that traverse the urban core. While these meadows serve as a natural buffer for high waters, they remain largely undeveloped green corridors with limited ecological or recreational diversity. Beyond these, Dresden’s green spaces are relatively limited, with only a few notable urban parks and one major urban forest. Much of the city’s later development—particularly in the post-war and post-reunification periods—has prioritized road infrastructure and low-density layouts, contributing to a fragmented urban fabric that often lacks pedestrian accessibility and integrated ecological planning. This context underscores the need for rethinking the relationship between the built environment and the landscape to better support both human and non-human life.
+
+## MCDA
+
+### Problem Statement, Objectives and Criteria
 
 Here we talk about our understanding of the problem (both in a general sense and more specifically in our research goals), and the questions for each objective that brought us to choose the criteria.
 
-### Theoretical framework: The idea of Ecological Restoration
+#### Theoretical framework: The idea of Ecological Restoration
 
 Our group’s understanding of ecological restoration is reflected well in the evolution of debates and the resulting definition of the discipline, developed by the newly formed Society for Ecological Restoration (SER) in the 1980s and first published in 1990\.
 
@@ -13,7 +86,7 @@ Our group’s understanding of ecological restoration is reflected well in the e
 
 ***What to leave behind*** —The emerging movement sought to move beyond human-centric notions that had shaped the goals and perspectives of restoration efforts. It aimed to reposition humans as part of complex ecosystems rather than the central focus of resource management. Terms like ‘conservation’ and ‘preservation’ were avoided, as they implied managing “natural resources” for human use or protecting wilderness for its scenic value. At the heart of earlier approaches was the objectification of nature as a resource to be used, enjoyed, and controlled: projects often sought to simplify streams and floodplains, eliminating ecological dynamics seen as barriers to flood control and land development. By the late 1990s, it was increasingly recognized that flood damage reduction and ecosystem protection could be achieved through the same project. This marked a shift in thinking among floodplain managers—**from single-purpose flood control to integrated river and floodplain interventions that mitigate flood impacts while providing ecological benefits.**
 
-![Lisa Kreishok [@riley2016restoring]](../images/Evolution-of-flood-risk-reduction-projects.png){width=60%}
+![Lisa Kreishok [@riley2016restoring]](images/Evolution-of-flood-risk-reduction-projects.png){width=60%}
 
 Even the aforementioned definition of restoration sparked debates about how to define “indigenous” or “historic” ecosystems, given that ecological systems constantly evolve. This raises the question: which point in history should we aim to restore to? After all, there is a difference between restoring for maximum biodiversity and supporting the local dynamics of a functioning ecosystem. Especially in urban contexts, practitioners recognized that land use disturbances made it unrealistic to recreate indigenous or historic environments as they once were. This is why the new approaches to restorations were influenced by the imperative, already emerged in the 1930s, of repairing or reversing damage caused by human activity on ecosystems. 
 
@@ -21,7 +94,7 @@ Even the aforementioned definition of restoration sparked debates about how to d
 
 Finally, a suggestive and far-reaching paradigm was provided by one of the founders of the movement, William Jordan, who argued that **individuals and communities must be active participants in ecological recovery, and that healing natural systems would also foster the recovery of human communities.** The benefits would go beyond an economic view of the use and enjoyment of our collective natural resources, encompassing the **re-creation of a “sense of community” and a “sense of place.”** Restoration should aim to create functioning **environments where diverse species can thrive while also restoring social and historical identity** in a generation increasingly disconnected from place by freeways, strip malls, and car-centric development.
 
-### Problem Statement and Research Question
+#### Problem Statement and Research Question
 
 Along with the Elbe river, Dresden comprises a dense network of streams, which are spread out across its fabric. Presently, the streams are secluded from being a valuable part of the city. The problems are characterised by ecological issues, inappropriate land use by residents, and artificial channelling (Project case description). They, along with the Elbe river hold potential to become elements of integrating the ecological and social functions of the city by reclaiming the historical identity of waterfronts and restoring natural habitats. Therefore, there arises a need to understand how to integrate these streams into the network of protected green areas and public spaces, while maximising their contribution to biodiversity while adapting to the risk of flooding within and around the city.
 
@@ -29,20 +102,20 @@ These concerns and identified potentials beg the question that, **how can urban 
 
 To articulate the challenges and identify the potentials to answer the question, the analysis is divided into three sub-research categories under the broad themes of biodiversity, climate adaptation and quality of life. Each theme has specific criteria with  its attributes, which are analysed, measured and weighted against each other to arrive at the final decisions.  
 
-### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
+#### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
 
 The criteria of **connectivity** and **quality** are chosen to improve the existing habitats and further expand them.
 
-1. Connectivity — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the 'greenspace' layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden's fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:
- 
-   1a. Green-Blue connectivity: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision (Perrelet et al 2024). To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.
+1. Connectivity — Aims to identify the the potential green corridors along the streams, using the following sub-criteria for measurement:  
+   1. Green-Blue connectivity
 
-2. Quality —  The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.   
-   2a. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.   
-   2b. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem. 
+2. Quality —  Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:  
+   1. Water pollution  
+   2. Plant health  
+   3. Soil quality
 
 
-### Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
+#### Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
 
 To address this question, we focused on identifying both the areas most vulnerable to climate-related hazards and those with potential for ecological intervention.
 
@@ -50,7 +123,7 @@ To address this question, we focused on identifying both the areas most vulnerab
 
 *Soil infiltration* \- For soil infiltration, our interest shifted toward understanding the capacity of different soils—especially those in proximity to water bodies—to absorb and regulate rainwater. These areas can potentially act as buffers that mitigate surface runoff and reduce flood pressure. We therefore used the Soil Infiltration Capacity layer to assess which spatial units could support light ecological restoration and which would require more significant interventions, such as the removal of built surfaces or the reintroduction of native vegetation. Together, these two strands of analysis aimed to reveal where and how spatial interventions could be most effectively targeted to support climate adaptation.
 
-### Quality of Life: How accessible, inviting, and diverse is Dresden's public space, and how can it reach its full potential?
+#### Quality of Life: How accessible, inviting, and diverse is Dresden's public space, and how can it reach its full potential?
 
 Urban stream restoration is increasingly used as a strategy for improving the physical and ecological conditions of degraded urban streams. Beyond ecological benefit, it also has a social impact for enhancing the quality of life for the residents living in urban areas.
 
@@ -72,22 +145,22 @@ References:
    2. Proximity
 3. Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality.
 
-### Spatial Units and other notes
+#### Spatial Units and other notes
 
 The spatial units used in this study are hexagons with a dimension of 300 meters. The study area of Dresden is divided using a complete surface of a hexagonal pattern. Then it is overlaid with the water stream network and river body from OpenStreetMap to keep only the hexagons that intersect with at least one stream. Finally, the isolated hexagons were removed.
 
-![Spatial Units of waterbodies & streams across Dresden](../images/Spatial_Units.png)
+![Spatial Units of waterbodies & streams across Dresden](images/Spatial_Units.png)
 
 The main reason behind picking the dimensions of 300 meters is based on two main reasons:
 
 1. The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.  
 2. The space but not the line: the spatial units are also going to determine the probable area of intervention. Then the streams are not the only lines that need to be changed, but the space surrounding them is also affected in both ways. This space includes the buildings, facilities, and natural habitats that all have synergies along with their neighboring stream structure.
 
-![The Dimensions of spatial units and the river buffer radius](../images/Spatial_Units_Zoomed_In.jpeg)
+![The Dimensions of spatial units and the river buffer radius](images/Spatial_Units_Zoomed_In.jpeg)
 
 The spatial units are also filtered by a 500-meter buffer of the main river, Elde, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elde river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.
 
-## Attributes and Layers
+### Attributes and Layers
 
 Based on the criteria that we decided to tackle, we had to come up with numerical indicators that we could use to evaluate them. These numerical indicators are called attributes and have to be normalised—in our case between 0 and 1—so that they can be compared and weighted properly depending on their relevance. In our case, 0 corresponds to an urgent need to perform urban stream restoration, while 1 corresponds to a situation that is currently very good, or at least the best in the area of interest.
 
@@ -95,55 +168,57 @@ In practice, these attributes also needed to be aggregable at the scale of the s
 
 *(Attributes with an asterisk \* are mentioned the ‘Discussion’ chapter at the end of the report)*
 
-### Biodiversity
+#### Biodiversity
 
-#### Connectivity
+##### Connectivity
 
-##### *Green-blue connectivity\**
+###### *Green-blue connectivity\**
 
-The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified. The layer includes different types of green infrastructure found throughout Dresden, encompassing both designed recreational areas—such as parks and greenery along roads—and natural environments like forests, meadows, and grasslands.
+The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified.
 
-![Mapping vegetation, urbanised areas, and undeveloped areas](../images/Green_connectivity_preliminary.png)
+![Mapping vegetation, urbanised areas, and undeveloped areas](images/Green_connectivity_preliminary.png)
 
-This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams and falls within the defined spatial units. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised from 0 to 1 to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.
+This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.
 
-![Identifying potential to establish green connectivity along the streams](../images/Green_connectivity.png)
+![Identifying potential to establish green connectivity along the streams](images/Green_connectivity.png)
 
-#### Quality
+##### Quality
 
-##### *Soil quality*
+###### *Water pollution*
 
-The attribute is used to identify where the existing vegetation which has poor soil quality, as it signally at a degrading ecological habitat. Soil quality is measured as it is an integral measure of the ecological value of the soil. The layer used to compute the attribute were the vegetation layer from OpenStreetMap and the soil quality layer from Dresden OpenData. 
+We have not found the data yet.  
 
-![Mapping the soil quality of vegetation in Dresden](../images/Vegetation_soil_quality_preliminary.png)
+###### *Soil quality*
 
-The two layers were intersected to see where the vegetation has poor soil quality. The resulting layer was intersected with the spatial units to focus on the vegetation near the streams. This helped us visualise the streams where the soil quality needed to be restored in order to restore natural habitats.
+Soil quality is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. The different soil qualities, ranging from 1-6 (1 indicating low and 6 indicating extremely high quality) was intersected with the layer of the spatial units. The weighted area for each soil type in each unit was calculated by multiplying their area by their quality number. All different soil qualities present in each spatial unit were then aggregated to get the weighted area in each unit. These values were ultimately normalised and graduated to create the final map, which showed us the spatial units where there is a high concentration of poor soil quality, which are necessary to be addressed for biodiversity. Few spatial units do not have any value, aa the layer did not hold any data at those locations. Those units are dropped out from the MCDA analysis.
 
-![Identifying vegetation with good soil quality and poor soil quality along the streams](../images/Vegetation_soil_quality.png)
+![Mapping the soil quality of vegetation in Dresden](images/Vegetation_soil_quality_preliminary.png)
 
-##### *Plant health*
+![Identifying vegetation with good soil quality and poor soil quality along the streams](images/Vegetation_soil_quality.png)
 
-Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
+###### *Plant health*
 
-### Climate Adaptation
+Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most  ) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
-#### Resilience to flood risks
+#### Climate Adaptation
 
-##### *Available space near streams*
+##### Resilience to flood risks
+
+###### *Available space near streams*
 
 The necessity of available open space along the streams and the water body will be a potential opportunity for design interventions to prevent, or at least reduce, the flood risk along the streams’ banks. This can be achieved by calculating the available open space areas in the close proximity of the streams and rivers of Dresden.
 
-![Open grasslands and undeveloped lands as available spaces along the streams](../images/Available_Spaces_1.png)
+![Open grasslands and undeveloped lands as available spaces along the streams](images/Available_Spaces_1.png)
 
 This was assessed by using the land use ground layer collected from the \[surfdrive\] dataset and filtered based on the undeveloped land and grassland values. After that, the layer was intersected with the spatial units to calculate the coverage space of each land type within each spatial unit before being joined by attributes to the raw spatial units again.
 
-![Available spaces along the streams by area](../images/Available_Spaces_2.png)
+![Available spaces along the streams by area](images/Available_Spaces_2.png)
 
 By joining the intersected layer to spatial units based on their join attributes, the available space within each spatial unit is already available. In order to normalize the values, the area values were all divided by the highest area number, and the new results were distributed between zero, as the lowest coverage or available area, and one, as the highest coverage and available area.
 
-![Normalized values of space availability along the streams](../images/Available_Spaces_3.png)
+![Normalized values of space availability along the streams](images/Available_Spaces_3.png)
 
-##### *Exposure to floods*
+###### *Exposure to floods*
 
 As part of a study commissioned by the Civil Engineering Office in 2020, following the introduction of a new flood protection law in the Saxony region, a new rainfall-runoff model was developed. Based on this model, working maps were created to show the areas that would be flooded during events expected to statistically occur once every 20 and 100 years, as well as under an additional extreme scenario.
 
@@ -152,86 +227,88 @@ Using the spatial layers from these scenarios, which indicated the areas affecte
 The aggregation of this data into a single attribute was carried out by first creating separate polygons for areas where multiple flood scenarios overlapped. Then, a value between 0 and 1 was assigned to each layer, using percentage-based weighting to reflect the relative severity of each scenario. We were interested in answering the following question: which are the most flood-prone areas in Dresden?
 
 ::: {layout-ncol="2"}
-![](../images/Flood_Exposure_Map.jpg)
+![](images/Flood_Exposure_Map.jpg)
 
-![](../images/Flood_Exposure_Units.jpg)
+![](images/Flood_Exposure_Units.jpg)
 :::
 
-##### *Soil infiltration capacity*
+###### *Soil infiltration capacity*
 
 Soil sealing caused by infrastructure prevents water from being absorbed into the ground, accelerates surface runoff, and reduces space for natural stream dynamics. Identifying areas most affected by man-made interventions was therefore a key priority. However, even in unsealed areas, not all soils absorb water equally. In the context of an analysis aimed at informing integrated, city-wide interventions, it is essential to consider the varying water absorption capacities of different soil types.
 
 To address this, we used the Soil Infiltration Capacity layer to assign each spatial unit a degree of infiltration potential. This allowed us to distinguish between areas where water can be absorbed with minimal, ‘light’ ecological restoration and those that require more intensive interventions—such as the removal of built structures or the restoration of ecological processes specific to the local soil type and its characteristics.
 
 ::: {layout-ncol="2"}
-![](../images/Soil_Infiltration_Map.jpg)
+![](images/Soil_Infiltration_Map.jpg)
 
-![](../images/Soil_Infiltration_Units.jpg)
+![](images/Soil_Infiltration_Units.jpg)
 :::
 
-#### Resilience to heat waves
+##### Resilience to heat waves
 
-##### *Sealing*
+###### *Sealing*
 
 Not handled yet.
 
-##### *Surfaces reflection index*
+###### *Surfaces reflection index*
 
 Not sure if we will use it.
 
-##### *Shade*
+###### *Shade*
 
 By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognised through the ground shadow analysis, especially during the peak time of warm periods in the area.  
 
 The DSM and DTM raster layers were needed to run the shadow analysis based on the building and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done based on three time intervals during the day within the peak times of warm periods in the area.
 
-![Shadow analysis done by the UMEP processing tool](../images/ShadowAnalysis_1.png)
+![Shadow analysis done by the UMEP processing tool](images/ShadowAnalysis_1.png)
 
 The output layer with which was a raster layer, was then aggregated to the spatial units using the Zonal Statistics tool to translate the shading values to the polygon spatial units. The output values were the median (average) values contained within each spatial unit and were already distributed between zero (full shadow) and one (no shadow) values.
 
-![Normalizing the shadow analysis values between zero & one](../images/ShadowAnalysis_2.png)  
+![Normalizing the shadow analysis values between zero & one](images/ShadowAnalysis_2.png)  
 
-### Quality of Life
+#### Quality of Life
 
-#### Attractiveness
+##### Attractiveness
 
-##### *Visibility*
+###### *Encasement*
 
-The visibility factor refers to how the city is seen from the streams within a 2km radius. This analysis aims to show the potential of the streams as public spaces offering city views. If many parts of the city are visible from the streams, it can contribute to their attractiveness. These are the steps we followed:
+The encasement factor reflects the amount of enclosure of a space along the water body. It can be analysed by calculating the ratio of the building height and the street width of the open space on the edge with the stream or river banks. This is a qualitative value that represents the openness of the neighbouring spaces of streams and water bodies through a quantitative method.  
 
-1. Interpolated points from the streams’ centerlines at 500 m intervals, with the assumption these points can represent the overall visibility from the streams.
-2. Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.
-3. Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.
+###### *Visibility*
 
-![](../images/Analysis_Visibility.png)
+The visibility factor refers to how visible the streams are from an urban area. The analysis is conducted by interpolating points from the streamline with a 500-meter radius of urban surroundings. This is also a qualitative value that reflects the visual openness of the streams through a quantitative method.
 
-#### Accessibility
+![](images/Analysis_Visibility.png)
 
-The idea behind the accessibility is that for the quality of life, spatial units that are closer to places where inhabitants live are more valuable and more important than those that are harder to reach. Therefore, we wanted to study how many people leave close to each spatial unit, and are therefore accessible by feet. To do so, we settled on a threshold of 1km for the maximum distance that makes a spatial unit accessible, and we used the following steps to compute the accessibility:
+##### Accessibility
 
-1. Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
-2. Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
-3. Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap. Using this layer required to clean up some isolated roads, because some starting points or spatial units centered would be attached to parts of the network that were not connected to the rest, and therefore it was not possible to find paths. To identify them, we run the path computation from all points to one point, and then manually removed parts of the network that were isolated and preventing the algorithm from finding paths.
-4. Keep only the paths that are shorter than 1km, representing convenient accessibility by feet.
-5. Compute the accessibility of each spatial unit $\text{su}$ as:
-   $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$
-   The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
+###### *Connection of green space and streams*
 
-The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.
+This layer shows how well green space and streams are connected. The analysis uses network PST analysis: Attraction Reach (AR) to evaluate how accessible streams are from green spaces within a 500-meter walking distance.  
 
-#### Diversity
+::: {layout-ncol="2"}
+![Attraction Reach Analysis](images/Analysis_Green%20Blue%20Connection_1.png)
 
-##### *Land use variety*
+![](images/Analysis_Green%20Blue%20Connection_2.png)
+:::
+
+######  *Proximity*
+
+The analysis uses isochrone and isodistance methods to identify the areas that can be reached from the streams within 15 minutes or 500 minutes of walking distance. The result shows how reachable the stream corridors are from their surrounding context
+
+##### Diversity
+
+###### *Land use variety*
 
 This analysis identifies the types of land use around the stream corridors, more variety of uses enhances the connectivity of streams with the current urban fabric. It is well connected if there are various public spaces and/ or amenities present.  
 
 ::: {layout-ncol="2"}
-![](../images/Analysis_Landuse_1.png)
+![](images/Analysis_Landuse_1.png)
 
-![](../images/Analysis_Landuse_2.png)
+![](images/Analysis_Landuse_2.png)
 :::
 
-## Weighting of the Attributes
+### Weighting of the Attributes
 
 Once each attribute has produced a normalised value for each spatial unit, all the attributes need to be aggregated into one final value. Since all of them do not participate equally to the goals we mentioned earlier, we tried to weight them according to their relative importance in achieving our goals. These weights could then be used to compute a weighted average that is easier to use thanks to reducing the problem to one dimension instead of several dimensions.
 
@@ -239,10 +316,16 @@ To compute the weights, we made individual Saaty matrices for the attributes of 
 
 Then, we divided them by 3 to assign the same weight to the three attributes, and got a final set of weights that summed to 1. We chose this method because it allowed us to assign more weights to the most reliable and pertinent attributes, while maintaining the balance between the three main objectives.
 
-```{r}
-#| echo: false
-#| output: false
-source("../src/mcda_weights.R")
+```{=typst}
+#show table.cell.where(x: 0): strong
+#show table: t => {
+  let width = t.columns.len()
+  let height = calc.floor((t.children.len() - 1) / width) + 1
+
+  show table.cell.where(y: height - 1): strong
+  show table.cell.where(x: width - 1): set align(right)
+  t
+}
 ```
 
 ```{r}
@@ -256,6 +339,56 @@ source("../src/mcda_weights.R")
 #|   - "Quality of Life"
 #| layout-nrow: 3
 
+attributes <- list(
+  "Biodiversity" = c(
+    "Soil quality", "Plant health", "Water pollution",
+    "Green-blue connectivity", "Green connectivity"
+  ),
+  "Climate Adaptation" = c(
+    "Available space near streams", "Anticipated flood risk",
+    "Soil infiltration capacity", "Sealing",
+    "Surfaces reflection index?", "Shade"
+  ),
+  "Quality of Life" = c(
+    "Encasement", "Visibility",
+    "Walking/biking accessibility to streams",
+    "Walking/biking accessibility to green spaces",
+    "Land use variety"
+  )
+)
+
+saaty_matrices <- list(
+  "Biodiversity" = matrix(
+    c(
+      1,  3, -3,  2,  2,
+     -3,  1, -4,  2,  2,
+      3,  4,  1,  5,  4,
+     -2, -2, -5,  1,  2,
+     -2, -2, -4, -2,  1
+    ), nrow = 5, byrow = TRUE
+  ),
+  "Climate Adaptation" = matrix(
+    c(
+      1, -2, -3,  3,  4,  2,
+      2,  1,  3,  4,  5,  3,
+      3, -3,  1,  3,  4,  3,
+     -3, -4, -3,  1,  2,  2,
+     -4, -5, -4, -2,  1,  1,
+     -2, -3, -3, -2,  1,  1
+    ), nrow = 6, byrow = TRUE
+  ),
+  "Quality of Life" = matrix(
+    c(
+      1,  2, -3, -3, -2,
+     -2,  1, -4, -4, -2,
+      3,  4,  1, -2,  3,
+      3,  4,  2,  1,  1,
+      2,  2, -3,  1,  1
+    ), nrow = 5, byrow = TRUE
+  )
+)
+
+saaty_weights <- lapply(saaty_matrices, calculate_weights)
 saaty_tables <- lapply(
   seq_along(saaty_matrices),
   function(i) {
@@ -280,61 +413,20 @@ show_table(
 These weights were computed with respective consistency ratios of `{r} saaty_weights[["Biodiversity"]][["consistency_ratio"]]`, `{r} saaty_weights[["Climate Adaptation"]][["consistency_ratio"]]`, and `{r} saaty_weights[["Quality of Life"]][["consistency_ratio"]]` for Biodiversity, Climate Adaptation, and Quality of Life.
 These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, which indicates that the pairwise comparisons were consistent enough to be used in the analysis.
 
-## Results of the Analysis
-
-<!-- ```{r}
-#| layout-ncol: 2
-#| warning: false
-#| code-fold: true
-
-library(sf)
-library(terra)
-library(ggplot2)
-library(ggnewscale)
-
-# Read vector and raster data
-mcda_attributes <- st_read("../data/results/Spatial_Units-MCDA_values.geojson", quiet = TRUE)
-
-attributes <- c(
-  Biodiversity_score = "MCDA on Biodiversity",
-  Climate.Adaptation_score = "MCDA on Climate Adaptation",
-  Quality.of.Life_score = "MCDA on Quality of Life",
-  MCDA_score = "Average"
-)
-
-basemap <- rast("../data/background/Google_Maps_Grey.tif")
-
-# Buffer and crop
-mcda_attributes_proj <- st_transform(mcda_attributes, crs(basemap))
-mcda_attributes_buffered <- st_buffer(mcda_attributes_proj, dist = 1000)
-basemap_crop <- crop(basemap, vect(mcda_attributes_buffered))
-
-# Convert raster to dataframe
-basemap_crop_df <- as.data.frame(basemap_crop, xy = TRUE, na.rm = TRUE)
-raster_band_name <- names(basemap_crop)[1]
-colnames(basemap_crop_df)[which(colnames(basemap_crop_df) == raster_band_name)] <- "grayscale_value"
-
-# Plot loop
-for (col in names(attributes)) {
-  p <- ggplot() + 
-    # Raster layer with its own fill scale
-    geom_raster(data = basemap_crop_df, aes(x = x, y = y, fill = grayscale_value)) +
-    scale_fill_gradient(low = "black", high = "white", guide = "none") +
-
-    # Reset fill scale for next layer
-    new_scale_fill() +
-
-    # Vector layer with MCDA score
-    geom_sf(data = mcda_attributes, aes(fill = .data[[col]]), alpha = 0.7) +
-    scale_fill_viridis_c(option = "C", name = "Legend") +
-
-    labs(title = attributes[[col]]) +
-    theme_void() +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    coord_sf(datum = st_crs(mcda_attributes))
-  
-  print(p)
-}
-``` -->
+### Results of the Analysis
 
 *To write and organise.*
+
+## Typology Construction
+
+### Results of the Analysis
+
+## Results
+
+## Discussion
+
+*Green-blue connectivity\*:* The attribute would be re-calculated using the Guido toolbox, to obtain a more precise analysis of the potential green corridors.
+
+## Conclusion
+
+...
