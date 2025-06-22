@@ -163,12 +163,12 @@ kmeans_result <- kmeans(X_scaled, centers = n_clusters, nstart = 20)
 # )
 
 ## Add the cluster labels to the spatial data
-spatial_units$cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and spatial_units
+spatial_units$Cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and spatial_units
 
 colnames(spatial_units)
 
 ## Show how many spatial_units fall into each cluster
-print(table(spatial_units$cluster))
+print(table(spatial_units$Cluster))
 ```
 
 Save the updated grid data (with cluster labels) to a new GeoPackage file. You can use it for further analysis and visualize.
@@ -181,18 +181,18 @@ We can also visualize the spatial pattern.
 
 ```{r}
 ## Generate cluster colors dynamically
-cluster_levels <- levels(spatial_units$cluster)
+cluster_levels <- levels(spatial_units$Cluster)
 cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
 cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
 
 ## Plot clusters with base R
-plot(spatial_units["cluster"], 
+plot(spatial_units["Cluster"], 
      main = "Spatial Pattern of Urban Stream Clusters", 
      border = NA,
-     col = cluster_colors[spatial_units$cluster])
+     col = cluster_colors[spatial_units$Cluster])
 
 legend("topright",
-     legend = levels(spatial_units$cluster),
+     legend = levels(spatial_units$Cluster),
      fill = cluster_colors,
      title = "Cluster",
      cex = 0.9,
@@ -241,8 +241,8 @@ centroids_matrix <- kmeans_result$centers[kmeans_result$cluster, ]
 spatial_units_distances <- sqrt(rowSums((X_scaled - centroids_matrix)^2))
 
 ## Save to spatial_units
-spatial_units$cluster_dist <- spatial_units_distances
-st_write(spatial_units, "../data/results/Spatial_Units-Typology_Construction_values.geojson", delete_dsn = TRUE, quiet = TRUE)
+spatial_units$Cluster_Dist <- spatial_units_distances
+st_write(spatial_units, "../data/results/Spatial_Units-Typology_Construction.geojson", delete_dsn = TRUE, quiet = TRUE)
 ```
 
 ## Summary
