@@ -211,7 +211,7 @@ The idea behind the accessibility is that for the quality of life, spatial units
 
 1. Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
 2. Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
-3. Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap, which required to clean up some isolated roads.
+3. Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap. Using this layer required to clean up some isolated roads, because some starting points or spatial units centered would be attached to parts of the network that were not connected to the rest, and therefore it was not possible to find paths. To identify them, we run the path computation from all points to one point, and then manually removed parts of the network that were isolated and preventing the algorithm from finding paths.
 4. Keep only the paths that are shorter than 1km, representing convenient accessibility by feet.
 5. Compute the accessibility of each spatial unit $\text{su}$ as:
    $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$
@@ -282,7 +282,7 @@ These values are below the threshold of 0.1 prescribed by @Saaty1987analytic, wh
 
 ## Results of the Analysis
 
-```{r}
+<!-- ```{r}
 #| layout-ncol: 2
 #| warning: false
 #| code-fold: true
@@ -335,6 +335,6 @@ for (col in names(attributes)) {
   
   print(p)
 }
-```
+``` -->
 
 *To write and organise.*
