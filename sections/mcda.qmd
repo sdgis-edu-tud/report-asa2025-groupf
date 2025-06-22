@@ -127,7 +127,7 @@ The two layers were intersected to see where the vegetation has poor soil qualit
 
 ##### *Plant health*
 
-Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most  ) over the five last available years. The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
+Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
 ### Climate Adaptation
 
