@@ -32,13 +32,17 @@ To articulate the challenges and identify the potentials to answer the question,
 
 The criteria of **connectivity** and **environmental quality** are chosen to improve the existing habitats and further expand them.
 
-1. Connectivity — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the 'greenspace' layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden's fabric. To identify the potential near the streams, the following sub-criteria is defined for measurement:
+1. Connectivity — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the 'greenspace' layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden's fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:
  
-   1. Green-Blue connectivity: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision (Perrelet et al 2024). To analyse the gaps in vegetation along the stream corridors, greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.
+   1a. Green-Blue connectivity: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision (Perrelet et al 2024). To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.
 
-2. Quality —  Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:  
-   1. Soil quality  
-   2. Plant health
+2. Quality —  The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.   
+   2a. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.   
+   2b. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem. 
+
+2. Quality —  The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.   
+   2a. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.   
+   2b. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem. 
 
 ### Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
 
@@ -94,19 +98,15 @@ In practice, these attributes also needed to be aggregable at the scale of the s
 
 ##### *Green-blue connectivity\**
 
-The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified.
+The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified. The layer includes different types of green infrastructure found throughout Dresden, encompassing both designed recreational areas—such as parks and greenery along roads—and natural environments like forests, meadows, and grasslands.
 
 ![Mapping vegetation, urbanised areas, and undeveloped areas](../images/Green_connectivity_preliminary.png)
 
-This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.
+This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams and falls within the defined spatial units. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised from 0 to 1 to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.
 
 ![Identifying potential to establish green connectivity along the streams](../images/Green_connectivity.png)
 
 #### Quality
-
-##### *Water pollution*
-
-We have not found the data yet.
 
 ##### *Soil quality*
 
