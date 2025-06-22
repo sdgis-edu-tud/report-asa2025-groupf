@@ -113,11 +113,13 @@ This layer was then intersected with the spatial units to focus on the vegetatio
 
 ##### *Soil quality*
 
-The attribute is used to identify where the existing vegetation which has poor soil quality, as it signally at a degrading ecological habitat. Soil quality is measured as it is an integral measure of the ecological value of the soil. The layer used to compute the attribute were the vegetation layer from OpenStreetMap and the soil quality layer from Dresden OpenData. 
+Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer.
+<insert map 1 and map 2>
+
 
 ![Mapping the soil quality of vegetation in Dresden](../images/Vegetation_soil_quality_preliminary.png)
 
-The two layers were intersected to see where the vegetation has poor soil quality. The resulting layer was intersected with the spatial units to focus on the vegetation near the streams. This helped us visualise the streams where the soil quality needed to be restored in order to restore natural habitats.
+The different soil qualities, ranging from 1-6 (1 indicating low and 6 indicating extremely high quality) was intersected with the layer of the spatial units. The weighted area for each soil type in each unit was calculated by multiplying their area by their quality number. All different soil qualities present in each spatial unit were then aggregated to get the weighted area in each unit. These values were ultimately normalised and graduated to create the final map, which showed us the spatial units where there is a high concentration of poor soil quality, which are necessary to be addressed for biodiversity. Few spatial units do not have any value, aa the layer did not hold any data at those locations. Those units are dropped out from the MCDA analysis.
 
 ![Identifying vegetation with good soil quality and poor soil quality along the streams](../images/Vegetation_soil_quality.png)
 
