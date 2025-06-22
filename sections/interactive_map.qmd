@@ -1,7 +1,7 @@
 # Interactive Map of the Attributes {.unnumbered}
-```{python}
+<!-- ```{python}
 #| echo: false
-#| eval: true
+#| eval: false
 
 import os
 import json
@@ -21,7 +21,12 @@ layers = {
     },
     "Accessibility to Streams": {
         "path": "../data/results/Spatial_Units-Accessibility.geojson",
-        "name": "Normalised Accessibility from Houses",
+        "name": "Normalised Population living at less than 1km",
+        "group": "Quality of Life",
+    },
+    "Visibility of the Streams": {
+        "path": "../data/results/Spatial_Units-Visibility.geojson",
+        "name": "Normalised Visibility of the Streams",
         "group": "Quality of Life",
     },
     "Shade 3pm": {
@@ -29,7 +34,7 @@ layers = {
         "name": "Normalised Shading at 3pm",
         "group": "Climate Adaptation",
     },
-    "Flood_Safety": {
+    "Flood Safety": {
         "path": "../data/results/Spatial_Units-Flood_Safety.geojson",
         "name": "Normalised Flood Safety",
         "group": "Climate Adaptation",
@@ -118,4 +123,4 @@ for layer_name, layer_info in layers.items():
 control = LayersControl(position='topright')
 m.add(control)
 m
-```
+``` -->
