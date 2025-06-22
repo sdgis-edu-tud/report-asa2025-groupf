@@ -1,5 +1,5 @@
 # Interactive Map of the Attributes {.unnumbered}
-```{python}
+<!-- ```{python}
 #| echo: false
 #| eval: false
 
@@ -34,7 +34,7 @@ layers = {
         "name": "Normalised Shading at 3pm",
         "group": "Climate Adaptation",
     },
-    "Flood_Safety": {
+    "Flood Safety": {
         "path": "../data/results/Spatial_Units-Flood_Safety.geojson",
         "name": "Normalised Flood Safety",
         "group": "Climate Adaptation",
@@ -123,4 +123,4 @@ for layer_name, layer_info in layers.items():
 control = LayersControl(position='topright')
 m.add(control)
 m
-```
+``` -->

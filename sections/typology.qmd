@@ -49,25 +49,25 @@ library(plotly) ## for plotting data
 ```
 
 ```{r}
-grids <- st_read("../data/results/Spatial_Units-All_Attributes.geojson", quiet = TRUE)
+spatial_units <- st_read("../data/results/Spatial_Units-All_Attributes.geojson", quiet = TRUE)
 
 ## View the columns of the data
-colnames(grids)
+colnames(spatial_units)
 
 ## Count how many spatial units we have
-nrow(grids)
+nrow(spatial_units)
 ```
 
 Then select the columns to use:
 
 ```{r}
-attributes <- c(
+used_attributes <- c(
   Green_Area = "Green area",
   Space_along_Streams = "Space along Streams",
   Shade_3pm = "Shade at 3pm",
   Accessibility = "Accessibility to streams"
 )
-n_attr <- length(attributes)
+n_attr <- length(used_attributes)
 ```
 
 We can also visualize the data to have a better understanding visually.
@@ -76,8 +76,8 @@ We can also visualize the data to have a better understanding visually.
 #| layout-ncol: 2
 
 ## Plot the attributes in two columns
-for (col in names(attributes)) {
-     plot(grids[col], border = NA, main = attributes[[col]])
+for (col in names(used_attributes)) {
+     plot(spatial_units[col], border = NA, main = used_attributes[[col]])
 }
 ```
 
@@ -86,8 +86,8 @@ for (col in names(attributes)) {
 We select the relevant features. These features are then standardized to ensure they contribute equally to the clustering algorithm.
 
 ```{r}
-features <- grids |> 
-  select(names(attributes)) |>
+features <- spatial_units |> 
+  select(names(used_attributes)) |>
   st_drop_geometry() ## remove geometry column so we just keep a data table
 
 X_scaled <- scale(features) ## Standardize (mean=0, sd=1) 
@@ -163,36 +163,36 @@ kmeans_result <- kmeans(X_scaled, centers = n_clusters, nstart = 20)
 # )
 
 ## Add the cluster labels to the spatial data
-grids$cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and grids
+spatial_units$cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and spatial_units
 
-colnames(grids)
+colnames(spatial_units)
 
-## Show how many grids fall into each cluster
-print(table(grids$cluster))
+## Show how many spatial_units fall into each cluster
+print(table(spatial_units$cluster))
 ```
 
 Save the updated grid data (with cluster labels) to a new GeoPackage file. You can use it for further analysis and visualize.
 
 ```{r}
-#st_write(grids, "grids_cluster.gpkg")
+#st_write(spatial_units, "spatial_units.gpkg")
 ```
 
 We can also visualize the spatial pattern.
 
 ```{r}
 ## Generate cluster colors dynamically
-cluster_levels <- levels(grids$cluster)
+cluster_levels <- levels(spatial_units$cluster)
 cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
 cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
 
 ## Plot clusters with base R
-plot(grids["cluster"], 
+plot(spatial_units["cluster"], 
      main = "Spatial Pattern of Urban Stream Clusters", 
      border = NA,
-     col = cluster_colors[grids$cluster])
+     col = cluster_colors[spatial_units$cluster])
 
 legend("topright",
-     legend = levels(grids$cluster),
+     legend = levels(spatial_units$cluster),
      fill = cluster_colors,
      title = "Cluster",
      cex = 0.9,
@@ -238,11 +238,11 @@ To interpret the clustering results, we examine the centers of each cluster in t
 centroids_matrix <- kmeans_result$centers[kmeans_result$cluster, ]
 
 ## Calculate Euclidean distance between each point and its assigned cluster center
-grid_distances <- sqrt(rowSums((X_scaled - centroids_matrix)^2))
+spatial_units_distances <- sqrt(rowSums((X_scaled - centroids_matrix)^2))
 
-## Save to grids
-grids$cluster_dist <- grid_distances
-#st_write(grids, "grids_cluster_distance.gpkg")
+## Save to spatial_units
+spatial_units$cluster_dist <- spatial_units_distances
+st_write(spatial_units, "../data/results/Spatial_Units-Typology_Construction_values.geojson", delete_dsn = TRUE, quiet = TRUE)
 ```
 
 ## Summary
@@ -275,9 +275,9 @@ hist_colors <- grDevices::hcl.colors(n_attr, palette = "Dynamic", alpha = 1.0)
 par(mfrow = c(n_attr, 2), mar = c(4, 4, 2, 1))
 
 ## Plot histograms for each attribute
-for (i in seq_along(attributes)) {
-  colname <- names(attributes)[i]
-  display <- attributes[[colname]]
+for (i in seq_along(used_attributes)) {
+  colname <- names(used_attributes)[i]
+  display <- used_attributes[[colname]]
   color <- hist_colors[i]
 
   # Original
@@ -315,7 +315,7 @@ In our case:
 $$
 \text{Distance} = \sqrt{
 `r paste(
-  sapply(names(attributes), function(col) {
+  sapply(names(used_attributes), function(col) {
     paste0(
       "(x_{\\text{", tolower(gsub("_", " ", col)), "}} - ",
       "c_{\\text{", tolower(gsub("_", " ", col)), "}})^2"
@@ -333,8 +333,8 @@ $$
 #| echo: false
 #| title: 3D Distribution of the first 3 attributes
 # Get the first three attribute names and display names
-attr3_names <- names(attributes)[1:3]
-attr3_display <- attributes[1:3]
+attr3_names <- names(used_attributes)[1:3]
+attr3_display <- used_attributes[1:3]
 
 cluster3d_scaled <- plot_ly(
   x = X_scaled[, attr3_names[1]],
