@@ -14,7 +14,7 @@ attributes <- list(
     "Shade"
   ),
   "Quality of Life" = c(
-    # "Visibility",
+    "Visibility",
     "Walking accessibility",
     "Land use variety"
   )
@@ -39,16 +39,12 @@ saaty_matrices <- list(
     nrow = 4, byrow = TRUE
   ),
   "Quality of Life" = matrix(
-    # c(
-    # 1, -4, -2,
-    # 4,  1,  3,
-    # 2, -3,  1
-    # ), nrow = 3, byrow = TRUE
     c(
-      1, 3,
-      -3, 1
+      1, -4, -2,
+      4,  1,  3,
+      2, -3,  1
     ),
-    nrow = 2, byrow = TRUE
+    nrow = 3, byrow = TRUE
   )
 )
 
