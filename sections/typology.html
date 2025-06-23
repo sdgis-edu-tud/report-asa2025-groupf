@@ -205,7 +205,8 @@ window.Quarto = {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
   <li><a href="#clusters-computation" id="toc-clusters-computation" class="nav-link" data-scroll-target="#clusters-computation"><span class="header-section-number">3.2</span> Clusters Computation</a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">3.3</span> Analysis</a></li>
+  <li><a href="#topology-creation" id="toc-topology-creation" class="nav-link" data-scroll-target="#topology-creation"><span class="header-section-number">3.3</span> Topology Creation</a></li>
+  <li><a href="#answers-to-the-questions" id="toc-answers-to-the-questions" class="nav-link" data-scroll-target="#answers-to-the-questions"><span class="header-section-number">3.4</span> Answers to the Questions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/typology.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/typology.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -364,8 +365,8 @@ Figure&nbsp;3.2: Visualisation of the spatial units clustered geographically
 </div>
 </div>
 </section>
-<section id="analysis" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3.3</span> Analysis</h2>
+<section id="topology-creation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="topology-creation"><span class="header-section-number">3.3</span> Topology Creation</h2>
 <p>To interpret the clustering results, we examine the centers of each cluster in the original data scale.</p>
 <p>Before interpreting the results, an interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from <a href="#fig-columns-distribution" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>. The fact that some of them have a high concentration of values on the extreme values makes it quite likely to have a cluster to be centred on this value for this attribute, and this is indeed what we can see in the output.</p>
 <div class="cell">
@@ -384,11 +385,52 @@ Figure&nbsp;3.3: Distribution of the variables
 </div>
 <p>By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:</p>
 <ol type="1">
-<li>Cluster 1: Forest areas</li>
-<li>Cluster 2: Sparse urban areas</li>
-<li>Cluster 3: Dense urban areas</li>
-<li>Cluster 4: Marginal areas</li>
+<li><strong>Forest areas (Cluster 1)</strong>:
+<ul>
+<li>High proportion of greenery and shade due to the trees</li>
+<li>High peripherality because most of the forest is quite far from the houses</li>
+<li>Not much space available as the forest takes most of the space</li>
+</ul></li>
+<li><strong>Sparse urban areas (Cluster 2)</strong>:
+<ul>
+<li>Some greenery and some available space because the housing is not too dense</li>
+<li>Quite high peripherality since there is housing, but a low population density</li>
+<li>Low shade because some sparse trees and low buildings are the only sources of shade</li>
+</ul></li>
+<li><strong>Dense urban areas (Cluster 3)</strong>:
+<ul>
+<li>Very low amount of greenery and available space because space is mostly occupied by buildings</li>
+<li>Decent amount of shading because of the high and dense buildings</li>
+<li>Low peripherality as the population density is high in the area around</li>
+</ul></li>
+<li><strong>Marginal areas (Cluster 4)</strong>:
+<ul>
+<li>Quite high proportion of greenery composed of mostly grass fields and some forest</li>
+<li>A lot of space available as the grass fields are often not really used</li>
+<li>Very low shade as only a few trees create shade</li>
+<li>Quite high peripherality since these places are not central and not well accessible</li>
+</ul></li>
 </ol>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-typology-units" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-typology-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="typology_files/figure-html/fig-typology-units-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;3.4: Visualisation of the spatial units clustered with their typology"><img src="typology_files/figure-html/fig-typology-units-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-typology-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: Visualisation of the spatial units clustered with their typology
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="answers-to-the-questions" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="answers-to-the-questions"><span class="header-section-number">3.4</span> Answers to the Questions</h2>
+<p>Regarding the suitability of the spaces to sustain heat waves, the results are similar to what we could have expected, given that we mostly look at two attributes for this: the greenery and the shade. The forest areas are the most adapted with high greenery and shade that prevent the temperature from drastically increasing during heat waves. Marginal areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun. The sparse urban areas are even worse because there is even less greenery and not much more shade, while the dense urban areas have at least some shade even if the heat island effect will be strong due to the soil artificialisation.</p>
+<p>However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of heat wave sustainability. It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or marginal areas, that could be used during these events.</p>
+<p>Finally, the available space gives us information about the potential for simple interventions in each area. Marginal areas have the highest potential, meaning that they could be adapted to provide shelters in case of heat waves, for example by planting new trees. Sparse urban areas also have some potential while the dense areas already have most of their space used and forest areas should rather be kept as they are.</p>
 
 
 </section>
