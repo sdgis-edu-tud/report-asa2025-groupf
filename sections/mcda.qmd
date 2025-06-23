@@ -96,13 +96,9 @@ Based on the criteria that we decided to tackle, we had to come up with numerica
 
 In practice, these attributes also needed to be aggregable at the scale of the spatial units, so that we can assign one unique value to each spatial unit for each attribute. This can be an important limitation on the type of computations and therefore the type of attributes that we can use. We explain below the different attributes that we computed, how we computed them, which data we used and why we made these choices.
 
-*(Attributes with an asterisk \* are mentioned the ‘Discussion’ chapter at the end of the report)*
-
 ### Biodiversity
 
-#### Connectivity
-
-##### *Green-blue connectivity\**
+#### Green-blue connectivity
 
 The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified. The layer includes different types of green infrastructure found throughout Dresden, encompassing both designed recreational areas—such as parks and greenery along roads—and natural environments like forests, meadows, and grasslands.
 
@@ -112,13 +108,10 @@ This layer was then intersected with the spatial units to focus on the vegetatio
 
 ![Identifying potential to establish green connectivity along the streams](../images/Green_connectivity.png)
 
-#### Quality
-
-##### *Soil quality*
+#### Soil quality
 
 Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer.
 <insert map 1 and map 2>
-
 
 ![Mapping the soil quality of vegetation in Dresden](../images/Vegetation_soil_quality_preliminary.png)
 
@@ -126,13 +119,13 @@ The different soil qualities, ranging from 1-6 (1 indicating low and 6 indicatin
 
 ![Identifying vegetation with good soil quality and poor soil quality along the streams](../images/Vegetation_soil_quality.png)
 
-##### *Plant health*
+#### *Plant health*
 
 Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
 ### Climate Adaptation
 
-##### *Available space near streams*
+#### Available space near streams
 
 The necessity of available open space along the streams and the water body will be a potential opportunity for design interventions to prevent, or at least reduce, the flood risk along the streams’ banks. This can be achieved by calculating the available open space areas in the close proximity of the streams and rivers of Dresden.
 
@@ -146,7 +139,7 @@ By joining the intersected layer to spatial units based on their join attributes
 
 ![Normalized values of space availability along the streams](../images/Available_Spaces_3.png)
 
-### Flood Safety Index
+#### Flood Safety Index
 
 The flood hazard data used in our analysis originate from official Saxon authorities and were developed as part of a study commissioned by the Civil Engineering Office in 2020, following new regional legislation on flood protection. A rainfall-runoff model was used to simulate three flood scenarios: events expected every 20 years (**HQ20**), 100 years (**HQ100**), and an additional **extreme scenario**. These simulations resulted in spatial layers indicating areas affected under each condition.
 
@@ -173,7 +166,7 @@ While this method does not reflect depth, speed, or return probabilities, it ena
 ![](../images/Flood_Exposure_Units.jpg)
 :::
 
-##### *Soil infiltration capacity*
+#### Soil infiltration capacity
 
 To operationalize the infiltration capacity data, we accessed the **Wasserspeichervermögen des Bodens** WFS layer, which contains classified polygons showing estimated infiltration potential across Saxony. The classes were interpreted as follows:
 
@@ -194,17 +187,7 @@ The resulting **Infiltration Index** offers a simplified but spatially meaningfu
 ![](../images/Soil_Infiltration_Units.jpg)
 :::
 
-#### Resilience to heat waves
-
-##### *Sealing*
-
-Not handled yet.
-
-##### *Surfaces reflection index*
-
-Not sure if we will use it.
-
-##### *Shade*
+#### Shade
 
 By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognized through the ground shadow analysis, especially during the peak time of warm periods in the area.
 
@@ -230,9 +213,7 @@ To normalize the proportioned values, the attribute values were divided by the a
 
 ### Quality of Life
 
-#### Attractiveness
-
-##### *Visibility*
+#### Visibility
 
 The visibility factor refers to how the city is seen from the streams within a 2km radius. This analysis aims to show the potential of the streams as public spaces offering city views. If many parts of the city are visible from the streams, it can contribute to their attractiveness. These are the steps we followed:
 
@@ -263,9 +244,7 @@ The final value is not really interpretable, as it is a population density multi
 
 ![Normalized value of accessibility](../images/Accessibility_Units.png)
 
-#### Diversity
-
-##### *Land use variety*
+#### Land use variety
 
 This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.  
 
