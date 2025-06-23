@@ -184,7 +184,7 @@ By knowing the shade coverage of open spaces across the stream area networks, th
 
 The DSM and DTM raster layers were needed to run the shadow analysis based on the building and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done based on three time intervals during the day within the peak times of warm periods in the area.
 
-![Shadow analysis done by the UMEP processing tool](../images/shadow_analysis_base.pdf)
+![Shadow analysis done by the UMEP processing tool](../images/shadow_analysis_base.png)
 
 The output layer with which was a raster layer, was then aggregated to the spatial units using the Zonal Statistics tool to translate the shading values to the polygon spatial units. The output values were the counted illuminated values divided by each pixel contained within each spatial unit. After that, to define the lowest value as no shadow, the attributes were inverted by this equation:
 
@@ -192,7 +192,7 @@ The output layer with which was a raster layer, was then aggregated to the spati
 1 - ("Count_Illuminated" / "Count_Pixels") = "Proportion_Shaded"
 ```
 
-![Proportioning the illuminated values within the spatial units](../images/shadow_proportions_2.pdf)
+![Proportioning the illuminated values within the spatial units](../images/shadow_analysis_proportioning.png)
 
 To normalize the proportioned values, the attribute values were divided by the attribute with the highest value (i.e. 0.4133) since the minimum values is zero and is a meaningful one, then the normalization could be done only by dividing all values by the maximum value:
 
@@ -200,7 +200,7 @@ To normalize the proportioned values, the attribute values were divided by the a
 ("Proportion_Shaded" / 0.4133) = "Normalised_Value"
 ```
 
-![Normalized values of shadow analysis](../images/shadow_analysis_normalised_3pm.pdf)
+![Normalized values of shadow analysis](../images/shadow_analysis_normalised.png)
 
 ### Quality of Life
 
