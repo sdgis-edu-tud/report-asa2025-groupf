@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -334,27 +299,26 @@ window.Quarto = {
 </section>
 <section id="biodiversity-what-are-the-potentials-and-current-urgencies-in-the-integration-of-the-natural-elements-in-the-urban-landscape-of-dresden" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="biodiversity-what-are-the-potentials-and-current-urgencies-in-the-integration-of-the-natural-elements-in-the-urban-landscape-of-dresden"><span class="header-section-number">2.1.3</span> Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?</h3>
-<p>The criteria of <strong>connectivity</strong> and <strong>quality</strong> are chosen to improve the existing habitats and further expand them.</p>
+<p>The criteria of <strong>connectivity</strong> and <strong>environmental quality</strong> are chosen to improve the existing habitats and further expand them.</p>
 <ol type="1">
-<li>Connectivity — Aims to identify the the potential green corridors along the streams, using the following sub-criteria for measurement:
-<ol type="1">
-<li>Green-Blue connectivity</li>
-</ol></li>
-<li>Quality — Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:
-<ol type="1">
-<li>Water pollution<br>
-</li>
-<li>Plant health<br>
-</li>
-<li>Soil quality</li>
-</ol></li>
+<li><p>Connectivity — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the ‘greenspace’ layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden’s fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:</p>
+<p>1a. Green-Blue connectivity: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision (Perrelet et al 2024). To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.</p></li>
+<li><p>Quality — The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.<br>
+2a. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.<br>
+2b. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem.</p></li>
+<li><p>Quality — The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.<br>
+2a. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.<br>
+2b. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem.</p></li>
 </ol>
 </section>
 <section id="climate-adaptation-what-are-the-main-challenges-and-the-potential-spatial-interventions-to-adapt-to-climate-change" class="level3" data-number="2.1.4">
 <h3 data-number="2.1.4" class="anchored" data-anchor-id="climate-adaptation-what-are-the-main-challenges-and-the-potential-spatial-interventions-to-adapt-to-climate-change"><span class="header-section-number">2.1.4</span> Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?</h3>
 <p>To address this question, we focused on identifying both the areas most vulnerable to climate-related hazards and those with potential for ecological intervention.</p>
-<p><em>Flood exposure</em> - For flood adaptation, our first step was to understand the severity and spatial extent of flood risk across the city. We wanted to identify which areas are most at risk under different flood scenarios (e.g.&nbsp;HQ20, HQ100, and extreme events), and how these risks are spatially distributed in relation to existing infrastructure and urban development. This required the use of high-resolution flood hazard maps and the creation of an ‘exposure to floods’ attribute, which allowed us to quantify and compare the vulnerability of different areas.</p>
-<p><em>Soil infiltration</em> - For soil infiltration, our interest shifted toward understanding the capacity of different soils—especially those in proximity to water bodies—to absorb and regulate rainwater. These areas can potentially act as buffers that mitigate surface runoff and reduce flood pressure. We therefore used the Soil Infiltration Capacity layer to assess which spatial units could support light ecological restoration and which would require more significant interventions, such as the removal of built surfaces or the reintroduction of native vegetation. Together, these two strands of analysis aimed to reveal where and how spatial interventions could be most effectively targeted to support climate adaptation.</p>
+<p><em>Flood safety</em> - Flood safety was assessed using hazard data provided by official Saxon authorities. These datasets simulate the spatial extent of flood events expected to occur once every 20 years (<strong>HQ20</strong>), 100 years (<strong>HQ100</strong>), and under an additional <strong>extreme</strong> scenario. Although often referred to as “flood risk” data, these layers are more accurately understood as <strong>hazard maps</strong>, as they depict the probability and extent of water presence without accounting for exposure or vulnerability components that would complete a full risk framework.</p>
+<p>This distinction is important because it highlights both the <strong>potential and limitations</strong> of the data. While useful for planning, these layers do not incorporate social or infrastructural vulnerability, nor economic or insurance considerations. As Rözer et al.&nbsp;(2020) note in their analysis of Germany’s flood risk governance, despite a gradual shift toward anticipatory systems, there remains a <strong>lack of strategic focus on how to achieve resilience</strong>, and <strong>underinsurance</strong> remains widespread. Our use of this data acknowledges these limitations while offering a practical tool for <strong>relative spatial appraisal</strong>.</p>
+<p><em>Soil infiltration</em> - The infiltration capacity of the soil was used as a proxy for local water absorption and groundwater recharge potential. The data were sourced from the Saxon State Office for Environment, Agriculture and Geology (LfULG) through their Web Feature Service and derive from a layer titled <strong>“Wasserspeichervermögen des Bodens”</strong>, or <strong>water storage capacity of soils</strong>.</p>
+<p>This attribute represents the estimated ability of the soil to retain water during precipitation events, which is critical for understanding flood risk mitigation, drought resilience, and ecosystem health. While not directly a risk indicator, infiltration capacity contributes to the <strong>regulating functions of the soil</strong> and informs where permeability may reduce surface runoff and enhance local hydrological balance.</p>
+<p>The classification includes five categories ranging from <strong>very low</strong> to <strong>very high</strong> infiltration capacity, allowing us to incorporate this into a relative index across urban areas.</p>
 </section>
 <section id="quality-of-life-how-accessible-inviting-and-diverse-is-dresdens-public-space-and-how-can-it-reach-its-full-potential" class="level3" data-number="2.1.5">
 <h3 data-number="2.1.5" class="anchored" data-anchor-id="quality-of-life-how-accessible-inviting-and-diverse-is-dresdens-public-space-and-how-can-it-reach-its-full-potential"><span class="header-section-number">2.1.5</span> Quality of Life: How accessible, inviting, and diverse is Dresden’s public space, and how can it reach its full potential?</h3>
@@ -367,19 +331,9 @@ window.Quarto = {
 <li><span class="citation" data-cites="Scoggins2022Community-powered">Scoggins et al. (<a href="references.html#ref-Scoggins2022Community-powered" role="doc-biblioref">2022</a>)</span></li>
 </ul>
 <ol type="1">
-<li>Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the following sub-criteria:
-<ol type="1">
-<li>Spatial openness (encasement)<br>
-</li>
-<li>Visibility of the streams from surrounding urban areas</li>
-</ol></li>
-<li>Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance, using two sub-criteria:
-<ol type="1">
-<li>Distance of stream corridors and green spaces<br>
-</li>
-<li>Proximity</li>
-</ol></li>
-<li>Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality.</li>
+<li>Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the visibility, how the city is visible from the streams.</li>
+<li>Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance. This is done using accessibility analysis combined with population data to show how well-connected the streams are to the area where most residents live.</li>
+<li>Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality and encourage varied public use</li>
 </ol>
 </section>
 <section id="spatial-units-and-other-notes" class="level3" data-number="2.1.6">
@@ -410,21 +364,18 @@ window.Quarto = {
 <h2 data-number="2.2" class="anchored" data-anchor-id="attributes-and-layers"><span class="header-section-number">2.2</span> Attributes and Layers</h2>
 <p>Based on the criteria that we decided to tackle, we had to come up with numerical indicators that we could use to evaluate them. These numerical indicators are called attributes and have to be normalised—in our case between 0 and 1—so that they can be compared and weighted properly depending on their relevance. In our case, 0 corresponds to an urgent need to perform urban stream restoration, while 1 corresponds to a situation that is currently very good, or at least the best in the area of interest.</p>
 <p>In practice, these attributes also needed to be aggregable at the scale of the spatial units, so that we can assign one unique value to each spatial unit for each attribute. This can be an important limitation on the type of computations and therefore the type of attributes that we can use. We explain below the different attributes that we computed, how we computed them, which data we used and why we made these choices.</p>
-<p><em>(Attributes with an asterisk * are mentioned the ‘Discussion’ chapter at the end of the report)</em></p>
 <section id="biodiversity" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="biodiversity"><span class="header-section-number">2.2.1</span> Biodiversity</h3>
-<section id="connectivity" class="level4" data-number="2.2.1.1">
-<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="connectivity"><span class="header-section-number">2.2.1.1</span> Connectivity</h4>
-<section id="green-blue-connectivity" class="level5" data-number="2.2.1.1.1">
-<h5 data-number="2.2.1.1.1" class="anchored" data-anchor-id="green-blue-connectivity"><span class="header-section-number">2.2.1.1.1</span> <em>Green-blue connectivity*</em></h5>
-<p>The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified.</p>
+<section id="green-blue-connectivity" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="green-blue-connectivity"><span class="header-section-number">2.2.1.1</span> Green-blue connectivity</h4>
+<p>The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified. The layer includes different types of green infrastructure found throughout Dresden, encompassing both designed recreational areas—such as parks and greenery along roads—and natural environments like forests, meadows, and grasslands.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/Green_connectivity_preliminary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Mapping vegetation, urbanised areas, and undeveloped areas"><img src="../images/Green_connectivity_preliminary.png" class="img-fluid figure-img" alt="Mapping vegetation, urbanised areas, and undeveloped areas"></a></p>
 <figcaption>Mapping vegetation, urbanised areas, and undeveloped areas</figcaption>
 </figure>
 </div>
-<p>This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.</p>
+<p>This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams and falls within the defined spatial units. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised from 0 to 1 to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/Green_connectivity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Identifying potential to establish green connectivity along the streams"><img src="../images/Green_connectivity.png" class="img-fluid figure-img" alt="Identifying potential to establish green connectivity along the streams"></a></p>
@@ -432,23 +383,16 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-</section>
-<section id="quality" class="level4" data-number="2.2.1.2">
-<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="quality"><span class="header-section-number">2.2.1.2</span> Quality</h4>
-<section id="water-pollution" class="level5" data-number="2.2.1.2.1">
-<h5 data-number="2.2.1.2.1" class="anchored" data-anchor-id="water-pollution"><span class="header-section-number">2.2.1.2.1</span> <em>Water pollution</em></h5>
-<p>We have not found the data yet.</p>
-</section>
-<section id="soil-quality" class="level5" data-number="2.2.1.2.2">
-<h5 data-number="2.2.1.2.2" class="anchored" data-anchor-id="soil-quality"><span class="header-section-number">2.2.1.2.2</span> <em>Soil quality</em></h5>
-<p>The attribute is used to identify where the existing vegetation which has poor soil quality, as it signally at a degrading ecological habitat. Soil quality is measured as it is an integral measure of the ecological value of the soil. The layer used to compute the attribute were the vegetation layer from OpenStreetMap and the soil quality layer from Dresden OpenData.</p>
+<section id="soil-quality" class="level4" data-number="2.2.1.2">
+<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="soil-quality"><span class="header-section-number">2.2.1.2</span> Soil quality</h4>
+<p>Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer. &lt;insert map 1 and map 2&gt;</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/Vegetation_soil_quality_preliminary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Mapping the soil quality of vegetation in Dresden"><img src="../images/Vegetation_soil_quality_preliminary.png" class="img-fluid figure-img" alt="Mapping the soil quality of vegetation in Dresden"></a></p>
 <figcaption>Mapping the soil quality of vegetation in Dresden</figcaption>
 </figure>
 </div>
-<p>The two layers were intersected to see where the vegetation has poor soil quality. The resulting layer was intersected with the spatial units to focus on the vegetation near the streams. This helped us visualise the streams where the soil quality needed to be restored in order to restore natural habitats.</p>
+<p>The different soil qualities, ranging from 1-6 (1 indicating low and 6 indicating extremely high quality) was intersected with the layer of the spatial units. The weighted area for each soil type in each unit was calculated by multiplying their area by their quality number. All different soil qualities present in each spatial unit were then aggregated to get the weighted area in each unit. These values were ultimately normalised and graduated to create the final map, which showed us the spatial units where there is a high concentration of poor soil quality, which are necessary to be addressed for biodiversity. Few spatial units do not have any value, aa the layer did not hold any data at those locations. Those units are dropped out from the MCDA analysis.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/Vegetation_soil_quality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Identifying vegetation with good soil quality and poor soil quality along the streams"><img src="../images/Vegetation_soil_quality.png" class="img-fluid figure-img" alt="Identifying vegetation with good soil quality and poor soil quality along the streams"></a></p>
@@ -456,18 +400,15 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="plant-health" class="level5" data-number="2.2.1.2.3">
-<h5 data-number="2.2.1.2.3" class="anchored" data-anchor-id="plant-health"><span class="header-section-number">2.2.1.2.3</span> <em>Plant health</em></h5>
-<p>Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the most ) over the five last available years. The values are computed on a 10 by 10&nbsp;m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.</p>
-</section>
+<section id="plant-health" class="level4" data-number="2.2.1.3">
+<h4 data-number="2.2.1.3" class="anchored" data-anchor-id="plant-health"><span class="header-section-number">2.2.1.3</span> <em>Plant health</em></h4>
+<p>Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10&nbsp;m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.</p>
 </section>
 </section>
 <section id="climate-adaptation" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="climate-adaptation"><span class="header-section-number">2.2.2</span> Climate Adaptation</h3>
-<section id="resilience-to-flood-risks" class="level4" data-number="2.2.2.1">
-<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="resilience-to-flood-risks"><span class="header-section-number">2.2.2.1</span> Resilience to flood risks</h4>
-<section id="available-space-near-streams" class="level5" data-number="2.2.2.1.1">
-<h5 data-number="2.2.2.1.1" class="anchored" data-anchor-id="available-space-near-streams"><span class="header-section-number">2.2.2.1.1</span> <em>Available space near streams</em></h5>
+<section id="available-space-near-streams" class="level4" data-number="2.2.2.1">
+<h4 data-number="2.2.2.1" class="anchored" data-anchor-id="available-space-near-streams"><span class="header-section-number">2.2.2.1</span> Available space near streams</h4>
 <p>The necessity of available open space along the streams and the water body will be a potential opportunity for design interventions to prevent, or at least reduce, the flood risk along the streams’ banks. This can be achieved by calculating the available open space areas in the close proximity of the streams and rivers of Dresden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -490,11 +431,24 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="exposure-to-floods" class="level5" data-number="2.2.2.1.2">
-<h5 data-number="2.2.2.1.2" class="anchored" data-anchor-id="exposure-to-floods"><span class="header-section-number">2.2.2.1.2</span> <em>Exposure to floods</em></h5>
-<p>As part of a study commissioned by the Civil Engineering Office in 2020, following the introduction of a new flood protection law in the Saxony region, a new rainfall-runoff model was developed. Based on this model, working maps were created to show the areas that would be flooded during events expected to statistically occur once every 20 and 100 years, as well as under an additional extreme scenario.</p>
-<p>Using the spatial layers from these scenarios, which indicated the areas affected by each flood event, we created an attribute for “exposure to floods.” Exposure to one or more flood risk areas was assigned a negative weight, with the severity increasing for each additional scenario to which an area was exposed.</p>
-<p>The aggregation of this data into a single attribute was carried out by first creating separate polygons for areas where multiple flood scenarios overlapped. Then, a value between 0 and 1 was assigned to each layer, using percentage-based weighting to reflect the relative severity of each scenario. We were interested in answering the following question: which are the most flood-prone areas in Dresden?</p>
+<section id="flood-safety-index" class="level4" data-number="2.2.2.2">
+<h4 data-number="2.2.2.2" class="anchored" data-anchor-id="flood-safety-index"><span class="header-section-number">2.2.2.2</span> Flood Safety Index</h4>
+<p>The flood hazard data used in our analysis originate from official Saxon authorities and were developed as part of a study commissioned by the Civil Engineering Office in 2020, following new regional legislation on flood protection. A rainfall-runoff model was used to simulate three flood scenarios: events expected every 20 years (<strong>HQ20</strong>), 100 years (<strong>HQ100</strong>), and an additional <strong>extreme scenario</strong>. These simulations resulted in spatial layers indicating areas affected under each condition.</p>
+<p>We created a <strong>Flood Safety Index</strong> on a scale from 0 to 1 (0 = highest exposure, 1 = safest). The process began by overlaying the three flood hazard scenarios:</p>
+<ul>
+<li>HQ20 (frequent flood events)</li>
+<li>HQ100 (centennial flood events)</li>
+<li>Extreme events (likely representing HQ200 or catastrophic scenarios)</li>
+</ul>
+<p>Each flood layer was treated as a binary indicator of hazard presence. We assigned simple weights based on perceived severity:</p>
+<ul>
+<li><strong>Extreme events</strong> → 0</li>
+<li><strong>HQ100</strong> → 0.33</li>
+<li><strong>HQ20</strong> → 0.67</li>
+<li><strong>Areas outside all flood zones</strong> → 1</li>
+</ul>
+<p>To compute values per spatial unit, we overlaid the flood polygons with our analysis grid and calculated the <strong>area-weighted average</strong> of hazard severity values – accounting for the portion of each polygon within a unit. These averages were then normalized to a 0–1 scale.</p>
+<p>While this method does not reflect depth, speed, or return probabilities, it enables basic spatial prioritization. We acknowledge its limitations but consider it useful for exploratory and comparative planning purposes.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -506,10 +460,18 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="soil-infiltration-capacity" class="level5" data-number="2.2.2.1.3">
-<h5 data-number="2.2.2.1.3" class="anchored" data-anchor-id="soil-infiltration-capacity"><span class="header-section-number">2.2.2.1.3</span> <em>Soil infiltration capacity</em></h5>
-<p>Soil sealing caused by infrastructure prevents water from being absorbed into the ground, accelerates surface runoff, and reduces space for natural stream dynamics. Identifying areas most affected by man-made interventions was therefore a key priority. However, even in unsealed areas, not all soils absorb water equally. In the context of an analysis aimed at informing integrated, city-wide interventions, it is essential to consider the varying water absorption capacities of different soil types.</p>
-<p>To address this, we used the Soil Infiltration Capacity layer to assign each spatial unit a degree of infiltration potential. This allowed us to distinguish between areas where water can be absorbed with minimal, ‘light’ ecological restoration and those that require more intensive interventions—such as the removal of built structures or the restoration of ecological processes specific to the local soil type and its characteristics.</p>
+<section id="soil-infiltration-capacity" class="level4" data-number="2.2.2.3">
+<h4 data-number="2.2.2.3" class="anchored" data-anchor-id="soil-infiltration-capacity"><span class="header-section-number">2.2.2.3</span> Soil infiltration capacity</h4>
+<p>To operationalize the infiltration capacity data, we accessed the <strong>Wasserspeichervermögen des Bodens</strong> WFS layer, which contains classified polygons showing estimated infiltration potential across Saxony. The classes were interpreted as follows:</p>
+<ul>
+<li><strong>Very low</strong> infiltration → 0</li>
+<li><strong>Low</strong> → 0.25</li>
+<li><strong>Medium</strong> → 0.5</li>
+<li><strong>High</strong> → 0.75</li>
+<li><strong>Very high</strong> → 1</li>
+</ul>
+<p>We intersected this dataset with our spatial units and computed the <strong>area-weighted average</strong> of the infiltration values per unit – accounting for the share of each infiltration class polygon within a spatial unit. This yielded a single score per unit, which we then normalized to a 0–1 scale for comparability.</p>
+<p>The resulting <strong>Infiltration Index</strong> offers a simplified but spatially meaningful way to assess soil permeability and its contribution to local water resilience.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -521,50 +483,51 @@ window.Quarto = {
 </div>
 </div>
 </section>
-</section>
-<section id="resilience-to-heat-waves" class="level4" data-number="2.2.2.2">
-<h4 data-number="2.2.2.2" class="anchored" data-anchor-id="resilience-to-heat-waves"><span class="header-section-number">2.2.2.2</span> Resilience to heat waves</h4>
-<section id="sealing" class="level5" data-number="2.2.2.2.1">
-<h5 data-number="2.2.2.2.1" class="anchored" data-anchor-id="sealing"><span class="header-section-number">2.2.2.2.1</span> <em>Sealing</em></h5>
-<p>Not handled yet.</p>
-</section>
-<section id="surfaces-reflection-index" class="level5" data-number="2.2.2.2.2">
-<h5 data-number="2.2.2.2.2" class="anchored" data-anchor-id="surfaces-reflection-index"><span class="header-section-number">2.2.2.2.2</span> <em>Surfaces reflection index</em></h5>
-<p>Not sure if we will use it.</p>
-</section>
-<section id="shade" class="level5" data-number="2.2.2.2.3">
-<h5 data-number="2.2.2.2.3" class="anchored" data-anchor-id="shade"><span class="header-section-number">2.2.2.2.3</span> <em>Shade</em></h5>
-<p>By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognised through the ground shadow analysis, especially during the peak time of warm periods in the area.</p>
+<section id="shade" class="level4" data-number="2.2.2.4">
+<h4 data-number="2.2.2.4" class="anchored" data-anchor-id="shade"><span class="header-section-number">2.2.2.4</span> Shade</h4>
+<p>By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognized through the ground shadow analysis, especially during the peak time of warm periods in the area.</p>
 <p>The DSM and DTM raster layers were needed to run the shadow analysis based on the building and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done based on three time intervals during the day within the peak times of warm periods in the area.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ShadowAnalysis_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Shadow analysis done by the UMEP processing tool"><img src="../images/ShadowAnalysis_1.png" class="img-fluid figure-img" alt="Shadow analysis done by the UMEP processing tool"></a></p>
+<p><a href="../images/shadow_analysis_base.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Shadow analysis done by the UMEP processing tool"><img src="../images/shadow_analysis_base.png" class="img-fluid figure-img" alt="Shadow analysis done by the UMEP processing tool"></a></p>
 <figcaption>Shadow analysis done by the UMEP processing tool</figcaption>
 </figure>
 </div>
-<p>The output layer with which was a raster layer, was then aggregated to the spatial units using the Zonal Statistics tool to translate the shading values to the polygon spatial units. The output values were the median (average) values contained within each spatial unit and were already distributed between zero (full shadow) and one (no shadow) values.</p>
+<p>The output layer with which was a raster layer, was then aggregated to the spatial units using the Zonal Statistics tool to translate the shading values to the polygon spatial units. The output values were the counted illuminated values divided by each pixel contained within each spatial unit. After that, to define the lowest value as no shadow, the attributes were inverted by this equation:</p>
+<pre><code>1 - ("Count_Illuminated" / "Count_Pixels") = "Proportion_Shaded"</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ShadowAnalysis_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Normalizing the shadow analysis values between zero &amp; one"><img src="../images/ShadowAnalysis_2.png" class="img-fluid figure-img" alt="Normalizing the shadow analysis values between zero &amp; one"></a></p>
-<figcaption>Normalizing the shadow analysis values between zero &amp; one</figcaption>
+<p><a href="../images/shadow_analysis_proportioning.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Proportioning the illuminated values within the spatial units"><img src="../images/shadow_analysis_proportioning.png" class="img-fluid figure-img" alt="Proportioning the illuminated values within the spatial units"></a></p>
+<figcaption>Proportioning the illuminated values within the spatial units</figcaption>
 </figure>
 </div>
-</section>
+<p>To normalize the proportioned values, the attribute values were divided by the attribute with the highest value (i.e.&nbsp;0.4133) since the minimum values is zero and is a meaningful one, then the normalization could be done only by dividing all values by the maximum value:</p>
+<pre><code>("Proportion_Shaded" / 0.4133) = "Normalised_Value"</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/shadow_analysis_normalised.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Normalized values of shadow analysis"><img src="../images/shadow_analysis_normalised.png" class="img-fluid figure-img" alt="Normalized values of shadow analysis"></a></p>
+<figcaption>Normalized values of shadow analysis</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="quality-of-life" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="quality-of-life"><span class="header-section-number">2.2.3</span> Quality of Life</h3>
-<section id="attractiveness" class="level4" data-number="2.2.3.1">
-<h4 data-number="2.2.3.1" class="anchored" data-anchor-id="attractiveness"><span class="header-section-number">2.2.3.1</span> Attractiveness</h4>
-<section id="encasement" class="level5" data-number="2.2.3.1.1">
-<h5 data-number="2.2.3.1.1" class="anchored" data-anchor-id="encasement"><span class="header-section-number">2.2.3.1.1</span> <em>Encasement</em></h5>
-<p>The encasement factor reflects the amount of enclosure of a space along the water body. It can be analysed by calculating the ratio of the building height and the street width of the open space on the edge with the stream or river banks. This is a qualitative value that represents the openness of the neighbouring spaces of streams and water bodies through a quantitative method.</p>
-</section>
-<section id="visibility" class="level5" data-number="2.2.3.1.2">
-<h5 data-number="2.2.3.1.2" class="anchored" data-anchor-id="visibility"><span class="header-section-number">2.2.3.1.2</span> <em>Visibility</em></h5>
-<p>The visibility factor refers to how visible the streams are from an urban area. The analysis is conducted by interpolating points from the streamline with a 500-meter radius of urban surroundings. This is also a qualitative value that reflects the visual openness of the streams through a quantitative method.</p>
-<p><a href="../images/Analysis_Visibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="../images/Analysis_Visibility.png" class="img-fluid"></a></p>
-</section>
+<section id="visibility" class="level4" data-number="2.2.3.1">
+<h4 data-number="2.2.3.1" class="anchored" data-anchor-id="visibility"><span class="header-section-number">2.2.3.1</span> Visibility</h4>
+<p>The visibility factor refers to how the city is seen from the streams within a 2km radius. This analysis aims to show the potential of the streams as public spaces offering city views. If many parts of the city are visible from the streams, it can contribute to their attractiveness. These are the steps we followed:</p>
+<ol type="1">
+<li>Interpolated points from the streams’ centerlines at 500 m intervals, with the assumption these points can represent the overall visibility from the streams.</li>
+<li>Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.</li>
+<li>Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.</li>
+</ol>
+<p><img src="../images/Visibility.png" class="img-fluid" alt="Visibility Analysis was done using create viewpoints and viewshed tools"> The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Visibility_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Normalized value of visibility"><img src="../images/Visibility_Units.png" class="img-fluid figure-img" alt="Normalized value of visibility"></a></p>
+<figcaption>Normalized value of visibility</figcaption>
+</figure>
+</div>
 </section>
 <section id="accessibility" class="level4" data-number="2.2.3.2">
 <h4 data-number="2.2.3.2" class="anchored" data-anchor-id="accessibility"><span class="header-section-number">2.2.3.2</span> Accessibility</h4>
@@ -572,28 +535,40 @@ window.Quarto = {
 <ol type="1">
 <li>Extract the center point of each spatial unit. These will serve as destination points for the spatial units.</li>
 <li>Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.</li>
-<li>Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap, which required to clean up some isolated roads.</li>
+<li>Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap. Using this layer required to clean up some isolated roads, because some starting points or spatial units centered would be attached to parts of the network that were not connected to the rest, and therefore it was not possible to find paths. To identify them, we run the path computation from all points to one point, and then manually removed parts of the network that were isolated and preventing the algorithm from finding paths.</li>
 <li>Keep only the paths that are shorter than 1km, representing convenient accessibility by feet.</li>
 <li>Compute the accessibility of each spatial unit <span class="math inline">\(\text{su}\)</span> as: <span class="math display">\[\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))\]</span> The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).</li>
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Accessibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Accessibility map"><img src="../images/Accessibility.png" class="img-fluid figure-img" alt="Accessibility map"></a></p>
+<figcaption>Accessibility map</figcaption>
+</figure>
+</div>
 <p>The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.</p>
-</section>
-<section id="diversity" class="level4" data-number="2.2.3.3">
-<h4 data-number="2.2.3.3" class="anchored" data-anchor-id="diversity"><span class="header-section-number">2.2.3.3</span> Diversity</h4>
-<section id="land-use-variety" class="level5" data-number="2.2.3.3.1">
-<h5 data-number="2.2.3.3.1" class="anchored" data-anchor-id="land-use-variety"><span class="header-section-number">2.2.3.3.1</span> <em>Land use variety</em></h5>
-<p>This analysis identifies the types of land use around the stream corridors, more variety of uses enhances the connectivity of streams with the current urban fabric. It is well connected if there are various public spaces and/ or amenities present.</p>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Analysis_Landuse_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/Analysis_Landuse_1.png" class="img-fluid"></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Analysis_Landuse_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="../images/Analysis_Landuse_2.png" class="img-fluid"></a></p>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Accessibility_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Normalized value of accessibility"><img src="../images/Accessibility_Units.png" class="img-fluid figure-img" alt="Normalized value of accessibility"></a></p>
+<figcaption>Normalized value of accessibility</figcaption>
+</figure>
 </div>
 </section>
+<section id="land-use-variety" class="level4" data-number="2.2.3.3">
+<h4 data-number="2.2.3.3" class="anchored" data-anchor-id="land-use-variety"><span class="header-section-number">2.2.3.3</span> Land use variety</h4>
+<p>This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Land Use.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Land use map"><img src="../images/Land Use.png" class="img-fluid figure-img" alt="Land use map"></a></p>
+<figcaption>Land use map</figcaption>
+</figure>
+</div>
+<p>For this purpose, the land use data was simplified into 10 main categories. Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. A higher value indicates greater land use diversity, suggesting a stronger potential for the streams as public spaces.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Land Use_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Normalized value of land use"><img src="../images/Land Use_Units.png" class="img-fluid figure-img" alt="Normalized value of land use"></a></p>
+<figcaption>Normalized value of land use</figcaption>
+</figure>
+</div>
 </section>
 </section>
 </section>
@@ -611,7 +586,7 @@ Table&nbsp;2.1: Saaty matrix and weights for the three criteria
 <div aria-describedby="tbl-saaty-matrices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-1" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-1" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Biodiversity
@@ -662,7 +637,7 @@ Table&nbsp;2.1: Saaty matrix and weights for the three criteria
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-2" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-2" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Climate Adaptation
@@ -725,7 +700,7 @@ Table&nbsp;2.1: Saaty matrix and weights for the three criteria
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-3" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-3" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Quality of Life
@@ -736,25 +711,35 @@ Table&nbsp;2.1: Saaty matrix and weights for the three criteria
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;"></th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Walking accessibility</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Visibility</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Peripherality</th>
 <th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Land use variety</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Walking accessibility</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Visibility</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1/4</td>
+<td style="text-align: center;">1/2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Peripherality</td>
+<td style="text-align: center;">4</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">3</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Land use variety</td>
+<td style="text-align: center;">2</td>
 <td style="text-align: center;">1/3</td>
 <td style="text-align: center;">1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center; font-weight: bold; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Weights</td>
-<td style="text-align: center; font-weight: bold;">0.750</td>
-<td style="text-align: center; font-weight: bold;">0.250</td>
+<td style="text-align: center; font-weight: bold;">0.136</td>
+<td style="text-align: center; font-weight: bold;">0.625</td>
+<td style="text-align: center; font-weight: bold;">0.238</td>
 </tr>
 </tbody>
 </table>
@@ -768,79 +753,64 @@ Table&nbsp;2.1: Saaty matrix and weights for the three criteria
 </figure>
 </div>
 </div>
-<p>These weights were computed with respective consistency ratios of 0.016, 0.081, and NA for Biodiversity, Climate Adaptation, and Quality of Life. These values are below the threshold of 0.1 prescribed by <span class="citation" data-cites="Saaty1987analytic">Saaty (<a href="references.html#ref-Saaty1987analytic" role="doc-biblioref">1987</a>)</span>, which indicates that the pairwise comparisons were consistent enough to be used in the analysis.</p>
+<p>These weights were computed with respective consistency ratios of 0.016, 0.081, and 0.016 for Biodiversity, Climate Adaptation, and Quality of Life. These values are below the threshold of 0.1 prescribed by <span class="citation" data-cites="Saaty1987analytic">Saaty (<a href="references.html#ref-Saaty1987analytic" role="doc-biblioref">1987</a>)</span>, which indicates that the pairwise comparisons were consistent enough to be used in the analysis.</p>
 </section>
 <section id="results-of-the-analysis" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="results-of-the-analysis"><span class="header-section-number">2.4</span> Results of the Analysis</h2>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggnewscale)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read vector and raster data</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>mcda_attributes <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"../data/results/Spatial_Units-MCDA_values.geojson"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>attributes <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Biodiversity_score =</span> <span class="st">"MCDA on Biodiversity"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">Climate.Adaptation_score =</span> <span class="st">"MCDA on Climate Adaptation"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">Quality.of.Life_score =</span> <span class="st">"MCDA on Quality of Life"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">MCDA_score =</span> <span class="st">"Average"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>basemap <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"../data/background/Google_Maps_Grey.tif"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Buffer and crop</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>mcda_attributes_proj <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(mcda_attributes, <span class="fu">crs</span>(basemap))</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>mcda_attributes_buffered <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(mcda_attributes_proj, <span class="at">dist =</span> <span class="dv">1000</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>basemap_crop <span class="ot">&lt;-</span> <span class="fu">crop</span>(basemap, <span class="fu">vect</span>(mcda_attributes_buffered))</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert raster to dataframe</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>basemap_crop_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(basemap_crop, <span class="at">xy =</span> <span class="cn">TRUE</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>raster_band_name <span class="ot">&lt;-</span> <span class="fu">names</span>(basemap_crop)[<span class="dv">1</span>]</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(basemap_crop_df)[<span class="fu">which</span>(<span class="fu">colnames</span>(basemap_crop_df) <span class="sc">==</span> raster_band_name)] <span class="ot">&lt;-</span> <span class="st">"grayscale_value"</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot loop</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col <span class="cf">in</span> <span class="fu">names</span>(attributes)) {</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Raster layer with its own fill scale</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_raster</span>(<span class="at">data =</span> basemap_crop_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> grayscale_value)) <span class="sc">+</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"black"</span>, <span class="at">high =</span> <span class="st">"white"</span>, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Reset fill scale for next layer</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">new_scale_fill</span>() <span class="sc">+</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Vector layer with MCDA score</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> mcda_attributes, <span class="fu">aes</span>(<span class="at">fill =</span> .data[[col]]), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>, <span class="at">name =</span> <span class="st">"Legend"</span>) <span class="sc">+</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> attributes[[col]]) <span class="sc">+</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_sf</span>(<span class="at">datum =</span> <span class="fu">st_crs</span>(mcda_attributes))</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(p)</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="mcda_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="mcda_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="mcda_files/figure-html/unnamed-chunk-2-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="mcda_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></a></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="mcda_files/figure-html/unnamed-chunk-2-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="mcda_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="mcda_files/figure-html/unnamed-chunk-2-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="mcda_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid" width="672"></a></p>
-</div>
-</div>
-</div>
+<!-- ```{r}
+#| layout-ncol: 2
+#| warning: false
+#| code-fold: true
+
+library(sf)
+library(terra)
+library(ggplot2)
+library(ggnewscale)
+
+# Read vector and raster data
+mcda_attributes <- st_read("../data/results/Spatial_Units-MCDA_values.geojson", quiet = TRUE)
+
+attributes <- c(
+  Biodiversity_score = "MCDA on Biodiversity",
+  Climate.Adaptation_score = "MCDA on Climate Adaptation",
+  Quality.of.Life_score = "MCDA on Quality of Life",
+  MCDA_score = "Average"
+)
+
+basemap <- rast("../data/background/Google_Maps_Grey.tif")
+
+# Buffer and crop
+mcda_attributes_proj <- st_transform(mcda_attributes, crs(basemap))
+mcda_attributes_buffered <- st_buffer(mcda_attributes_proj, dist = 1000)
+basemap_crop <- crop(basemap, vect(mcda_attributes_buffered))
+
+# Convert raster to dataframe
+basemap_crop_df <- as.data.frame(basemap_crop, xy = TRUE, na.rm = TRUE)
+raster_band_name <- names(basemap_crop)[1]
+colnames(basemap_crop_df)[which(colnames(basemap_crop_df) == raster_band_name)] <- "grayscale_value"
+
+# Plot loop
+for (col in names(attributes)) {
+  p <- ggplot() + 
+    # Raster layer with its own fill scale
+    geom_raster(data = basemap_crop_df, aes(x = x, y = y, fill = grayscale_value)) +
+    scale_fill_gradient(low = "black", high = "white", guide = "none") +
+
+    # Reset fill scale for next layer
+    new_scale_fill() +
+
+    # Vector layer with MCDA score
+    geom_sf(data = mcda_attributes, aes(fill = .data[[col]]), alpha = 0.7) +
+    scale_fill_viridis_c(option = "C", name = "Legend") +
+
+    labs(title = attributes[[col]]) +
+    theme_void() +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    coord_sf(datum = st_crs(mcda_attributes))
+  
+  print(p)
+}
+``` -->
 <p><em>To write and organise.</em></p>
 
 
