@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,7 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sections/results.html" rel="next">
+<link href="../sections/discussion.html" rel="next">
 <link href="../sections/mcda.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -107,6 +72,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -204,14 +171,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../sections/discussion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discussion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discussion</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -237,8 +198,16 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#clusters-computation" id="toc-clusters-computation" class="nav-link" data-scroll-target="#clusters-computation"><span class="header-section-number">3.2</span> Clusters Computation</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">3.3</span> Analysis</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/typology.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/typology.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -262,7 +231,16 @@ window.Quarto = {
 </header>
 
 
-<p>The objective that we wanted to address with Typology Construction was … To do so, we used the following attributes that were initially computed for the MCDA analysis:</p>
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>With Typology Construction we wanted to answer a few questions in the continuity of our main question for the MCDA analysis: How can urban streams be restored and integrated in Dresden’s fabric, such that there is a synergy between human activities and the natural environment?</p>
+<p>In this case, the three questions that we tried to answer were:</p>
+<ul>
+<li>What are the streams’ adaptability rates to heat waves?</li>
+<li>How are the accessibility and connectivity conditions of green-blue areas?</li>
+<li>What are the areas of intervention along the streams?</li>
+</ul>
+<p>To answer these questions, we picked some of the attributes that we computed for the MCDA analysis. We tried to select those that were the most relevant for the three questions, which are:</p>
 <ul>
 <li>Green-blue connectivity</li>
 <li>Available space near streams</li>
@@ -288,7 +266,10 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Then, we normalised each feature to have an average of 0 and a standard deviation of 1.</p>
+</section>
+<section id="clusters-computation" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="clusters-computation"><span class="header-section-number">3.2</span> Clusters Computation</h2>
+<p>To begin the clustering, we started by normalising each feature to have an average of 0 and a standard deviation of 1.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-elbow" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -334,91 +315,59 @@ Figure&nbsp;3.2: Visualisation of the spatial units clustered geographically
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Get the cluster centers (in standardized form)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>scaled_centers <span class="ot">&lt;-</span> kmeans_result<span class="sc">$</span>centers</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Convert the centers back to original scale: x * SD + mean</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>original_centers <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">apply</span>(</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  scaled_centers, <span class="dv">1</span>, </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x) x <span class="sc">*</span> <span class="fu">attr</span>(X_scaled, <span class="st">"scaled:scale"</span>) <span class="sc">+</span> <span class="fu">attr</span>(X_scaled, <span class="st">"scaled:center"</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Print the real-world values</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(original_centers, <span class="at">digits=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Green_Area Space_along_Streams Shade_3pm Accessibility
-1      0.952              0.0235     0.539         0.923
-2      0.259              0.1689     0.147         0.836
-3      0.156              0.0846     0.318         0.401
-4      0.692              0.6540     0.121         0.814</code></pre>
-</div>
-</div>
-<p>To interpret the clustering results, we examine the centers of each cluster in the original data scale. Then, we try to assign a typology to each of the clusters based on these values in <a href="#tbl-clusters-interpretation" class="quarto-xref">Table&nbsp;<span>3.2</span></a>.</p>
-<div id="tbl-clusters-interpretation" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-clusters-interpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3.2: Interpretation of the clusters
-</figcaption>
-<div aria-describedby="tbl-clusters-interpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 13%">
-<col style="width: 17%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 34%">
-</colgroup>
+<div class="cell plain" data-tbl-cap="Values of the variables for the centers of the clusters">
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-hover caption-top" data-quarto-postprocess="true">
+<caption>Values of the variables for the centers of the clusters</caption>
 <thead>
 <tr class="header">
-<th>Type</th>
-<th>Green-blue connectivity</th>
-<th>Available space near streams</th>
-<th>Shade</th>
-<th>Peripherality</th>
-<th>Description</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Cluster</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Green-blue connectivity</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Available space near streams</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Shade</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Peripherality</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>0.952</td>
-<td>0.0235</td>
-<td>0.539</td>
-<td>0.923</td>
-<td>………..</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.952</td>
+<td style="text-align: center;">0.024</td>
+<td style="text-align: center;">0.539</td>
+<td style="text-align: center;">0.923</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>0.259</td>
-<td>0.1689</td>
-<td>0.147</td>
-<td>0.836</td>
-<td>………..</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.259</td>
+<td style="text-align: center;">0.169</td>
+<td style="text-align: center;">0.147</td>
+<td style="text-align: center;">0.836</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>0.156</td>
-<td>0.0846</td>
-<td>0.318</td>
-<td>0.401</td>
-<td>………..</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.156</td>
+<td style="text-align: center;">0.085</td>
+<td style="text-align: center;">0.318</td>
+<td style="text-align: center;">0.401</td>
 </tr>
 <tr class="even">
-<td>4</td>
-<td>0.692</td>
-<td>0.6540</td>
-<td>0.121</td>
-<td>0.814</td>
-<td>………..</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.692</td>
+<td style="text-align: center;">0.654</td>
+<td style="text-align: center;">0.121</td>
+<td style="text-align: center;">0.814</td>
 </tr>
 </tbody>
 </table>
 </div>
-</figure>
 </div>
-<p>Another interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from <a href="#fig-columns-distribution" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>. The fact that some of them have a high concentration of values on the extreme values makes it quite likely to have a cluster to be centred on this value for this attribute, and this is indeed what we can see in the output.</p>
+</div>
+</section>
+<section id="analysis" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3.3</span> Analysis</h2>
+<p>To interpret the clustering results, we examine the centers of each cluster in the original data scale.</p>
+<p>Before interpreting the results, an interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from <a href="#fig-columns-distribution" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>. The fact that some of them have a high concentration of values on the extreme values makes it quite likely to have a cluster to be centred on this value for this attribute, and this is indeed what we can see in the output.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-columns-distribution" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -433,8 +382,16 @@ Figure&nbsp;3.3: Distribution of the variables
 </div>
 </div>
 </div>
+<p>By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:</p>
+<ol type="1">
+<li>Cluster 1: Forest areas</li>
+<li>Cluster 2: Sparse urban areas</li>
+<li>Cluster 3: Dense urban areas</li>
+<li>Cluster 4: Marginal areas</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -843,13 +800,13 @@ Figure&nbsp;3.3: Distribution of the variables
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sections/results.html" class="pagination-link" aria-label="Results">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sections/discussion.html" class="pagination-link" aria-label="Discussion">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Discussion</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/typology.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/typology.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/typology.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/typology.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
