@@ -122,7 +122,7 @@ The two layers were intersected to see where the vegetation has poor soil qualit
 
 ##### *Plant health*
 
-Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
+Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
 ### Climate Adaptation
 
@@ -203,7 +203,7 @@ The visibility factor refers to how the city is seen from the streams within a 2
 3. Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.
 
 ![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png)
-The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalized to a 0–1 range, where higher values indicate greater visibility from the streams.
+The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.
 
 ![Normalized value of visibility](../images/Visibility_Units.png)
 
@@ -239,7 +239,7 @@ For this purpose, the land use data was simplified into 10 main categories. Usin
 
 ## Weighting of the Attributes
 
-Once each attribute has produced a normalized value for each spatial unit, all the attributes need to be aggregated into one final value. Since all of them do not participate equally to the goals we mentioned earlier, we tried to weight them according to their relative importance in achieving our goals. These weights could then be used to compute a weighted average that is easier to use thanks to reducing the problem to one dimension instead of several dimensions.
+Once each attribute has produced a normalised value for each spatial unit, all the attributes need to be aggregated into one final value. Since all of them do not participate equally to the goals we mentioned earlier, we tried to weight them according to their relative importance in achieving our goals. These weights could then be used to compute a weighted average that is easier to use thanks to reducing the problem to one dimension instead of several dimensions.
 
 To compute the weights, we made individual Saaty matrices for the attributes of each of the three objectives. Saaty matrices are square matrices that allow us to deduce weights from pairwise comparisons of the attributes [@Saaty1987analytic]. In our case, we used the eigenvector method to calculate the weights. The matrices and weights are shown in @tbl-saaty-matrices below.
 
