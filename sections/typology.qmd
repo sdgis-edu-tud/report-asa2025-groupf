@@ -143,7 +143,7 @@ plot(spatial_units["Cluster"],
      border = NA,
      col = cluster_colors[spatial_units$Cluster])
 
-legend("topright",
+legend("topleft",
      legend = levels(spatial_units$Cluster),
      fill = cluster_colors,
      title = "Cluster",
@@ -179,7 +179,7 @@ kbl(df, format = "html", escape = FALSE, align = "c") %>%
   column_spec(2:ncol(df))
 ```
 
-## Analysis
+## Topology Creation
 
 To interpret the clustering results, we examine the centers of each cluster in the original data scale.
 
@@ -238,7 +238,72 @@ for (i in seq_along(used_attributes)) {
 
 By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:
 
-1. Cluster 1: Forest areas
-2. Cluster 2: Sparse urban areas
-3. Cluster 3: Dense urban areas
-4. Cluster 4: Marginal areas
+1. **Forest areas (Cluster 1)**:
+   - High proportion of greenery and shade due to the trees
+   - High peripherality because most of the forest is quite far from the houses
+   - Not much space available as the forest takes most of the space
+2. **Sparse urban areas (Cluster 2)**:
+   - Some greenery and some available space because the housing is not too dense
+   - Quite high peripherality since there is housing, but a low population density
+   - Low shade because some sparse trees and low buildings are the only sources of shade 
+3. **Dense urban areas (Cluster 3)**:
+   - Very low amount of greenery and available space because space is mostly occupied by buildings
+   - Decent amount of shading because of the high and dense buildings
+   - Low peripherality as the population density is high in the area around
+4. **Marginal areas (Cluster 4)**:
+   - Quite high proportion of greenery composed of mostly grass fields and some forest
+   - A lot of space available as the grass fields are often not really used
+   - Very low shade as only a few trees create shade
+   - Quite high peripherality since these places are not central and not well accessible
+
+```{r}
+#| echo: false
+#| label: fig-typology-units
+#| fig-cap: Visualisation of the spatial units clustered with their typology
+
+cluster_names = c(
+  "Forest areas",
+  "Sparse urban areas",
+  "Dense urban areas",
+  "Marginal areas"
+)
+
+## Generate cluster colors dynamically
+cluster_levels <- levels(spatial_units$Cluster)
+# cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
+# cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
+cluster_colors <- c(
+  "Forest areas" = "#228B22",      # Forest Green
+  "Sparse urban areas" = "#FFD700",# Gold
+  "Dense urban areas" = "#B22222", # Firebrick (urban red)
+  "Marginal areas" = "#87CEEB"     # Sky Blue
+)
+cluster_colors <- setNames(cluster_colors, cluster_levels)
+
+## Plot clusters with base R
+plot(spatial_units["Cluster"], 
+     main = "Spatial units clustered with their typology", 
+     border = NA,
+     col = cluster_colors[spatial_units$Cluster])
+
+legend("topleft",
+     legend = cluster_names,
+     fill = cluster_colors,
+     title = "Typology",
+     cex = 0.9,
+     bty = "n")
+```
+
+## Answers to the Questions
+
+Regarding the suitability of the spaces to sustain heat waves, the results are similar to what we could have expected, given that we mostly look at two attributes for this: the greenery and the shade.
+The forest areas are the most adapted with high greenery and shade that prevent the temperature from drastically increasing during heat waves.
+Marginal areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun.
+The sparse urban areas are even worse because there is even less greenery and not much more shade, while the dense urban areas have at least some shade even if the heat island effect will be strong due to the soil artificialisation.
+
+However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of heat wave sustainability.
+It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or marginal areas, that could be used during these events.
+
+Finally, the available space gives us information about the potential for simple interventions in each area.
+Marginal areas have the highest potential, meaning that they could be adapted to provide shelters in case of heat waves, for example by planting new trees.
+Sparse urban areas also have some potential while the dense areas already have most of their space used and forest areas should rather be kept as they are.
