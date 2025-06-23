@@ -48,9 +48,15 @@ The criteria of **connectivity** and **environmental quality** are chosen to imp
 
 To address this question, we focused on identifying both the areas most vulnerable to climate-related hazards and those with potential for ecological intervention.
 
-*Flood exposure* - For flood adaptation, our first step was to understand the severity and spatial extent of flood risk across the city. We wanted to identify which areas are most at risk under different flood scenarios (e.g. HQ20, HQ100, and extreme events), and how these risks are spatially distributed in relation to existing infrastructure and urban development. This required the use of high-resolution flood hazard maps and the creation of an 'exposure to floods' attribute, which allowed us to quantify and compare the vulnerability of different areas.
+*Flood safety* \- Flood safety was assessed using hazard data provided by official Saxon authorities. These datasets simulate the spatial extent of flood events expected to occur once every 20 years (**HQ20**), 100 years (**HQ100**), and under an additional **extreme** scenario. Although often referred to as “flood risk” data, these layers are more accurately understood as **hazard maps**, as they depict the probability and extent of water presence without accounting for exposure or vulnerability components that would complete a full risk framework.
 
-*Soil infiltration* - For soil infiltration, our interest shifted toward understanding the capacity of different soils—especially those in proximity to water bodies—to absorb and regulate rainwater. These areas can potentially act as buffers that mitigate surface runoff and reduce flood pressure. We therefore used the Soil Infiltration Capacity layer to assess which spatial units could support light ecological restoration and which would require more significant interventions, such as the removal of built surfaces or the reintroduction of native vegetation. Together, these two strands of analysis aimed to reveal where and how spatial interventions could be most effectively targeted to support climate adaptation.
+This distinction is important because it highlights both the **potential and limitations** of the data. While useful for planning, these layers do not incorporate social or infrastructural vulnerability, nor economic or insurance considerations. As Rözer et al. (2020) note in their analysis of Germany’s flood risk governance, despite a gradual shift toward anticipatory systems, there remains a **lack of strategic focus on how to achieve resilience**, and **underinsurance** remains widespread. Our use of this data acknowledges these limitations while offering a practical tool for **relative spatial appraisal**.
+
+*Soil infiltration* \- The infiltration capacity of the soil was used as a proxy for local water absorption and groundwater recharge potential. The data were sourced from the Saxon State Office for Environment, Agriculture and Geology (LfULG) through their Web Feature Service and derive from a layer titled **“Wasserspeichervermögen des Bodens”**, or **water storage capacity of soils**.
+
+This attribute represents the estimated ability of the soil to retain water during precipitation events, which is critical for understanding flood risk mitigation, drought resilience, and ecosystem health. While not directly a risk indicator, infiltration capacity contributes to the **regulating functions of the soil** and informs where permeability may reduce surface runoff and enhance local hydrological balance.
+
+The classification includes five categories ranging from **very low** to **very high** infiltration capacity, allowing us to incorporate this into a relative index across urban areas.
 
 ### Quality of Life: How accessible, inviting, and diverse is Dresden's public space, and how can it reach its full potential?
 
@@ -126,8 +132,6 @@ Plant health is measured using the normalised difference vegetation index (NDVI)
 
 ### Climate Adaptation
 
-#### Resilience to flood risks
-
 ##### *Available space near streams*
 
 The necessity of available open space along the streams and the water body will be a potential opportunity for design interventions to prevent, or at least reduce, the flood risk along the streams’ banks. This can be achieved by calculating the available open space areas in the close proximity of the streams and rivers of Dresden.
@@ -142,13 +146,26 @@ By joining the intersected layer to spatial units based on their join attributes
 
 ![Normalized values of space availability along the streams](../images/Available_Spaces_3.png)
 
-##### *Exposure to floods*
+### Flood Safety Index
 
-As part of a study commissioned by the Civil Engineering Office in 2020, following the introduction of a new flood protection law in the Saxony region, a new rainfall-runoff model was developed. Based on this model, working maps were created to show the areas that would be flooded during events expected to statistically occur once every 20 and 100 years, as well as under an additional extreme scenario.
+The flood hazard data used in our analysis originate from official Saxon authorities and were developed as part of a study commissioned by the Civil Engineering Office in 2020, following new regional legislation on flood protection. A rainfall-runoff model was used to simulate three flood scenarios: events expected every 20 years (**HQ20**), 100 years (**HQ100**), and an additional **extreme scenario**. These simulations resulted in spatial layers indicating areas affected under each condition.
 
-Using the spatial layers from these scenarios, which indicated the areas affected by each flood event, we created an attribute for “exposure to floods.” Exposure to one or more flood risk areas was assigned a negative weight, with the severity increasing for each additional scenario to which an area was exposed.
+We created a **Flood Safety Index** on a scale from 0 to 1 (0 = highest exposure, 1 = safest). The process began by overlaying the three flood hazard scenarios:
 
-The aggregation of this data into a single attribute was carried out by first creating separate polygons for areas where multiple flood scenarios overlapped. Then, a value between 0 and 1 was assigned to each layer, using percentage-based weighting to reflect the relative severity of each scenario. We were interested in answering the following question: which are the most flood-prone areas in Dresden?
+- HQ20 (frequent flood events)
+- HQ100 (centennial flood events)
+- Extreme events (likely representing HQ200 or catastrophic scenarios)
+
+Each flood layer was treated as a binary indicator of hazard presence. We assigned simple weights based on perceived severity:
+
+- **Extreme events** → 0
+- **HQ100** → 0.33
+- **HQ20** → 0.67
+- **Areas outside all flood zones** → 1
+
+To compute values per spatial unit, we overlaid the flood polygons with our analysis grid and calculated the **area-weighted average** of hazard severity values – accounting for the portion of each polygon within a unit. These averages were then normalized to a 0–1 scale.
+
+While this method does not reflect depth, speed, or return probabilities, it enables basic spatial prioritization. We acknowledge its limitations but consider it useful for exploratory and comparative planning purposes.
 
 ::: {layout-ncol="2"}
 ![](../images/Flood_Exposure_Map.jpg)
@@ -158,9 +175,18 @@ The aggregation of this data into a single attribute was carried out by first cr
 
 ##### *Soil infiltration capacity*
 
-Soil sealing caused by infrastructure prevents water from being absorbed into the ground, accelerates surface runoff, and reduces space for natural stream dynamics. Identifying areas most affected by man-made interventions was therefore a key priority. However, even in unsealed areas, not all soils absorb water equally. In the context of an analysis aimed at informing integrated, city-wide interventions, it is essential to consider the varying water absorption capacities of different soil types.
+To operationalize the infiltration capacity data, we accessed the **Wasserspeichervermögen des Bodens** WFS layer, which contains classified polygons showing estimated infiltration potential across Saxony. The classes were interpreted as follows:
 
-To address this, we used the Soil Infiltration Capacity layer to assign each spatial unit a degree of infiltration potential. This allowed us to distinguish between areas where water can be absorbed with minimal, ‘light’ ecological restoration and those that require more intensive interventions—such as the removal of built structures or the restoration of ecological processes specific to the local soil type and its characteristics.
+- **Very low** infiltration → 0
+- **Low** → 0.25
+- **Medium** → 0.5
+- **High** → 0.75
+- **Very high** → 1
+
+We intersected this dataset with our spatial units and computed the **area-weighted average** of the infiltration values per unit – accounting for the share of each infiltration class polygon within a spatial unit. This yielded a single score per unit, which we then normalized to a 0–1 scale for comparability.
+
+The resulting **Infiltration Index** offers a simplified but spatially meaningful way to assess soil permeability and its contribution to local water resilience.
+
 
 ::: {layout-ncol="2"}
 ![](../images/Soil_Infiltration_Map.jpg)
