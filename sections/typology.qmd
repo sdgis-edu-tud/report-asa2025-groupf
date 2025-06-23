@@ -1,11 +1,14 @@
 # Typology Construction
 
+## Introduction
+
 ```{r}
 #| echo: false
 #| output: false
 library(sf) ## for processing vector data 
 library(dplyr) ## for selecting and transforming data
 library(plotly) ## for plotting data
+library(kableExtra) ## for plotting tables
 
 source("../src/attributes.R")
 
@@ -28,8 +31,16 @@ used_attributes <- setNames(
 n_attr <- length(used_attributes)
 ```
 
-The objective that we wanted to address with Typology Construction was ...
-To do so, we used the following attributes that were initially computed for the MCDA analysis:
+With Typology Construction we wanted to answer a few questions in the continuity of our main question for the MCDA analysis: How can urban streams be restored and integrated in Dresden's fabric, such that there is a synergy between human activities and the natural environment?
+
+In this case, the three questions that we tried to answer were:
+
+- What are the streams’ adaptability rates to heat waves?
+- How are the accessibility and connectivity conditions of green-blue areas?
+- What are the areas of intervention along the streams?
+
+To answer these questions, we picked some of the attributes that we computed for the MCDA analysis.
+We tried to select those that were the most relevant for the three questions, which are:
 
 - `r paste(used_attributes, collapse = "\n- ")`
 
@@ -45,7 +56,9 @@ for (col in names(used_attributes)) {
 }
 ```
 
-Then, we normalised each feature to have an average of 0 and a standard deviation of 1.
+## Clusters Computation
+
+To begin the clustering, we started by normalising each feature to have an average of 0 and a standard deviation of 1.
 
 ```{r}
 #| echo: false
@@ -139,6 +152,10 @@ legend("topright",
 ```
 
 ```{r}
+#| echo: false
+#| class: plain
+#| tbl-cap: Values of the variables for the centers of the clusters
+
 ## Get the cluster centers (in standardized form)
 scaled_centers <- kmeans_result$centers
 
@@ -149,21 +166,22 @@ original_centers <- t(apply(
 ))
 
 ## Print the real-world values
-print(original_centers, digits=3)
-
+colnames(original_centers) <- used_attributes
+# print(original_centers, digits=3)
+df <- as.data.frame(formatC(original_centers, digits = 3, format = "f"))
+df$Cluster <- seq_len(nrow(df))
+df <- df[, c("Cluster", setdiff(names(df), "Cluster"))]
+kbl(df, format = "html", escape = FALSE, align = "c") %>%
+  kable_styling(full_width = FALSE, bootstrap_options = c("hover", "responsive")) %>%
+  row_spec(0, background = "#f2f2f2", bold = TRUE) %>% # Bold the header row
+  # row_spec(nrow(df), bold = TRUE) %>% # Highlight last row
+  # column_spec(1, background = "#f2f2f2", bold = TRUE) %>% # Bold the first column
+  column_spec(2:ncol(df))
 ```
 
+## Analysis
+
 To interpret the clustering results, we examine the centers of each cluster in the original data scale.
-Then, we try to assign a typology to each of the clusters based on these values in @tbl-clusters-interpretation.
-
-| Type | Green-blue connectivity | Available space near streams | Shade | Peripherality | Description |
-|----|--------|----------|--------|--------|--------------------|
-| 1 | 0.952 | 0.0235 | 0.539 | 0.923 | ........... |
-| 2 | 0.259 | 0.1689 | 0.147 | 0.836 | ........... |
-| 3 | 0.156 | 0.0846 | 0.318 | 0.401 | ........... |
-| 4 | 0.692 | 0.6540 | 0.121 | 0.814 | ........... |
-
-: Interpretation of the clusters {#tbl-clusters-interpretation}
 
 ```{r}
 #| echo: false
@@ -181,7 +199,7 @@ spatial_units$Cluster_Dist <- spatial_units_distances
 st_write(spatial_units, "../data/results/Spatial_Units-Typology_Construction.geojson", delete_dsn = TRUE, quiet = TRUE)
 ```
 
-Another interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from @fig-columns-distribution.
+Before interpreting the results, an interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from @fig-columns-distribution.
 The fact that some of them have a high concentration of values on the extreme values makes it quite likely to have a cluster to be centred on this value for this attribute, and this is indeed what we can see in the output.
 
 ```{r}
@@ -189,11 +207,11 @@ The fact that some of them have a high concentration of values on the extreme va
 #| label: fig-columns-distribution
 #| fig-cap: Distribution of the variables
 
-## calculate nornalization
+## Calculate normalisation
 normalize <- function(x) (x - min(x)) / (max(x) - min(x))
 features_norm <- as.data.frame(lapply(features, normalize))
 
-## Set up color palette for any number of features (distinct colors)
+## Set up colour palette for any number of features (distinct colours)
 set.seed(42) # for reproducibility
 hist_colors <- grDevices::hcl.colors(n_attr, palette = "Dynamic", alpha = 1.0)
 
@@ -217,3 +235,10 @@ for (i in seq_along(used_attributes)) {
        xlab = "z-score", col = color)
 }
 ```
+
+By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:
+
+1. Cluster 1: Forest areas
+2. Cluster 2: Sparse urban areas
+3. Cluster 3: Dense urban areas
+4. Cluster 4: Marginal areas

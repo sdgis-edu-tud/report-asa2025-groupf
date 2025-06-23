@@ -21,7 +21,7 @@ layers = {
     },
     "Accessibility to Streams": {
         "path": "../data/results/Spatial_Units-Accessibility.geojson",
-        "name": "Normalised Population living at less than 1km",
+        "name": "Normalised Peripherality",
         "group": "Quality of Life",
     },
     "Visibility of the Streams": {
