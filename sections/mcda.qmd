@@ -30,14 +30,15 @@ To articulate the challenges and identify the potentials to answer the question,
 
 ### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
 
-The criteria of **connectivity** and **quality** are chosen to improve the existing habitats and further expand them.
+The criteria of **connectivity** and **environmental quality** are chosen to improve the existing habitats and further expand them.
 
-1.  Connectivity — Aims to identify the the potential green corridors along the streams, using the following sub-criteria for measurement:
-    1.  Green-Blue connectivity
-2.  Quality — Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:
-    1.  Water pollution\
-    2.  Plant health\
-    3.  Soil quality
+1. Connectivity — Aims to identify the the potential green corridors along the streams, using the following sub-criteria for measurement:  
+   1. Green-Blue connectivity
+
+2. Environmental Quality —  Aims to identify crucial areas which are important for ecological habitation but presently lack in quality. The following sub-criteria are measured:  
+   1. Water pollution  
+   2. Plant health  
+   3. Soil quality
 
 ### Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
 
@@ -60,13 +61,9 @@ References:
 -   @Bernhardt2007Restoring
 -   @Scoggins2022Community-powered
 
-1.  Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the following sub-criteria:
-    1.  Spatial openness (encasement)\
-    2.  Visibility of the streams from surrounding urban areas
-2.  Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance, using two sub-criteria:
-    1.  Distance of stream corridors and green spaces\
-    2.  Proximity
-3.  Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality.
+1. Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the visibility, how the city is visible from the streams.
+2. Accessibility — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance. This is done using accessibility analysis combined with population data to show how well-connected the streams are to the area where most residents live.
+3. Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality and encourage varied public use
 
 ### Spatial Units and other notes
 
@@ -123,7 +120,7 @@ The two layers were intersected to see where the vegetation has poor soil qualit
 
 ##### *Plant health*
 
-Plant health is measured using the normalized difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
+Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
 ### Climate Adaptation
 
@@ -215,7 +212,10 @@ The visibility factor refers to how the city is seen from the streams within a 2
 2. Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.
 3. Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.
 
-![](../images/Analysis_Visibility.png)
+![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png)
+The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.
+
+![Normalized value of visibility](../images/Visibility_Units.png)
 
 #### Accessibility
 
@@ -229,19 +229,23 @@ The idea behind the accessibility is that for the quality of life, spatial units
    $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$
    The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
 
+![Accessibility map](../images/Accessibility.png)
+
 The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.
+
+![Normalized value of accessibility](../images/Accessibility_Units.png)
 
 #### Diversity
 
 ##### *Land use variety*
 
-This analysis identifies the types of land use around the stream corridors, more variety of uses enhances the connectivity of streams with the current urban fabric. It is well connected if there are various public spaces and/ or amenities present.
+This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.  
 
-::: {layout-ncol="2"}
-![](../images/Analysis_Landuse_1.png)
+![Land use map](../images/Land Use.png)
 
-![](../images/Analysis_Landuse_2.png)
-:::
+For this purpose, the land use data was simplified into 10 main categories. Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. A higher value indicates greater land use diversity, suggesting a stronger potential for the streams as public spaces.
+
+![Normalized value of land use](../images/Land Use_Units.png)
 
 ## Weighting of the Attributes
 
