@@ -200,10 +200,6 @@ $$
 \text{Proportion\_Shaded} = 1 - \left(\frac{\text{Count\_Illuminated}}{\text{Count\_Pixels}}\right)
 $$
 
-```         
-1 - ("Count_Illuminated" / "Count_Pixels") = "Proportion_Shaded"
-```
-
 ![Proportioning the illuminated values within the spatial units](../images/shadow_analysis_proportioning.png)
 
 To normalize the proportioned values, the attribute values were divided by the attribute with the highest value (i.e. 0.4133) since the minimum values is zero and is a meaningful one, then the normalization could be done only by dividing all values by the maximum value:
@@ -211,10 +207,6 @@ To normalize the proportioned values, the attribute values were divided by the a
 $$
 \text{Normalised\_Value} = \left(\frac{\text{Proportion\_Shaded}}{0.4133}\right)
 $$
-
-```         
-("Proportion_Shaded" / 0.4133) = "Normalised_Value"
-```
 
 ![Normalized values of shadow analysis](../images/shadow_analysis_normalised.png)
 
