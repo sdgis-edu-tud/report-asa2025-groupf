@@ -311,7 +311,7 @@ The forest areas are the most adapted with high greenery and shade that prevent 
 Transitional areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun.
 The sparse urban areas are even worse because there is even less greenery and not much more shade, while the dense urban areas have at least some shade even if the heat island effect will be strong due to the soil artificialisation.
 
-However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of heat wave sustainability.
+However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of green-blue space accessibility.
 It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or transitional areas, that could be used during these events.
 
 Finally, the available space gives us information about the potential for simple interventions in each area.
