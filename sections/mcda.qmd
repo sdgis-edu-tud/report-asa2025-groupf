@@ -28,7 +28,10 @@ These concerns and identified potentials beg the question that, **how can urban 
 
 To articulate the challenges and identify the potentials to answer the question, the analysis is divided into three sub-research categories under the broad themes of biodiversity, climate adaptation and quality of life. Each theme has specific criteria with its attributes, which are analysed, measured and weighted against each other to arrive at the final decisions.
 
-![](../images/Diagram 1.png)
+::: {layout-ncol="2"}
+![Three main themes](../images/Diagram 1.png)
+![Sub-research questions](../images/Diagram 2.png)
+:::
 
 ### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
 
@@ -67,6 +70,8 @@ Urban stream restoration is increasingly used as a strategy for improving the ph
 Urban stream restoration, especially combined with green spaces, can provide amenities, recreational opportunities, and environmental health benefits that contribute directly to residents’ well-being. Therefore, it is important to foster awareness and supportive attitudes toward stream restoration projects, while also addressing the issue of just distribution and equal access to streams.
 
 Three important aspects of restoration projects relate to this benefit, they are attractiveness, accessibility, and diversity. Attractiveness is related to how inviting the streams are for residents, which can be assessed by analysing the use of the entire landscape, from riparian zones to uplands, to maximize ecological and societal benefits, and by evaluating how visible the streams are from urban areas. Accessibility ensures that people of all ages and backgrounds can physically reach the stream for walking and socializing. Meanwhile, diversity refers to the surrounding land uses that support multifunctionality. When streams are embedded within a landscape with various uses, they become shared community assets rather than isolated environmental features.
+
+![S-MCDA Structure](../images/S-MCDA Structure.png)
 
 References:
 
