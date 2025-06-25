@@ -69,3 +69,12 @@ Two data-driven methods were used to conduct the analysis:
 ├── src                       # External R scripts
 └── styles.css                # Some styling for the report
 ```
+
+## Software
+
+Software that we used:
+
+- QGIS (different versions from 3.28 to 3.40 for the different authors) for the data manipulation, analysis and visualisation
+- R version 4.5.1 for some data analysis and visualisation in the report
+- Python version 3.12 for some visualisation in the report
+- Quarto version 1.7.32 to render the report
