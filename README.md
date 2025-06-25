@@ -1,33 +1,55 @@
-# Report template for the Applied Spatial Analytics 2025 course
+# Unpacking Dresden
 
-This is a template repository used as a starting point for the group
-reports produced in the Applied Spatial Analytics 2025 course at
-TU Delft.
+## Purpose of the Project
 
-By starting this assignment in GitHub Classroom, you created a copy
-of this repository that you have write access to. You will continue to
-work on your report in that repository throughout the quarter. A great
-way to practice and apply what you learned in the "Intro to Git and GitHub"
-assignment!
+### Context
 
-## Getting started with the report
+Along with the Elbe river, Dresden comprises a dense network of streams, which are spread out across its fabric. Presently, the streams are secluded from being a valuable part of the city. The problems are characterised by ecological issues, inappropriate land use by residents, and artificial channeling. They, along with the Elbe river hold potential to become elements of integrating the ecological and social functions of the city by reclaiming the historical identity of waterfronts and restoring natural habitats. Therefore, there arises a need to understand how to integrate these streams into the network of protected green areas and public spaces, while maximising their contribution to biodiversity while adapting to the risk of flooding within and around the city.
 
-1. In RStudio, create a new project from version control. Use the
-   URL of your repository to clone it.
-2. To start working on the report, open the `report.qmd` file, add the
-   names of your group members, and press on the "Render" button. Next,
-   stage and commit all changed files and push them to GitHub. You will
-   follow this **stage -> commit -> push** workflow every time you make a
-   change.
+### Research Questions
 
-## Feedback
+These concerns and identified potentials beg the question that, **how can urban streams be restored and integrated in Dresden's fabric, such that there is a synergy between human activities and the natural environment?**
 
-In the **Pull requests** section of your repository, you will find a
-**Feedback** pull request. We will use this pull request to provide
-feedback on your report throughout the quarter. You can also use this
-pull request to ask questions about the feedback.
+This is investigated by adopting an integrated approach for **biodiversity**, **climate adaptation** and **quality of life**. For each of these topics, a sub-research question was derived:
 
-## Asking for help
+- Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
+- Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
+- Quality of Life: How accessible, inviting, and diverse is Dresden's public space, and how can it reach its full potential?
 
-If you have questions about the assignment, please ask them in
-[Discussions](https://github.com/sdgis-edu-tud/asa2025/discussions).
+### Analysis Method
+
+Based on the three criteria that we decided to tackle, we came up with numerical indicators that we could use to evaluate them. These numerical indicators are called attributes and have to be normalised—in our case between 0 and 1—so that they can be compared, weighted and thereafter clustered properly depending on their relevance and similarities.
+
+The spatial units used in this study are hexagons with a dimension of 250 meters. The study area of Dresden is divided using a complete surface of a hexagonal pattern. Then it is overlaid with the water stream network and river body from OpenStreetMap to keep only the hexagons that intersect with at least one stream. Finally, the isolated hexagons were removed.
+
+Two data-driven methods were used to conduct the analysis:
+
+- **S-MCDA (Spatial Multi-Criteria Decision Analysis)** — S-MCDA was used to weigh the different attributes against each other. The method supports decision-making by evaluating and ranking alternatives (the attributes) within the three objectives of biodiversity, climate adaptation and quality of life.
+- **Typology Construction** — Typology construction is used to group attributes into homogenous types based on similarities. This was used to identify patterns in data and make clusters of attributes that show similarity, which can thereafter be used to understand the type of interventions which would be impactful.
+
+## Authors
+
+1. Co-investigator 1
+   - Name: Adriano Mancini  
+   - Institution: TU Delft  
+   - Email: <a.mancini-1@student.tudelft.nl>
+2. Co-investigator 2
+   - Name: Alankrita Sharma  
+   - Institution: TU Delft  
+   - Email: <a.sharma-73@student.tudelft.nl>
+3. Co-investigator 3
+   - Name: Alexandre Bry  
+   - Institution: TU Delft  
+   - Email: <a.m.e.bry@student.tudelft.nl>
+4. Co-investigator 4
+   - Name: Grase Stephanie Stuka  
+   - Institution: TU Delft  
+   - Email: <grasestephaniestuka@student.tudelft.nl>
+5. Co-investigator 5
+   - Name: Soroush Saffarzadeh  
+   - Institution: TU Delft  
+   - Email: <s.saffarzadeh@student.tudelft.nl>
+
+## Repository Structure
+
+TODO
