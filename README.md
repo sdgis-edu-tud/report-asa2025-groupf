@@ -1,3 +1,5 @@
+[![CC BY 4.0][cc-by-shield]][cc-by]
+
 # Unpacking Dresden
 
 ## Purpose of the Project
@@ -78,3 +80,8 @@ Software that we used:
 - R version 4.5.1 for some data analysis and visualisation in the report
 - Python version 3.12 for some visualisation in the report
 - Quarto version 1.7.32 to render the report
+
+## License
+
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
