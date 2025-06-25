@@ -44,7 +44,7 @@ Two data-driven methods were used to conduct the analysis:
 4. Co-investigator 4
    - Name: Grase Stephanie Stuka  
    - Institution: TU Delft  
-   - Email: <grasestephaniestuka@student.tudelft.nl>
+   - Email: <gstuka@student.tudelft.nl>
 5. Co-investigator 5
    - Name: Soroush Saffarzadeh  
    - Institution: TU Delft  
