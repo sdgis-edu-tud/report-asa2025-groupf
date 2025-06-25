@@ -76,15 +76,16 @@ The two references we used for this part are @Bernhardt2007Restoring and @Scoggi
 The spatial units used in this study are hexagons with a dimension of 300 meters. The study area of Dresden is divided using a complete surface of a hexagonal pattern. Then it is overlaid with the water stream network and river body from OpenStreetMap to keep only the hexagons that intersect with at least one stream. Finally, the isolated hexagons were removed.
 
 ![Spatial Units of waterbodies & streams across Dresden](../images/Spatial_Units.png)
+To explain why the Elbe river was included in the study area is that the river is a key element that has shaped the urban growth throughout decades and many spatial and environmental features are affected by this water body. Moreover, the Elbe is spine to most of the streams across the city that branch out form it. The river itself creates a vast network of waterways all across the urban, periphery, and forest areas. Otherwise, only picking the stream network would isolate the southern bank structure from the northern bank streams in which were clustered inside the forest areas which don't hold the potential for interventions. Therefore, the decision was made to consider the Elbe river and streams as whole water network within Dresden's boundaries.
 
-The main reason behind picking the dimensions of 300 meters is based on two main reasons:
+The prominent reason behind picking the dimensions of 300 meters is based on two main reasons:
 
 1.  The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.
 2.  The space but not the line: the spatial units are also going to determine the probable area of intervention. Then the streams are not the only lines that need to be changed, but the space surrounding them is also affected in both ways. This space includes the buildings, facilities, and natural habitats that all have synergies along with their neighboring stream structure.
 
 ![The Dimensions of spatial units and the river buffer radius](../images/Spatial_Units_Zoomed_In.jpeg)
 
-The spatial units are also filtered by a 500-meter buffer of the main river, Elde, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elde river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.
+The spatial units are also filtered by a 500-meter buffer of the main river, Elbe, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elbe river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.
 
 ## Attributes and Layers
 
