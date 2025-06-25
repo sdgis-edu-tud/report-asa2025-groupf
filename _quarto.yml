@@ -24,11 +24,11 @@ book:
     - sections/preliminary.qmd
     - sections/mcda.qmd
     - sections/typology.qmd
-    - sections/results.qmd
     - sections/discussion.qmd
     - sections/conclusion.qmd
     - sections/references.qmd
     - sections/interactive_map.qmd
+    - sections/appendix.qmd
 
 bibliography: references.bib
 biblio-title: "References"

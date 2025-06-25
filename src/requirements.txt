@@ -1,8 +1,0 @@
-numpy
-pandas
-jupyter
-tabulate
-ipyleaflet
-pyproj
-geopandas
-matplotlib

@@ -11,3 +11,7 @@ The research group is a combination of five members taking the roles as follows:
 - Adriano Mancini: Design Lead
 
 It should be mentioned that these roles are intended to allocate a leading responsibility over the defined roles but the each minor task is going to be distributed among the team members including helping and guiding each other on specific tasks.
+
+## Data
+
+The dataset produced during this project is available at this link: <https://doi.org/10.4121/48e04672-93f4-49a4-9c7b-76c57a844e24>.

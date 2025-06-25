@@ -1,0 +1,110 @@
+# Appendix {.unnumbered}
+
+## NDVI Computation {#sec-ndvi-computation}
+
+The code chunk that we used to compute the NDVI from Google Earth Engine is shown below.
+It actually computes the NDVI as well as two other indices (NDREI and NDWI) that we ended up not using for our analysis.
+You can easily compute other indices with the library that is used, by changing the variable called `indices`.
+Furthermore, it computes an average on the last five years, roughly for each season, and exports the data to Google Earth Engine.
+You might have to change the output path to adapt it to your situation in the call to the function `Export.image.toDrive`.
+Finally, this algorithm requires an extent (a vector layer) as an input that defines the area of interest.
+This can be changed in the variable called `extent`.
+
+```js
+var extent = ee.FeatureCollection("projects/arfw0501/assets/Spatial_units_extent");
+
+var spectral = require("users/dmlmont/spectral:spectral");
+
+// Indices to compute
+var indices = ["NDVI", "NDREI", "NDWI"];
+
+// Get the bounding box of the shapefile and buffer it
+var bbox = extent.geometry().bounds();
+var bbox_utm = bbox.transform('EPSG:25833', 0.1);
+var bbox_wgs84_buffered = bbox_utm.transform('EPSG:4326', 0.1).buffer(3000);
+
+// Center the map
+Map.centerObject(bbox_wgs84_buffered, 12);
+
+// Define seasons and their date patterns
+var seasons = [
+  {name: 'Winter', start: '-12-01', end: '-02-28', lastStartYear: 2024},
+  {name: 'Spring', start: '-03-01', end: '-05-31', lastStartYear: 2024},
+  {name: 'Summer', start: '-06-01', end: '-08-31', lastStartYear: 2024},
+  {name: 'Autumn', start: '-09-01', end: '-11-30', lastStartYear: 2024},
+];
+
+// Loop over each season
+seasons.forEach(function(season) {
+  // Create an object to store images for each index
+  var indexImages = {};
+
+  // Initialize empty lists per index
+  indices.forEach(function(index) {
+    indexImages[index] = [];
+  });
+
+  // Loop over the past 5 years
+  for (var y = 0; y < 5; y++) {
+    var year = season.lastStartYear - y;
+
+    var startYear = year;
+    var endYear = (season.name === 'Winter') ? year + 1 : year;
+
+    var startDate = startYear + season.start;
+    var endDate = endYear + season.end;
+
+    // Load and filter Sentinel-2 imagery
+    var collection = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
+      .filterBounds(bbox_wgs84_buffered)
+      .filterDate(startDate, endDate)
+      .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 10))
+      .median();
+
+    // Compute all requested indices
+    var parameters = {
+      "S2": collection.select("B12"),
+      "S1": collection.select("B11"),
+      "N2": collection.select("B8A"),
+      "N": collection.select("B8"),
+      "RE3": collection.select("B7"),
+      "RE2": collection.select("B6"),
+      "RE1": collection.select("B5"),
+      "R": collection.select("B4"),
+      "G": collection.select("B3"),
+      "B": collection.select("B2"),
+      "L": 0.5
+    };
+
+    var computedIndices = spectral.computeIndex(collection, indices, parameters);
+    computedIndices = computedIndices.clip(bbox_wgs84_buffered);
+
+    // Add each computed index image to the relevant list
+    indices.forEach(function(index) {
+      indexImages[index].push(computedIndices.select(index));
+    });
+  }
+
+  // Compute and display/export average per index for the season
+  indices.forEach(function(index) {
+    var meanImage = ee.ImageCollection(indexImages[index]).mean();
+    
+    // Display
+    Map.addLayer(meanImage, {min: -1, max: 1, palette: ['red', 'white', 'green']},
+      index + '_' + season.name + '_mean');
+
+    // Export
+    Export.image.toDrive({
+      image: meanImage,
+      description: index + '-' + season.name + '-mean_5yr',
+      folder: 'EarthEngineExports',
+      fileNamePrefix: index + '-' + season.name + '-mean_5yr',
+      region: bbox_utm,
+      scale: 10,
+      crs: 'EPSG:25833',
+      maxPixels: 1e13
+    });
+  });
+});
+
+```
