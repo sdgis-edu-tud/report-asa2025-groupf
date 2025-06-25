@@ -1,6 +1,8 @@
 # Preliminary Maps and Research
 
-In this chapter, we will introduce our research, possibly including a summary of our first brainstorming, and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project.
+In this chapter, we will introduce our research, possibly including a summary of our first brainstorming, and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project
+
+![City of Dresden (source: Bilderberg, 2025)](../images/Dresden.jpg)
 
 ## Historical background
 
