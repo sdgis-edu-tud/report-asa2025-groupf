@@ -78,7 +78,7 @@ The spatial units used in this study are hexagons with a dimension of 300 meters
 
 ![Spatial Units of waterbodies & streams across Dresden](../images/Spatial_Units.png)
 
-The main reason behind picking the dimensions of 300 meters is based on two main reasons:
+The main reason behind picking the dimensions of 250 meters is based on two main reasons:
 
 1. The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.  
 2. The space but not the line: the spatial units are also going to determine the probable area of intervention. Then the streams are not the only lines that need to be changed, but the space surrounding them is also affected in both ways. This space includes the buildings, facilities, and natural habitats that all have synergies along with their neighboring stream structure.
