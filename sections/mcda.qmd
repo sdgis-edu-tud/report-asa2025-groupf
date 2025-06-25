@@ -123,6 +123,8 @@ The different soil qualities, ranging from 1-6 (1 indicating low and 6 indicatin
 
 Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
+The code that was used to compute the NDVI on the whole area is available in @sec-ndvi-computation in the appendix.
+
 ### Climate Adaptation
 
 #### Available space near streams

@@ -28,6 +28,7 @@ book:
     - sections/conclusion.qmd
     - sections/references.qmd
     - sections/interactive_map.qmd
+    - sections/appendix.qmd
 
 bibliography: references.bib
 biblio-title: "References"

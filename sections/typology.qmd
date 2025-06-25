@@ -196,7 +196,18 @@ spatial_units_distances <- sqrt(rowSums((X_scaled - centroids_matrix)^2))
 
 ## Save to spatial_units
 spatial_units$Cluster_Dist <- spatial_units_distances
-st_write(spatial_units, "../data/results/Spatial_Units-Typology_Construction.geojson", delete_dsn = TRUE, quiet = TRUE)
+
+# Identify columns to exclude: the attribute columns used for scoring
+exclude_cols <- unlist(attribute_to_col)
+# Keep all columns except the attribute columns, plus geometry
+keep_cols <- setdiff(names(spatial_units), exclude_cols)
+# Subset the data
+output <- spatial_units[, keep_cols]
+# Compute the overall average score (across the three categories)
+output$Cluster <- spatial_units$Cluster
+output$Cluster_Dist <- spatial_units$Cluster_Dist
+
+st_write(output, "../data/results/Spatial_Units-Typology_Construction.geojson", delete_dsn = TRUE, quiet = TRUE)
 ```
 
 Before interpreting the results, an interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from @fig-columns-distribution.
