@@ -2,6 +2,8 @@
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
+The report of this project is available [online](https://sdgis-edu-tud.github.io/report-asa2025-groupf/).
+
 ## Purpose of the Project
 
 ### Context
