@@ -28,6 +28,8 @@ These concerns and identified potentials beg the question that, **how can urban 
 
 To articulate the challenges and identify the potentials to answer the question, the analysis is divided into three sub-research categories under the broad themes of biodiversity, climate adaptation and quality of life. Each theme has specific criteria with its attributes, which are analysed, measured and weighted against each other to arrive at the final decisions.
 
+![](../images/Diagram 1.png)
+
 ### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
 
 The criteria of **connectivity** and **environmental quality** are chosen to improve the existing habitats and further expand them.
