@@ -17,7 +17,6 @@ docs/
 data/*
 !data/results/
 data/results/temp/
-!data/background/
 !data/raw/
 data/raw/*
 !data/raw/osm_roads/
