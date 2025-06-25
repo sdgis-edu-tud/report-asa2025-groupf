@@ -2,77 +2,52 @@
 
 ## Introduction
 
-This tutorial demonstrates how to construct urban typologies in R. Specifically, we use K-means Clustering, a method of unsupervised machine learning, to classify urban units into typologies for urban stream restoration.
-
-### Preparation
-
-In the previous session, we introduced the key preparatory steps for typology construction before clustering. Here, we provide a specific example that illustrates how these steps can be applied in a particular context.
-
--   **Define your objective**:\
-    TODO
--   **Define your focused area**:\
-    The space around the stream corridors in the whole city of Dresden.
--   **Define your spatial unit**:\
-    TODO
--   **Define your variables**:
-    - TODO
-    - TODO
-    - TODO
-
-## Clustering steps
-
-After the above preparatory steps, now we start the clustering process.
-
-We will:
-
-- Step 1. Load R packages and data
-- Step 2. Standardization
-- Step 3. Determine optimal k
-- Step 4. Run K-means clustering
-- Step 5. Interpret cluster center
-- Step 6. (Optional) Calculate distance to cluster center
-
-### Step 1. Load R packages and data
-
-We begin by loading the necessary R packages.
-
-If you haven't installed these packages yet, remove the `#` and run the following chunk before continuing:
-
 ```{r}
+#| echo: false
 #| output: false
-#install.packages("sf") 
-#install.packages("dplyr")
-
 library(sf) ## for processing vector data 
 library(dplyr) ## for selecting and transforming data
 library(plotly) ## for plotting data
-```
+library(kableExtra) ## for plotting tables
 
-```{r}
-spatial_units <- st_read("../data/results/Spatial_Units-All_Attributes.geojson", quiet = TRUE)
+source("../src/attributes.R")
 
 ## View the columns of the data
 colnames(spatial_units)
 
-## Count how many spatial units we have
-nrow(spatial_units)
-```
-
-Then select the columns to use:
-
-```{r}
-used_attributes <- c(
-  Green_Area = "Green area",
-  Space_along_Streams = "Space along Streams",
-  Shade_3pm = "Shade at 3pm",
-  Accessibility = "Accessibility to streams"
+used_attributes_cols = c(
+  "Green_Area",
+  "Space_along_Streams",
+  "Shade_3pm",
+  "Accessibility"
 )
+
+## Build used_attributes from used_attributes_cols and attribute_to_col
+used_attributes <- setNames(
+  names(attribute_to_col)[match(used_attributes_cols, unlist(attribute_to_col))],
+  used_attributes_cols
+)
+
 n_attr <- length(used_attributes)
 ```
 
-We can also visualize the data to have a better understanding visually.
+With Typology Construction we wanted to answer a few questions in the continuity of our main question for the MCDA analysis: How can urban streams be restored and integrated in Dresden's fabric, such that there is a synergy between human activities and the natural environment?
+
+In this case, the three questions that we tried to answer were:
+
+- What are the streams’ adaptability rates to heat waves?
+- How are the accessibility and connectivity conditions of green-blue areas?
+- What are the areas of intervention along the streams?
+
+To answer these questions, we picked some of the attributes that we computed for the MCDA analysis.
+We tried to select those that were the most relevant for the three questions, which are:
+
+- `r paste(used_attributes, collapse = "\n- ")`
+
+Below are what these layers look like:
 
 ```{r}
+#| echo: false
 #| layout-ncol: 2
 
 ## Plot the attributes in two columns
@@ -81,27 +56,21 @@ for (col in names(used_attributes)) {
 }
 ```
 
-### Step 2. Standardization
+## Clusters Computation
 
-We select the relevant features. These features are then standardized to ensure they contribute equally to the clustering algorithm.
+To begin the clustering, we started by normalising each feature to have an average of 0 and a standard deviation of 1.
 
 ```{r}
+#| echo: false
+#| label: fig-elbow
+#| fig-cap: Visualisation of the inertia for different numbers of clusters ofr the elbow method.
+
 features <- spatial_units |> 
   select(names(used_attributes)) |>
   st_drop_geometry() ## remove geometry column so we just keep a data table
 
 X_scaled <- scale(features) ## Standardize (mean=0, sd=1) 
 
-head(X_scaled)
-```
-
-### Step 3: Determine the optimal K
-
-We use the **elbow method** to choose a good number of clusters.
-
-For each value of `k` (e.g. 2 to 9), we run K-means and record a value called **inertia** : the total distance between points and their cluster centers. Lower inertia means tighter (better) clusters.
-
-```{r}
 ## Initialize an empty numeric vector to store inertia values 
 inertia <- numeric()
 
@@ -120,90 +89,73 @@ for (k in k_values) {
 ## Combine the results into a data frame for plotting
 elbow_df <- data.frame(k = k_values, inertia = inertia)
 
-# print(elbow_df)
-```
-
-We can visualize how inertia changes with increasing k. After a certain point, adding more clusters doesn’t help much — the curve bends. That bend is called the *elbow point*, and we use it to choose the best k.
-
-```{r}
 ## Make the elbow plot
 plot(k_values, inertia,
      type = "b",
      col = "darkblue",
      main = "Elbow Method")
+
+## Choose the number of clusters based on the elbow plot
+n_clusters <- 4
 ```
 
-### Step 4. Run K-Means clustering
+To use k-means properly to cluster the data, we had to select a good number of clusters.
+To do so, we used the **elbow method**.
+We tried values of $k$ from 2 to 9, and looking at the graph of the inertia for all values in @fig-elbow, we picked $k=`r n_clusters`$ at the value with the largest elbow angle.
 
-Based on the elbow plot, we choose `k = 4` as a good number of clusters.\
-We now run the K-means algorithm and assign each grid to one of the four clusters.
+Then, we ran the k-means algorithm and to assign a final cluster to each spatial unit.
 
 ```{r}
+#| echo: false
+#| label: tbl-n_per_cluster
+#| tbl-cap: Spatial units per cluster
+
 ## `set.seed()` sets the random number generator to a fixed state
 ## Set the seed so the clustering result is always the same when re-run
 set.seed(0)  ## The number 0 is just a fixed choice. You can also use 10, 345, etc.
 
-## Choose the number of clusters based on the elbow plot
-n_clusters <- 4
-
 # Run K-means clustering on the standardized data
 kmeans_result <- kmeans(X_scaled, centers = n_clusters, nstart = 20)
 
-# # You can use Gaussian Mixture Models (GMM) via the 'mclust' package
-# # install.packages("mclust") # Uncomment if not installed
-# library(mclust)
-
-# # Fit a GMM with 4 components (clusters)
-# gmm_result <- Mclust(X_scaled, G = n_clusters)
-
-# # Assign cluster labels from GMM
-# kmeans_result <- list(
-#      cluster = gmm_result$classification,
-#      centers = gmm_result$parameters$mean[, 1:n_clusters, drop = FALSE]
-# )
-
 ## Add the cluster labels to the spatial data
-spatial_units$cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and spatial_units
-
-colnames(spatial_units)
+spatial_units$Cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and spatial_units
 
 ## Show how many spatial_units fall into each cluster
-print(table(spatial_units$cluster))
+print(table(spatial_units$Cluster))
 ```
 
-Save the updated grid data (with cluster labels) to a new GeoPackage file. You can use it for further analysis and visualize.
+We can see with @tbl-n_per_cluster that each cluster contains a decent number of points.
+Then, we plotted the clusters geographically in the spatial units in @fig-clusters-units.
 
 ```{r}
-#st_write(spatial_units, "spatial_units.gpkg")
-```
+#| echo: false
+#| label: fig-clusters-units
+#| fig-cap: Visualisation of the spatial units clustered geographically
 
-We can also visualize the spatial pattern.
-
-```{r}
 ## Generate cluster colors dynamically
-cluster_levels <- levels(spatial_units$cluster)
+cluster_levels <- levels(spatial_units$Cluster)
 cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
 cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
 
 ## Plot clusters with base R
-plot(spatial_units["cluster"], 
+plot(spatial_units["Cluster"], 
      main = "Spatial Pattern of Urban Stream Clusters", 
      border = NA,
-     col = cluster_colors[spatial_units$cluster])
+     col = cluster_colors[spatial_units$Cluster])
 
-legend("topright",
-     legend = levels(spatial_units$cluster),
+legend("topleft",
+     legend = levels(spatial_units$Cluster),
      fill = cluster_colors,
      title = "Cluster",
      cex = 0.9,
      bty = "n")
 ```
 
-### Step 5. Interpret cluster centers
-
-Now we look at the center of each cluster. First, we check the values in standardized form. Then, we convert them back to the original units (e.g. degrees), so they are easier to understand.
-
 ```{r}
+#| echo: false
+#| class: plain
+#| tbl-cap: Values of the variables for the centers of the clusters
+
 ## Get the cluster centers (in standardized form)
 scaled_centers <- kmeans_result$centers
 
@@ -214,25 +166,27 @@ original_centers <- t(apply(
 ))
 
 ## Print the real-world values
-print(original_centers, digits=3)
-
+colnames(original_centers) <- used_attributes
+# print(original_centers, digits=3)
+df <- as.data.frame(formatC(original_centers, digits = 3, format = "f"))
+df$Cluster <- seq_len(nrow(df))
+df <- df[, c("Cluster", setdiff(names(df), "Cluster"))]
+kbl(df, format = "html", escape = FALSE, align = "c") %>%
+  kable_styling(full_width = FALSE, bootstrap_options = c("hover", "responsive")) %>%
+  row_spec(0, background = "#f2f2f2", bold = TRUE) %>% # Bold the header row
+  # row_spec(nrow(df), bold = TRUE) %>% # Highlight last row
+  # column_spec(1, background = "#f2f2f2", bold = TRUE) %>% # Bold the first column
+  column_spec(2:ncol(df))
 ```
 
-To interpret the clustering results, we examine the centers of each cluster in the original data scale. The table below summarizes the environmental characteristics of each cluster based on the original (unscaled) values.
+## Topology Creation
 
-#### Typology description
-
-| Type | Soil quality | Flood safety | Accessibility to streams | Description |
-|---------|----------|---------|----------|--------------------|
-| 1 | ??? | ??? | ??? | ........... |
-| 2 | ??? | ??? | ??? | ........... |
-| 3 | ??? | ??? | ??? | ........... |
-| 4 | ??? | ??? | ??? | ........... |
-
-### Step 6. (Optional) Calculate distance to cluster center
+To interpret the clustering results, we examine the centers of each cluster in the original data scale.
 
 ```{r}
-### Step 6 (Optional): Compute distance to cluster center
+#| echo: false
+
+### Compute distance to cluster center and store the output
 
 ## Get the cluster center for each row, using the cluster assignment
 centroids_matrix <- kmeans_result$centers[kmeans_result$cluster, ]
@@ -241,33 +195,34 @@ centroids_matrix <- kmeans_result$centers[kmeans_result$cluster, ]
 spatial_units_distances <- sqrt(rowSums((X_scaled - centroids_matrix)^2))
 
 ## Save to spatial_units
-spatial_units$cluster_dist <- spatial_units_distances
-st_write(spatial_units, "../data/results/Spatial_Units-Typology_Construction_values.geojson", delete_dsn = TRUE, quiet = TRUE)
+spatial_units$Cluster_Dist <- spatial_units_distances
+
+# Identify columns to exclude: the attribute columns used for scoring
+exclude_cols <- unlist(attribute_to_col)
+# Keep all columns except the attribute columns, plus geometry
+keep_cols <- setdiff(names(spatial_units), exclude_cols)
+# Subset the data
+output <- spatial_units[, keep_cols]
+# Compute the overall average score (across the three categories)
+output$Cluster <- spatial_units$Cluster
+output$Cluster_Dist <- spatial_units$Cluster_Dist
+
+st_write(output, "../data/results/Spatial_Units-Typology_Construction.geojson", delete_dsn = TRUE, quiet = TRUE)
 ```
 
-## Summary
-
--   We prepared spatial data representing the surroundings of urban streams.
--   We selected key indicators for stream ecology: TODO.
--   We standardized the data to ensure fair clustering.
--   We used the elbow method to decide the K.
--   We performed K-means clustering to identify distinct urban stream types.
--   We analyzed and interpreted each cluster using cluster centers.
--   (Optional) We calculated how close each grid is to its cluster center.
-
-This workflow can now be applied to your own datasets to explore meaningful typologies for planning and design. Enjoy clustering!
-
-## Appendix
-
-### A1. Visualize variable distributions in histogram
+Before interpreting the results, an interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from @fig-columns-distribution.
+The fact that some of them have a high concentration of values on the extreme values makes it quite likely to have a cluster to be centred on this value for this attribute, and this is indeed what we can see in the output.
 
 ```{r}
+#| echo: false
+#| label: fig-columns-distribution
+#| fig-cap: Distribution of the variables
 
-## calculate nornalization
+## Calculate normalisation
 normalize <- function(x) (x - min(x)) / (max(x) - min(x))
 features_norm <- as.data.frame(lapply(features, normalize))
 
-## Set up color palette for any number of features (distinct colors)
+## Set up colour palette for any number of features (distinct colours)
 set.seed(42) # for reproducibility
 hist_colors <- grDevices::hcl.colors(n_attr, palette = "Dynamic", alpha = 1.0)
 
@@ -292,67 +247,74 @@ for (i in seq_along(used_attributes)) {
 }
 ```
 
-### A2. K-means Euclidean distance
+By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:
 
-For a data point **`x`** with 3 variables ( `u, v, w` ),
-
-$$
-\mathbf{x} = (x_u, x_v, x_w)
-$$\
-and a cluster center\
-$$
-\mathbf{c} = (c_u, c_v, c_w),
-$$\
-the Euclidean distance between the point and the cluster center is calculated as:
-
-$$
-\text{Distance} = \sqrt{(x_u - c_u)^2 + (x_v - c_v)^2 + (x_w - c_w)^2}
-$$
-
-In our case:
-
-:::{style="overflow-x:auto;overflow-y:hidden;"}
-$$
-\text{Distance} = \sqrt{
-`r paste(
-  sapply(names(used_attributes), function(col) {
-    paste0(
-      "(x_{\\text{", tolower(gsub("_", " ", col)), "}} - ",
-      "c_{\\text{", tolower(gsub("_", " ", col)), "}})^2"
-    )
-  }),
-  collapse = " +\n"
-)`
-}
-$$
-:::
-
-### A3. Visualize cluster points in 3D distribution
+1. **Forest areas (Cluster 1)**:
+   - High proportion of greenery and shade due to the trees
+   - High peripherality because most of the forest is quite far from the houses
+   - Not much space available as the forest takes most of the space
+2. **Sparse urban areas (Cluster 2)**:
+   - Some greenery and some available space because the housing is not too dense
+   - Quite high peripherality since there is housing, but a low population density
+   - Low shade because some sparse trees and low buildings are the only sources of shade 
+3. **Dense urban areas (Cluster 3)**:
+   - Very low amount of greenery and available space because space is mostly occupied by buildings
+   - Decent amount of shading because of the high and dense buildings
+   - Low peripherality as the population density is high in the area around
+4. **Marginal areas (Cluster 4)**:
+   - Quite high proportion of greenery composed of mostly grass fields and some forest
+   - A lot of space available as the grass fields are often not really used
+   - Very low shade as only a few trees create shade
+   - Quite high peripherality since these places are not central and not well accessible
 
 ```{r}
 #| echo: false
-#| title: 3D Distribution of the first 3 attributes
-# Get the first three attribute names and display names
-attr3_names <- names(used_attributes)[1:3]
-attr3_display <- used_attributes[1:3]
+#| label: fig-typology-units
+#| fig-cap: Visualisation of the spatial units clustered with their typology
 
-cluster3d_scaled <- plot_ly(
-  x = X_scaled[, attr3_names[1]],
-  y = X_scaled[, attr3_names[2]],
-  z = X_scaled[, attr3_names[3]],
-  type = "scatter3d",
-  mode = "markers",
-  color = as.factor(kmeans_result$cluster),
-  colors = cluster_colors,
-  marker = list(size = 3)
-) %>%
-  layout(
-    scene = list(
-      xaxis = list(title = attr3_display[[1]]),
-      yaxis = list(title = attr3_display[[2]]),
-      zaxis = list(title = attr3_display[[3]])
-    )
-  )
-cluster3d_scaled
+cluster_names = c(
+  "Forest areas",
+  "Sparse urban areas",
+  "Dense urban areas",
+  "Marginal areas"
+)
 
+## Generate cluster colors dynamically
+cluster_levels <- levels(spatial_units$Cluster)
+# cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
+# cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
+cluster_colors <- c(
+  "Forest areas" = "#228B22",      # Forest Green
+  "Sparse urban areas" = "#FFD700",# Gold
+  "Dense urban areas" = "#B22222", # Firebrick (urban red)
+  "Marginal areas" = "#87CEEB"     # Sky Blue
+)
+cluster_colors <- setNames(cluster_colors, cluster_levels)
+
+## Plot clusters with base R
+plot(spatial_units["Cluster"], 
+     main = "Spatial units clustered with their typology", 
+     border = NA,
+     col = cluster_colors[spatial_units$Cluster])
+
+legend("topleft",
+     legend = cluster_names,
+     fill = cluster_colors,
+     title = "Typology",
+     cex = 0.9,
+     bty = "n")
 ```
+
+## Answers to the Questions
+
+Regarding the suitability of the spaces to sustain heat waves, the results are similar to what we could have expected, given that we mostly look at two attributes for this: the greenery and the shade.
+The forest areas are the most adapted with high greenery and shade that prevent the temperature from drastically increasing during heat waves.
+Marginal areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun.
+The sparse urban areas are even worse because there is even less greenery and not much more shade, while the dense urban areas have at least some shade even if the heat island effect will be strong due to the soil artificialisation.
+
+However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of heat wave sustainability.
+It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or marginal areas, that could be used during these events.
+
+Finally, the available space gives us information about the potential for simple interventions in each area.
+Marginal areas have the highest potential, meaning that they could be adapted to provide shelters in case of heat waves, for example by planting new trees.
+Sparse urban areas also have some potential while the dense areas already have most of their space used and forest areas should rather be kept as they are.

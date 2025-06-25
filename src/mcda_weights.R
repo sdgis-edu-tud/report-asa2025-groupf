@@ -15,7 +15,7 @@ attributes <- list(
   ),
   "Quality of Life" = c(
     "Visibility",
-    "Walking accessibility",
+    "Peripherality",
     "Land use variety"
   )
 )

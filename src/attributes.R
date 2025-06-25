@@ -12,6 +12,6 @@ attribute_to_col <- list(
   "Soil infiltration capacity" = "Infiltration",
   "Shade" = "Shade_3pm",
   "Visibility" = "Visibility",
-  "Walking accessibility" = "Accessibility",
+  "Peripherality" = "Accessibility",
   "Land use variety" = "Land_Use_Types"
 )
