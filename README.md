@@ -31,30 +31,30 @@ Two data-driven methods were used to conduct the analysis:
 
 ## Authors
 
-1. Co-investigator 1
+1. Author 1
    - Name: Adriano Mancini  
    - Institution: TU Delft  
    - Email: <a.mancini-1@student.tudelft.nl>
-2. Co-investigator 2
+2. Author 2
    - Name: Alankrita Sharma  
    - Institution: TU Delft  
    - Email: <a.sharma-73@student.tudelft.nl>
-3. Co-investigator 3
+3. Author 3
    - Name: Alexandre Bry  
    - Institution: TU Delft  
    - Email: <a.m.e.bry@student.tudelft.nl>
-4. Co-investigator 4
+4. Author 4
    - Name: Grase Stephanie Stuka  
    - Institution: TU Delft  
    - Email: <gstuka@student.tudelft.nl>
-5. Co-investigator 5
+5. Author 5
    - Name: Soroush Saffarzadeh  
    - Institution: TU Delft  
    - Email: <s.saffarzadeh@student.tudelft.nl>
 
 ## Repository Structure
 
-```default
+```bash
 .
 ├── data                      # Created layers of data
 │   ├── intermediate          # Intermediate layers 
@@ -64,6 +64,7 @@ Two data-driven methods were used to conduct the analysis:
 ├── images                    # Images used in the report
 ├── index.qmd                 # Main landing page of the report
 ├── _quarto.yml               # Metadata and settings of the report
+├── LICENSE
 ├── README.md
 ├── references.bib            # References used in the report
 ├── requirements.txt          # Requirements for the Python code in the report
@@ -72,14 +73,18 @@ Two data-driven methods were used to conduct the analysis:
 └── styles.css                # Some styling for the report
 ```
 
+## Data
+
+The dataset created during this project is available [online](https://doi.org/10.4121/48e04672-93f4-49a4-9c7b-76c57a844e24).
+
 ## Software
 
 Software that we used:
 
-- QGIS (different versions from 3.28 to 3.40 for the different authors) for the data manipulation, analysis and visualisation
-- R version 4.5.1 for some data analysis and visualisation in the report
-- Python version 3.12 for some visualisation in the report
-- Quarto version 1.7.32 to render the report
+- [QGIS](https://qgis.org/download/) (different versions from 3.28 to 3.40 for the different authors) for the data manipulation, analysis and visualisation
+- [R](https://cran.rstudio.com/) version 4.5.1 for some data analysis and visualisation in the report
+- [Python](https://www.python.org/downloads/) version 3.12 for some visualisation in the report. The dependencies are stored in [`requirements.txt`](requirements.txt).
+- [Quarto](https://quarto.org/docs/get-started/) version 1.7.32 to render the report.
 
 ## License
 
