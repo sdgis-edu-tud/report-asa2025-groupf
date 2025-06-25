@@ -52,4 +52,20 @@ Two data-driven methods were used to conduct the analysis:
 
 ## Repository Structure
 
-TODO
+```default
+.
+├── data                      # Created layers of data
+│   ├── intermediate          # Intermediate layers 
+│   └── results               # Final results layers
+├── .github
+├── .gitignore
+├── images                    # Images used in the report
+├── index.qmd                 # Main landing page of the report
+├── _quarto.yml               # Metadata and settings of the report
+├── README.md
+├── references.bib            # References used in the report
+├── requirements.txt          # Requirements for the Python code in the report
+├── sections                  # Sections of the report
+├── src                       # External R scripts
+└── styles.css                # Some styling for the report
+```

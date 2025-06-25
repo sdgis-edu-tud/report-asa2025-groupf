@@ -17,9 +17,6 @@ docs/
 data/*
 !data/results/
 data/results/temp/
-!data/raw/
-data/raw/*
-!data/raw/osm_roads/
 !data/intermediate/
 data/intermediate/*
 !data/intermediate/Spatial_Units.geojson
