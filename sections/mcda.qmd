@@ -303,4 +303,8 @@ These weights were computed with respective consistency ratios of `{r} saaty_wei
 
 ## Results of the Analysis
 
-*To write and organise.*
+The average value of all three categories represents the considerable environmental quality caused by the streams across the city of Dresden.
+The overall higher values are concentrated in the southern bank of Elbe river and some clusters in the far east in the outskirts of the city.
+Moreover, there are smaller spots along the river bank zones that lack sufficient values.
+Although the urban streams represent a reasonable environmental quality around their buffers, 
+the Elbe river holds some areas of lower quality that draws the attention for intervention.
