@@ -181,8 +181,6 @@ kbl(df, format = "html", escape = FALSE, align = "c") %>%
 
 ## Topology Creation
 
-To interpret the clustering results, we examine the centers of each cluster in the original data scale.
-
 ```{r}
 #| echo: false
 
@@ -247,6 +245,7 @@ for (i in seq_along(used_attributes)) {
 }
 ```
 
+To interpret the clustering results, we examine the centers of each cluster in the original data scale.
 By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:
 
 1. **Forest areas (Cluster 1)**:
