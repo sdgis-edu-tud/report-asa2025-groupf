@@ -1,6 +1,6 @@
-[![CC BY 4.0][cc-by-shield]][cc-by]
-
 # Unpacking Dresden
+
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
 ## Purpose of the Project
 
