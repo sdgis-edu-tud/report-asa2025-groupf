@@ -1,9 +1,3 @@
----
-editor: 
-  markdown: 
-    wrap: sentence
----
-
 # Typology Construction
 
 ## Introduction
@@ -41,14 +35,14 @@ With Typology Construction we wanted to answer a few questions in the continuity
 
 In this case, the three questions that we tried to answer were:
 
--   What are the streams’ adaptability rates to heat waves?
--   How are the accessibility and connectivity conditions of green-blue areas?
--   What are the areas of intervention along the streams?
+- What are the streams’ adaptability rates to heat waves?
+- How are the accessibility and connectivity conditions of green-blue areas?
+- What are the areas of intervention along the streams?
 
 To answer these questions, we picked some of the attributes that we computed for the MCDA analysis.
 We tried to select those that were the most relevant for the three questions, which are:
 
--   `r paste(used_attributes, collapse = "\n- ")`
+- `r paste(used_attributes, collapse = "\n- ")`
 
 Below are what these layers look like:
 
