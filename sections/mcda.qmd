@@ -131,7 +131,7 @@ $$
 \text{Normalised\_Value} = \left(\frac{\text{Proportion\_Shaded}}{0.4133}\right)
 $$
 
-![Normalized values of flood safety](../images/Updated images/S-MCDA attributes/shade s-mcda.png)
+![Normalized values of flood safety](../images/Updated%20images/S-MCDA%20attributes/shade%20s-mcda.png)
 
 #### Conclusion - Climate Adaptation
 
@@ -176,7 +176,7 @@ The final value is not really interpretable, as it is a population density multi
 
 This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life. For this purpose, the land use data was simplified into 10 main categories.
 
-![Land use map](../images/Upload-Map-2.4-LandUse.jpg)
+![Land use map](../images/Upload-Map-3.1-LandUse.jpg)
 
 Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. Then, the values were normalised within the range between 0-1 by dividing each value with the maximum value. Areas with high values indicate greater diversity in land use.
 
