@@ -37,6 +37,8 @@ book:
 
 bibliography: references.bib
 biblio-title: "References"
+nocite: |
+  @*
 
 format:
   html:

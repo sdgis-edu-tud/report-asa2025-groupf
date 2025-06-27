@@ -2,6 +2,30 @@
 
 ## Results and Analysis
 
+The results illustrate an acceptable quality of urban streams that need to be preserved while the urban spaces near the Elbe river hold more potential for interventions. Comparing the two methodology visualised results shows the outputs of the S-MCDA and Typology Construction are almost the same.
+
+The overall maps illustrate the high quality of forest areas within the city that also hold a unique characteristic and encourages for further preservation and avoidance from any intervention. The zones known as Dense Urban Areas in the cluster almost have the same low value as the combined MCDA map. The orange spots that are mostly located around the Elbe river, and shapes dense urban area cluster have the lowest values and qualities based on the sub objectives of urban stream restoration criteria which makes them the areas with more problems or complexities that are needed to be tackled seriously.
+
+Also, the yellow zones inside both the MCDA and typologies also have matching which makes them as the second problematic areas within the spatial units. These areas have a moderate available space for intervention and average density, but also they have a very low accessibility value. These comparisons, approve that the second problematic areas can be sparse urban areas with a nearly consent distance from the Elbe river.
+
+Apparently, the stream network is having a high-average quality that would require the least restoration interventions at least in the non-centric districts of Dresden. Otherwise, the urban core areas need a detailed study, and after that, detailed interventions for enhancing the stream areas within the dense urban fabric that holds the most accessibility and least peripherality. The other interesting point is that the Elbe river holds more problematic characteristics compared to its streams branched out of it.
+
 ## Reproducibility
 
+Overall, most of the processed data, analysis methods, software tools, etc. were applied and implemented smoothly, so the descriptions within this report will be in an acceptable level of reproducibility.
+
+However, some complex analysis, like the shadow generation, may not be too easy to reproduce, as it critically relies on data with fixed and clean geometries that causes almost no errors throughout the process. This was the case with generating shadows, since the buildings layer from the Open Street Map dataset had geometry problems that deeply needed to be fixed through several procedures of trials and error using the AI assistant i.e. ChatGPT. Although the whole process of data cleaning and geometry fixing scripts and steps are indicated inside the report's appendix, @sec-buidig-information, there might be complexities or issues reproducing the same analysis map. This case needs to be elaborated and cleaned up for a more specific and concrete process.
+
 ## Organisation and Teamwork
+
+The team consisted of five teammates, where four of us were from urbanism and one teammate was from geomatics. As we discussed our individual motivations on the first day, we realised we all shared the passion to understand the use of urban application data in real-life scenarios. We further divided the roles which we voluntarily picked, realising that they may overlap during the process, we could each take an overarching responsibility for specific processes. We divided them as follows:
+
+Alankrita Sharma (Urbanism) - Research Lead, Presentation Lead
+Alexandre Bry (Geomatics): Project Coordinator, Data Analyst
+Adriano Mancini (Urbanism): Design Lead
+Grase Stephanie (Urbanism): Mapping Specialist
+Soroush Saffarzadeh (Urbanism): Writer/Editor, Presentation Lead
+
+The roles helped us to have a broader clarity for our responsibilities, and that helped us to track specific progress within each task. As the majority of us were from urbanism, we noted how we were more active in understanding the urban context and spatial logic to derive the attributes, while our teammate from geomatics complemented the course by breaking down each attribute to tangible calculations that could be computed. This made us revise and reconsider our choices until we finally arrived at a group of measurable attributes that were also relevant for the context. The role of the geomatics discipline was specifically relevant when the computation was complex, such as in understanding how to aggregate the data to each spatial unit and computing the average values for the S-MCDA. Here, as time allowed us as well, we were able to learn from each other and grasp an understanding of computing the weighted average. For typology construction, however, the role for data analytics was more limited to the geomatics teammate, although we all coordinated in devising the research question, finalising attributes for the clusters, and drawing inferences from results. Though this helped the urbanism groupmates to theoretically understand the value of typology construction, the practical understanding of the method was limited. 
+While we experienced certain challenges at times due to our schedules for different courses, we were able to shift and add responsibilities in those instances. Overall, our workflow could also be described as an effective interdisciplinary project, where we were able to bring our different skills and perspectives together to apply urban data to a specific case of urban stream restoration. 
+
