@@ -2,6 +2,8 @@
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
+The report of this project is available [online](https://sdgis-edu-tud.github.io/report-asa2025-groupf/).
+
 ## Purpose of the Project
 
 ### Context
@@ -46,7 +48,7 @@ Two data-driven methods were used to conduct the analysis:
 4. Author 4
    - Name: Grase Stephanie Stuka  
    - Institution: TU Delft  
-   - Email: <gstuka@student.tudelft.nl>
+   - Email: <GraseStephanieStuka@student.tudelft.nl>
 5. Author 5
    - Name: Soroush Saffarzadeh  
    - Institution: TU Delft  

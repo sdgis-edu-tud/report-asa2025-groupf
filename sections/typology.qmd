@@ -181,8 +181,6 @@ kbl(df, format = "html", escape = FALSE, align = "c") %>%
 
 ## Topology Creation
 
-To interpret the clustering results, we examine the centers of each cluster in the original data scale.
-
 ```{r}
 #| echo: false
 
@@ -247,6 +245,7 @@ for (i in seq_along(used_attributes)) {
 }
 ```
 
+To interpret the clustering results, we examine the centers of each cluster in the original data scale.
 By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:
 
 1. **Forest areas (Cluster 1)**:
@@ -261,7 +260,7 @@ By observing the values and the geographic position of the spatial units in each
    - Very low amount of greenery and available space because space is mostly occupied by buildings
    - Decent amount of shading because of the high and dense buildings
    - Low peripherality as the population density is high in the area around
-4. **Marginal areas (Cluster 4)**:
+4. **Transitional areas (Cluster 4)**:
    - Quite high proportion of greenery composed of mostly grass fields and some forest
    - A lot of space available as the grass fields are often not really used
    - Very low shade as only a few trees create shade
@@ -276,7 +275,7 @@ cluster_names = c(
   "Forest areas",
   "Sparse urban areas",
   "Dense urban areas",
-  "Marginal areas"
+  "Transitional areas"
 )
 
 ## Generate cluster colors dynamically
@@ -287,7 +286,7 @@ cluster_colors <- c(
   "Forest areas" = "#228B22",      # Forest Green
   "Sparse urban areas" = "#FFD700",# Gold
   "Dense urban areas" = "#B22222", # Firebrick (urban red)
-  "Marginal areas" = "#87CEEB"     # Sky Blue
+  "Transitional areas" = "#87CEEB"     # Sky Blue
 )
 cluster_colors <- setNames(cluster_colors, cluster_levels)
 
@@ -309,12 +308,12 @@ legend("topleft",
 
 Regarding the suitability of the spaces to sustain heat waves, the results are similar to what we could have expected, given that we mostly look at two attributes for this: the greenery and the shade.
 The forest areas are the most adapted with high greenery and shade that prevent the temperature from drastically increasing during heat waves.
-Marginal areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun.
+Transitional areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun.
 The sparse urban areas are even worse because there is even less greenery and not much more shade, while the dense urban areas have at least some shade even if the heat island effect will be strong due to the soil artificialisation.
 
-However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of heat wave sustainability.
-It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or marginal areas, that could be used during these events.
+However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of green-blue space accessibility.
+It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or transitional areas, that could be used during these events.
 
 Finally, the available space gives us information about the potential for simple interventions in each area.
-Marginal areas have the highest potential, meaning that they could be adapted to provide shelters in case of heat waves, for example by planting new trees.
+Transitional areas have the highest potential, meaning that they could be adapted to provide shelters in case of heat waves, for example by planting new trees.
 Sparse urban areas also have some potential while the dense areas already have most of their space used and forest areas should rather be kept as they are.

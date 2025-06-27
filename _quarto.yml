@@ -4,16 +4,21 @@ project:
 
 book:
   author:
-    - name: "Alexandre Bry"
-      affiliation: "MSc Geomatics"
-    - name: "Alankrita Sharma"
-      affiliation: "MSc Urbanism"
-    - name: "Grase Stephanie"
-      affiliation: "MSc Urbanism"
-    - name: "Soroush Saffarzadeh"
-      affiliation: "MSc Urbanism"
     - name: "Adriano Mancini"
       affiliation: "MSc Urbanism"
+      email: a.mancini-1@student.tudelft.nl
+    - name: "Alankrita Sharma"
+      affiliation: "MSc Urbanism"
+      email: a.sharma-73@student.tudelft.nl
+    - name: "Alexandre Bry"
+      affiliation: "MSc Geomatics"
+      email: a.m.e.bry@student.tudelft.nl
+    - name: "Grase Stephanie Stuka"
+      affiliation: "MSc Urbanism"
+      email: grasestephaniestuka@student.tudelft.nl
+    - name: "Soroush Saffarzadeh"
+      affiliation: "MSc Urbanism"
+      email: s.saffarzadeh@student.tudelft.nl
   repo-url: https://github.com/sdgis-edu-tud/report-asa2025-groupf
   repo-actions: [edit, source, issue]
   title: "Unpacking Dresden"
@@ -32,6 +37,8 @@ book:
 
 bibliography: references.bib
 biblio-title: "References"
+nocite: |
+  @*
 
 format:
   html:

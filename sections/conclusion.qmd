@@ -1,1 +1,11 @@
 # Conclusion {.unnumbered}
+This report was focused on applying spatial analysis utilizing the S-MCDA & Typology Construction as quantitative research methods to evaluate the urban streams within the city of Dresden based on the urban stream restoration goal. The process was started by initial studies of Dresden and its natural elements creating the man-made and ecological synergies within the built and landscape environments. After that, the sub objectives of the goal were defined concentrating on three main themes:
+
+  1. Biodiversity
+  2. Climate Adaptation
+  3. Quality of Life
+
+The attributes were defined to be measured within the context. The MCDA and Typology methods were used to measure the specific attributes of each theme and at last, the results were compared and represented as the zones for intervention potentialities or prevention.
+The MCDA method was used to create a weighted evaluation based on priorities of each attribute over the other in each theme. Finally, the summed weighted values of three main themes were combined together in a spatial unit with average value of all MCDA maps into one synthesized map that illustrated the areas of complexities and low quality of ecological values mostly concentrated in the southern bank of Elbe river.
+The Typology Construction method was implemented by defining three main variables to represent each stream restoration theme. The variables were normalized between 0 and 1 and classified in four clusters by its k-mean values. The general clusters were visualized in different zones. The low-quality clusters based on defined variables were mostly concentrated in southern bank of Elbe as well. 
+At the end, the results of the two spatial analysis methods were compared. The final discussion was made to result in intervention suggestions along with areas to prevent from or run more research and detailed analysis to achieve a deeper understanding of the urban streams and their surrounding areas.
