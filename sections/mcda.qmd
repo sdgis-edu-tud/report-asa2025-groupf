@@ -32,17 +32,6 @@ To articulate the challenges and identify the potentials to answer the question,
 
 The criteria of **connectivity** and **environmental quality** are chosen to improve the existing habitats and further expand them.
 
-1.  Connectivity — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the 'greenspace' layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden's fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:
-
-    1a. Green-Blue connectivity: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision [@perrelet2024engineering]. To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.
-
-2.  Quality — The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.\
-    2a. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.\
-    2b. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem.
-
-3.  Quality — The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.\
-    2a. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.\
-    2b. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem.
 1. Connectivity — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the 'greenspace' layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden's fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:
    1. Green-Blue connectivity: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision [@perrelet2024engineering]. To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.
 2. Quality —  The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.   
@@ -56,7 +45,6 @@ The criteria of **connectivity** and **environmental quality** are chosen to imp
 
 To address this question, we focused on identifying both the areas most vulnerable to climate-related hazards and those with potential for ecological intervention.
 
-*Flood safety* - Flood safety was assessed using hazard data provided by official Saxon authorities. These datasets simulate the spatial extent of flood events expected to occur once every 20 years (**HQ20**), 100 years (**HQ100**), and under an additional **extreme** scenario. Although often referred to as “flood risk” data, these layers are more accurately understood as **hazard maps**, as they depict the probability and extent of water presence without accounting for exposure or vulnerability components that would complete a full risk framework.
 *Flood safety* - Flood safety was assessed using hazard data provided by official Saxon authorities. These datasets simulate the spatial extent of flood events expected to occur once every 20 years (**HQ20**), 100 years (**HQ100**), and under an additional **extreme** scenario. Although often referred to as “flood risk” data, these layers are more accurately understood as **hazard maps**, as they depict the probability and extent of water presence without accounting for exposure or vulnerability components that would complete a full risk framework.
 
 This distinction is important because it highlights both the **potential and limitations** of the data. While useful for planning, these layers do not incorporate social or infrastructural vulnerability, nor economic or insurance considerations. As Rözer et al. (2020) note in their analysis of Germany’s flood risk governance, despite a gradual shift toward anticipatory systems, there remains a **lack of strategic focus on how to achieve resilience**, and **underinsurance** remains widespread. Our use of this data acknowledges these limitations while offering a practical tool for **relative spatial appraisal**.
@@ -89,10 +77,9 @@ The two references we used for this part are @Bernhardt2007Restoring and @Scoggi
 The spatial units used in this study are hexagons with a dimension of 300 meters. The study area of Dresden is divided using a complete surface of a hexagonal pattern. Then it is overlaid with the water stream network and river body from OpenStreetMap to keep only the hexagons that intersect with at least one stream. Finally, the isolated hexagons were removed.
 
 ![Spatial Units of waterbodies & streams across Dresden](../images/Spatial_Units.png)
-To explain why the Elbe river was included in the study area is that the river is a key element that has shaped the urban growth throughout decades and many spatial and environmental features are affected by this water body. Moreover, the Elbe is spine to most of the streams across the city that branch out form it. The river itself creates a vast network of waterways all across the urban, periphery, and forest areas. Otherwise, only picking the stream network would isolate the southern bank structure from the northern bank streams in which were clustered inside the forest areas which don't hold the potential for interventions. Therefore, the decision was made to consider the Elbe river and streams as whole water network within Dresden's boundaries.
+
 To explain why the Elbe river was included in the study area is that the river is a key element that has shaped the urban growth throughout decades and many spatial and environmental features are affected by this water body. Moreover, the Elbe is spine to most of the streams across the city that branch out form it. The river itself creates a vast network of waterways all across the urban, periphery, and forest areas. Otherwise, only picking the stream network would isolate the southern bank structure from the northern bank streams in which were clustered inside the forest areas which don't hold the potential for interventions. Therefore, the decision was made to consider the Elbe river and streams as whole water network within Dresden's boundaries.
 
-The prominent reason behind picking the dimensions of 300 meters is based on two main reasons:
 The prominent reason behind picking the dimensions of 300 meters is based on two main reasons:
 
 1.  The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.
@@ -100,7 +87,6 @@ The prominent reason behind picking the dimensions of 300 meters is based on two
 
 ![The Dimensions of spatial units and the river buffer radius](../images/Spatial_Units_Zoomed_In.jpeg)
 
-The spatial units are also filtered by a 500-meter buffer of the main river, Elbe, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elbe river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.
 The spatial units are also filtered by a 500-meter buffer of the main river, Elbe, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elbe river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.
 
 ## Attributes and Layers
@@ -123,8 +109,7 @@ This layer was then intersected with the spatial units to focus on the vegetatio
 
 #### Soil quality
 
-Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer. \<insert map 1 and map 2\>
-Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer. \<insert map 1 and map 2\>
+Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer.
 
 ![Mapping the soil quality of vegetation in Dresden](../images/Vegetation_soil_quality_preliminary.png)
 
@@ -163,16 +148,9 @@ We created a **Flood Safety Index** on a scale from 0 to 1 (0 = highest exposure
 -   HQ20 (frequent flood events)
 -   HQ100 (centennial flood events)
 -   Extreme events (likely representing HQ200 or catastrophic scenarios)
--   HQ20 (frequent flood events)
--   HQ100 (centennial flood events)
--   Extreme events (likely representing HQ200 or catastrophic scenarios)
 
 Each flood layer was treated as a binary indicator of hazard presence. We assigned simple weights based on perceived severity:
 
--   **Extreme events** → 0
--   **HQ100** → 0.33
--   **HQ20** → 0.67
--   **Areas outside all flood zones** → 1
 -   **Extreme events** → 0
 -   **HQ100** → 0.33
 -   **HQ20** → 0.67
@@ -197,11 +175,6 @@ To operationalize the infiltration capacity data, we accessed the **Wasserspeich
 -   **Medium** → 0.5
 -   **High** → 0.75
 -   **Very high** → 1
--   **Very low** infiltration → 0
--   **Low** → 0.25
--   **Medium** → 0.5
--   **High** → 0.75
--   **Very high** → 1
 
 We intersected this dataset with our spatial units and computed the **area-weighted average** of the infiltration values per unit – accounting for the share of each infiltration class polygon within a spatial unit. This yielded a single score per unit, which we then normalized to a 0–1 scale for comparability.
 
@@ -216,8 +189,6 @@ The resulting **Infiltration Index** offers a simplified but spatially meaningfu
 #### Shade
 
 By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognized through the ground shadow analysis, especially during the peak time of warm periods in the area.
-
-The DSM and DTM raster layers were needed to run the shadow analysis based on the @sec-buidig-information and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done at 15:00 within the peak time of warm period in the area which is July 15th, 2024 in Dresden.
 
 The DSM and DTM raster layers were needed to run the shadow analysis based on the @sec-buidig-information and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done at 15:00 within the peak time of warm period in the area which is July 15th, 2024 in Dresden.
 
@@ -249,12 +220,10 @@ The visibility factor refers to how the city is seen from the streams within a 2
 1.  Interpolated points from the streams’ centerlines at 500 m intervals, with the assumption these points can represent the overall visibility from the streams.
 2.  Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.
 3.  Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.
-1.  Interpolated points from the streams’ centerlines at 500 m intervals, with the assumption these points can represent the overall visibility from the streams.
-2.  Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.
-3.  Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.
 
-![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png) The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.
-![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png) The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.
+![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png)
+
+The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.
 
 ![Normalized value of visibility](../images/Visibility_Units.png)
 
@@ -262,12 +231,6 @@ The visibility factor refers to how the city is seen from the streams within a 2
 
 The idea behind the peripherality is that for the quality of life, spatial units that are closer to places where inhabitants live are more valuable and more important than those that are harder to reach. Therefore, we wanted to study how many people leave close to each spatial unit, and are therefore accessible by feet. To do so, we settled on a threshold of 1km for the maximum distance that makes a spatial unit accessible, and we used the following steps to compute the accessibility:
 
-1.  Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
-2.  Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
-3.  Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap. Using this layer required to clean up some isolated roads, because some starting points or spatial units centered would be attached to parts of the network that were not connected to the rest, and therefore it was not possible to find paths. To identify them, we run the path computation from all points to one point, and then manually removed parts of the network that were isolated and preventing the algorithm from finding paths.
-4.  Keep only the paths that are shorter than 1km, representing convenient accessibility by feet.
-5.  Compute the accessibility of each spatial unit $\text{su}$ as: $$\text{accessibility}(su) = \sum\limits_{sp \;\in\; \text{Starting points}} \text{population}(sp) \times (2000 - \text{distance}(su,sp))$$ The reason for using 2000m as a basis is so that a 0m distance has two times more value than a 1000m distance (the maximum we kept).
-6.  Normalise the accessibility between 0 and 1 and compute the peripherality as $1 - \text{accessibility}_\text{normalised}$.
 1.  Extract the center point of each spatial unit. These will serve as destination points for the spatial units.
 2.  Sample points on a 200m×200m grid and only keep those in a 1km buffer around the spatial units. These will serve as start points representing where people live. Assign to each of these points a population density based on the density grid 1000m×1000m of Germany in the year 2020.
 3.  Compute the paths between all pairs of start and destination points. We used the roads from OpenStreetMap. Using this layer required to clean up some isolated roads, because some starting points or spatial units centered would be attached to parts of the network that were not connected to the rest, and therefore it was not possible to find paths. To identify them, we run the path computation from all points to one point, and then manually removed parts of the network that were isolated and preventing the algorithm from finding paths.
@@ -284,14 +247,11 @@ The final value is not really interpretable, as it is a population density multi
 #### Land use variety
 
 This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.
-This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.
 
-![Land use map](../images/Land%20Use.png)
 ![Land use map](../images/Land%20Use.png)
 
 For this purpose, the land use data was simplified into 10 main categories. Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. A higher value indicates greater land use diversity, suggesting a stronger potential for the streams as public spaces.
 
-![Normalized value of land use](../images/Land%20Use_Units.png)
 ![Normalized value of land use](../images/Land%20Use_Units.png)
 
 ## Weighting of the Attributes
