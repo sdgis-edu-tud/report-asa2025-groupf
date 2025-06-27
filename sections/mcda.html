@@ -285,7 +285,7 @@ window.Quarto = {
 <p>The aim to measure the blue-green connectivity was to identify the potential areas which can become green corridors along the lengths of the stream. To do that, the area of the vegetation layer from OpenStreetMap was quantified. The layer includes different types of green infrastructure found throughout Dresden, encompassing both designed recreational areas—such as parks and greenery along roads—and natural environments like forests, meadows, and grasslands.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Green_connectivity_preliminary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Mapping vegetation, urbanised areas, and undeveloped areas"><img src="../images/Green_connectivity_preliminary.png" class="img-fluid figure-img" alt="Mapping vegetation, urbanised areas, and undeveloped areas"></a></p>
+<p><a href="../images/Upload-Map-1.1-connectivity.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Mapping vegetation, urbanised areas, and undeveloped areas"><img src="../images/Upload-Map-1.1-connectivity.jpg" class="img-fluid figure-img" alt="Mapping vegetation, urbanised areas, and undeveloped areas"></a></p>
 <figcaption>Mapping vegetation, urbanised areas, and undeveloped areas</figcaption>
 </figure>
 </div>
@@ -302,7 +302,7 @@ window.Quarto = {
 <p>Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Vegetation_soil_quality_preliminary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Mapping the soil quality of vegetation in Dresden"><img src="../images/Vegetation_soil_quality_preliminary.png" class="img-fluid figure-img" alt="Mapping the soil quality of vegetation in Dresden"></a></p>
+<p><a href="../images/Upload-Map-1.2-quality.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Mapping the soil quality of vegetation in Dresden"><img src="../images/Upload-Map-1.2-quality.jpg" class="img-fluid figure-img" alt="Mapping the soil quality of vegetation in Dresden"></a></p>
 <figcaption>Mapping the soil quality of vegetation in Dresden</figcaption>
 </figure>
 </div>
@@ -317,11 +317,25 @@ window.Quarto = {
 <section id="plant-health" class="level4" data-number="3.1.1.3">
 <h4 data-number="3.1.1.3" class="anchored" data-anchor-id="plant-health"><span class="header-section-number">3.1.1.3</span> Plant health</h4>
 <p>Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10&nbsp;m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Updated images/S-MCDA attributes/Plant health s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Identifying plants with poor health"><img src="../images/Updated images/S-MCDA attributes/Plant health s-mcda.png" class="img-fluid figure-img" alt="Identifying plants with poor health"></a></p>
+<p><a href="../images/Upload-Map-1.3-planthealth.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="NDVI Raster map"><img src="../images/Upload-Map-1.3-planthealth.jpg" class="img-fluid figure-img" alt="NDVI Raster map"></a></p>
+<figcaption>NDVI Raster map</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/S-MCDA attributes/Plant health s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Identifying plants with poor health"><img src="../images/Updated images/S-MCDA attributes/Plant health s-mcda.png" class="img-fluid figure-img" alt="Identifying plants with poor health"></a></p>
 <figcaption>Identifying plants with poor health</figcaption>
 </figure>
+</div>
+</div>
+</div>
 </div>
 <p>The code that was used to compute the NDVI on the whole area is available in <a href="appendix.html#sec-ndvi-computation" class="quarto-xref"><span>Section 1</span></a> in the appendix.</p>
 </section>
@@ -330,7 +344,7 @@ window.Quarto = {
 <p>In conclusion, It can be noted that there is a higher need for ecological restoration along the Elbe river and along the stream to the south of the Elbe river.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Combined S-MCDA Score - Biodiversity"><img src="../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png" class="img-fluid figure-img" alt="Combined S-MCDA Score - Biodiversity"></a></p>
+<p><a href="../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Combined S-MCDA Score - Biodiversity"><img src="../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png" class="img-fluid figure-img" alt="Combined S-MCDA Score - Biodiversity"></a></p>
 <figcaption>Combined S-MCDA Score - Biodiversity</figcaption>
 </figure>
 </div>
@@ -343,17 +357,11 @@ window.Quarto = {
 <p>The necessity of available open space along the streams and the water body will be a potential opportunity for design interventions to prevent, or at least reduce, the flood risk along the streams’ banks. This can be achieved by calculating the available open space areas in the close proximity of the streams and rivers of Dresden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Available_Spaces_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Open grasslands and undeveloped lands as available spaces along the streams"><img src="../images/Available_Spaces_1.png" class="img-fluid figure-img" alt="Open grasslands and undeveloped lands as available spaces along the streams"></a></p>
+<p><a href="../images/Upload-Map-2.3-spacealongstreams.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Open grasslands and undeveloped lands as available spaces along the streams"><img src="../images/Upload-Map-2.3-spacealongstreams.jpg" class="img-fluid figure-img" alt="Open grasslands and undeveloped lands as available spaces along the streams"></a></p>
 <figcaption>Open grasslands and undeveloped lands as available spaces along the streams</figcaption>
 </figure>
 </div>
 <p>This was assessed by using the land use ground layer collected from the [surfdrive] dataset and filtered based on the undeveloped land and grassland values. After that, the layer was intersected with the spatial units to calculate the coverage space of each land type within each spatial unit before being joined by attributes to the raw spatial units again.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../images/Available_Spaces_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Available spaces along the streams by area"><img src="../images/Available_Spaces_2.png" class="img-fluid figure-img" alt="Available spaces along the streams by area"></a></p>
-<figcaption>Available spaces along the streams by area</figcaption>
-</figure>
-</div>
 <p>By joining the intersected layer to spatial units based on their join attributes, the available space within each spatial unit is already available. In order to normalize the values, the area values were all divided by the highest area number, and the new results were distributed between zero, as the lowest coverage or available area, and one, as the highest coverage and available area.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -383,7 +391,7 @@ window.Quarto = {
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Flood_Exposure_Map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/Flood_Exposure_Map.jpg" class="img-fluid"></a></p>
+<p><a href="../images/Upload-Map-2.2-flood.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/Upload-Map-2.2-flood.jpg" class="img-fluid"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -411,7 +419,7 @@ window.Quarto = {
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Soil_Infiltration_Map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/Soil_Infiltration_Map.jpg" class="img-fluid"></a></p>
+<p><a href="../images/Upload-Map-2.1-infiltration.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/Upload-Map-2.1-infiltration.jpg" class="img-fluid"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -430,7 +438,7 @@ window.Quarto = {
 <p>The DSM and DTM raster layers were needed to run the shadow analysis based on the <a href="appendix.html#sec-buidig-information" class="quarto-xref"><span>Section 2</span></a> and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done at 15:00 within the peak time of warm period in the area which is July 15th, 2024 in Dresden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/shadow_analysis_base.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Shadow analysis done by the UMEP processing tool"><img src="../images/shadow_analysis_base.png" class="img-fluid figure-img" alt="Shadow analysis done by the UMEP processing tool"></a></p>
+<p><a href="../images/Upload-Map-2.4-shade.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Shadow analysis done by the UMEP processing tool"><img src="../images/Upload-Map-2.4-shade.jpg" class="img-fluid figure-img" alt="Shadow analysis done by the UMEP processing tool"></a></p>
 <figcaption>Shadow analysis done by the UMEP processing tool</figcaption>
 </figure>
 </div>
@@ -450,7 +458,7 @@ window.Quarto = {
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Updated images/S-MCDA attributes/Flood safety s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Normalized values of flood safety"><img src="../images/Updated images/S-MCDA attributes/Flood safety s-mcda.png" class="img-fluid figure-img" alt="Normalized values of flood safety"></a></p>
+<p><a href="../images/Updated images/S-MCDA attributes/shade s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Normalized values of flood safety"><img src="../images/Updated images/S-MCDA attributes/shade s-mcda.png" class="img-fluid figure-img" alt="Normalized values of flood safety"></a></p>
 <figcaption>Normalized values of flood safety</figcaption>
 </figure>
 </div>
@@ -478,7 +486,7 @@ window.Quarto = {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Visibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Visibility Analysis was done using create viewpoints and viewshed tools"><img src="../images/Visibility.png" class="img-fluid figure-img" alt="Visibility Analysis was done using create viewpoints and viewshed tools"></a></p>
+<p><a href="../images/Upload-Map-3.3-visibility.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Visibility Analysis was done using create viewpoints and viewshed tools"><img src="../images/Upload-Map-3.3-visibility.jpg" class="img-fluid figure-img" alt="Visibility Analysis was done using create viewpoints and viewshed tools"></a></p>
 <figcaption>Visibility Analysis was done using create viewpoints and viewshed tools</figcaption>
 </figure>
 </div>
@@ -503,7 +511,7 @@ window.Quarto = {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Accessibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Accessibility map"><img src="../images/Accessibility.png" class="img-fluid figure-img" alt="Accessibility map"></a></p>
+<p><a href="../images/Upload-Map-3.2-access-popdensity.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Accessibility map"><img src="../images/Upload-Map-3.2-access-popdensity.jpg" class="img-fluid figure-img" alt="Accessibility map"></a></p>
 <figcaption>Accessibility map</figcaption>
 </figure>
 </div>
@@ -520,7 +528,7 @@ window.Quarto = {
 <p>This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life. For this purpose, the land use data was simplified into 10 main categories.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Land Use.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Land use map"><img src="../images/Land Use.png" class="img-fluid figure-img" alt="Land use map"></a></p>
+<p><a href="../images/Upload-Map-3.1-LandUse.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Land use map"><img src="../images/Upload-Map-3.1-LandUse.jpg" class="img-fluid figure-img" alt="Land use map"></a></p>
 <figcaption>Land use map</figcaption>
 </figure>
 </div>
