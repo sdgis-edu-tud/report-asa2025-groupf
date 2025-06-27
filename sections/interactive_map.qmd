@@ -1,7 +1,8 @@
 # Interactive Map of the Attributes {.unnumbered}
-<!-- ```{python}
+
+```{python}
 #| echo: false
-#| eval: false
+#| eval: true
 
 import os
 import json
@@ -123,4 +124,4 @@ for layer_name, layer_info in layers.items():
 control = LayersControl(position='topright')
 m.add(control)
 m
-``` -->
+```
