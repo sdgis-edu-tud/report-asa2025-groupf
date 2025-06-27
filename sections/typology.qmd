@@ -1,3 +1,9 @@
+---
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
 # Typology Construction
 
 ## Introduction
@@ -35,14 +41,14 @@ With Typology Construction we wanted to answer a few questions in the continuity
 
 In this case, the three questions that we tried to answer were:
 
-- What are the streams’ adaptability rates to heat waves?
-- How are the accessibility and connectivity conditions of green-blue areas?
-- What are the areas of intervention along the streams?
+-   What are the streams’ adaptability rates to heat waves?
+-   How are the accessibility and connectivity conditions of green-blue areas?
+-   What are the areas of intervention along the streams?
 
 To answer these questions, we picked some of the attributes that we computed for the MCDA analysis.
 We tried to select those that were the most relevant for the three questions, which are:
 
-- `r paste(used_attributes, collapse = "\n- ")`
+-   `r paste(used_attributes, collapse = "\n- ")`
 
 Below are what these layers look like:
 
@@ -249,23 +255,23 @@ for (i in seq_along(used_attributes)) {
 
 By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:
 
-1. **Forest areas (Cluster 1)**:
-   - High proportion of greenery and shade due to the trees
-   - High peripherality because most of the forest is quite far from the houses
-   - Not much space available as the forest takes most of the space
-2. **Sparse urban areas (Cluster 2)**:
-   - Some greenery and some available space because the housing is not too dense
-   - Quite high peripherality since there is housing, but a low population density
-   - Low shade because some sparse trees and low buildings are the only sources of shade 
-3. **Dense urban areas (Cluster 3)**:
-   - Very low amount of greenery and available space because space is mostly occupied by buildings
-   - Decent amount of shading because of the high and dense buildings
-   - Low peripherality as the population density is high in the area around
-4. **Marginal areas (Cluster 4)**:
-   - Quite high proportion of greenery composed of mostly grass fields and some forest
-   - A lot of space available as the grass fields are often not really used
-   - Very low shade as only a few trees create shade
-   - Quite high peripherality since these places are not central and not well accessible
+1.  **Forest areas (Cluster 1)**:
+    -   High proportion of greenery and shade due to the trees
+    -   High peripherality because most of the forest is quite far from the houses
+    -   Not much space available as the forest takes most of the space
+2.  **Sparse urban areas (Cluster 2)**:
+    -   Some greenery and some available space because the housing is not too dense
+    -   Quite high peripherality since there is housing, but a low population density
+    -   Low shade because some sparse trees and low buildings are the only sources of shade
+3.  **Dense urban areas (Cluster 3)**:
+    -   Very low amount of greenery and available space because space is mostly occupied by buildings
+    -   Decent amount of shading because of the high and dense buildings
+    -   Low peripherality as the population density is high in the area around
+4.  **Marginal areas (Cluster 4)**:
+    -   Quite high proportion of greenery composed of mostly grass fields and some forest
+    -   A lot of space available as the grass fields are often not really used
+    -   Very low shade as only a few trees create shade
+    -   Quite high peripherality since these places are not central and not well accessible
 
 ```{r}
 #| echo: false
