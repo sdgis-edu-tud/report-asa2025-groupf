@@ -28,18 +28,21 @@ These concerns and identified potentials beg the question that, **how can urban 
 
 To articulate the challenges and identify the potentials to answer the question, the analysis is divided into three sub-research categories under the broad themes of biodiversity, climate adaptation and quality of life. Each theme has specific criteria with its attributes, which are analysed, measured and weighted against each other to arrive at the final decisions.
 
+::: {layout-ncol="2"}
+![Three main themes](../images/Diagram%201.png)
+
+![Sub-research questions](../images/Diagram%202.png)
+:::
+
 ### Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?
 
 The criteria of **connectivity** and **environmental quality** are chosen to improve the existing habitats and further expand them.
 
-1. Connectivity — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the 'greenspace' layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden's fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:
-   1. Green-Blue connectivity: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision [@perrelet2024engineering]. To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.
-2. Quality —  The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.
-   1. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.
-   2. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem. 
-3. Quality —  The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.
-   1. Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.
-   2. Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem. 
+1. *Connectivity* — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the 'greenspace' layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden's fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:
+   1. *Green-Blue connectivity*: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision [@perrelet2024engineering]. To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.
+2. *Environmental Quality* —  The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.
+   1. *Soil quality*: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.
+   2. *Plant health*: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem. 
 
 ### Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?
 
@@ -57,17 +60,11 @@ The classification includes five categories ranging from **very low** to **very 
 
 ### Quality of Life: How accessible, inviting, and diverse is Dresden's public space, and how can it reach its full potential?
 
-Urban stream restoration is increasingly used as a strategy for improving the physical and ecological conditions of degraded urban streams. Beyond ecological benefit, it also has a social impact for enhancing the quality of life for the residents living in urban areas.
+Urban stream restoration is increasingly used as a strategy for improving the physical and ecological conditions of degraded urban streams. Beyond ecological benefit, it also has a social impact for enhancing the quality of life for the residents living in urban areas. Urban stream restoration can provide amenities, recreational opportunities, and environmental health benefits that contribute directly to residents’ well-being. Therefore, it is important to foster awareness and supportive attitudes toward stream restoration projects, while also addressing the issue of just distribution and equal access to streams. Below are the three key aspects of restoration projects support this benefit:
 
-Urban stream restoration, especially combined with green spaces, can provide amenities, recreational opportunities, and environmental health benefits that contribute directly to residents’ well-being. Therefore, it is important to foster awareness and supportive attitudes toward stream restoration projects, while also addressing the issue of just distribution and equal access to streams.
-
-Three important aspects of restoration projects relate to this benefit, they are attractiveness, accessibility, and diversity. Attractiveness is related to how inviting the streams are for residents, which can be assessed by analysing the use of the entire landscape, from riparian zones to uplands, to maximize ecological and societal benefits, and by evaluating how visible the streams are from urban areas. Accessibility ensures that people of all ages and backgrounds can physically reach the stream for walking and socializing. Meanwhile, diversity refers to the surrounding land uses that support multifunctionality. When streams are embedded within a landscape with various uses, they become shared community assets rather than isolated environmental features.
-
-Therefore, we ended up with these three attributes:
-
-1. Attractiveness — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the visibility, how the city is visible from the streams.
-2. Peripherality — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance. This is done using accessibility analysis combined with population data to show how well-connected the streams are to the area where most residents live. We call it peripherality as we reversed it for our MCDA analysis (as we want higher accessibility to have lower values).
-3. Diversity — Aims to evaluate the diversity of land uses around the streams to support multifunctionality and encourage varied public use
+1. *Attractiveness* — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the visibility, how the city is visible from the streams and Elbe River's corridor. This analysis was conducted using a viewshed analysis based on example points along Dresden's waterways, combined with a DSM file which contains elevation information and physical obstructions such as building and trees. By identifying areas with good views of the stream corridor, future interventions can make these areas more appealing and strengthen their role to provide amenities and public spaces for people in Dresden.
+2. *Peripherality* — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance. This is done using accessibility analysis combined with population data to show how well-connected the streams are to the area where most residents live. We call it peripherality as we reversed it for our MCDA analysis (as we want higher accessibility to have lower values).
+3. *Diversity* — Aims to evaluate the diversity of land uses around the streams to support multifunctionality and encourage varied public use along the stream corridor. Areas with diverse land use (such as a combination of residential, commercial, and green spaces) tend to attract a broader range of users and encourage inclusive stream environment. In contrast, areas with single or low land-use diversity indicate less inclusive and/or underdeveloped areas that need interventions to unlock their full potential.
 
 The two references we used for this part are @Bernhardt2007Restoring and @Scoggins2022Community-powered.
 
@@ -89,6 +86,8 @@ The prominent reason behind picking the dimensions of 250 meters is based on two
 The spatial units are also filtered by a 500-meter buffer of the main river, Elbe, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elbe river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.
 
 ## Attributes and Layers
+
+![S-MCDA Structure](../images/S-MCDA%20Structure.png)
 
 Based on the criteria that we decided to tackle, we had to come up with numerical indicators that we could use to evaluate them. These numerical indicators are called attributes and have to be normalised—in our case between 0 and 1—so that they can be compared and weighted properly depending on their relevance. In our case, 0 corresponds to an urgent need to perform urban stream restoration, while 1 corresponds to a situation that is currently very good, or at least the best in the area of interest.
 
@@ -214,15 +213,15 @@ $$
 
 #### Visibility
 
-The visibility factor refers to how the city is seen from the streams within a 2km radius. This analysis aims to show the potential of the streams as public spaces offering city views. If many parts of the city are visible from the streams, it can contribute to their attractiveness. These are the steps we followed:
+The visibility factor refers to how the city is seen from the streams within a 2km radius. This analysis aims to show the potential of the streams as public spaces offering city views. When many parts of the city are visible from the stream corridors, it can show the contribute to their attractiveness. These are the steps we followed:
 
-1. Interpolated points from the streams’ centerlines at 500 m intervals, with the assumption these points can represent the overall visibility from the streams.
-2. Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.
+1. Interpolated points from the streams’ center lines at 500 m intervals, with the assumption these points can represent the overall visibility from the streams.
+2. Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as buildings and trees that might block the view.
 3. Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.
 
 ![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png)
 
-The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.
+The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics tool. Then, the values were normalised to a 0–1 range by dividing each value by the maximum value, where higher values indicate greater visibility from the streams.
 
 ![Normalized value of visibility](../images/Visibility_Units.png)
 
@@ -245,11 +244,11 @@ The final value is not really interpretable, as it is a population density multi
 
 #### Land use variety
 
-This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.
+This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life. For this purpose, the land use data was simplified into 10 main categories.
 
 ![Land use map](../images/Land%20Use.png)
 
-For this purpose, the land use data was simplified into 10 main categories. Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. A higher value indicates greater land use diversity, suggesting a stronger potential for the streams as public spaces.
+Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. Then, the values were normalised within the range between 0-1 by dividing each value with the maximum value. Areas with high values indicate greater diversity in land use.
 
 ![Normalized value of land use](../images/Land%20Use_Units.png)
 
