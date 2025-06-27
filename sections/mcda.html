@@ -292,7 +292,7 @@ window.Quarto = {
 <p>This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams and falls within the defined spatial units. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised from 0 to 1 to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Green_connectivity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Identifying potential to establish green connectivity along the streams"><img src="../images/Green_connectivity.png" class="img-fluid figure-img" alt="Identifying potential to establish green connectivity along the streams"></a></p>
+<p><a href="../images/Updated images/S-MCDA attributes/Green-blue network s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Identifying potential to establish green connectivity along the streams"><img src="../images/Updated images/S-MCDA attributes/Green-blue network s-mcda.png" class="img-fluid figure-img" alt="Identifying potential to establish green connectivity along the streams"></a></p>
 <figcaption>Identifying potential to establish green connectivity along the streams</figcaption>
 </figure>
 </div>
@@ -309,7 +309,7 @@ window.Quarto = {
 <p>The different soil qualities, ranging from 1-6 (1 indicating low and 6 indicating extremely high quality) was intersected with the layer of the spatial units. The weighted area for each soil type in each unit was calculated by multiplying their area by their quality number. All different soil qualities present in each spatial unit were then aggregated to get the weighted area in each unit. These values were ultimately normalised and graduated to create the final map, which showed us the spatial units where there is a high concentration of poor soil quality, which are necessary to be addressed for biodiversity. Few spatial units do not have any value, aa the layer did not hold any data at those locations. Those units are dropped out from the MCDA analysis.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Vegetation_soil_quality.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Identifying vegetation with good soil quality and poor soil quality along the streams"><img src="../images/Vegetation_soil_quality.png" class="img-fluid figure-img" alt="Identifying vegetation with good soil quality and poor soil quality along the streams"></a></p>
+<p><a href="../images/Updated images/S-MCDA attributes/soil quality s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Identifying vegetation with good soil quality and poor soil quality along the streams"><img src="../images/Updated images/S-MCDA attributes/soil quality s-mcda.png" class="img-fluid figure-img" alt="Identifying vegetation with good soil quality and poor soil quality along the streams"></a></p>
 <figcaption>Identifying vegetation with good soil quality and poor soil quality along the streams</figcaption>
 </figure>
 </div>
@@ -317,7 +317,23 @@ window.Quarto = {
 <section id="plant-health" class="level4" data-number="3.1.1.3">
 <h4 data-number="3.1.1.3" class="anchored" data-anchor-id="plant-health"><span class="header-section-number">3.1.1.3</span> Plant health</h4>
 <p>Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10&nbsp;m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/S-MCDA attributes/Plant health s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Identifying plants with poor health"><img src="../images/Updated images/S-MCDA attributes/Plant health s-mcda.png" class="img-fluid figure-img" alt="Identifying plants with poor health"></a></p>
+<figcaption>Identifying plants with poor health</figcaption>
+</figure>
+</div>
 <p>The code that was used to compute the NDVI on the whole area is available in <a href="appendix.html#sec-ndvi-computation" class="quarto-xref"><span>Section 1</span></a> in the appendix.</p>
+</section>
+<section id="conclusion---biodiversity" class="level4" data-number="3.1.1.4">
+<h4 data-number="3.1.1.4" class="anchored" data-anchor-id="conclusion---biodiversity"><span class="header-section-number">3.1.1.4</span> Conclusion - Biodiversity</h4>
+<p>In conclusion, It can be noted that there is a higher need for ecological restoration along the Elbe river and along the stream to the south of the Elbe river.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Combined S-MCDA Score - Biodiversity"><img src="../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png" class="img-fluid figure-img" alt="Combined S-MCDA Score - Biodiversity"></a></p>
+<figcaption>Combined S-MCDA Score - Biodiversity</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="climate-adaptation" class="level3" data-number="3.1.2">
@@ -327,21 +343,21 @@ window.Quarto = {
 <p>The necessity of available open space along the streams and the water body will be a potential opportunity for design interventions to prevent, or at least reduce, the flood risk along the streams’ banks. This can be achieved by calculating the available open space areas in the close proximity of the streams and rivers of Dresden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Available_Spaces_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Open grasslands and undeveloped lands as available spaces along the streams"><img src="../images/Available_Spaces_1.png" class="img-fluid figure-img" alt="Open grasslands and undeveloped lands as available spaces along the streams"></a></p>
+<p><a href="../images/Available_Spaces_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Open grasslands and undeveloped lands as available spaces along the streams"><img src="../images/Available_Spaces_1.png" class="img-fluid figure-img" alt="Open grasslands and undeveloped lands as available spaces along the streams"></a></p>
 <figcaption>Open grasslands and undeveloped lands as available spaces along the streams</figcaption>
 </figure>
 </div>
 <p>This was assessed by using the land use ground layer collected from the [surfdrive] dataset and filtered based on the undeveloped land and grassland values. After that, the layer was intersected with the spatial units to calculate the coverage space of each land type within each spatial unit before being joined by attributes to the raw spatial units again.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Available_Spaces_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Available spaces along the streams by area"><img src="../images/Available_Spaces_2.png" class="img-fluid figure-img" alt="Available spaces along the streams by area"></a></p>
+<p><a href="../images/Available_Spaces_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Available spaces along the streams by area"><img src="../images/Available_Spaces_2.png" class="img-fluid figure-img" alt="Available spaces along the streams by area"></a></p>
 <figcaption>Available spaces along the streams by area</figcaption>
 </figure>
 </div>
 <p>By joining the intersected layer to spatial units based on their join attributes, the available space within each spatial unit is already available. In order to normalize the values, the area values were all divided by the highest area number, and the new results were distributed between zero, as the lowest coverage or available area, and one, as the highest coverage and available area.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Available_Spaces_3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Normalized values of space availability along the streams"><img src="../images/Available_Spaces_3.png" class="img-fluid figure-img" alt="Normalized values of space availability along the streams"></a></p>
+<p><a href="../images/Updated images/S-MCDA attributes/space along streams s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Normalized values of space availability along the streams"><img src="../images/Updated images/S-MCDA attributes/space along streams s-mcda.png" class="img-fluid figure-img" alt="Normalized values of space availability along the streams"></a></p>
 <figcaption>Normalized values of space availability along the streams</figcaption>
 </figure>
 </div>
@@ -367,10 +383,15 @@ window.Quarto = {
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Flood_Exposure_Map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="../images/Flood_Exposure_Map.jpg" class="img-fluid"></a></p>
+<p><a href="../images/Flood_Exposure_Map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/Flood_Exposure_Map.jpg" class="img-fluid"></a></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Flood_Exposure_Units.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="../images/Flood_Exposure_Units.jpg" class="img-fluid"></a></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/S-MCDA attributes/flood safety s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Normalized values of flood safety"><img src="../images/Updated images/S-MCDA attributes/flood safety s-mcda.png" class="img-fluid figure-img" alt="Normalized values of flood safety"></a></p>
+<figcaption>Normalized values of flood safety</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -390,10 +411,15 @@ window.Quarto = {
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Soil_Infiltration_Map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/Soil_Infiltration_Map.jpg" class="img-fluid"></a></p>
+<p><a href="../images/Soil_Infiltration_Map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/Soil_Infiltration_Map.jpg" class="img-fluid"></a></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="../images/Soil_Infiltration_Units.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="../images/Soil_Infiltration_Units.jpg" class="img-fluid"></a></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/S-MCDA attributes/infiltration s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Normalized values of soil infiltration capacity"><img src="../images/Updated images/S-MCDA attributes/infiltration s-mcda.png" class="img-fluid figure-img" alt="Normalized values of soil infiltration capacity"></a></p>
+<figcaption>Normalized values of soil infiltration capacity</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -404,7 +430,7 @@ window.Quarto = {
 <p>The DSM and DTM raster layers were needed to run the shadow analysis based on the <a href="appendix.html#sec-buidig-information" class="quarto-xref"><span>Section 2</span></a> and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done at 15:00 within the peak time of warm period in the area which is July 15th, 2024 in Dresden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/shadow_analysis_base.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Shadow analysis done by the UMEP processing tool"><img src="../images/shadow_analysis_base.png" class="img-fluid figure-img" alt="Shadow analysis done by the UMEP processing tool"></a></p>
+<p><a href="../images/shadow_analysis_base.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Shadow analysis done by the UMEP processing tool"><img src="../images/shadow_analysis_base.png" class="img-fluid figure-img" alt="Shadow analysis done by the UMEP processing tool"></a></p>
 <figcaption>Shadow analysis done by the UMEP processing tool</figcaption>
 </figure>
 </div>
@@ -414,7 +440,7 @@ window.Quarto = {
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/shadow_analysis_proportioning.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Proportioning the illuminated values within the spatial units"><img src="../images/shadow_analysis_proportioning.png" class="img-fluid figure-img" alt="Proportioning the illuminated values within the spatial units"></a></p>
+<p><a href="../images/shadow_analysis_proportioning.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Proportioning the illuminated values within the spatial units"><img src="../images/shadow_analysis_proportioning.png" class="img-fluid figure-img" alt="Proportioning the illuminated values within the spatial units"></a></p>
 <figcaption>Proportioning the illuminated values within the spatial units</figcaption>
 </figure>
 </div>
@@ -424,8 +450,18 @@ window.Quarto = {
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/shadow_analysis_normalised.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Normalized values of shadow analysis"><img src="../images/shadow_analysis_normalised.png" class="img-fluid figure-img" alt="Normalized values of shadow analysis"></a></p>
-<figcaption>Normalized values of shadow analysis</figcaption>
+<p><a href="../images/Updated images/S-MCDA attributes/flood safety s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Normalized values of flood safety"><img src="../images/Updated images/S-MCDA attributes/flood safety s-mcda.png" class="img-fluid figure-img" alt="Normalized values of flood safety"></a></p>
+<figcaption>Normalized values of flood safety</figcaption>
+</figure>
+</div>
+</section>
+<section id="conclusion---climate-adaptation" class="level4" data-number="3.1.2.5">
+<h4 data-number="3.1.2.5" class="anchored" data-anchor-id="conclusion---climate-adaptation"><span class="header-section-number">3.1.2.5</span> Conclusion - Climate Adaptation</h4>
+<p>In conclusion, It can be noted that there is a higher need for climate adaptive measures along the Elbe river and along the stream to the south of the Elbe river.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/Final S-MCDA Scores/S-MCDA Climate Adaptation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Combined S-MCDA Score - Climate Adaptation"><img src="../images/Updated images/Final S-MCDA Scores/S-MCDA Climate Adaptation.png" class="img-fluid figure-img" alt="Combined S-MCDA Score - Climate Adaptation"></a></p>
+<figcaption>Combined S-MCDA Score - Climate Adaptation</figcaption>
 </figure>
 </div>
 </section>
@@ -442,15 +478,15 @@ window.Quarto = {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Visibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Visibility Analysis was done using create viewpoints and viewshed tools"><img src="../images/Visibility.png" class="img-fluid figure-img" alt="Visibility Analysis was done using create viewpoints and viewshed tools"></a></p>
+<p><a href="../images/Visibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Visibility Analysis was done using create viewpoints and viewshed tools"><img src="../images/Visibility.png" class="img-fluid figure-img" alt="Visibility Analysis was done using create viewpoints and viewshed tools"></a></p>
 <figcaption>Visibility Analysis was done using create viewpoints and viewshed tools</figcaption>
 </figure>
 </div>
 <p>The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics tool. Then, the values were normalised to a 0–1 range by dividing each value by the maximum value, where higher values indicate greater visibility from the streams.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Visibility_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Normalized value of visibility"><img src="../images/Visibility_Units.png" class="img-fluid figure-img" alt="Normalized value of visibility"></a></p>
-<figcaption>Normalized value of visibility</figcaption>
+<p><a href="../images/Updated images/S-MCDA attributes/visibility s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Normalized values of visibility"><img src="../images/Updated images/S-MCDA attributes/visibility s-mcda.png" class="img-fluid figure-img" alt="Normalized values of visibility"></a></p>
+<figcaption>Normalized values of visibility</figcaption>
 </figure>
 </div>
 </section>
@@ -467,14 +503,14 @@ window.Quarto = {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Accessibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Accessibility map"><img src="../images/Accessibility.png" class="img-fluid figure-img" alt="Accessibility map"></a></p>
+<p><a href="../images/Accessibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Accessibility map"><img src="../images/Accessibility.png" class="img-fluid figure-img" alt="Accessibility map"></a></p>
 <figcaption>Accessibility map</figcaption>
 </figure>
 </div>
 <p>The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Peripherality_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Normalized value of peripherality"><img src="../images/Peripherality_Units.png" class="img-fluid figure-img" alt="Normalized value of peripherality"></a></p>
+<p><a href="../images/Updated images/S-MCDA attributes/Peripherality s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Normalized value of peripherality"><img src="../images/Updated images/S-MCDA attributes/Peripherality s-mcda.png" class="img-fluid figure-img" alt="Normalized value of peripherality"></a></p>
 <figcaption>Normalized value of peripherality</figcaption>
 </figure>
 </div>
@@ -484,15 +520,25 @@ window.Quarto = {
 <p>This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life. For this purpose, the land use data was simplified into 10 main categories.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Land Use.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Land use map"><img src="../images/Land Use.png" class="img-fluid figure-img" alt="Land use map"></a></p>
+<p><a href="../images/Land Use.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Land use map"><img src="../images/Land Use.png" class="img-fluid figure-img" alt="Land use map"></a></p>
 <figcaption>Land use map</figcaption>
 </figure>
 </div>
 <p>Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. Then, the values were normalised within the range between 0-1 by dividing each value with the maximum value. Areas with high values indicate greater diversity in land use.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Land Use_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Normalized value of land use"><img src="../images/Land Use_Units.png" class="img-fluid figure-img" alt="Normalized value of land use"></a></p>
-<figcaption>Normalized value of land use</figcaption>
+<p><a href="../images/Updated images/S-MCDA attributes/land use diversity s-mcda.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Normalized value of land use diversity"><img src="../images/Updated images/S-MCDA attributes/land use diversity s-mcda.png" class="img-fluid figure-img" alt="Normalized value of land use diversity"></a></p>
+<figcaption>Normalized value of land use diversity</figcaption>
+</figure>
+</div>
+</section>
+<section id="conclusion---quality-of-life" class="level4" data-number="3.1.3.4">
+<h4 data-number="3.1.3.4" class="anchored" data-anchor-id="conclusion---quality-of-life"><span class="header-section-number">3.1.3.4</span> Conclusion - Quality of Life</h4>
+<p>In conclusion, the results indicate a higher need for measures to enhance the quality of life along the Elbe river and along the streams to the south of Elbe river. To the north of river, it points to the streams which are connected to river.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/Final S-MCDA Scores/S-MCDA Quality of life.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Combined S-MCDA Score - Quality of Life"><img src="../images/Updated images/Final S-MCDA Scores/S-MCDA Quality of life.png" class="img-fluid figure-img" alt="Combined S-MCDA Score - Quality of Life"></a></p>
+<figcaption>Combined S-MCDA Score - Quality of Life</figcaption>
 </figure>
 </div>
 </section>
@@ -512,7 +558,7 @@ Table&nbsp;3.1: Saaty matrix and weights for the three criteria
 <div aria-describedby="tbl-saaty-matrices-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-1" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-1" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Biodiversity
@@ -563,7 +609,7 @@ Table&nbsp;3.1: Saaty matrix and weights for the three criteria
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-2" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-2" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Climate Adaptation
@@ -626,7 +672,7 @@ Table&nbsp;3.1: Saaty matrix and weights for the three criteria
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-saaty-matrices" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-saaty-matrices-3" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div id="tbl-saaty-matrices-3" class="table table-hover table-responsive do-not-create-environment quarto-float quarto-figure quarto-figure-center anchored" style="width: auto !important; margin-left: auto; margin-right: auto;" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-subfloat-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-saaty-matrices-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Quality of Life
@@ -684,6 +730,12 @@ Table&nbsp;3.1: Saaty matrix and weights for the three criteria
 <section id="results-of-the-analysis" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="results-of-the-analysis"><span class="header-section-number">3.3</span> Results of the Analysis</h2>
 <p>The average value of all three categories represents the considerable environmental quality caused by the streams across the city of Dresden. The overall higher values are concentrated in the southern bank of Elbe river and some clusters in the far east in the outskirts of the city. Moreover, there are smaller spots along the river bank zones that lack sufficient values. Although the urban streams represent a reasonable environmental quality around their buffers, the Elbe river holds some areas of lower quality that draws the attention for intervention. The average value of all three categories represents the considerable environmental quality caused by the streams across the city of Dresden. The overall higher values are concentrated in the southern bank of Elbe river and some clusters in the far east in the outskirts of the city. Moreover, there are smaller spots along the river bank zones that lack sufficient values. Although the urban streams represent a reasonable environmental quality around their buffers, the Elbe river holds some areas of lower quality that draws the attention for intervention.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Updated images/Final S-MCDA Scores/Combined S-MCDA.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="S-MCDA Results"><img src="../images/Updated images/Final S-MCDA Scores/Combined S-MCDA.png" class="img-fluid figure-img" alt="S-MCDA Results"></a></p>
+<figcaption>S-MCDA Results</figcaption>
+</figure>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
