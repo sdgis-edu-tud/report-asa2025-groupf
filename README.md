@@ -48,7 +48,7 @@ Two data-driven methods were used to conduct the analysis:
 4. Author 4
    - Name: Grase Stephanie Stuka  
    - Institution: TU Delft  
-   - Email: <gstuka@student.tudelft.nl>
+   - Email: <GraseStephanieStuka@student.tudelft.nl>
 5. Author 5
    - Name: Soroush Saffarzadeh  
    - Institution: TU Delft  
