@@ -128,7 +128,7 @@ $$
 \text{Normalised\_Value} = \left(\frac{\text{Proportion\_Shaded}}{0.4133}\right)
 $$
 
-![Normalized values of flood safety](../images/Updated images/S-MCDA attributes/flood safety s-mcda.png)
+![Normalized values of flood safety](../images/Updated images/S-MCDA attributes/shade s-mcda.png)
 
 #### Conclusion - Climate Adaptation
 
