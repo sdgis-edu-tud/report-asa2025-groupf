@@ -1,3 +1,9 @@
+---
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
 # Appendix {.unnumbered}
 
 ## NDVI Computation {#sec-ndvi-computation}
@@ -10,7 +16,7 @@ You might have to change the output path to adapt it to your situation in the ca
 Finally, this algorithm requires an extent (a vector layer) as an input that defines the area of interest.
 This can be changed in the variable called `extent`.
 
-```js
+``` js
 var extent = ee.FeatureCollection("projects/arfw0501/assets/Spatial_units_extent");
 
 var spectral = require("users/dmlmont/spectral:spectral");
@@ -106,5 +112,20 @@ seasons.forEach(function(season) {
     });
   });
 });
-
 ```
+
+## Maps Not Included in Final Results
+
+We did an accessibility analysis to identify areas within walking distance of the streams, with steps as follows: 
+
+1. Interpolated points were generated every 500m along the stream center line and river outline.
+2. Using the service area tool, we identified which areas  within walking distance of interpolated points using three ranges 500m, 750, and 1000m
+3. The output layers were aggregated to our the spatial units with assigned scores: 1 for areas within 500m, 0.5 for 750, and 0 for 1000m
+
+We excluded these maps from further analysis because some spatial units had no value after aggregation.
+
+::: {layout-ncol="2"}
+![](images/Accessibility_old-01.png)
+
+![](images/Accessibility_old2.png)
+:::
