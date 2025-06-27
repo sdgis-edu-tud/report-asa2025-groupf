@@ -290,3 +290,19 @@ The patched layer was resampled to 3m resolution which made the process feasible
 - Filter out degenerate geometries (num_points(\$geometry) \< 4).
 - Use batch or models to automate cleanup when needed.
 - Resample the raster to smaller resolution (from 1m to 3m or 5m)
+
+## Maps Not Included in Final Results
+
+We did an accessibility analysis to identify areas within walking distance of the streams, with steps as follows:
+
+1. Interpolated points were generated every 500m along the stream center line and river outline.
+2. Using the service area tool, we identified which areas within walking distance of interpolated points using three ranges 500m, 750, and 1000m
+3. The output layers were aggregated to our the spatial units with assigned scores: 1 for areas within 500m, 0.5 for 750, and 0 for 1000m
+
+We excluded these maps from further analysis because some spatial units had no value after aggregation.
+
+::: {layout-ncol="2"}
+![](../images/Accessibility_old.png)
+
+![](../images/Accessibility_old2.png)
+:::

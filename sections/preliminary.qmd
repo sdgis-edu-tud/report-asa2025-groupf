@@ -1,12 +1,16 @@
 # Preliminary Maps and Research
 
-In this chapter, we will introduce our research, possibly including a summary of our first brainstorming, and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project.
+In this chapter, we will introduce our research, possibly including a summary of our first brainstorming, and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project
+
+![City of Dresden (source: Bilderberg, 2025)](../images/Dresden.jpg)
 
 ## Historical background
 
 Dresden originated as a small settlement on the left bank of the Elbe and remained modest until the 16th century, when it became the capital of the Protestant Electorate of Saxony after the Schmalkaldic War. Under Elector Moritz, the city expanded rapidly with major architectural and urban developments. In the 18th century, it became a key cultural and political center as the royal residence of the Polish kings, marked by the construction of prominent monuments like the Zwinger and the Frauenkirche. Throughout the 19th century, Dresden continued to grow, becoming the capital of the Kingdom of Saxony and undergoing a major population boom.
 
 The 20th century brought devastation with the Allied bombing in 1945, which destroyed much of the city, including the Frauenkirche. Following reunification, major reconstruction efforts began in the 2000s, including the faithful rebuilding of Neumarkt square and other historical landmarks, with a mix of traditional and modern residential architecture.
+
+![Map of Dresden and the surrounding region, 1881.(source: www.deutschefotothek.de)](../images/Dresden%201881.jpg)
 
 **A key feature that emerged from historical photographs is the extensive use of the riverfront—large green meadows cutting through the urban fabric, which were historically used for social, economic, and cultural activities**. These strips of grass, still visible today, offer clues to a spatial element that defines Dresden's atmosphere: **a city shaped not only by its architecture and history but also by its open, green relationship with the Elbe River.**
 
