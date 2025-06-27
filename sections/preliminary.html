@@ -62,6 +62,9 @@ div.csl-indent {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-7bc91843a94618af6381c42aa9e9588c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -223,11 +226,23 @@ div.csl-indent {
 </header>
 
 
-<p>In this chapter, we will introduce our research, possibly including a summary of our first brainstorming, and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project.</p>
+<p>In this chapter, we will introduce our research, possibly including a summary of our first brainstorming, and, more importantly, present the first descriptive maps and explain how they give us clues on how to approach the analytical core of this spatial analysis project</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Dresden.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="City of Dresden (source: Bilderberg, 2025)"><img src="../images/Dresden.jpg" class="img-fluid figure-img" alt="City of Dresden (source: Bilderberg, 2025)"></a></p>
+<figcaption>City of Dresden (source: Bilderberg, 2025)</figcaption>
+</figure>
+</div>
 <section id="historical-background" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="historical-background"><span class="header-section-number">1.1</span> Historical background</h2>
 <p>Dresden originated as a small settlement on the left bank of the Elbe and remained modest until the 16th century, when it became the capital of the Protestant Electorate of Saxony after the Schmalkaldic War. Under Elector Moritz, the city expanded rapidly with major architectural and urban developments. In the 18th century, it became a key cultural and political center as the royal residence of the Polish kings, marked by the construction of prominent monuments like the Zwinger and the Frauenkirche. Throughout the 19th century, Dresden continued to grow, becoming the capital of the Kingdom of Saxony and undergoing a major population boom.</p>
 <p>The 20th century brought devastation with the Allied bombing in 1945, which destroyed much of the city, including the Frauenkirche. Following reunification, major reconstruction efforts began in the 2000s, including the faithful rebuilding of Neumarkt square and other historical landmarks, with a mix of traditional and modern residential architecture.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Dresden 1881.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Map of Dresden and the surrounding region, 1881.(source: www.deutschefotothek.de)"><img src="../images/Dresden 1881.jpg" class="img-fluid figure-img" alt="Map of Dresden and the surrounding region, 1881.(source: www.deutschefotothek.de)"></a></p>
+<figcaption>Map of Dresden and the surrounding region, 1881.(source: www.deutschefotothek.de)</figcaption>
+</figure>
+</div>
 <p><strong>A key feature that emerged from historical photographs is the extensive use of the riverfront—large green meadows cutting through the urban fabric, which were historically used for social, economic, and cultural activities</strong>. These strips of grass, still visible today, offer clues to a spatial element that defines Dresden’s atmosphere: <strong>a city shaped not only by its architecture and history but also by its open, green relationship with the Elbe River.</strong></p>
 <p>Dresden has also faced major ecological challenges, notably the catastrophic Elbe floods of 1845 and 2002—the latter setting a new record and causing severe damage, much of which has since been repaired. <strong>These flood events highlight the importance of integrating ecosystem restoration and climate resilience into the city’s spatial planning.</strong></p>
 </section>
@@ -690,8 +705,40 @@ Scoggins, M., D. Booth, T. Fletcher, M. Fork, Ana M González, R. Hale, R. Hawle
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/preliminary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/preliminary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/preliminary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/preliminary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+</body></html>

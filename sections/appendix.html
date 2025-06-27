@@ -96,6 +96,9 @@ div.csl-indent {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-7bc91843a94618af6381c42aa9e9588c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -231,6 +234,7 @@ div.csl-indent {
   <ul>
   <li><a href="#sec-ndvi-computation" id="toc-sec-ndvi-computation" class="nav-link active" data-scroll-target="#sec-ndvi-computation">NDVI Computation</a></li>
   <li><a href="#sec-buidig-information" id="toc-sec-buidig-information" class="nav-link" data-scroll-target="#sec-buidig-information">Building Geometry</a></li>
+  <li><a href="#maps-not-included-in-final-results" id="toc-maps-not-included-in-final-results" class="nav-link" data-scroll-target="#maps-not-included-in-final-results">Maps Not Included in Final Results</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/appendix.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/appendix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -468,6 +472,26 @@ div.csl-indent {
 <p>Set a coarser pixel size (e.g.&nbsp;2m or 5m)</p>
 <p>Resampling: Average or Nearest Neighbour”.</p>
 <p>The patched layer was resampled to 3m resolution which made the process feasible.</p>
+</section>
+<section id="maps-not-included-in-final-results" class="level2">
+<h2 class="anchored" data-anchor-id="maps-not-included-in-final-results">Maps Not Included in Final Results</h2>
+<p>We did an accessibility analysis to identify areas within walking distance of the streams, with steps as follows:</p>
+<ol type="1">
+<li>Interpolated points were generated every 500m along the stream center line and river outline.</li>
+<li>Using the service area tool, we identified which areas within walking distance of interpolated points using three ranges 500m, 750, and 1000m</li>
+<li>The output layers were aggregated to our the spatial units with assigned scores: 1 for areas within 500m, 0.5 for 750, and 0 for 1000m</li>
+</ol>
+<p>We excluded these maps from further analysis because some spatial units had no value after aggregation.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="images/Accessibility_old-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/Accessibility_old-01.png" class="img-fluid"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="images/Accessibility_old2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/Accessibility_old2.png" class="img-fluid"></a></p>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -914,8 +938,40 @@ Scoggins, M., D. Booth, T. Fletcher, M. Fork, Ana M González, R. Hale, R. Hawle
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/appendix.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/appendix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/appendix.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/appendix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+</body></html>
