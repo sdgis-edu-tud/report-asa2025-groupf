@@ -38,13 +38,11 @@ Plant health is measured using the normalised difference vegetation index (NDVI)
 
 The code that was used to compute the NDVI on the whole area is available in @sec-ndvi-computation in the appendix.
 
-
 #### Conclusion - Biodiversity
+
 In conclusion, It can be noted that there is a higher need for ecological restoration along the Elbe river and along the stream to the south of the Elbe river.
 
-
 ![Combined S-MCDA Score - Biodiversity](../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png)
-
 
 ### Climate Adaptation
 
@@ -132,12 +130,11 @@ $$
 \text{Normalised\_Value} = \left(\frac{\text{Proportion\_Shaded}}{0.4133}\right)
 $$
 
-
 ![Normalized values of flood safety](../images/Updated images/S-MCDA attributes/flood safety s-mcda.png)
 
 #### Conclusion - Climate Adaptation
-In conclusion, It can be noted that there is a higher need for climate adaptive measures along the Elbe river and along the stream to the south of the Elbe river.
 
+In conclusion, It can be noted that there is a higher need for climate adaptive measures along the Elbe river and along the stream to the south of the Elbe river.
 
 ![Combined S-MCDA Score - Climate Adaptation](../images/Updated images/Final S-MCDA Scores/S-MCDA Climate Adaptation.png)
 
@@ -154,7 +151,6 @@ The visibility factor refers to how the city is seen from the streams within a 2
 ![Visibility Analysis was done using create viewpoints and viewshed tools](../images/Visibility.png)
 
 The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics tool. Then, the values were normalised to a 0–1 range by dividing each value by the maximum value, where higher values indicate greater visibility from the streams.
-
 
 ![Normalized values of visibility](../images/Updated images/S-MCDA attributes/visibility s-mcda.png)
 
@@ -186,8 +182,8 @@ Using this data, the diversity of land use within each spatial unit was measured
 ![Normalized value of land use diversity](../images/Updated images/S-MCDA attributes/land use diversity s-mcda.png)
 
 #### Conclusion - Quality of Life
-In conclusion, the results indicate a higher need for measures to enhance the quality of life along the Elbe river and along the streams to the south of Elbe river. To the north of river, it points to the streams which are connected to river.
 
+In conclusion, the results indicate a higher need for measures to enhance the quality of life along the Elbe river and along the streams to the south of Elbe river. To the north of river, it points to the streams which are connected to river.
 
 ![Combined S-MCDA Score - Quality of Life](../images/Updated images/Final S-MCDA Scores/S-MCDA Quality of life.png)
 
