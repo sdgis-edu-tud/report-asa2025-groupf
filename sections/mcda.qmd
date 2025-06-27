@@ -18,7 +18,7 @@ The aim to measure the blue-green connectivity was to identify the potential are
 
 This layer was then intersected with the spatial units to focus on the vegetation which is within a 250m radius from the streams and falls within the defined spatial units. The values of the areas were then graduated to visualise the spatial units which lacked vegetation to those which were densely vegetated. These values were then normalised from 0 to 1 to make them comparable to other attributes. Here, 0 indicates the spaces which lack vegetation and 1 indicates dense vegetation, signalling at the potential spaces to add vegetation and form green corridors along the streams.
 
-![Identifying potential to establish green connectivity along the streams](../images/Green_connectivity.png)
+![Identifying potential to establish green connectivity along the streams](../images/Updated images/S-MCDA attributes/Green-blue network s-mcda.png)
 
 #### Soil quality
 
@@ -28,13 +28,23 @@ Soil quality is measured as it is an integral measure of the ecological value of
 
 The different soil qualities, ranging from 1-6 (1 indicating low and 6 indicating extremely high quality) was intersected with the layer of the spatial units. The weighted area for each soil type in each unit was calculated by multiplying their area by their quality number. All different soil qualities present in each spatial unit were then aggregated to get the weighted area in each unit. These values were ultimately normalised and graduated to create the final map, which showed us the spatial units where there is a high concentration of poor soil quality, which are necessary to be addressed for biodiversity. Few spatial units do not have any value, aa the layer did not hold any data at those locations. Those units are dropped out from the MCDA analysis.
 
-![Identifying vegetation with good soil quality and poor soil quality along the streams](../images/Vegetation_soil_quality.png)
+![Identifying vegetation with good soil quality and poor soil quality along the streams](../images/Updated images/S-MCDA attributes/soil quality s-mcda.png)
 
 #### Plant health
 
 Plant health is measured using the normalised difference vegetation index (NDVI), computed as an average of the values in June, July and August (when the vegetation is facing the highest stress) over the five last available years (2020-2024). The values are computed on a 10 by 10 m raster (based on the values of Sentinel-2), and then averaged over the spatial units. Higher values correspond to healthier vegetation.
 
+![Identifying plants with poor health](../images/Updated images/S-MCDA attributes/Plant health s-mcda.png)
+
 The code that was used to compute the NDVI on the whole area is available in @sec-ndvi-computation in the appendix.
+
+
+#### Conclusion - Biodiversity
+In conclusion, It can be noted that there is a higher need for ecological restoration along the Elbe river and along the stream to the south of the Elbe river.
+
+
+![Combined S-MCDA Score - Biodiversity](../images/Updated images/Final S-MCDA Scores/S-MCDA Biodiversity.png)
+
 
 ### Climate Adaptation
 
@@ -50,7 +60,7 @@ This was assessed by using the land use ground layer collected from the \[surfdr
 
 By joining the intersected layer to spatial units based on their join attributes, the available space within each spatial unit is already available. In order to normalize the values, the area values were all divided by the highest area number, and the new results were distributed between zero, as the lowest coverage or available area, and one, as the highest coverage and available area.
 
-![Normalized values of space availability along the streams](../images/Available_Spaces_3.png)
+![Normalized values of space availability along the streams](../images/Updated images/S-MCDA attributes/space along streams s-mcda.png)
 
 #### Flood Safety Index
 
@@ -76,7 +86,7 @@ While this method does not reflect depth, speed, or return probabilities, it ena
 ::: {layout-ncol="2"}
 ![](../images/Flood_Exposure_Map.jpg)
 
-![](../images/Flood_Exposure_Units.jpg)
+![Normalized values of flood safety](../images/Updated images/S-MCDA attributes/flood safety s-mcda.png)
 :::
 
 #### Soil infiltration capacity
@@ -96,7 +106,7 @@ The resulting **Infiltration Index** offers a simplified but spatially meaningfu
 ::: {layout-ncol="2"}
 ![](../images/Soil_Infiltration_Map.jpg)
 
-![](../images/Soil_Infiltration_Units.jpg)
+![Normalized values of soil infiltration capacity](../images/Updated images/S-MCDA attributes/infiltration s-mcda.png)
 :::
 
 #### Shade
@@ -122,7 +132,14 @@ $$
 \text{Normalised\_Value} = \left(\frac{\text{Proportion\_Shaded}}{0.4133}\right)
 $$
 
-![Normalized values of shadow analysis](../images/shadow_analysis_normalised.png)
+
+![Normalized values of flood safety](../images/Updated images/S-MCDA attributes/flood safety s-mcda.png)
+
+#### Conclusion - Climate Adaptation
+In conclusion, It can be noted that there is a higher need for climate adaptive measures along the Elbe river and along the stream to the south of the Elbe river.
+
+
+![Combined S-MCDA Score - Climate Adaptation](../images/Updated images/Final S-MCDA Scores/S-MCDA Climate Adaptation.png)
 
 ### Quality of Life
 
@@ -138,7 +155,8 @@ The visibility factor refers to how the city is seen from the streams within a 2
 
 The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics tool. Then, the values were normalised to a 0–1 range by dividing each value by the maximum value, where higher values indicate greater visibility from the streams.
 
-![Normalized value of visibility](../images/Visibility_Units.png)
+
+![Normalized values of visibility](../images/Updated images/S-MCDA attributes/visibility s-mcda.png)
 
 #### Peripherality
 
@@ -155,7 +173,7 @@ The idea behind the peripherality is that for the quality of life, spatial units
 
 The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.
 
-![Normalized value of peripherality](../images/Peripherality_Units.png)
+![Normalized value of peripherality](../images/Updated images/S-MCDA attributes/Peripherality s-mcda.png)
 
 #### Land use variety
 
@@ -165,7 +183,13 @@ This analysis identifies the types of land use around the stream corridors. The 
 
 Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. Then, the values were normalised within the range between 0-1 by dividing each value with the maximum value. Areas with high values indicate greater diversity in land use.
 
-![Normalized value of land use](../images/Land%20Use_Units.png)
+![Normalized value of land use diversity](../images/Updated images/S-MCDA attributes/land use diversity s-mcda.png)
+
+#### Conclusion - Quality of Life
+In conclusion, the results indicate a higher need for measures to enhance the quality of life along the Elbe river and along the streams to the south of Elbe river. To the north of river, it points to the streams which are connected to river.
+
+
+![Combined S-MCDA Score - Quality of Life](../images/Updated images/Final S-MCDA Scores/S-MCDA Quality of life.png)
 
 ## Weighting of the Attributes
 
@@ -227,3 +251,5 @@ The overall higher values are concentrated in the southern bank of Elbe river an
 Moreover, there are smaller spots along the river bank zones that lack sufficient values.
 Although the urban streams represent a reasonable environmental quality around their buffers, 
 the Elbe river holds some areas of lower quality that draws the attention for intervention.
+
+![S-MCDA Results](../images/Updated images/Final S-MCDA Scores/Combined S-MCDA.png)
