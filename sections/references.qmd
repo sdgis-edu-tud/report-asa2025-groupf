@@ -1,9 +1,4 @@
 # Bibliography {.unnumbered}
 
 ::: {#refs}
-*EFRE 2007-2013 - Stadtteilentwicklungsprojekte - GOVData*. (n.d.). GovData. from https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e
-
-*Gewässersysteme - GOvData*. (n.d.). GovData. from https://www.govdata.de/suche/daten/gewassersystemecb4ef
-
-GovData (n.d.) Web Feature Service. Retrieved April, 2025 from <https://kommisdd.dresden.de/net3/public/ogc.ashx?NodeId=1150&Service=WFS&Request=GetCapabilities>
 :::
