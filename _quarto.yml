@@ -27,6 +27,7 @@ book:
   chapters: 
     - index.qmd
     - sections/preliminary.qmd
+    - sections/problem_statement.qmd
     - sections/mcda.qmd
     - sections/typology.qmd
     - sections/discussion.qmd
