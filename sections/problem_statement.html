@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Typology Construction – Unpacking Dresden</title>
+<title>2&nbsp; Problem Statement, Objectives and Criteria – Unpacking Dresden</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,8 +50,8 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sections/discussion.html" rel="next">
-<link href="../sections/mcda.html" rel="prev">
+<link href="../sections/mcda.html" rel="next">
+<link href="../sections/preliminary.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -92,38 +92,7 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -137,7 +106,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/typology.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Typology Construction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/problem_statement.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Problem Statement, Objectives and Criteria</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -179,7 +148,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/problem_statement.html" class="sidebar-item-text sidebar-link">
+  <a href="../sections/problem_statement.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Problem Statement, Objectives and Criteria</span></span></a>
   </div>
 </li>
@@ -191,7 +160,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/typology.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sections/typology.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Typology Construction</span></span></a>
   </div>
 </li>
@@ -235,19 +204,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
-  <li><a href="#clusters-computation" id="toc-clusters-computation" class="nav-link" data-scroll-target="#clusters-computation"><span class="header-section-number">4.2</span> Clusters Computation</a></li>
-  <li><a href="#topology-creation" id="toc-topology-creation" class="nav-link" data-scroll-target="#topology-creation"><span class="header-section-number">4.3</span> Topology Creation</a></li>
-  <li><a href="#answers-to-the-questions" id="toc-answers-to-the-questions" class="nav-link" data-scroll-target="#answers-to-the-questions"><span class="header-section-number">4.4</span> Answers to the Questions</a></li>
+  <li><a href="#theoretical-framework-the-idea-of-ecological-restoration" id="toc-theoretical-framework-the-idea-of-ecological-restoration" class="nav-link active" data-scroll-target="#theoretical-framework-the-idea-of-ecological-restoration"><span class="header-section-number">2.1</span> Theoretical framework: The idea of Ecological Restoration</a></li>
+  <li><a href="#problem-statement-and-research-question" id="toc-problem-statement-and-research-question" class="nav-link" data-scroll-target="#problem-statement-and-research-question"><span class="header-section-number">2.2</span> Problem Statement and Research Question</a></li>
+  <li><a href="#biodiversity-what-are-the-potentials-and-current-urgencies-in-the-integration-of-the-natural-elements-in-the-urban-landscape-of-dresden" id="toc-biodiversity-what-are-the-potentials-and-current-urgencies-in-the-integration-of-the-natural-elements-in-the-urban-landscape-of-dresden" class="nav-link" data-scroll-target="#biodiversity-what-are-the-potentials-and-current-urgencies-in-the-integration-of-the-natural-elements-in-the-urban-landscape-of-dresden"><span class="header-section-number">2.3</span> Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?</a></li>
+  <li><a href="#climate-adaptation-what-are-the-main-challenges-and-the-potential-spatial-interventions-to-adapt-to-climate-change" id="toc-climate-adaptation-what-are-the-main-challenges-and-the-potential-spatial-interventions-to-adapt-to-climate-change" class="nav-link" data-scroll-target="#climate-adaptation-what-are-the-main-challenges-and-the-potential-spatial-interventions-to-adapt-to-climate-change"><span class="header-section-number">2.4</span> Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?</a></li>
+  <li><a href="#quality-of-life-how-accessible-inviting-and-diverse-is-dresdens-public-space-and-how-can-it-reach-its-full-potential" id="toc-quality-of-life-how-accessible-inviting-and-diverse-is-dresdens-public-space-and-how-can-it-reach-its-full-potential" class="nav-link" data-scroll-target="#quality-of-life-how-accessible-inviting-and-diverse-is-dresdens-public-space-and-how-can-it-reach-its-full-potential"><span class="header-section-number">2.5</span> Quality of Life: How accessible, inviting, and diverse is Dresden’s public space, and how can it reach its full potential?</a></li>
+  <li><a href="#spatial-units-and-other-notes" id="toc-spatial-units-and-other-notes" class="nav-link" data-scroll-target="#spatial-units-and-other-notes"><span class="header-section-number">2.6</span> Spatial Units and other notes</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/typology.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/typology.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/problem_statement.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/problem_statement.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Typology Construction</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Problem Statement, Objectives and Criteria</span></h1>
 </div>
 
 
@@ -264,204 +235,106 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
-<p>With Typology Construction we wanted to answer a few questions in the continuity of our main question for the MCDA analysis: How can urban streams be restored and integrated in Dresden’s fabric, such that there is a synergy between human activities and the natural environment?</p>
-<p>In this case, the three questions that we tried to answer were:</p>
-<ul>
-<li>What are the streams’ adaptability rates to heat waves?</li>
-<li>How are the accessibility and connectivity conditions of green-blue areas?</li>
-<li>What are the areas of intervention along the streams?</li>
-</ul>
-<p>To answer these questions, we picked some of the attributes that we computed for the MCDA analysis. We tried to select those that were the most relevant for the three questions, which are:</p>
-<ul>
-<li>Green-blue connectivity</li>
-<li>Available space near streams</li>
-<li>Shade</li>
-<li>Peripherality</li>
-</ul>
-<p>Below are what these layers look like:</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<p>Here we talk about our understanding of the problem (both in a general sense and more specifically in our research goals), and the questions for each objective that brought us to choose the criteria.</p>
+<section id="theoretical-framework-the-idea-of-ecological-restoration" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="theoretical-framework-the-idea-of-ecological-restoration"><span class="header-section-number">2.1</span> Theoretical framework: The idea of Ecological Restoration</h2>
+<p>Our group’s understanding of ecological restoration is reflected well in the evolution of debates and the resulting definition of the discipline, developed by the newly formed Society for Ecological Restoration (SER) in the 1980s and first published in 1990.</p>
+<blockquote class="blockquote">
+<p>Ecological Restoration is the process of intentionally altering a site to establish a defined, indigenous, historic ecosystem. The goal of this process is to emulate the structure, function, diversity and dynamics of the specified ecosystem. (Higgs, 1994)</p>
+</blockquote>
+<p><strong><em>What to leave behind</em></strong> —The emerging movement sought to move beyond human-centric notions that had shaped the goals and perspectives of restoration efforts. It aimed to reposition humans as part of complex ecosystems rather than the central focus of resource management. Terms like ‘conservation’ and ‘preservation’ were avoided, as they implied managing “natural resources” for human use or protecting wilderness for its scenic value. At the heart of earlier approaches was the objectification of nature as a resource to be used, enjoyed, and controlled: projects often sought to simplify streams and floodplains, eliminating ecological dynamics seen as barriers to flood control and land development. By the late 1990s, it was increasingly recognized that flood damage reduction and ecosystem protection could be achieved through the same project. This marked a shift in thinking among floodplain managers—<strong>from single-purpose flood control to integrated river and floodplain interventions that mitigate flood impacts while providing ecological benefits.</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Evolution-of-flood-risk-reduction-projects.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Lisa Kreishok [@riley2016restoring]"><img src="../images/Evolution-of-flood-risk-reduction-projects.png" class="img-fluid figure-img" style="width:60.0%" alt="Lisa Kreishok (A. Riley 2016)"></a></p>
+<figcaption>Lisa Kreishok <span class="citation" data-cites="riley2016restoring">(<a href="references.html#ref-riley2016restoring" role="doc-biblioref">A. Riley 2016</a>)</span></figcaption>
+</figure>
+</div>
+<p>Even the aforementioned definition of restoration sparked debates about how to define “indigenous” or “historic” ecosystems, given that ecological systems constantly evolve. This raises the question: which point in history should we aim to restore to? After all, there is a difference between restoring for maximum biodiversity and supporting the local dynamics of a functioning ecosystem. Especially in urban contexts, practitioners recognized that land use disturbances made it unrealistic to recreate indigenous or historic environments as they once were. This is why the new approaches to restorations were influenced by the imperative, already emerged in the 1930s, of repairing or reversing damage caused by human activity on ecosystems.</p>
+<p><strong><em>What makes an ecosystem and its restoration</em></strong> —&nbsp;What persists of these definitions are the core variables that should inform any restoration. First, the <strong>structure of forms</strong> composing an ecosystem — the spatial pattern or arrangement of landscape elements (patches, corridors, and matrices) which strongly controls movements, flows, and changes <span class="citation" data-cites="dramstad1996landscape">(<a href="references.html#ref-dramstad1996landscape" role="doc-biblioref">Dramstad, Olson, and Forman 1996</a>)</span>. Second, the ‘ecosystem functions’, later redefined as ‘ecological <strong>processes</strong>’, intended as the “dynamic attributes of ecosystems, including interactions among organisms and interactions between organisms and their environments” or more simply put by <span class="citation" data-cites="dramstad1996landscape">Dramstad, Olson, and Forman (<a href="references.html#ref-dramstad1996landscape" role="doc-biblioref">1996</a>)</span>, the <strong>movements and flows</strong> of animals, plants, water, wind, materials, and energy through the structure. Lastly, a restoration project should aim to provide <strong>resiliency</strong>, the ability of the ecosystem to sustain itself without regular maintenance or interventions: the native plants and animal species should thrive, sustain reproducing populations necessary for their stability, and be capable of enduring periodic environmental stress events (such as a fire or flood) that serve to maintain the integrity of the ecosystem.</p>
+<p>Finally, a suggestive and far-reaching paradigm was provided by one of the founders of the movement, William Jordan, who argued that <strong>individuals and communities must be active participants in ecological recovery, and that healing natural systems would also foster the recovery of human communities.</strong> The benefits would go beyond an economic view of the use and enjoyment of our collective natural resources, encompassing the <strong>re-creation of a “sense of community” and a “sense of place.”</strong> Restoration should aim to create functioning <strong>environments where diverse species can thrive while also restoring social and historical identity</strong> in a generation increasingly disconnected from place by freeways, strip malls, and car-centric development.</p>
+</section>
+<section id="problem-statement-and-research-question" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="problem-statement-and-research-question"><span class="header-section-number">2.2</span> Problem Statement and Research Question</h2>
+<p>Along with the Elbe river, Dresden comprises a dense network of streams, which are spread out across its fabric. Presently, the streams are secluded from being a valuable part of the city. The problems are characterised by ecological issues, inappropriate land use by residents, and artificial channelling (Project case description). They, along with the Elbe river hold potential to become elements of integrating the ecological and social functions of the city by reclaiming the historical identity of waterfronts and restoring natural habitats. Therefore, there arises a need to understand how to integrate these streams into the network of protected green areas and public spaces, while maximising their contribution to biodiversity while adapting to the risk of flooding within and around the city.</p>
+<p>These concerns and identified potentials beg the question that, <strong>how can urban streams be restored and integrated in Dresden’s fabric, such that there is a synergy between human activities and the natural environment?</strong></p>
+<p>To articulate the challenges and identify the potentials to answer the question, the analysis is divided into three sub-research categories under the broad themes of biodiversity, climate adaptation and quality of life. Each theme has specific criteria with its attributes, which are analysed, measured and weighted against each other to arrive at the final decisions.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="typology_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="typology_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></a></p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Diagram 1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Three main themes"><img src="../images/Diagram 1.png" class="img-fluid figure-img" alt="Three main themes"></a></p>
+<figcaption>Three main themes</figcaption>
+</figure>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="typology_files/figure-html/unnamed-chunk-2-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="typology_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></a></p>
 </div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Diagram 2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Sub-research questions"><img src="../images/Diagram 2.png" class="img-fluid figure-img" alt="Sub-research questions"></a></p>
+<figcaption>Sub-research questions</figcaption>
+</figure>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="typology_files/figure-html/unnamed-chunk-2-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="typology_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="typology_files/figure-html/unnamed-chunk-2-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="typology_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid" width="672"></a></p>
 </div>
 </div>
 </div>
 </section>
-<section id="clusters-computation" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="clusters-computation"><span class="header-section-number">4.2</span> Clusters Computation</h2>
-<p>To begin the clustering, we started by normalising each feature to have an average of 0 and a standard deviation of 1.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-elbow" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-elbow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="typology_files/figure-html/fig-elbow-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;4.1: Visualisation of the inertia for different numbers of clusters ofr the elbow method."><img src="typology_files/figure-html/fig-elbow-1.png" class="img-fluid figure-img" width="672"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elbow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Visualisation of the inertia for different numbers of clusters ofr the elbow method.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>To use k-means properly to cluster the data, we had to select a good number of clusters. To do so, we used the <strong>elbow method</strong>. We tried values of <span class="math inline">\(k\)</span> from 2 to 9, and looking at the graph of the inertia for all values in <a href="#fig-elbow" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>, we picked <span class="math inline">\(k=4\)</span> at the value with the largest elbow angle.</p>
-<p>Then, we ran the k-means algorithm and to assign a final cluster to each spatial unit.</p>
-<div id="tbl-n_per_cluster" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-n_per_cluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.1: Spatial units per cluster
-</figcaption>
-<div aria-describedby="tbl-n_per_cluster-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  1   2   3   4 
-577 730 486 432 </code></pre>
-</div>
-</div>
-</figure>
-</div>
-<p>We can see with <a href="#tbl-n_per_cluster" class="quarto-xref">Table&nbsp;<span>4.1</span></a> that each cluster contains a decent number of points. Then, we plotted the clusters geographically in the spatial units in <a href="#fig-clusters-units" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-clusters-units" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-clusters-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="typology_files/figure-html/fig-clusters-units-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;4.2: Visualisation of the spatial units clustered geographically"><img src="typology_files/figure-html/fig-clusters-units-1.png" class="img-fluid figure-img" width="672"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clusters-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Visualisation of the spatial units clustered geographically
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell plain" data-tbl-cap="Values of the variables for the centers of the clusters">
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-hover caption-top" data-quarto-postprocess="true">
-<caption>Values of the variables for the centers of the clusters</caption>
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Cluster</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Green-blue connectivity</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Available space near streams</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Shade</th>
-<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold; background-color: rgba(242, 242, 242, 255) !important;">Peripherality</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0.952</td>
-<td style="text-align: center;">0.024</td>
-<td style="text-align: center;">0.539</td>
-<td style="text-align: center;">0.923</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0.259</td>
-<td style="text-align: center;">0.169</td>
-<td style="text-align: center;">0.147</td>
-<td style="text-align: center;">0.836</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">0.156</td>
-<td style="text-align: center;">0.085</td>
-<td style="text-align: center;">0.318</td>
-<td style="text-align: center;">0.401</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">0.692</td>
-<td style="text-align: center;">0.654</td>
-<td style="text-align: center;">0.121</td>
-<td style="text-align: center;">0.814</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section id="topology-creation" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="topology-creation"><span class="header-section-number">4.3</span> Topology Creation</h2>
-<p>Before interpreting the results, an interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from <a href="#fig-columns-distribution" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>. The fact that some of them have a high concentration of values on the extreme values makes it quite likely to have a cluster to be centred on this value for this attribute, and this is indeed what we can see in the output.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-columns-distribution" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-columns-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="typology_files/figure-html/fig-columns-distribution-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;4.3: Distribution of the variables"><img src="typology_files/figure-html/fig-columns-distribution-1.png" class="img-fluid figure-img" width="672"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-columns-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: Distribution of the variables
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>To interpret the clustering results, we examine the centers of each cluster in the original data scale. By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:</p>
+<section id="biodiversity-what-are-the-potentials-and-current-urgencies-in-the-integration-of-the-natural-elements-in-the-urban-landscape-of-dresden" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="biodiversity-what-are-the-potentials-and-current-urgencies-in-the-integration-of-the-natural-elements-in-the-urban-landscape-of-dresden"><span class="header-section-number">2.3</span> Biodiversity: What are the potentials and current urgencies in the integration of the natural elements in the urban landscape of Dresden?</h2>
+<p>The criteria of <strong>connectivity</strong> and <strong>environmental quality</strong> are chosen to improve the existing habitats and further expand them.</p>
 <ol type="1">
-<li><strong>Forest areas (Cluster 1)</strong>:
-<ul>
-<li>High proportion of greenery and shade due to the trees</li>
-<li>High peripherality because most of the forest is quite far from the houses</li>
-<li>Not much space available as the forest takes most of the space</li>
-</ul></li>
-<li><strong>Sparse urban areas (Cluster 2)</strong>:
-<ul>
-<li>Some greenery and some available space because the housing is not too dense</li>
-<li>Quite high peripherality since there is housing, but a low population density</li>
-<li>Low shade because some sparse trees and low buildings are the only sources of shade</li>
-</ul></li>
-<li><strong>Dense urban areas (Cluster 3)</strong>:
-<ul>
-<li>Very low amount of greenery and available space because space is mostly occupied by buildings</li>
-<li>Decent amount of shading because of the high and dense buildings</li>
-<li>Low peripherality as the population density is high in the area around</li>
-</ul></li>
-<li><strong>Transitional areas (Cluster 4)</strong>:
-<ul>
-<li>Quite high proportion of greenery composed of mostly grass fields and some forest</li>
-<li>A lot of space available as the grass fields are often not really used</li>
-<li>Very low shade as only a few trees create shade</li>
-<li>Quite high peripherality since these places are not central and not well accessible</li>
-</ul></li>
+<li><em>Connectivity</em> — The attributes defined within connectivity aims to identify the potential of improving the connections between the existing vegetation areas. The potential green corridors along the streams are highlighted by using the ‘greenspace’ layer from OpenStreetMaps. The layer consists of the various typologies of green infrastructure of Dresden’s fabric. These are a combination of planned and recreational spaces (parks and traffic-side greenery) and natural spaces (forests, meadows, grass). To identify the potential near the streams, the following sub-criteria is defined for measurement:
+<ol type="1">
+<li><em>Green-Blue connectivity</em>: Blue-green infrastructure (BGI), combining semi-natural and engineered elements, offers multifaceted benefits like stormwater management, water purification, heat mitigation, and habitat provision <span class="citation" data-cites="perrelet2024engineering">(<a href="references.html#ref-perrelet2024engineering" role="doc-biblioref">Perrelet et al. 2024</a>)</span>. To analyse the gaps in vegetation along the stream corridors, the greenspace layer from OpenStreetMap is modified to see the fragments between vegetation which lie within a 250 meter buffer from the streams.</li>
+</ol></li>
+<li><em>Environmental Quality</em> — The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.
+<ol type="1">
+<li><em>Soil quality</em>: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.</li>
+<li><em>Plant health</em>: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem.</li>
+</ol></li>
 </ol>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-typology-units" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-typology-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="typology_files/figure-html/fig-typology-units-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;4.4: Visualisation of the spatial units clustered with their typology"><img src="typology_files/figure-html/fig-typology-units-1.png" class="img-fluid figure-img" width="672"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-typology-units-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.4: Visualisation of the spatial units clustered with their typology
-</figcaption>
+</section>
+<section id="climate-adaptation-what-are-the-main-challenges-and-the-potential-spatial-interventions-to-adapt-to-climate-change" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="climate-adaptation-what-are-the-main-challenges-and-the-potential-spatial-interventions-to-adapt-to-climate-change"><span class="header-section-number">2.4</span> Climate Adaptation: What are the main challenges and the potential spatial interventions to adapt to climate change?</h2>
+<p>To address this question, we focused on identifying both the areas most vulnerable to climate-related hazards and those with potential for ecological intervention.</p>
+<p><em>Flood safety</em> - Flood safety was assessed using hazard data provided by official Saxon authorities. These datasets simulate the spatial extent of flood events expected to occur once every 20 years (<strong>HQ20</strong>), 100 years (<strong>HQ100</strong>), and under an additional <strong>extreme</strong> scenario. Although often referred to as “flood risk” data, these layers are more accurately understood as <strong>hazard maps</strong>, as they depict the probability and extent of water presence without accounting for exposure or vulnerability components that would complete a full risk framework.</p>
+<p>This distinction is important because it highlights both the <strong>potential and limitations</strong> of the data. While useful for planning, these layers do not incorporate social or infrastructural vulnerability, nor economic or insurance considerations. As Rözer et al.&nbsp;(2020) note in their analysis of Germany’s flood risk governance, despite a gradual shift toward anticipatory systems, there remains a <strong>lack of strategic focus on how to achieve resilience</strong>, and <strong>underinsurance</strong> remains widespread. Our use of this data acknowledges these limitations while offering a practical tool for <strong>relative spatial appraisal</strong>.</p>
+<p><em>Soil infiltration</em> - The infiltration capacity of the soil was used as a proxy for local water absorption and groundwater recharge potential. The data were sourced from the Saxon State Office for Environment, Agriculture and Geology (LfULG) through their Web Feature Service and derive from a layer titled <strong>“Wasserspeichervermögen des Bodens”</strong>, or <strong>water storage capacity of soils</strong>.</p>
+<p>This attribute represents the estimated ability of the soil to retain water during precipitation events, which is critical for understanding flood risk mitigation, drought resilience, and ecosystem health. While not directly a risk indicator, infiltration capacity contributes to the <strong>regulating functions of the soil</strong> and informs where permeability may reduce surface runoff and enhance local hydrological balance.</p>
+<p>The classification includes five categories ranging from <strong>very low</strong> to <strong>very high</strong> infiltration capacity, allowing us to incorporate this into a relative index across urban areas.</p>
+</section>
+<section id="quality-of-life-how-accessible-inviting-and-diverse-is-dresdens-public-space-and-how-can-it-reach-its-full-potential" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="quality-of-life-how-accessible-inviting-and-diverse-is-dresdens-public-space-and-how-can-it-reach-its-full-potential"><span class="header-section-number">2.5</span> Quality of Life: How accessible, inviting, and diverse is Dresden’s public space, and how can it reach its full potential?</h2>
+<p>Urban stream restoration is increasingly used as a strategy for improving the physical and ecological conditions of degraded urban streams. Beyond ecological benefit, it also has a social impact for enhancing the quality of life for the residents living in urban areas. Urban stream restoration can provide amenities, recreational opportunities, and environmental health benefits that contribute directly to residents’ well-being. Therefore, it is important to foster awareness and supportive attitudes toward stream restoration projects, while also addressing the issue of just distribution and equal access to streams. Below are the three key aspects of restoration projects support this benefit:</p>
+<ol type="1">
+<li><em>Attractiveness</em> — Aims to assess how inviting Dresden’s stream corridors are as public spaces. It involves evaluating the visibility, how the city is visible from the streams and Elbe River’s corridor. This analysis was conducted using a viewshed analysis based on example points along Dresden’s waterways, combined with a DSM file which contains elevation information and physical obstructions such as building and trees. By identifying areas with good views of the stream corridor, future interventions can make these areas more appealing and strengthen their role to provide amenities and public spaces for people in Dresden.</li>
+<li><em>Peripherality</em> — Aims to analyse how accessible Dresden’s streams are to the public, especially within walking distance. This is done using accessibility analysis combined with population data to show how well-connected the streams are to the area where most residents live. We call it peripherality as we reversed it for our MCDA analysis (as we want higher accessibility to have lower values).</li>
+<li><em>Diversity</em> — Aims to evaluate the diversity of land uses around the streams to support multifunctionality and encourage varied public use along the stream corridor. Areas with diverse land use (such as a combination of residential, commercial, and green spaces) tend to attract a broader range of users and encourage inclusive stream environment. In contrast, areas with single or low land-use diversity indicate less inclusive and/or underdeveloped areas that need interventions to unlock their full potential.</li>
+</ol>
+<p>The two references we used for this part are <span class="citation" data-cites="Bernhardt2007Restoring">Bernhardt and Palmer (<a href="references.html#ref-Bernhardt2007Restoring" role="doc-biblioref">2007</a>)</span> and <span class="citation" data-cites="Scoggins2022Community-powered">Scoggins et al. (<a href="references.html#ref-Scoggins2022Community-powered" role="doc-biblioref">2022</a>)</span>.</p>
+</section>
+<section id="spatial-units-and-other-notes" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="spatial-units-and-other-notes"><span class="header-section-number">2.6</span> Spatial Units and other notes</h2>
+<p>The spatial units used in this study are hexagons with a dimension of 250 meters. The study area of Dresden is divided using a complete surface of a hexagonal pattern. Then it is overlaid with the water stream network and river body from OpenStreetMap to keep only the hexagons that intersect with at least one stream. Finally, the isolated hexagons were removed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Spatial_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Spatial Units of waterbodies &amp; streams across Dresden"><img src="../images/Spatial_Units.png" class="img-fluid figure-img" alt="Spatial Units of waterbodies &amp; streams across Dresden"></a></p>
+<figcaption>Spatial Units of waterbodies &amp; streams across Dresden</figcaption>
 </figure>
 </div>
+<p>To explain why the Elbe river was included in the study area is that the river is a key element that has shaped the urban growth throughout decades and many spatial and environmental features are affected by this water body. Moreover, the Elbe is spine to most of the streams across the city that branch out form it. The river itself creates a vast network of waterways all across the urban, periphery, and forest areas. Otherwise, only picking the stream network would isolate the southern bank structure from the northern bank streams in which were clustered inside the forest areas which don’t hold the potential for interventions. Therefore, the decision was made to consider the Elbe river and streams as whole water network within Dresden’s boundaries.</p>
+<p>The prominent reason behind picking the dimensions of 250 meters is based on two main reasons:</p>
+<ol type="1">
+<li>The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.</li>
+<li>The space but not the line: the spatial units are also going to determine the probable area of intervention. Then the streams are not the only lines that need to be changed, but the space surrounding them is also affected in both ways. This space includes the buildings, facilities, and natural habitats that all have synergies along with their neighboring stream structure.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Spatial_Units_Zoomed_In.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="The Dimensions of spatial units and the river buffer radius"><img src="../images/Spatial_Units_Zoomed_In.jpeg" class="img-fluid figure-img" alt="The Dimensions of spatial units and the river buffer radius"></a></p>
+<figcaption>The Dimensions of spatial units and the river buffer radius</figcaption>
+</figure>
 </div>
-</div>
-</section>
-<section id="answers-to-the-questions" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="answers-to-the-questions"><span class="header-section-number">4.4</span> Answers to the Questions</h2>
-<p>Regarding the suitability of the spaces to sustain heat waves, the results are similar to what we could have expected, given that we mostly look at two attributes for this: the greenery and the shade. The forest areas are the most adapted with high greenery and shade that prevent the temperature from drastically increasing during heat waves. Transitional areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun. The sparse urban areas are even worse because there is even less greenery and not much more shade, while the dense urban areas have at least some shade even if the heat island effect will be strong due to the soil artificialisation.</p>
-<p>However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of green-blue space accessibility. It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or transitional areas, that could be used during these events.</p>
-<p>Finally, the available space gives us information about the potential for simple interventions in each area. Transitional areas have the highest potential, meaning that they could be adapted to provide shelters in case of heat waves, for example by planting new trees. Sparse urban areas also have some potential while the dense areas already have most of their space used and forest areas should rather be kept as they are.</p>
+<p>The spatial units are also filtered by a 500-meter buffer of the main river, Elbe, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elbe river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -900,18 +773,18 @@ Scoggins, M., D. Booth, T. Fletcher, M. Fork, Ana M González, R. Hale, R. Hawle
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sections/mcda.html" class="pagination-link" aria-label="MCDA">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MCDA</span></span>
+      <a href="../sections/preliminary.html" class="pagination-link" aria-label="Preliminary Maps and Research">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preliminary Maps and Research</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sections/discussion.html" class="pagination-link" aria-label="Discussion">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discussion</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sections/mcda.html" class="pagination-link" aria-label="MCDA">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MCDA</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/typology.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/typology.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/problem_statement.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/problem_statement.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
