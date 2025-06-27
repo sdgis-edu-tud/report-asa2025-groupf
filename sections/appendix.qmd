@@ -344,7 +344,7 @@ We did an accessibility analysis to identify areas within walking distance of th
 We excluded these maps from further analysis because some spatial units had no value after aggregation.
 
 ::: {layout-ncol="2"}
-![](images/Accessibility_old-01.png)
+![](../images/Accessibility_old.png)
 
-![](images/Accessibility_old2.png)
+![](../images/Accessibility_old2.png)
 :::
