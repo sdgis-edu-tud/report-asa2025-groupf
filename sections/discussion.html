@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -205,14 +225,55 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="results-and-analysis" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="results-and-analysis"><span class="header-section-number">4.1</span> Results and Analysis</h2>
+<p>The results illustrate an acceptable quality of urban streams that need to be preserved while the urban spaces near the Elbe river hold more potential for interventions. Comparing the two methodology visualised results shows the outputs of the S-MCDA and Typology Construction are almost the same.</p>
+<p>The overall maps illustrate the high quality of forest areas within the city that also hold a unique characteristic and encourages for further preservation and avoidance from any intervention. The zones known as Dense Urban Areas in the cluster almost have the same low value as the combined MCDA map. The orange spots that are mostly located around the Elbe river, and shapes dense urban area cluster have the lowest values and qualities based on the sub objectives of urban stream restoration criteria which makes them the areas with more problems or complexities that are needed to be tackled seriously.</p>
+<p>Also, the yellow zones inside both the MCDA and typologies also have matching which makes them as the second problematic areas within the spatial units. These areas have a moderate available space for intervention and average density, but also they have a very low accessibility value. These comparisons, approve that the second problematic areas can be sparse urban areas with a nearly consent distance from the Elbe river.</p>
+<p>Apparently, the stream network is having a high-average quality that would require the least restoration interventions at least in the non-centric districts of Dresden. Otherwise, the urban core areas need a detailed study, and after that, detailed interventions for enhancing the stream areas within the dense urban fabric that holds the most accessibility and least peripherality. The other interesting point is that the Elbe river holds more problematic characteristics compared to its streams branched out of it.</p>
 </section>
 <section id="reproducibility" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">4.2</span> Reproducibility</h2>
+<p>Overall, most of the processed data, analysis methods, software tools, etc. were applied and implemented smoothly, so the descriptions within this report will be in an acceptable level of reproducibility.</p>
+<p>However, some complex analysis, like the shadow generation, may not be too easy to reproduce, as it critically relies on data with fixed and clean geometries that causes almost no errors throughout the process. This was the case with generating shadows, since the buildings layer from the Open Street Map dataset had geometry problems that deeply needed to be fixed through several procedures of trials and error using the AI assistant i.e.&nbsp;ChatGPT. Although the whole process of data cleaning and geometry fixing scripts and steps are indicated inside the report’s appendix, <a href="appendix.html#sec-buidig-information" class="quarto-xref"><span>Section 2</span></a>, there might be complexities or issues reproducing the same analysis map. This case needs to be elaborated and cleaned up for a more specific and concrete process.</p>
 </section>
 <section id="organisation-and-teamwork" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="organisation-and-teamwork"><span class="header-section-number">4.3</span> Organisation and Teamwork</h2>
+<p>The team consisted of five teammates, where four of us were from urbanism and one teammate was from geomatics. As we discussed our individual motivations on the first day, we realised we all shared the passion to understand the use of urban application data in real-life scenarios. We further divided the roles which we voluntarily picked, realising that they may overlap during the process, we could each take an overarching responsibility for specific processes. We divided them as follows:</p>
+<p>Alankrita Sharma (Urbanism) - Research Lead, Presentation Lead Alexandre Bry (Geomatics): Project Coordinator, Data Analyst Adriano Mancini (Urbanism): Design Lead Grase Stephanie (Urbanism): Mapping Specialist Soroush Saffarzadeh (Urbanism): Writer/Editor, Presentation Lead</p>
+<p>The roles helped us to have a broader clarity for our responsibilities, and that helped us to track specific progress within each task. As the majority of us were from urbanism, we noted how we were more active in understanding the urban context and spatial logic to derive the attributes, while our teammate from geomatics complemented the course by breaking down each attribute to tangible calculations that could be computed. This made us revise and reconsider our choices until we finally arrived at a group of measurable attributes that were also relevant for the context. The role of the geomatics discipline was specifically relevant when the computation was complex, such as in understanding how to aggregate the data to each spatial unit and computing the average values for the S-MCDA. Here, as time allowed us as well, we were able to learn from each other and grasp an understanding of computing the weighted average. For typology construction, however, the role for data analytics was more limited to the geomatics teammate, although we all coordinated in devising the research question, finalising attributes for the clusters, and drawing inferences from results. Though this helped the urbanism groupmates to theoretically understand the value of typology construction, the practical understanding of the method was limited. While we experienced certain challenges at times due to our schedules for different courses, we were able to shift and add responsibilities in those instances. Overall, our workflow could also be described as an effective interdisciplinary project, where we were able to bring our different skills and perspectives together to apply urban data to a specific case of urban stream restoration.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Bernhardt2007Restoring" class="csl-entry" role="listitem">
+Bernhardt, E., and M. Palmer. 2007. <span>“Restoring Streams in an Urbanizing World.”</span> <em>Freshwater Biology</em> 52: 738–51. <a href="https://doi.org/10.1111/J.1365-2427.2006.01718.X">https://doi.org/10.1111/J.1365-2427.2006.01718.X</a>.
+</div>
+<div id="ref-dramstad1996landscape" class="csl-entry" role="listitem">
+Dramstad, W., J. D. Olson, and R. T. Forman. 1996. <em>Landscape Ecology Principles in Landscape Architecture and Land-Use Planning</em>. Shearwater Books.
+</div>
+<div id="ref-govdata_efre" class="csl-entry" role="listitem">
+GovData. n.d. <span>“<span>EFRE 2007-2013 - Stadtteilentwicklungsprojekte - GOVData</span>.”</span> <a href="https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e" class="uri">https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e</a>.
+</div>
+<div id="ref-govdata_gewaessersysteme" class="csl-entry" role="listitem">
+———. n.d. <span>“<span>Gewässersysteme - GOVData</span>.”</span> <a href="https://www.govdata.de/suche/daten/gewassersystemecb4ef" class="uri">https://www.govdata.de/suche/daten/gewassersystemecb4ef</a>.
+</div>
+<div id="ref-govdata_wfs" class="csl-entry" role="listitem">
+———. n.d. <span>“<span>Web Feature Service</span>.”</span> <a href="https://kommisdd.dresden.de/net3/public/ogc.ashx?NodeId=1150&amp;Service=WFS&amp;Request=GetCapabilities" class="uri">https://kommisdd.dresden.de/net3/public/ogc.ashx?NodeId=1150&amp;Service=WFS&amp;Request=GetCapabilities</a>.
+</div>
+<div id="ref-perrelet2024engineering" class="csl-entry" role="listitem">
+Perrelet, K., M. Moretti, A. Dietzel, F. Altermatt, and L. M. Cook. 2024. <span>“Engineering Blue-Green Infrastructure for and with Biodiversity in Cities.”</span> <em>Npj Urban Sustainability</em> 4 (27). <a href="https://doi.org/10.1038/s42949-024-00163-y">https://doi.org/10.1038/s42949-024-00163-y</a>.
+</div>
+<div id="ref-riley2016restoring" class="csl-entry" role="listitem">
+Riley, A. 2016. <em>Restoring Neighborhood Streams: Planning, Design and Construction</em>. USA: Island Press.
+</div>
+<div id="ref-riley_restoring_2016" class="csl-entry" role="listitem">
+Riley, Ann L. 2016. <em>Restoring <span>Neighborhood</span> <span>Streams</span></em>. Washington, DC: Island Press/Center for Resource Economics. <a href="https://doi.org/10.5822/978-1-61091-741-4">https://doi.org/10.5822/978-1-61091-741-4</a>.
+</div>
+<div id="ref-Saaty1987analytic" class="csl-entry" role="listitem">
+Saaty, R. W. 1987. <span>“The Analytic Hierarchy Process—What It Is and How It Is Used.”</span> <em>Mathematical Modelling</em> 9 (3): 161–76. <a href="https://doi.org/10.1016/0270-0255(87)90473-8">https://doi.org/10.1016/0270-0255(87)90473-8</a>.
+</div>
+<div id="ref-Scoggins2022Community-powered" class="csl-entry" role="listitem">
+Scoggins, M., D. Booth, T. Fletcher, M. Fork, Ana M González, R. Hale, R. Hawley, et al. 2022. <span>“Community-Powered Urban Stream Restoration: A Vision for Sustainable and Resilient Urban Ecosystems.”</span> <em>Freshwater Science</em> 41: 404. <a href="https://doi.org/10.1086/721150">https://doi.org/10.1086/721150</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

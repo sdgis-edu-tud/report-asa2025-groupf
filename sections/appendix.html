@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -210,6 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#sec-ndvi-computation" id="toc-sec-ndvi-computation" class="nav-link active" data-scroll-target="#sec-ndvi-computation">NDVI Computation</a></li>
+  <li><a href="#sec-buidig-information" id="toc-sec-buidig-information" class="nav-link" data-scroll-target="#sec-buidig-information">Building Geometry</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/edit/main/sections/appendix.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/blob/main/sections/appendix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/sdgis-edu-tud/report-asa2025-groupf/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -333,8 +354,154 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sec-buidig-information" class="level2">
+<h2 class="anchored" data-anchor-id="sec-buidig-information">Building Geometry</h2>
+<p>The process of fixing the geometries of the clipped building layer can be done through this text Since the building layer had several geometry errors, it went through some geometry validation and fixing processes (i.e.&nbsp;valid geometry, fix geometries, simplify and re-project). For a smoother experience, you can read through this process to fix your geometries:</p>
+<p>“Use “Check Validity” Go to: Vector → Geometry Tools → Check Validity</p>
+<p>Choose “GEOS” as the engine.</p>
+<p>Review the reported issues — “valid” in QGIS may not be sufficient for overlay ops if robustness is compromised.</p>
+<p>Fix Geometries (Again) Run: Vector → Geometry Tools → Fix Geometries</p>
+<p>If already done, try exporting the layer as a new file (Right-click layer → Export → Save Features As…) to reset underlying geometry representations.</p>
+<p>Simplify or Snap Geometries Minor overlaps/gaps or very close vertices can trigger GEOS precision issues.</p>
+<p>Try:</p>
+<p>Vector → Geometry Tools → Snap geometries to layer</p>
+<p>or Vector → Geometry Tools → Simplify Geometry</p>
+<p>Use “Invalid Geometry Handling” in Processing If using model/processing tools, go to the settings (Processing → Options) → “Invalid geometry handling” → set to “Ignore features with invalid geometries” (temporary workaround).</p>
+<p>Use Buffer(0) as a Cleanup Trick Use the expression:</p>
+<p>buffer($geometry, 0)</p>
+<p>in the Geometry by Expression tool. It often resolves subtle robustness problems.</p>
+<p>Your raster is in EPSG:25833, but you’re trying to extract it using a mask layer in EPSG:32633. These CRS look similar (both UTM zone 33N), but they’re not the same datum:</p>
+<p>EPSG:25833 → ETRS89 (used in Europe, based on stable tectonic plate)</p>
+<p>EPSG:32633 → WGS84 (global standard)</p>
+<p>GEOS and GDAL can throw robustness errors if vector and raster CRS differ even slightly during masking.</p>
+<p>Option 1: Reproject the Mask Layer to Match the Raster Right-click the mask layer → Export → Save Features As…</p>
+<p>Set CRS to EPSG:25833</p>
+<p>Use the new projected mask layer for extraction.</p>
+<p>Then:</p>
+<p>Raster → Extraction → Clip Raster by Mask Layer</p>
+<p>Use this EPSG:25833 version of the mask</p>
+<p>Option 2: Reproject the Raster Instead If the mask needs to stay in 32633, reproject the raster:</p>
+<p>Raster → Projections → Warp (Reproject)</p>
+<p>Target CRS: EPSG:32633</p>
+<p>Resampling: Nearest neighbour (for categorical) or Bilinear (for continuous)</p>
+<p>Save as new GeoTIFF</p>
+<p>Then run the extract using the reprojected raster.</p>
+<p>Always ensure both raster and mask have the exact same CRS (code and datum), not just similar projection zones. Otherwise, operations like masking can fail due to subtle misalignments or geometry issues.</p>
+<p>Furthermore, if you received such error:</p>
+<p>Warning 1: Holes are nested at or near point 403128.48007987819 5659925.564998446ERROR 1: Cutline polygon is invalid.</p>
+<p>This means your cutline (mask) layer dissolved_fixed_reprojected.shp has self-intersecting or nested holes.</p>
+<p>GDAL (gdalwarp) cannot use this geometry until it is fully valid and simplified.</p>
+<p>Final Fix — Repair Deep Geometry Issues Do the following in exact order:</p>
+<p>Explode MultiParts Vector → Geometry Tools → Multipart to Singleparts → Run it on dissolved_fixed_reprojected.shp → Save result as e.g.&nbsp;dissolved_singleparts.shp</p>
+<p>Use “Buffer(0)” Trick Open Processing Toolbox</p>
+<p>Use Geometry by Expression on the singlepart layer</p>
+<p>Expression:</p>
+<p>buffer($geometry, 0)</p>
+<p>Save as: dissolved_cleaned_buffer0.shp</p>
+<p>This rewrites the geometry and usually removes nested holes and invalid rings.</p>
+<p>Final Geometry Check Run Check Validity tool on dissolved_cleaned_buffer0.shp</p>
+<p>GEOS engine</p>
+<p>All features must be valid</p>
+<p>Reproject This Layer (if needed) If your raster is in EPSG:25833, make sure this cleaned mask is also in EPSG:25833.</p>
+<p>If you found a few invalid geometries after running Check Validity, do this:</p>
+<p>Fix Them Properly (Step-by-Step) 1. Isolate Invalid Features Open the Check Validity output layer (or attribute table):</p>
+<p>Filter by “valid” = ‘0’</p>
+<p>Select all invalid features</p>
+<p>Fix Individually or in Batch Use either:</p>
+<p>A. Manual Fix:</p>
+<p>Enable editing</p>
+<p>Use vertex tool to correct overlapping rings, holes, etc.</p>
+<p>Useful for &lt;10 features</p>
+<p>B. Automated Fix:</p>
+<p>Select invalid features</p>
+<p>Run: Vector → Geometry Tools → Fix Geometries</p>
+<p>Only apply to selected features</p>
+<p>Save as fixed_invalids.shp</p>
+<p>Replace Invalids in Main Layer Use “Merge Vector Layers”:</p>
+<p>Input: your original cleaned valid layer + fixed_invalids.shp</p>
+<p>Output: final_cleaned_mask.shp</p>
+<p>if you faced such error:</p>
+<p>Warning 1: Too few points in geometry component at or near point 7143.291…ERROR 1: Cutline polygon is invalid.</p>
+<p>means you have “degenerate geometries” in your “valid” features — like a polygon made from just 1 or 2 vertices, which isn’t a valid polygon for GDAL.</p>
+<p>Solution: Remove Features with Too Few Vertices Open the attribute table of valid_only_mask_readyformask.shp</p>
+<p>Use this filter in the expression dialog:</p>
+<p>num_points($geometry) &gt;= 4</p>
+<p>Export the selected features:</p>
+<p>Right-click → Export → Save Selected Features As…</p>
+<p>Name it valid_clean_mask.shp</p>
+<p>Optional: Run Buffer(0) Again Just to be sure:</p>
+<p>Geometry by Expression</p>
+<p>Use: buffer($geometry, 0)</p>
+<p>Save result as final_cutline_mask.shp</p>
+<p>Retry Clipping Now use final_cutline_mask.shp as your cutline. This should fully eliminate:</p>
+<p>Nested holes</p>
+<p>Invalid rings</p>
+<p>Too-few-points geometries</p>
+<p>Let me know if you’d prefer a PyQGIS script or model to automate this.</p>
+<p>If you faced this error:</p>
+<p>Warning 1: Self-intersection at or near point … ERROR 1: Cutline polygon is invalid.</p>
+<p>means even after filtering and buffering, some geometries still have self-intersections, often caused by very small rings or overlapping vertices introduced during buffering or fixing.</p>
+<p>Final Clean Repair: Force Rebuild of Valid Topology Do this:</p>
+<p>Use Delete Holes Vector → Geometry Tools → Delete holes</p>
+<p>Input: final_cutline_mask_buffered.shp</p>
+<p>Keep minimum area very small (e.g.&nbsp;0.0001)</p>
+<p>Save as final_noholes.shp</p>
+<p>Simplify + Buffer(0) Combo Now:</p>
+<p>Run Simplify Geometry:</p>
+<p>Tolerance: 0.01 to 0.1 depending on your unit (meters)</p>
+<p>Save as final_simplified.shp</p>
+<p>Then apply buffer($geometry, 0) again on that layer</p>
+<p>Re-check Validity One Last Time Use Check Validity (GEOS) on the result.</p>
+<p>Ensure all features pass.</p>
+<p>Use That as Cutline Use the output from the above steps (final_simplified_buffered.shp) as your mask layer.”</p>
+<p>Recap &amp; Summary</p>
+<p>Always match CRS between raster and mask.</p>
+<p>Run Check Validity, Delete Holes, Simplify, and buffer($geometry, 0) on complex masks.</p>
+<p>Filter out degenerate geometries (num_points($geometry) &lt; 4).</p>
+<p>Use batch or models to automate cleanup when needed.</p>
+<p>Resample the raster to smaller resolution</p>
+<p>After processing the mask layer, it was used to clip the raster layer and patched with the DSM layer to go through the shadow analysis process. Since the raster layer is very large, there’s a need to reduce the resolution or just clipping it to a smaller area, unless a strong machine with minimum 32GB RAM would run the analysis. Otherwise, the process cannot be done due to lack of memory in your machine.</p>
+<p>“To resample the raster resolution:</p>
+<p>If you’re using 0.5m or 1m resolution:</p>
+<p>Use Raster → Projections → Warp (Reproject)</p>
+<p>Set a coarser pixel size (e.g.&nbsp;2m or 5m)</p>
+<p>Resampling: Average or Nearest Neighbour”.</p>
+<p>The patched layer was resampled to 3m resolution which made the process feasible.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Bernhardt2007Restoring" class="csl-entry" role="listitem">
+Bernhardt, E., and M. Palmer. 2007. <span>“Restoring Streams in an Urbanizing World.”</span> <em>Freshwater Biology</em> 52: 738–51. <a href="https://doi.org/10.1111/J.1365-2427.2006.01718.X">https://doi.org/10.1111/J.1365-2427.2006.01718.X</a>.
+</div>
+<div id="ref-dramstad1996landscape" class="csl-entry" role="listitem">
+Dramstad, W., J. D. Olson, and R. T. Forman. 1996. <em>Landscape Ecology Principles in Landscape Architecture and Land-Use Planning</em>. Shearwater Books.
+</div>
+<div id="ref-govdata_efre" class="csl-entry" role="listitem">
+GovData. n.d. <span>“<span>EFRE 2007-2013 - Stadtteilentwicklungsprojekte - GOVData</span>.”</span> <a href="https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e" class="uri">https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e</a>.
+</div>
+<div id="ref-govdata_gewaessersysteme" class="csl-entry" role="listitem">
+———. n.d. <span>“<span>Gewässersysteme - GOVData</span>.”</span> <a href="https://www.govdata.de/suche/daten/gewassersystemecb4ef" class="uri">https://www.govdata.de/suche/daten/gewassersystemecb4ef</a>.
+</div>
+<div id="ref-govdata_wfs" class="csl-entry" role="listitem">
+———. n.d. <span>“<span>Web Feature Service</span>.”</span> <a href="https://kommisdd.dresden.de/net3/public/ogc.ashx?NodeId=1150&amp;Service=WFS&amp;Request=GetCapabilities" class="uri">https://kommisdd.dresden.de/net3/public/ogc.ashx?NodeId=1150&amp;Service=WFS&amp;Request=GetCapabilities</a>.
+</div>
+<div id="ref-perrelet2024engineering" class="csl-entry" role="listitem">
+Perrelet, K., M. Moretti, A. Dietzel, F. Altermatt, and L. M. Cook. 2024. <span>“Engineering Blue-Green Infrastructure for and with Biodiversity in Cities.”</span> <em>Npj Urban Sustainability</em> 4 (27). <a href="https://doi.org/10.1038/s42949-024-00163-y">https://doi.org/10.1038/s42949-024-00163-y</a>.
+</div>
+<div id="ref-riley2016restoring" class="csl-entry" role="listitem">
+Riley, A. 2016. <em>Restoring Neighborhood Streams: Planning, Design and Construction</em>. USA: Island Press.
+</div>
+<div id="ref-riley_restoring_2016" class="csl-entry" role="listitem">
+Riley, Ann L. 2016. <em>Restoring <span>Neighborhood</span> <span>Streams</span></em>. Washington, DC: Island Press/Center for Resource Economics. <a href="https://doi.org/10.5822/978-1-61091-741-4">https://doi.org/10.5822/978-1-61091-741-4</a>.
+</div>
+<div id="ref-Saaty1987analytic" class="csl-entry" role="listitem">
+Saaty, R. W. 1987. <span>“The Analytic Hierarchy Process—What It Is and How It Is Used.”</span> <em>Mathematical Modelling</em> 9 (3): 161–76. <a href="https://doi.org/10.1016/0270-0255(87)90473-8">https://doi.org/10.1016/0270-0255(87)90473-8</a>.
+</div>
+<div id="ref-Scoggins2022Community-powered" class="csl-entry" role="listitem">
+Scoggins, M., D. Booth, T. Fletcher, M. Fork, Ana M González, R. Hale, R. Hawley, et al. 2022. <span>“Community-Powered Urban Stream Restoration: A Vision for Sustainable and Resilient Urban Ecosystems.”</span> <em>Freshwater Science</em> 41: 404. <a href="https://doi.org/10.1086/721150">https://doi.org/10.1086/721150</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

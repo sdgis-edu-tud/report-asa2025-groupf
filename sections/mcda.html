@@ -283,8 +283,8 @@ window.Quarto = {
 <p><strong><em>What to leave behind</em></strong> —The emerging movement sought to move beyond human-centric notions that had shaped the goals and perspectives of restoration efforts. It aimed to reposition humans as part of complex ecosystems rather than the central focus of resource management. Terms like ‘conservation’ and ‘preservation’ were avoided, as they implied managing “natural resources” for human use or protecting wilderness for its scenic value. At the heart of earlier approaches was the objectification of nature as a resource to be used, enjoyed, and controlled: projects often sought to simplify streams and floodplains, eliminating ecological dynamics seen as barriers to flood control and land development. By the late 1990s, it was increasingly recognized that flood damage reduction and ecosystem protection could be achieved through the same project. This marked a shift in thinking among floodplain managers—<strong>from single-purpose flood control to integrated river and floodplain interventions that mitigate flood impacts while providing ecological benefits.</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Evolution-of-flood-risk-reduction-projects.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Lisa Kreishok [@riley2016restoring]"><img src="../images/Evolution-of-flood-risk-reduction-projects.png" class="img-fluid figure-img" style="width:60.0%" alt="Lisa Kreishok (Riley 2016)"></a></p>
-<figcaption>Lisa Kreishok <span class="citation" data-cites="riley2016restoring">(<a href="references.html#ref-riley2016restoring" role="doc-biblioref">Riley 2016</a>)</span></figcaption>
+<p><a href="../images/Evolution-of-flood-risk-reduction-projects.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Lisa Kreishok [@riley2016restoring]"><img src="../images/Evolution-of-flood-risk-reduction-projects.png" class="img-fluid figure-img" style="width:60.0%" alt="Lisa Kreishok (A. Riley 2016)"></a></p>
+<figcaption>Lisa Kreishok <span class="citation" data-cites="riley2016restoring">(<a href="references.html#ref-riley2016restoring" role="doc-biblioref">A. Riley 2016</a>)</span></figcaption>
 </figure>
 </div>
 <p>Even the aforementioned definition of restoration sparked debates about how to define “indigenous” or “historic” ecosystems, given that ecological systems constantly evolve. This raises the question: which point in history should we aim to restore to? After all, there is a difference between restoring for maximum biodiversity and supporting the local dynamics of a functioning ecosystem. Especially in urban contexts, practitioners recognized that land use disturbances made it unrealistic to recreate indigenous or historic environments as they once were. This is why the new approaches to restorations were influenced by the imperative, already emerged in the 1930s, of repairing or reversing damage caused by human activity on ecosystems.</p>
@@ -307,14 +307,12 @@ window.Quarto = {
 </ol></li>
 <li>Quality — The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.
 <ol type="1">
-<li>Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.<br>
-</li>
+<li>Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.</li>
 <li>Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem.</li>
 </ol></li>
 <li>Quality — The attributes defined under quality aim to assess the quality of the ecological environment near the streams. This is done by analysing the soil quality using the Bodenqualität (soil quality) layer from the Dresden open data portal and by analysing the plant health using the Sentinel-2 data from Google Earth Engine.
 <ol type="1">
-<li>Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.<br>
-</li>
+<li>Soil quality: Soil quality indicates the capacity of the soil to support ecological functions. Within the objective of integrating natural elements in the landscape of Dresden, it becomes crucial to understand where the areas with poor soil quality lie so that they can be restrored for vegetation.</li>
 <li>Plant health: Plant health reveals the existing plantation which is in poor quality, and is hence also impacting the health of the overall ecosystem.</li>
 </ol></li>
 </ol>
@@ -343,14 +341,15 @@ window.Quarto = {
 </section>
 <section id="spatial-units-and-other-notes" class="level3" data-number="2.1.6">
 <h3 data-number="2.1.6" class="anchored" data-anchor-id="spatial-units-and-other-notes"><span class="header-section-number">2.1.6</span> Spatial Units and other notes</h3>
-<p>The spatial units used in this study are hexagons with a dimension of 300 meters. The study area of Dresden is divided using a complete surface of a hexagonal pattern. Then it is overlaid with the water stream network and river body from OpenStreetMap to keep only the hexagons that intersect with at least one stream. Finally, the isolated hexagons were removed.</p>
+<p>The spatial units used in this study are hexagons with a dimension of 250 meters. The study area of Dresden is divided using a complete surface of a hexagonal pattern. Then it is overlaid with the water stream network and river body from OpenStreetMap to keep only the hexagons that intersect with at least one stream. Finally, the isolated hexagons were removed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/Spatial_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Spatial Units of waterbodies &amp; streams across Dresden"><img src="../images/Spatial_Units.png" class="img-fluid figure-img" alt="Spatial Units of waterbodies &amp; streams across Dresden"></a></p>
 <figcaption>Spatial Units of waterbodies &amp; streams across Dresden</figcaption>
 </figure>
 </div>
-<p>The main reason behind picking the dimensions of 300 meters is based on two main reasons:</p>
+<p>To explain why the Elbe river was included in the study area is that the river is a key element that has shaped the urban growth throughout decades and many spatial and environmental features are affected by this water body. Moreover, the Elbe is spine to most of the streams across the city that branch out form it. The river itself creates a vast network of waterways all across the urban, periphery, and forest areas. Otherwise, only picking the stream network would isolate the southern bank structure from the northern bank streams in which were clustered inside the forest areas which don’t hold the potential for interventions. Therefore, the decision was made to consider the Elbe river and streams as whole water network within Dresden’s boundaries.</p>
+<p>The prominent reason behind picking the dimensions of 250 meters is based on two main reasons:</p>
 <ol type="1">
 <li>The walking/biking distance: the estimated radius is used to evaluate the spaces around the water stream within a low walking distance, as pedestrians or cyclists have the highest exposure and engagement with urban streams.</li>
 <li>The space but not the line: the spatial units are also going to determine the probable area of intervention. Then the streams are not the only lines that need to be changed, but the space surrounding them is also affected in both ways. This space includes the buildings, facilities, and natural habitats that all have synergies along with their neighboring stream structure.</li>
@@ -361,7 +360,7 @@ window.Quarto = {
 <figcaption>The Dimensions of spatial units and the river buffer radius</figcaption>
 </figure>
 </div>
-<p>The spatial units are also filtered by a 500-meter buffer of the main river, Elde, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elde river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.</p>
+<p>The spatial units are also filtered by a 500-meter buffer of the main river, Elbe, as it is one of the key spatial elements that have shaped the city’s form, functions, mobilities, and identity that cannot be overlooked. So, a larger buffer of hexagonal spatial units where divided in the buffer zone of the Elbe river as it covers a larger area of the urban fabric in terms of biodiversity, morphology, climate adaptation, and quality of life.</p>
 </section>
 </section>
 <section id="attributes-and-layers" class="level2" data-number="2.2">
@@ -389,7 +388,7 @@ window.Quarto = {
 </section>
 <section id="soil-quality" class="level4" data-number="2.2.1.2">
 <h4 data-number="2.2.1.2" class="anchored" data-anchor-id="soil-quality"><span class="header-section-number">2.2.1.2</span> Soil quality</h4>
-<p>Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer. &lt;insert map 1 and map 2&gt;</p>
+<p>Soil quality is measured as it is an integral measure of the ecological value of the soil. It is used to understand which areas near the stream have a higher concentration of poor soil quality, as soil health directly relates to the growth of biodiversity. It measured using the Bodenqualität (soil quality) layer from the Dresden open data portal. Soil quality near the streams is visualised by creating a 250 m buffer from the streams and intersecting it with the soil quality layer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/Vegetation_soil_quality_preliminary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Mapping the soil quality of vegetation in Dresden"><img src="../images/Vegetation_soil_quality_preliminary.png" class="img-fluid figure-img" alt="Mapping the soil quality of vegetation in Dresden"></a></p>
@@ -491,7 +490,7 @@ window.Quarto = {
 <section id="shade" class="level4" data-number="2.2.2.4">
 <h4 data-number="2.2.2.4" class="anchored" data-anchor-id="shade"><span class="header-section-number">2.2.2.4</span> Shade</h4>
 <p>By knowing the shade coverage of open spaces across the stream area networks, the potential areas for heat resilience can be spotted. Also, the open spaces that have the highest exposure to the heat waves can be recognized through the ground shadow analysis, especially during the peak time of warm periods in the area.</p>
-<p>The DSM and DTM raster layers were needed to run the shadow analysis based on the building and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done based on three time intervals during the day within the peak times of warm periods in the area.</p>
+<p>The DSM and DTM raster layers were needed to run the shadow analysis based on the <a href="appendix.html#sec-buidig-information" class="quarto-xref"><span>Section 2</span></a> and vegetation heights. The raster layer was clipped out based on the dissolved layer of spatial units to limit the area of analysis. The buildings layer was also masked out from the DSM layer and patched with it again to represent the updated building heights. After that, the aspect and edge heights were calculated using the UMEP plugin to process the preliminary data for the shadow analysis. The shadow analysis is done at 15:00 within the peak time of warm period in the area which is July 15th, 2024 in Dresden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/shadow_analysis_base.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Shadow analysis done by the UMEP processing tool"><img src="../images/shadow_analysis_base.png" class="img-fluid figure-img" alt="Shadow analysis done by the UMEP processing tool"></a></p>
@@ -530,10 +529,16 @@ window.Quarto = {
 <li>Created viewpoints using the interpolated points as the observer location with a height of 1.6 m (eye level). In this step, we used DSM model as it considers not only elevation but also other features such as building and trees that might block the view.</li>
 <li>Limited and set the radius of the analysis to 2km, as this is considered an ideal distance. The physical aspects of objects remain visually recognizable within this range.</li>
 </ol>
-<p><img src="../images/Visibility.png" class="img-fluid" alt="Visibility Analysis was done using create viewpoints and viewshed tools"> The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Visibility_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Normalized value of visibility"><img src="../images/Visibility_Units.png" class="img-fluid figure-img" alt="Normalized value of visibility"></a></p>
+<p><a href="../images/Visibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Visibility Analysis was done using create viewpoints and viewshed tools"><img src="../images/Visibility.png" class="img-fluid figure-img" alt="Visibility Analysis was done using create viewpoints and viewshed tools"></a></p>
+<figcaption>Visibility Analysis was done using create viewpoints and viewshed tools</figcaption>
+</figure>
+</div>
+<p>The output layer, in raster format (.tiff), was aggregated into spatial units using zonal statistics. Then, the values were normalised to a 0–1 range, where higher values indicate greater visibility from the streams.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/Visibility_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Normalized value of visibility"><img src="../images/Visibility_Units.png" class="img-fluid figure-img" alt="Normalized value of visibility"></a></p>
 <figcaption>Normalized value of visibility</figcaption>
 </figure>
 </div>
@@ -551,14 +556,14 @@ window.Quarto = {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Accessibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Accessibility map"><img src="../images/Accessibility.png" class="img-fluid figure-img" alt="Accessibility map"></a></p>
+<p><a href="../images/Accessibility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Accessibility map"><img src="../images/Accessibility.png" class="img-fluid figure-img" alt="Accessibility map"></a></p>
 <figcaption>Accessibility map</figcaption>
 </figure>
 </div>
 <p>The final value is not really interpretable, as it is a population density multiplied by a distance, but it gives us a good indication of spatial units that are the most accessible.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Peripherality_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Normalized value of peripherality"><img src="../images/Peripherality_Units.png" class="img-fluid figure-img" alt="Normalized value of peripherality"></a></p>
+<p><a href="../images/Peripherality_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Normalized value of peripherality"><img src="../images/Peripherality_Units.png" class="img-fluid figure-img" alt="Normalized value of peripherality"></a></p>
 <figcaption>Normalized value of peripherality</figcaption>
 </figure>
 </div>
@@ -568,14 +573,14 @@ window.Quarto = {
 <p>This analysis identifies the types of land use around the stream corridors. The more variety of uses enhances the connectivity of streams with the current urban fabric. When areas around the streams include a mix of public spaces, amenities, residential areas, and commercial or institutional functions, the streams become more integrated into everyday urban life.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Land Use.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Land use map"><img src="../images/Land Use.png" class="img-fluid figure-img" alt="Land use map"></a></p>
+<p><a href="../images/Land Use.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Land use map"><img src="../images/Land Use.png" class="img-fluid figure-img" alt="Land use map"></a></p>
 <figcaption>Land use map</figcaption>
 </figure>
 </div>
 <p>For this purpose, the land use data was simplified into 10 main categories. Using this data, the diversity of land use within each spatial unit was measured, and the results were expressed through a value assigned to each unit. A higher value indicates greater land use diversity, suggesting a stronger potential for the streams as public spaces.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/Land Use_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Normalized value of land use"><img src="../images/Land Use_Units.png" class="img-fluid figure-img" alt="Normalized value of land use"></a></p>
+<p><a href="../images/Land Use_Units.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Normalized value of land use"><img src="../images/Land Use_Units.png" class="img-fluid figure-img" alt="Normalized value of land use"></a></p>
 <figcaption>Normalized value of land use</figcaption>
 </figure>
 </div>
@@ -767,7 +772,7 @@ Table&nbsp;2.1: Saaty matrix and weights for the three criteria
 </section>
 <section id="results-of-the-analysis" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="results-of-the-analysis"><span class="header-section-number">2.4</span> Results of the Analysis</h2>
-<p><em>To write and organise.</em></p>
+<p>The average value of all three categories represents the considerable environmental quality caused by the streams across the city of Dresden. The overall higher values are concentrated in the southern bank of Elbe river and some clusters in the far east in the outskirts of the city. Moreover, there are smaller spots along the river bank zones that lack sufficient values. Although the urban streams represent a reasonable environmental quality around their buffers, the Elbe river holds some areas of lower quality that draws the attention for intervention. The average value of all three categories represents the considerable environmental quality caused by the streams across the city of Dresden. The overall higher values are concentrated in the southern bank of Elbe river and some clusters in the far east in the outskirts of the city. Moreover, there are smaller spots along the river bank zones that lack sufficient values. Although the urban streams represent a reasonable environmental quality around their buffers, the Elbe river holds some areas of lower quality that draws the attention for intervention.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -777,11 +782,23 @@ Bernhardt, E., and M. Palmer. 2007. <span>“Restoring Streams in an Urbanizing 
 <div id="ref-dramstad1996landscape" class="csl-entry" role="listitem">
 Dramstad, W., J. D. Olson, and R. T. Forman. 1996. <em>Landscape Ecology Principles in Landscape Architecture and Land-Use Planning</em>. Shearwater Books.
 </div>
+<div id="ref-govdata_efre" class="csl-entry" role="listitem">
+GovData. n.d. <span>“<span>EFRE 2007-2013 - Stadtteilentwicklungsprojekte - GOVData</span>.”</span> <a href="https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e" class="uri">https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e</a>.
+</div>
+<div id="ref-govdata_gewaessersysteme" class="csl-entry" role="listitem">
+———. n.d. <span>“<span>Gewässersysteme - GOVData</span>.”</span> <a href="https://www.govdata.de/suche/daten/gewassersystemecb4ef" class="uri">https://www.govdata.de/suche/daten/gewassersystemecb4ef</a>.
+</div>
+<div id="ref-govdata_wfs" class="csl-entry" role="listitem">
+———. n.d. <span>“<span>Web Feature Service</span>.”</span> <a href="https://kommisdd.dresden.de/net3/public/ogc.ashx?NodeId=1150&amp;Service=WFS&amp;Request=GetCapabilities" class="uri">https://kommisdd.dresden.de/net3/public/ogc.ashx?NodeId=1150&amp;Service=WFS&amp;Request=GetCapabilities</a>.
+</div>
 <div id="ref-perrelet2024engineering" class="csl-entry" role="listitem">
 Perrelet, K., M. Moretti, A. Dietzel, F. Altermatt, and L. M. Cook. 2024. <span>“Engineering Blue-Green Infrastructure for and with Biodiversity in Cities.”</span> <em>Npj Urban Sustainability</em> 4 (27). <a href="https://doi.org/10.1038/s42949-024-00163-y">https://doi.org/10.1038/s42949-024-00163-y</a>.
 </div>
 <div id="ref-riley2016restoring" class="csl-entry" role="listitem">
 Riley, A. 2016. <em>Restoring Neighborhood Streams: Planning, Design and Construction</em>. USA: Island Press.
+</div>
+<div id="ref-riley_restoring_2016" class="csl-entry" role="listitem">
+Riley, Ann L. 2016. <em>Restoring <span>Neighborhood</span> <span>Streams</span></em>. Washington, DC: Island Press/Center for Resource Economics. <a href="https://doi.org/10.5822/978-1-61091-741-4">https://doi.org/10.5822/978-1-61091-741-4</a>.
 </div>
 <div id="ref-Saaty1987analytic" class="csl-entry" role="listitem">
 Saaty, R. W. 1987. <span>“The Analytic Hierarchy Process—What It Is and How It Is Used.”</span> <em>Mathematical Modelling</em> 9 (3): 161–76. <a href="https://doi.org/10.1016/0270-0255(87)90473-8">https://doi.org/10.1016/0270-0255(87)90473-8</a>.
