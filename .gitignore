@@ -20,3 +20,7 @@ data/results/temp/
 !data/intermediate/
 data/intermediate/*
 !data/intermediate/Spatial_Units.geojson
+
+# Ignore Python stuff
+.venv/
+__pycache__/
