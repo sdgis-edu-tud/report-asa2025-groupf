@@ -1,0 +1,7 @@
+# Bibliography {.unnumbered}
+
+::: {#refs}
+*EFRE 2007-2013 - Stadtteilentwicklungsprojekte - GOVData*. (n.d.-b). GovData. https://www.govdata.de/suche/daten/efre-2007-2013-stadtteilentwicklungsprojekte4de7e
+
+*Gewässersysteme - GOvData*. (n.d.-b). GovData. https://www.govdata.de/suche/daten/gewassersystemecb4ef
+:::

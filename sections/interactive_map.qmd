@@ -1,0 +1,127 @@
+# Interactive Map of the Attributes {.unnumbered}
+
+```{python}
+#| echo: false
+#| eval: true
+
+import os
+import json
+import random
+import requests
+import geopandas as gpd
+
+from ipyleaflet import Map, Choropleth, basemaps, LayersControl, LayerGroup, basemap_to_tiles
+from ipywidgets import Layout
+from branca.colormap import linear
+
+layers = {
+    "Land Use Types": {
+        "path": "../data/results/Spatial_Units-Land_Use_Types.geojson",
+        "name": "Normalised Diversity of Land Uses",
+        "group": "Quality of Life",
+    },
+    "Accessibility to Streams": {
+        "path": "../data/results/Spatial_Units-Accessibility.geojson",
+        "name": "Normalised Peripherality",
+        "group": "Quality of Life",
+    },
+    "Visibility of the Streams": {
+        "path": "../data/results/Spatial_Units-Visibility.geojson",
+        "name": "Normalised Visibility of the Streams",
+        "group": "Quality of Life",
+    },
+    "Shade 3pm": {
+        "path": "../data/results/Spatial_Units-Shade_3pm.geojson",
+        "name": "Normalised Shading at 3pm",
+        "group": "Climate Adaptation",
+    },
+    "Flood Safety": {
+        "path": "../data/results/Spatial_Units-Flood_Safety.geojson",
+        "name": "Normalised Flood Safety",
+        "group": "Climate Adaptation",
+    },
+    "Infiltration Capacity":{
+        "path": "../data/results/Spatial_Units-Infiltration_Capacity.geojson",
+        "name": "Normalised Infiltration Capacity",
+        "group": "Climate Adaptation",
+    },
+    "Space along Streams": {
+        "path": "../data/results/Spatial_Units-Space_along_Streams.geojson",
+        "name": "Normalised Space along Streams",
+        "group": "Climate Adaptation",
+    },
+    "Green_Area": {
+        "path": "../data/results/Spatial_Units-Green_Area.geojson",
+        "name": "Normalised Green Area",
+        "group": "Biodiversity",
+    },
+    "NDVI": {
+        "path": "../data/results/Spatial_Units-NDVI.geojson",
+        "name": "Normalised NDVI",
+        "group": "Biodiversity",
+    },
+    "Soil Quality": {
+        "path": "../data/results/Spatial_Units-Soil_Quality.geojson",
+        "name": "Normalised Soil Quality",
+        "group": "Biodiversity",
+    },
+}
+
+colormaps = {
+    "Climate Adaptation": linear.Blues_09,
+    "Biodiversity": linear.Greens_09,
+    "Quality of Life": linear.Reds_09,
+}
+
+basemaps_used = [basemaps.Esri.WorldImagery, basemaps.Esri.WorldTopoMap, basemaps.CartoDB.Positron]
+
+m = Map(
+    basemap=basemaps_used[0],
+    center=(51.068931, 13.782907),
+    zoom=11,
+    layout=Layout(width='100%', height='800px')
+)
+
+for basemap_used in basemaps_used:
+    layer = basemap_to_tiles(basemap_used)
+    layer.base = True
+    m.add(layer)
+
+for layer_name, layer_info in layers.items():
+    if not os.path.exists(layer_info["path"]):
+        print(f"Layer {layer_name} not found at {layer_info['path']}.")
+        continue
+    with open(layer_info["path"], 'r') as f:
+        data = json.load(f)
+
+    data_df = gpd.GeoDataFrame.from_features(data['features'], crs=data['crs']['properties']['name'])
+
+    # Reproject to EPSG:4326
+    data_df = data_df.to_crs(epsg=4326)
+
+    # Create a GeoJSON layer
+    data['features'] = data_df.__geo_interface__['features']
+    data["crs"] = {"type": "name", "properties": {"name": "EPSG:4326"}}
+
+    # Add an id to each feature
+    for i, feature in enumerate(data['features']):
+        feature['id'] = feature['properties']['id']
+
+    choro_data = dict(zip(data_df["id"], data_df["Normalised_Value"]))
+
+    data_layer = Choropleth(
+        geo_data=data,
+        choro_data=choro_data,
+        key_on='id',
+        colormap=colormaps[layer_info["group"]],
+        border_color='black',
+        style={'fillOpacity': 1, 'opacity': 0},
+    )
+    data_layer.name = layer_info["name"]
+    # layer_groups[layer_info["group"]].append(data_layer)
+    m.add(data_layer)
+
+control = LayersControl(position='topright')
+m.add(control)
+m
+```

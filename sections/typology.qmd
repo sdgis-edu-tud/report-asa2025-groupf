@@ -1,0 +1,319 @@
+# Typology Construction
+
+## Introduction
+
+```{r}
+#| echo: false
+#| output: false
+library(sf) ## for processing vector data 
+library(dplyr) ## for selecting and transforming data
+library(plotly) ## for plotting data
+library(kableExtra) ## for plotting tables
+
+source("../src/attributes.R")
+
+## View the columns of the data
+colnames(spatial_units)
+
+used_attributes_cols = c(
+  "Green_Area",
+  "Space_along_Streams",
+  "Shade_3pm",
+  "Accessibility"
+)
+
+## Build used_attributes from used_attributes_cols and attribute_to_col
+used_attributes <- setNames(
+  names(attribute_to_col)[match(used_attributes_cols, unlist(attribute_to_col))],
+  used_attributes_cols
+)
+
+n_attr <- length(used_attributes)
+```
+
+With Typology Construction we wanted to answer a few questions in the continuity of our main question for the MCDA analysis: How can urban streams be restored and integrated in Dresden's fabric, such that there is a synergy between human activities and the natural environment?
+
+In this case, the three questions that we tried to answer were:
+
+- What are the streams’ adaptability rates to heat waves?
+- How are the accessibility and connectivity conditions of green-blue areas?
+- What are the areas of intervention along the streams?
+
+To answer these questions, we picked some of the attributes that we computed for the MCDA analysis.
+We tried to select those that were the most relevant for the three questions, which are:
+
+- `r paste(used_attributes, collapse = "\n- ")`
+
+Below are what these layers look like:
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+## Plot the attributes in two columns
+for (col in names(used_attributes)) {
+     plot(spatial_units[col], border = NA, main = used_attributes[[col]])
+}
+```
+
+## Clusters Computation
+
+To begin the clustering, we started by normalising each feature to have an average of 0 and a standard deviation of 1.
+
+```{r}
+#| echo: false
+#| label: fig-elbow
+#| fig-cap: Visualisation of the inertia for different numbers of clusters ofr the elbow method.
+
+features <- spatial_units |> 
+  select(names(used_attributes)) |>
+  st_drop_geometry() ## remove geometry column so we just keep a data table
+
+X_scaled <- scale(features) ## Standardize (mean=0, sd=1) 
+
+## Initialize an empty numeric vector to store inertia values 
+inertia <- numeric()
+
+## Try k values from 2 to 9
+k_values <- 2:9
+
+## Loop through each k value
+for (k in k_values) {
+  km <- kmeans(X_scaled, centers = k, iter.max=25, nstart = 50) 
+  
+  ## tot.withinss is Total within-cluster sum of squares
+  ## This measures how compact the clusters are: lower is better.
+  inertia <- c(inertia, km$tot.withinss)
+}
+
+## Combine the results into a data frame for plotting
+elbow_df <- data.frame(k = k_values, inertia = inertia)
+
+## Make the elbow plot
+plot(k_values, inertia,
+     type = "b",
+     col = "darkblue",
+     main = "Elbow Method")
+
+## Choose the number of clusters based on the elbow plot
+n_clusters <- 4
+```
+
+To use k-means properly to cluster the data, we had to select a good number of clusters.
+To do so, we used the **elbow method**.
+We tried values of $k$ from 2 to 9, and looking at the graph of the inertia for all values in @fig-elbow, we picked $k=`r n_clusters`$ at the value with the largest elbow angle.
+
+Then, we ran the k-means algorithm and to assign a final cluster to each spatial unit.
+
+```{r}
+#| echo: false
+#| label: tbl-n_per_cluster
+#| tbl-cap: Spatial units per cluster
+
+## `set.seed()` sets the random number generator to a fixed state
+## Set the seed so the clustering result is always the same when re-run
+set.seed(0)  ## The number 0 is just a fixed choice. You can also use 10, 345, etc.
+
+# Run K-means clustering on the standardized data
+kmeans_result <- kmeans(X_scaled, centers = n_clusters, nstart = 20)
+
+## Add the cluster labels to the spatial data
+spatial_units$Cluster <- as.factor(kmeans_result$cluster) ## The result kmeans_result$cluster is a list of cluster labels (1 to 4), in the same order as the original rows in X_scaled and spatial_units
+
+## Show how many spatial_units fall into each cluster
+print(table(spatial_units$Cluster))
+```
+
+We can see with @tbl-n_per_cluster that each cluster contains a decent number of points.
+Then, we plotted the clusters geographically in the spatial units in @fig-clusters-units.
+
+```{r}
+#| echo: false
+#| label: fig-clusters-units
+#| fig-cap: Visualisation of the spatial units clustered geographically
+
+## Generate cluster colors dynamically
+cluster_levels <- levels(spatial_units$Cluster)
+cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
+cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
+
+## Plot clusters with base R
+plot(spatial_units["Cluster"], 
+     main = "Spatial Pattern of Urban Stream Clusters", 
+     border = NA,
+     col = cluster_colors[spatial_units$Cluster])
+
+legend("topleft",
+     legend = levels(spatial_units$Cluster),
+     fill = cluster_colors,
+     title = "Cluster",
+     cex = 0.9,
+     bty = "n")
+```
+
+```{r}
+#| echo: false
+#| class: plain
+#| tbl-cap: Values of the variables for the centers of the clusters
+
+## Get the cluster centers (in standardized form)
+scaled_centers <- kmeans_result$centers
+
+## Convert the centers back to original scale: x * SD + mean
+original_centers <- t(apply(
+  scaled_centers, 1, 
+  function(x) x * attr(X_scaled, "scaled:scale") + attr(X_scaled, "scaled:center")
+))
+
+## Print the real-world values
+colnames(original_centers) <- used_attributes
+# print(original_centers, digits=3)
+df <- as.data.frame(formatC(original_centers, digits = 3, format = "f"))
+df$Cluster <- seq_len(nrow(df))
+df <- df[, c("Cluster", setdiff(names(df), "Cluster"))]
+kbl(df, format = "html", escape = FALSE, align = "c") %>%
+  kable_styling(full_width = FALSE, bootstrap_options = c("hover", "responsive")) %>%
+  row_spec(0, background = "#f2f2f2", bold = TRUE) %>% # Bold the header row
+  # row_spec(nrow(df), bold = TRUE) %>% # Highlight last row
+  # column_spec(1, background = "#f2f2f2", bold = TRUE) %>% # Bold the first column
+  column_spec(2:ncol(df))
+```
+
+## Topology Creation
+
+```{r}
+#| echo: false
+
+### Compute distance to cluster center and store the output
+
+## Get the cluster center for each row, using the cluster assignment
+centroids_matrix <- kmeans_result$centers[kmeans_result$cluster, ]
+
+## Calculate Euclidean distance between each point and its assigned cluster center
+spatial_units_distances <- sqrt(rowSums((X_scaled - centroids_matrix)^2))
+
+## Save to spatial_units
+spatial_units$Cluster_Dist <- spatial_units_distances
+
+# Identify columns to exclude: the attribute columns used for scoring
+exclude_cols <- unlist(attribute_to_col)
+# Keep all columns except the attribute columns, plus geometry
+keep_cols <- setdiff(names(spatial_units), exclude_cols)
+# Subset the data
+output <- spatial_units[, keep_cols]
+# Compute the overall average score (across the three categories)
+output$Cluster <- spatial_units$Cluster
+output$Cluster_Dist <- spatial_units$Cluster_Dist
+
+st_write(output, "../data/results/Spatial_Units-Typology_Construction.geojson", delete_dsn = TRUE, quiet = TRUE)
+```
+
+Before interpreting the results, an interesting point about this clustering is that all the variables we used have very different distributions, as can be seen from @fig-columns-distribution.
+The fact that some of them have a high concentration of values on the extreme values makes it quite likely to have a cluster to be centred on this value for this attribute, and this is indeed what we can see in the output.
+
+```{r}
+#| echo: false
+#| label: fig-columns-distribution
+#| fig-cap: Distribution of the variables
+
+## Calculate normalisation
+normalize <- function(x) (x - min(x)) / (max(x) - min(x))
+features_norm <- as.data.frame(lapply(features, normalize))
+
+## Set up colour palette for any number of features (distinct colours)
+set.seed(42) # for reproducibility
+hist_colors <- grDevices::hcl.colors(n_attr, palette = "Dynamic", alpha = 1.0)
+
+## Set canvas: 2 columns for original and standardized
+par(mfrow = c(n_attr, 2), mar = c(4, 4, 2, 1))
+
+## Plot histograms for each attribute
+for (i in seq_along(used_attributes)) {
+  colname <- names(used_attributes)[i]
+  display <- used_attributes[[colname]]
+  color <- hist_colors[i]
+
+  # Original
+  hist(features[[colname]],
+       main = paste0(display, "\n(original)"),
+       xlab = "value", col = color)
+
+  # Standardized
+  hist(X_scaled[, colname],
+       main = paste0(display, "\n(standardized)"),
+       xlab = "z-score", col = color)
+}
+```
+
+To interpret the clustering results, we examine the centers of each cluster in the original data scale.
+By observing the values and the geographic position of the spatial units in each cluster, we assigned the following typology to the clusters:
+
+1. **Forest areas (Cluster 1)**:
+   - High proportion of greenery and shade due to the trees
+   - High peripherality because most of the forest is quite far from the houses
+   - Not much space available as the forest takes most of the space
+2. **Sparse urban areas (Cluster 2)**:
+   - Some greenery and some available space because the housing is not too dense
+   - Quite high peripherality since there is housing, but a low population density
+   - Low shade because some sparse trees and low buildings are the only sources of shade 
+3. **Dense urban areas (Cluster 3)**:
+   - Very low amount of greenery and available space because space is mostly occupied by buildings
+   - Decent amount of shading because of the high and dense buildings
+   - Low peripherality as the population density is high in the area around
+4. **Transitional areas (Cluster 4)**:
+   - Quite high proportion of greenery composed of mostly grass fields and some forest
+   - A lot of space available as the grass fields are often not really used
+   - Very low shade as only a few trees create shade
+   - Quite high peripherality since these places are not central and not well accessible
+
+```{r}
+#| echo: false
+#| label: fig-typology-units
+#| fig-cap: Visualisation of the spatial units clustered with their typology
+
+cluster_names = c(
+  "Forest areas",
+  "Sparse urban areas",
+  "Dense urban areas",
+  "Transitional areas"
+)
+
+## Generate cluster colors dynamically
+cluster_levels <- levels(spatial_units$Cluster)
+# cluster_colors_all <- palette.colors(palette = "Okabe-Ito")
+# cluster_colors <- setNames(cluster_colors_all[seq_len(n_clusters)], cluster_levels)
+cluster_colors <- c(
+  "Forest areas" = "#228B22",      # Forest Green
+  "Sparse urban areas" = "#FFD700",# Gold
+  "Dense urban areas" = "#B22222", # Firebrick (urban red)
+  "Transitional areas" = "#87CEEB"     # Sky Blue
+)
+cluster_colors <- setNames(cluster_colors, cluster_levels)
+
+## Plot clusters with base R
+plot(spatial_units["Cluster"], 
+     main = "Spatial units clustered with their typology", 
+     border = NA,
+     col = cluster_colors[spatial_units$Cluster])
+
+legend("topleft",
+     legend = cluster_names,
+     fill = cluster_colors,
+     title = "Typology",
+     cex = 0.9,
+     bty = "n")
+```
+
+## Answers to the Questions
+
+Regarding the suitability of the spaces to sustain heat waves, the results are similar to what we could have expected, given that we mostly look at two attributes for this: the greenery and the shade.
+The forest areas are the most adapted with high greenery and shade that prevent the temperature from drastically increasing during heat waves.
+Transitional areas will not suffer too much from the the heat island effect thanks to a large proportion of greenery, but they also do not provide much shade to protect from the sun.
+The sparse urban areas are even worse because there is even less greenery and not much more shade, while the dense urban areas have at least some shade even if the heat island effect will be strong due to the soil artificialisation.
+
+However, the best areas (forests) are also the most peripherical, so the less accessible, while the most accessible (dense urban) are the worst in terms of green-blue space accessibility.
+It could therefore be interesting to analyse which if the dense urban areas have access in a close proximity to forest or transitional areas, that could be used during these events.
+
+Finally, the available space gives us information about the potential for simple interventions in each area.
+Transitional areas have the highest potential, meaning that they could be adapted to provide shelters in case of heat waves, for example by planting new trees.
+Sparse urban areas also have some potential while the dense areas already have most of their space used and forest areas should rather be kept as they are.

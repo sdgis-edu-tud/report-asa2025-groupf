@@ -1,0 +1,49 @@
+project: 
+  type: book
+  output-dir: docs
+
+book:
+  author:
+    - name: "Adriano Mancini"
+      affiliation: "MSc Urbanism"
+      email: a.mancini-1@student.tudelft.nl
+    - name: "Alankrita Sharma"
+      affiliation: "MSc Urbanism"
+      email: a.sharma-73@student.tudelft.nl
+    - name: "Alexandre Bry"
+      affiliation: "MSc Geomatics"
+      email: a.m.e.bry@student.tudelft.nl
+    - name: "Grase Stephanie Stuka"
+      affiliation: "MSc Urbanism"
+      email: grasestephaniestuka@student.tudelft.nl
+    - name: "Soroush Saffarzadeh"
+      affiliation: "MSc Urbanism"
+      email: s.saffarzadeh@student.tudelft.nl
+  repo-url: https://github.com/sdgis-edu-tud/report-asa2025-groupf
+  repo-actions: [edit, source, issue]
+  title: "Unpacking Dresden"
+  subtitle: "Preliminary report of Spatial Analysis methods and outcomes in the context of river and stream restoration in Dresden, Germany"
+  date: today
+  chapters: 
+    - index.qmd
+    - sections/preliminary.qmd
+    - sections/problem_statement.qmd
+    - sections/mcda.qmd
+    - sections/typology.qmd
+    - sections/discussion.qmd
+    - sections/conclusion.qmd
+    - sections/references.qmd
+    - sections/interactive_map.qmd
+    - sections/appendix.qmd
+
+bibliography: references.bib
+biblio-title: "References"
+nocite: |
+  @*
+
+format:
+  html:
+    toc: true
+    lightbox: true
+    css: styles.css
+    theme: flatly

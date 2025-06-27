@@ -1,0 +1,5 @@
+# Introduction {.unnumbered}
+
+The present document is the report of the group F in the course Applied Spatial Analytics for Sustainable Urban Development (ARFW0501, session of 2025).
+The repository of this report can be found at this link: <https://github.com/sdgis-edu-tud/report-asa2025-groupf>.
+The dataset produced during this project is available at this link: <https://doi.org/10.4121/48e04672-93f4-49a4-9c7b-76c57a844e24>.

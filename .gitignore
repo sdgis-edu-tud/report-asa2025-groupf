@@ -1,4 +1,26 @@
+# Ignore specific RStudio files
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# Ignore specific VS Code files
+.vscode/
+
+# Ignore specific Quarto files
+/.quarto/
+
+# Only keep the real HTML output
+docs/
+
+# Ignore data
+data/*
+!data/results/
+data/results/temp/
+!data/intermediate/
+data/intermediate/*
+!data/intermediate/Spatial_Units.geojson
+
+# Ignore Python stuff
+.venv/
+__pycache__/
